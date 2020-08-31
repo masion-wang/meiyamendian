@@ -1,0 +1,149 @@
+<scroll-view scroll-y="true" class="scrollView">
+	<!--设为置顶-->
+	<view wx:if="{{sort<=0}}" class="toToptip" bindtap="toup">
+		<image src="{{webServerUrl}}/images/index/userlist/toTop.png" class="toTop"></image> 设置置顶
+	</view>
+	<view wx:if="{{sort>0}}" class="toToptip" bindtap="cancelup">
+		<image src="{{webServerUrl}}/images/index/userlist/toTop.png" class="toTop"></image> 取消置顶
+	</view>
+	<!--头像-->
+	<view class="logoImg">
+		<image src="{{user.avatar}}" class="img"></image>
+	</view>
+	<view class="content">
+		<!--标签-->
+		<view class="rightOfUP">
+			<view class="baoqian" data-uid="{{user.id}}" bindtap="gotoprofile">
+				<image src='{{webServerUrl}}/images/index/appoint/baoqian.png' class="IMG"></image>
+				<view class="word">{{user.nick}} </view>
+				<view class="word2"> {{user.phoneNum}}</view>
+			</view>
+			<image src="{{webServerUrl}}/images/index/appoint/chat.png" class="chat"></image>
+		</view>
+		<!--消费记录-->
+		<view class="record">消费记录</view>
+		<view class="recordContent">
+			<view class="recordContentTitle">
+				<view class="sonofrecordContentTitle">预约时间</view>
+				<view class="sonofrecordContentTitle">预约项目</view>
+				<view class="sonofrecordContentTitle">消费金额</view>
+				<view class="sonofrecordContentTitle">核销时间</view>
+			</view>
+			<view class="recordContentthings">
+				<block wx:for="{{cus}}">
+					<!--2 砍价 0 用户项目 4 消费返还 1 拼团 -3 亲密付-->
+					<view wx:if="{{item.odType==2}}" class="sonofrecordContentthings">
+						<view>{{item.hackPriceOrderDto.reserveTemplate.rsvTime}}</view>
+						<view class="projects">
+							<view class="texthide">{{item.hackPriceOrderDto.firmProject.projectName}}</view>
+						</view>
+						<view class="spendmoney">
+							<view>¥ {{item.hackPriceOrderDto.totalPrice}}</view>
+						</view>
+						<view>{{item.acceptedTime}}</view>
+					</view>
+					<!--0 用户项目-->
+					<view wx:if="{{item.odType==0}}" class="sonofrecordContentthings">
+						<view>{{item.userProjectOrderDto.reserveTemplate.rsvTime}}</view>
+						<view class="projects">
+							<view class="texthide" wx:for="{{item.userProjectOrderDto.userProOdItemDtos}}">
+								{{item.firmProject.projectName}}</view>
+						</view>
+						<view class="spendmoney">
+							<view wx:for="{{item.userProjectOrderDto.userProOdItemDtos}}">¥ {{item.proPayPrice}}</view>
+						</view>
+						<view>{{item.acceptedTime}}</view>
+					</view>
+					<!--4 消费返还-->
+					<view wx:if="{{item.odType==4}}" class="sonofrecordContentthings">
+						<view>{{item.consumeReturnOrderDto.reserveTemplate.rsvTime}}</view>
+						<view class="projects">
+							<view class="texthide">{{item.consumeReturnOrderDto.firmProject.projectName}}</view>
+						</view>
+						<view class="spendmoney">
+							<view>¥ {{item.consumeReturnOrderDto.totalPrice}}</view>
+						</view>
+						<view>{{item.acceptedTime}}</view>
+					</view>
+					<!--1 拼团-->
+					<view wx:if="{{item.odType==1}}" class="sonofrecordContentthings">
+						<view>{{item.groupBookingOrderItemDto.reserveTemplate.rsvTime}}</view>
+						<view class="projects">
+							<view class="texthide">{{item.groupBookingOrderItemDto.firmProject.projectName}}</view>
+						</view>
+						<view class="spendmoney">
+							<view>¥ {{item.groupBookingOrderItemDto.totalPrice}}</view>
+						</view>
+						<view>{{item.acceptedTime}}</view>
+					</view>
+					<!--3 亲密付-->
+					<view wx:if="{{item.odType==3}}" class="sonofrecordContentthings">
+						<view>{{item.intimacyPayOrderDto.reserveTemplate.rsvTime}}</view>
+						<view class="projects">
+							<view class="texthide">{{item.intimacyPayOrderDto.firmProject.projectName}}</view>
+						</view>
+						<view class="spendmoney">
+							<view>¥ {{item.intimacyPayOrderDto.totalPrice}}</view>
+						</view>
+						<view>{{item.acceptedTime}}</view>
+					</view>
+				</block>
+			</view>
+			<view class="moreRecord">
+				<view class="sonofmoreRecord" bindtap="toexpensesrecord">更多消费记录</view>
+			</view>
+		</view>
+		<!--办卡记录-->
+		<view class="record">办卡记录</view>
+		<view class="recordContent">
+			<view class="recordContentTitle">
+				<view class="sonofrecordContentTitle">开卡时间</view>
+				<view class="sonofrecordContentTitle">次卡名称</view>
+				<view class="sonofrecordContentTitle">总次数</view>
+				<view class="sonofrecordContentTitle">剩余次数</view>
+			</view>
+			<view class="recordContentthings">
+				<view class="sonofrecordContentthings" wx:for="{{card}}">
+					<view>{{item.numCardStartDate}}</view>
+					<view class="projects">
+						<view class="texthide">{{item.firmNumberCard.numberName}}</view>
+					</view>
+					<view class="spendmoney">
+						<view>{{item.totalNum}}</view>
+					</view>
+					<view>{{item.remainNum}}</view>
+				</view>
+			</view>
+			<view class="moreRecord">
+				<view class="sonofmoreRecord" bindtap="tocardrecord">更多办卡记录</view>
+			</view>
+		</view>
+		<!--会员卡记录-->
+		<view class="recordContent">
+			<view class="recordContentTitle">
+				<view class="sonofrecordContentTitle" style="width:30%;">开卡时间</view>
+				<view class="sonofrecordContentTitle2">会员卡名称</view>
+				<view class="sonofrecordContentTitle">折扣</view>
+				<view class="sonofrecordContentTitle">剩余金额</view>
+			</view>
+			<view class="recordContentthings">
+				<view class="sonofrecordContentthings">
+					<view>{{topup.firmCstmCardPrchOdDto.createTime}}</view>
+					<view class="projects">
+						<view class="texthide">{{topup.firmCstmCardPrchOdDto.firmCustomerCard.customerCardName}}</view>
+					</view>
+					<view class="spendmoney">
+						<view style="position:relative;left:10rpx;">{{topup.firmCstmCardPrchOdDto.firmCustomerCard.discount}}</view>
+					</view>
+					<view>{{topup.cstmCardBalance}}</view>
+				</view>
+			</view>
+			<view class="moreRecord">
+				<view class="sonofmoreRecord" bindtap="torechargerecord">更多充值记录</view>
+			</view>
+		</view>
+		<!--备忘录-->
+		<!-- <view>备忘录</view> -->
+	</view>
+
+</scroll-view>

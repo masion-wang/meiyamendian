@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "引流详情",
+  "usingComponents": {
+    "ec-canvas": "/ec-canvas/ec-canvas"
+  }
+}

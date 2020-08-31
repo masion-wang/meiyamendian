@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "订单",
+  "usingComponents": {
+    "mp-tabs": "/components/@miniprogram-component-plus/tabs/index"
+  },
+  "backgroundColor": "#f3f3f3"
+}

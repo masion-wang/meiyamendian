@@ -1,0 +1,49 @@
+<mp-tabs bindtabclick="onTabCLick" class="mytabs" tabs="{{tabs}}" activeTab="{{activeTab}}" tab-underline-color="white" tab-inactive-text-color="#bfbfbf" activeClass="tab-bar-title__selected">
+</mp-tabs>
+<view class="placeholder"></view>
+<!--奖励金账户 wx:if="{{isShowRest}}"-->
+<view class="acount ShowRest">
+	<view class="ShowResttop">
+		<view class="ShowResttoptitle">未提现金额(元)</view>
+		<view class="ShowResttopprice">{{restmoney}}</view>
+	</view>
+	<view class="ShowRestmiddle">
+		<view class="ShowRestmiddletitle">可提现金额(元)</view>
+		<view class="ShowResttopprice">{{restmoney1}}</view>
+		<!-- <input class="ShowRestmiddleprice" value="{{restmoney1}}" bindfocus="getZerorestmoney1" bindinput="getrestmoney1"></input> -->
+		<view class="btnLine"></view>
+	</view>
+	<!--单选框-->
+	<view class="radiogroup">
+		<view class="page-section-title">提现到账 : </view>
+		<radio-group bindchange="radioChange" class="radiogroup2">
+			<label class="radio">
+				<radio value="0" />微信零钱
+			</label>
+			<label class="radio">
+				<radio value="1" />银行卡
+			</label>
+		</radio-group>
+	</view>
+	<view class="ShowRestbottom">
+		<view wx:if="{{iscashout&&isPcSet}}" class="button" bindtap="open">提现验证</view>
+		<view wx:if="{{!iscashout}}" class="button2">提现验证</view>
+		<view class="tip" wx:if="{{isPcSet}}">
+			<image src="{{webServerUrl}}/images/mine/cashout/tanhao.png" class="tanhan"></image>
+			奖励金账户每次提现金额{{withdrawscore}}元以上、使用同等提现分数额
+		</view>
+		<view class="tipsscore" wx:if="{{tips}}">提现分数额不足无法提现、继续加油吧</view>
+	</view>
+</view>
+
+<mp-dialog title="请输入验证码" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+	<view class="oldphone">
+		<view class="titletip">验证码已发送手机{{phone}}</view>
+		<view class="inputcode1">
+			<image src="{{webServerUrl}}/images/product/safe.png" class="safe"></image>
+			<input type="number" value="{{code}}" class="inputcss" bindinput="getcode"></input>
+			<view wx:if="{{canTouch}}" class="codeTest" bindtap="getCode">{{seconds>0?seconds:'发送验证码'}}</view>
+			<view wx:elif="{{!canTouch}}" class="codeTest">{{seconds>0?seconds:'发送验证码'}}</view>
+		</view>
+	</view>
+</mp-dialog>

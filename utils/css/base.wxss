@@ -1,0 +1,14 @@
+.icon{
+  width:35rpx;
+  height:50rpx;
+}
+.weui-input {
+  height: 100rpx;
+  border-radius: 30px;
+  padding-left:60rpx;
+  width: 550rpx;
+  font-size: 20px;
+  background-color: rgb(194, 185, 185);
+  border:1px solid black;
+  margin-top: 50rpx;
+}

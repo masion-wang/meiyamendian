@@ -1,0 +1,23 @@
+<view class="profileName">
+	<view class="titlename">次卡</view>
+	<textarea maxlength="300" bindinput="bindTextAreaBlur" auto-height class="textInput" value="{{numCardWish}}" />
+	<view class="button" bindtap="save">保存</view>
+</view>
+<scroll-view scroll-y="true" class="history" bindscrolltolower="loadMore">
+  <view class="titlename">历史填写</view>
+  <view class="sonofhistory"  wx:for="{{list}}">
+       <view class="left">
+          <view class="circle"></view>
+          <view class="line"  wx:if="{{index!=(list.length-1)}}"></view>
+       </view>
+       <view class="right">
+           <view class="detail">
+                <view class="time">{{item.createDate}}</view>
+                <view class="address">{{item.roomStaffBaseDto.roomBasicsData.roomName}}</view>
+                <view class="who">{{item.roomStaffBaseDto.stageName}}</view>
+           </view>
+           <view class="content">{{item.numCardWish}}</view>
+       </view>
+  </view>
+  <view class="wordTip" wx:if="{{isend}}">暂无更多数据</view>
+</scroll-view>

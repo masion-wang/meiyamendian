@@ -1,0 +1,70 @@
+<view class="scrollView">
+	<view class="title">事由({{name}})</view>
+	<view class="content">
+		<view class="titleOne">
+			<view catchtap="opens2" class="leftshowAndSelect">主题</view>
+			<view class="choice-bar" bindtap="opens">
+				<view data-item="1" class="chioce-item">制度主题
+					<image class="icon-chioce" src="{{!isstart?webServerUrl+'/images/mine/kpi/open.png':webServerUrl+'/images/mine/kpi/close.png'}}"></image>
+				</view>
+				<scroll-view scroll-y="true" class="sorting-list {{!isstart?'chioce-list-hide':'chioce-list-show'}}">
+					<view wx:for="{{seven}}" catchtap="selectOne" data-index="{{index}}" class="sorting-item" wx:key="{{index}}" data-name="{{item.name}}">{{item.name}}</view>
+				</scroll-view>
+			</view>
+		</view>
+		<input maxlength='20' class="input1" placeholder="请输入" value="{{theme}}" catchtap="opens2" bindinput="gettheme"></input>
+		<view class="btnLine"></view>
+
+		<view class="titleOne">
+			<view catchtap="opens2" class="leftshowAndSelect">详情</view>
+			<view class="choice-bar" bindtap="opensdetail" wx:if="{{!isstart}}">
+				<view data-item="1" class="chioce-item">制度详情
+					<image class="icon-chioce" src="{{!isstart2?webServerUrl+'/images/mine/kpi/open.png':webServerUrl+'/images/mine/kpi/close.png'}}"></image>
+				</view>
+				<scroll-view scroll-y="true" class="sorting-list2 {{!isstart2?'chioce-list-hide':'chioce-list-show2'}}">
+					<view wx:for="{{seven2}}" catchtap="selectOne2" data-index="{{index}}" class="sorting-item" wx:key="{{index}}" data-details="{{item.details}}">{{item.details}}</view>
+				</scroll-view>
+			</view>
+		</view>
+		<textarea maxlength='300' catchtap="opens2" value="{{content}}" class="more" wx:if="{{isshow}}" auto-height bindinput="getdetails"></textarea>
+	</view>
+	<view class="title">扣除</view>
+	<view class="content">
+		<view class="threeoftake">
+			<view>提现分</view>
+			<input placeholder="分" class="input2" value="{{withdrawalPoints}}" bindinput="getwithdrawalPoints"></input>
+		</view>
+		<view class="btnLine"></view>
+		<view class="threeoftake">
+			<view>信用分</view>
+			<view>20分</view>
+		</view>
+		<view class="btnLine"></view>
+		<view class="threeoftake">
+			<view>金额</view>
+			<input placeholder="元" class="input2" value="{{deductAmount}}" bindinput="getdeductAmount"></input>
+		</view>
+	</view>
+	<view class="buttons">
+		<!-- <view class="finebutton" bindtap="tofinerecords">处罚记录</view> -->
+		<view class="sure" bindtap="sureup">确认</view>
+	</view>
+</view>
+
+
+<!--规章制度-->
+<!-- <view class="titleOne">触犯规章制度(已有)</view>
+		<view class="titleOne3" bindtap="openConfirm">主题 : 1.客服第一 <image src="http://192.168.44.110:3080/images/mine/myteam/arrow.png" class="img"></image>
+		</view>
+		<view class="titleOne3" bindtap="openConfirm">详情 : 1.客服第一 <image src="http://192.168.44.110:3080/images/mine/myteam/arrow.png" class="img"></image>
+		</view> -->
+<!--弹窗和状态内容-->
+<!-- <mp-dialog title="请选择" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+	<view>
+		<radio-group class="radio-group" bindchange="radioChange">
+			<radio class="radio" wx:for-items="{{items}}" wx:key="name" value="{{item.value}}" checked="{{item.checked}}">
+				<text>{{item.name}}</text>
+			</radio>
+		</radio-group>
+	</view>
+</mp-dialog> -->

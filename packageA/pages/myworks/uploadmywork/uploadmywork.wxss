@@ -1,0 +1,148 @@
+page {
+  background-color: #f3f3f3;
+  height: 100%;
+  padding-bottom: 5vh;
+}
+
+.srcollView {
+  height: 100%;
+}
+
+scroll-view ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+
+.uploadmywork {
+  width: 94%;
+  /* height: 90vh; */
+  background-color: white;
+  /* border: 1px solid black; */
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-top: 25rpx;
+  padding-bottom: 3vh;
+}
+
+.background {
+  width: 94%;
+  height: 250rpx;
+  margin: 0 auto;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  padding: 10rpx;
+}
+
+.comment {
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.comment2 {
+  margin-left: 20rpx;
+  display: flex;
+  align-items: baseline;
+}
+
+.limit {
+  font-size: 25rpx;
+  color: #6b6969;
+}
+
+.btnLine {
+  background-image: linear-gradient(90deg, rgba(237, 240, 244, 0.00) 1%, #eef1f5 5%, #eef1f5 95%, rgba(237, 240, 244, 0.00) 99%);
+  width: 100%;
+  margin-top: 20rpx;
+  height: 1px;
+  margin-top: 30rpx;
+}
+
+.threeToNineImage {
+  width: 94%;
+  /* height:500rpx; */
+  background-color: white;
+  /* border: 1px solid black; */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding-left: 30rpx;
+  padding-bottom: 30rpx;
+}
+
+.sonofimg {
+  width: 200rpx;
+  height: 200rpx;
+  margin-top: 25rpx;
+  margin-right: 20rpx;
+  /* margin-left:15rpx; */
+  background-color: #f3f3f3;
+  /* border: 1px solid black; */
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.DAimg {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.img2 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.delete {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.deleteimg {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.radiogroup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 25rpx;
+}
+
+.radioinput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20rpx;
+  margin-top: 5rpx;
+}
+
+.button {
+  width: 230rpx;
+  color: white;
+  line-height: 80rpx;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50rpx;
+  margin-bottom: 100rpx;
+  height: 80rpx;
+  border-radius: 30px;
+
+  background: -webkit-linear-gradient(left, #ea4704, #fd7004);
+  background: -o-linear-gradient(left, #ea4704, #fd7004);
+  background: -moz-linear-gradient(left, #ea4704, #fd7004);
+  background: -mos-linear-gradient(left, #ea4704, #fd7004);
+}

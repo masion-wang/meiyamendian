@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "calendar": "/components/calendarSign/calendarSign"
+  },
+  "navigationBarTitleText": "签到"
+}

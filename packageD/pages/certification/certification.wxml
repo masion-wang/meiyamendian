@@ -1,0 +1,126 @@
+	<!--员工-->
+	<view wx:if="{{admintype==6&&status==2}}" class="testInfo">审核驳回 : {{describeData=='null'?'驳回':describeData}} </view>
+	<scroll-view wx:if="{{admintype==6}}" class="srcollView" scroll-y="true">
+		<view class="sectionone">
+			<view class="inputfather">
+				<view class="secondtitle">姓名</view>
+				<input disabled="{{status==0||status==1?true:false}}" bindinput="getname" value="{{name}}" class="input" placeholder="请输入真实姓名"></input>
+			</view>
+			<view class="btnLine"></view>
+			<view class="inputfather">
+				<view class="secondtitle">身份证号</view>
+				<input disabled="{{status==0||status==1?true:false}}" bindinput="getidentityCard" value="{{identityCard}}" class="input" placeholder="请输入18位有效身份证号"></input>
+			</view>
+		</view>
+		<view class="title">绑定银行卡</view>
+		<view class="sectionone">
+			<view class="inputfather">
+				<view class="secondtitle">开户姓名</view>
+				<input disabled="{{status==0||status==1?true:false}}" bindinput="getaccountName" value="{{accountName}}" class="input" placeholder="请输入开户姓名"></input>
+			</view>
+			<view class="btnLine"></view>
+			<view class="inputfather">
+				<view class="secondtitle">银行名称</view>
+
+				<view bindtap="getbankName2" class="input">{{bankName.length>0?bankName:'点击选择银行'}}</view>
+			</view>
+			<view class="btnLine"></view>
+			<view class="inputfather">
+				<view class="secondtitle">开户账号</view>
+				<input type="number" disabled="{{status==0||status==1?true:false}}" bindinput="getaccountNumber" value="{{accountNumber}}" class="input" placeholder="请输入银行卡号"></input>
+			</view>
+			<view class="btnLine"></view>
+			<view class="inputfather">
+				<view class="secondtitle">开户行</view>
+				<input disabled="{{status==0||status==1?true:false}}" bindinput="getopeningBank" value="{{openingBank}}" class="input" placeholder="请输入开户行"></input>
+			</view>
+
+		</view>
+		<view class="title">身份证上传</view>
+		<view class="sectionId">
+			<view class="cardId">
+				<image src="{{identityCardFront}}" class="idImg" bindtap="upfont"></image>
+				<view style="font-size:25rpx;">身份证正面</view>
+			</view>
+			<view class="cardId">
+				<image src="{{identityCardReverse}}" class="idImg" bindtap="upback"></image>
+				<view style="font-size:25rpx;">身份证反面</view>
+			</view>
+		</view>
+		<!-- 审核状态 -1 未提交过  0 表示待处理 1 表示已认证  2 驳回 -->
+		<view wx:if="{{status=='-1'||status=='2'}}" class="button" bindtap="sure">提交</view>
+		<view wx:if="{{status=='0'}}" class="button">审核中</view>
+		<view wx:if="{{status=='1'}}" class="button">认证成功</view>
+	</scroll-view>
+
+
+
+	<!--股东-->
+	<!-- // 0 未认证 1 待处理 2 认证通过 3 认证失败 驳回 -->
+	<view wx:if="{{admintype==5&&certificationstatus==3}}" class="testInfo">审核驳回 : {{shareHolder.shareHolderCertificationAudit.describeData=='null'?'驳回':shareHolder.shareHolderCertificationAudit.describeData}}</view>
+	<scroll-view wx:if="{{admintype==5}}" class="srcollView" scroll-y="true">
+		<view class="sectionone">
+			<view class="inputfather">
+				<view class="secondtitle">姓名</view>
+				<input disabled="{{certificationstatus==1||certificationstatus==2?true:false}}" bindinput="getname" value="{{shareHolder.shareHolderCertificationAudit.name}}" class="input" placeholder="请输入真实姓名"></input>
+			</view>
+			<view class="btnLine"></view>
+			<view class="inputfather">
+				<view class="secondtitle">身份证号</view>
+				<input disabled="{{certificationstatus==1||certificationstatus==2?true:false}}" bindinput="getidentityCard" value="{{shareHolder.shareHolderCertificationAudit.identityCard}}" class="input" placeholder="请输入18位有效身份证号"></input>
+			</view>
+		</view>
+		<view class="title">绑定银行卡</view>
+		<view class="sectionone">
+			<view class="inputfather">
+				<view class="secondtitle">开户姓名</view>
+				<input disabled="{{certificationstatus==1||certificationstatus==2?true:false}}" bindinput="getaccountName" value="{{shareHolder.shareHolderCertificationAudit.accountName}}" class="input" placeholder="请输入开户姓名"></input>
+			</view>
+			<view class="btnLine"></view>
+			<view class="inputfather">
+				<view class="secondtitle">银行名称</view>
+				<!--{{shareHolder.shareHolderCertificationAudit.bankName&&shareHolder.shareHolderCertificationAudit.bankName!=''?shareHolder.shareHolderCertificationAudit.bankName:'点击选择银行'}}-->
+				<view bindtap="getbankName2" class="input">{{bankName.length>0?bankName:'点击选择银行'}}</view>
+			</view>
+			<view class="btnLine"></view>
+			<view class="inputfather">
+				<view class="secondtitle">开户账号</view>
+				<input type="number" disabled="{{certificationstatus==1||certificationstatus==2?true:false}}" bindinput="getaccountNumber" value="{{shareHolder.shareHolderCertificationAudit.accountNumber}}" class="input" placeholder="请输入银行卡号"></input>
+			</view>
+			<view class="btnLine"></view>
+			<view class="inputfather">
+				<view class="secondtitle">开户行</view>
+				<input disabled="{{certificationstatus==1||certificationstatus==2?true:false}}" bindinput="getopeningBank" value="{{shareHolder.shareHolderCertificationAudit.openingBank}}" class="input" placeholder="请输入开户行"></input>
+			</view>
+
+		</view>
+		<view class="title">身份证上传</view>
+		<view class="sectionId">
+			<view class="cardId">
+				<image src="{{identityCardFront}}" class="idImg" bindtap="upfont1"></image>
+				<view style="font-size:25rpx;">身份证正面</view>
+			</view>
+			<view class="cardId">
+				<image src="{{identityCardReverse}}" class="idImg" bindtap="upback1"></image>
+				<view style="font-size:25rpx;">身份证反面</view>
+			</view>
+		</view>
+		<!-- 审核状态   // 0 未认证 1 待处理 2 认证通过 3 认证失败-->
+		<view wx:if="{{certificationstatus==0||certificationstatus==3}}" class="button" bindtap="sure">提交</view>
+		<view wx:if="{{certificationstatus==1}}" class="button">审核中</view>
+		<view wx:if="{{certificationstatus==2}}" class="button">认证成功</view>
+	</scroll-view>
+
+
+
+	<!--弹窗-->
+	<!--0.弹窗和状态-->
+	<mp-dialog title="选择状态" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+		<view>
+			<radio-group class="radio-group" bindchange="radioChange">
+				<radio class="radio" wx:for="{{items}}" wx:key="{{index}}" value="{{item.id}}" checked="{{checked}}">
+					<text>{{item.bankName}}</text>
+				</radio>
+			</radio-group>
+		</view>
+	</mp-dialog>

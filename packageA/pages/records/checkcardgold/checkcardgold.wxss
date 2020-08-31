@@ -1,0 +1,134 @@
+page {
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(left, #f7b63cf3, #f6d73eef);
+  background: -o-linear-gradient(left, #f7b63cf3, #f6d73eef);
+  background: -moz-linear-gradient(left, #f7b63cf3, #f6d73eef);
+  background: -mos-linear-gradient(left, #f7b63cf3, #f6d73eef);
+  background-image: linear-gradient(tobottom, #f7b63c, rgba(255, 255, 255, 0.287));
+  z-index: -1;
+  padding-top: 30rpx;
+}
+
+.orderProject {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 93vh;
+  width: 94vw;
+  /* height: 900rpx; */
+  background-color: white;
+  margin: 0 auto;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.order {
+  width: 100%;
+  /* border:1px solid black; */
+  border-bottom: 1px solid rgba(214, 209, 209, 0.644);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10rpx;
+  padding-bottom: 30rpx;
+}
+
+.title1 {
+  font-size: 33rpx;
+  font-weight: 600;
+}
+
+.title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  font-weight: 600;
+  font-size: 30rpx;
+  /* border: 1px solid black; */
+}
+.title>view{
+  width:33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardM {
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+}
+
+.chargeman {
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+}
+
+.small {
+  font-size: 25rpx;
+}
+
+.srcollView1 {
+  width: 100%;
+  /* border: 1px solid black; */
+  max-height: 40vh;
+  margin: 0 auto;
+}
+
+scroll-view ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+
+.project {
+  display: flex;
+  justify-content: space-around;
+  width: 99%;
+  margin-top: 25rpx;
+  /* border: 1px solid black; */
+}
+
+.project>view {
+  width: 33%;
+  /* border:1px solid black; */
+}
+
+.barber {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.assint1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15rpx;
+  border-bottom: 1px solid rgba(211, 206, 206, 0.438);
+  padding-bottom: 10rpx;
+}
+
+.assint2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15rpx;
+  border-bottom: 1px solid rgba(211, 206, 206, 0.438);
+  padding-bottom: 10rpx;
+}
+
+.dealmoney {
+  margin-top: 15rpx;
+  padding-bottom: 10rpx;
+  font-size: 30rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(211, 206, 206, 0.438);
+}

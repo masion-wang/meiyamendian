@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "仓岛管家",
+  "usingComponents": {
+    "mp-dialog": "/components/dialog/dialog"
+  },
+  "backgroundColor": "#f3f3f3",
+  "enablePullDownRefresh": true
+}

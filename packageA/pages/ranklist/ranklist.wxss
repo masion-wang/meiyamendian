@@ -1,0 +1,274 @@
+page {
+  background-color: #f3f3f3;
+  height: 100%;
+}
+
+.placeholder2 {
+  height: 70rpx;
+}
+
+.tab {
+  position: fixed;
+  top: 0;
+  height: 100rpx;
+  z-index: 999;
+  width: 100%;
+  font-weight: 600;
+}
+
+.weui-tabs-bar__title {
+  margin: 0px 10px;
+}
+
+.tab-bar-title__selected {
+  color: #f8a43b;
+  font-size: 40rpx;
+}
+
+.placeholder {
+  height: 100rpx;
+}
+
+.laba {
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  width: 25rpx;
+  height: 25rpx;
+}
+
+.swiper-box .wx-swiper-dots.wx-swiper-dots-horizontal {
+  position: relative;
+  top: 10rpx;
+  margin-bottom: 2rpx;
+}
+
+.swiper-box .wx-swiper-dot {
+  width: 40rpx;
+  display: inline-flex;
+  height: 10rpx;
+  margin-left: 20rpx;
+  justify-content: space-between;
+}
+
+.swiper-box .wx-swiper-dot::before {
+  content: '';
+  flex-grow: 1;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8rpx
+}
+
+.swiper-box .wx-swiper-dot-active::before {
+  background: #f8a43b;
+}
+
+.swiper-box {
+  border-radius: 10rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  height: 90vh;
+}
+
+.swiperI {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiperItem {
+  border-radius: 10px;
+  width: 90%;
+  height: 90vh;
+  background-color: #f3f3f3;
+}
+
+.title {
+  width: 100%;
+  height: 12vh;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: 1px solid #ccc6c6b4;
+  background-color: white;
+  text-align: center;
+}
+
+.sonoftitle {
+  font-size: 35rpx;
+  font-weight: 700;
+  color: #000000;
+  padding-top: 20rpx;
+  margin-bottom: 10rpx;
+}
+
+.select {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.select>view {
+  font-size: 28rpx;
+}
+
+.img {
+  width: 25rpx;
+  height: 25rpx;
+  position: relative;
+  top: 3rpx;
+  margin-right: 10rpx;
+}
+
+.scrollView {
+  height: 74vh;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: white;
+}
+
+.scroll-view ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+
+.person {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.foursection {
+  display: flex;
+  margin-top: 10rpx;
+  align-items: center;
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  position: relative;
+}
+
+.prize {
+  width: 80rpx;
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.prizeImg {
+  width: 45rpx;
+  height: 75rpx;
+}
+
+.rank {
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(116, 113, 113);
+  padding: 5rpx;
+}
+
+.personlogoImg {
+  width: 145rpx;
+  height: 145rpx;
+  border-radius: 50%;
+}
+
+.threeOf {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-left: 25rpx;
+}
+
+.name {
+  font-size: 30rpx;
+}
+
+.position {
+  border: 1px solid #f8a43b;
+  color: #f8a43b;
+  font-size: 17rpx;
+  padding-left: 5rpx;
+  padding-right: 5rpx;
+  margin-left: 15rpx;
+  border-radius: 30rpx;
+}
+
+.location {
+  font-size: 22rpx;
+  color: #c0c0c0;
+  text-align: right;
+  padding-right: 30rpx;
+  position: relative;
+  top: -5rpx;
+}
+
+.fourOf {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 10rpx;
+}
+
+.sonofthreeOf {
+  display: flex;
+  align-items: center;
+}
+
+
+
+.left {
+  width: 60%;
+  flex-wrap: nowrap;
+}
+
+.right {
+  width: 40%;
+  flex-wrap: nowrap;
+}
+
+.fourItem {
+  font-size: 22rpx;
+  color: #616161;
+  white-space: nowrap;
+}
+
+.btnLine {
+  background-image: linear-gradient(90deg, rgba(237, 240, 244, 0.00) 1%, #eef1f5 5%, #eef1f5 95%, rgba(237, 240, 244, 0.00) 99%);
+  width: 100%;
+  margin-top: 20rpx;
+  height: 1px;
+}
+
+.cover {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  /* background-color:rgba(0, 0, 0, 0.25); */
+  background-color: transparent;
+}
+
+.tipss {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 0rpx;
+  /* opacity: 0.4; */
+}
+
+.end {
+  margin-top: 20rpx;
+  margin-bottom: 30rpx;
+  font-size: 25rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

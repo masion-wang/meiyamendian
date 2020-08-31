@@ -1,0 +1,193 @@
+page {
+  background-color: #f3f3f3;
+  height: 100%;
+}
+
+.srcollView {
+  height: 100%;
+  padding-bottom: 40rpx;
+}
+
+/*我的团队*/
+.mygrade {
+  padding-top: 15rpx;
+  padding-left: 25rpx;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  /* height:10vh; */
+  border-radius: 5px;
+  background-color: white;
+}
+
+.position {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  font-size: 40rpx;
+  font-weight: 600;
+}
+
+.btnLine {
+  background-image: linear-gradient(90deg, rgba(237, 240, 244, 0.00) 1%, #eef1f5 5%, #eef1f5 95%, rgba(237, 240, 244, 0.00) 99%);
+  width: 100%;
+  margin-top: 20rpx;
+  height: 1px;
+}
+
+.threeofmygrade {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20rpx;
+  /* padding-left: 20rpx; */
+  padding-right: 20rpx;
+  padding-bottom: 30rpx;
+}
+
+.threepart {
+  display: flex;
+  align-items: center;
+}
+
+.img {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+}
+
+/*管理*/
+.manager {
+  margin: 0 auto;
+  margin-top: 30rpx;
+  width: 94%;
+  /* height:30vh; */
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 30rpx;
+}
+
+.sonofmanager {
+  padding-left: 25rpx;
+  padding-top: 15rpx;
+}
+
+.threepicker {
+  margin: 0 auto;
+  margin-top: 30rpx;
+  width: 90%;
+  height: 30vh;
+  /* background-color: red; */
+}
+
+.rewardOrfine {
+  margin: 0 auto;
+  margin-top: 30rpx;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.sonofrewardOrfine {
+  width: 220rpx;
+  text-align: center;
+  border-radius: 30px;
+  border: 1px solid #fdc11b;
+  padding-bottom: 10rpx;
+  padding-top: 10rpx;
+  color: #fdc11b;
+  font-weight: 600;
+}
+
+/*离职审核*/
+.separationapplications {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  border-radius: 5px;
+  /* display: flex; */
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding-left: 25rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  font-size: 32rpx;
+}
+
+.showwww {
+  display: flex;
+}
+
+/*我的团队*/
+.separationaudit {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding-left: 25rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  font-size: 32rpx;
+}
+
+.separationaudit2 {
+  margin-bottom: 30rpx;
+}
+
+/*三个区域 店铺 店员*/
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-body {
+  width: 30%
+}
+
+.updown {
+  position: relative;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.info {
+  position: absolute;
+  top: 30rpx;
+  left: 28%;
+  font-size: 20rpx;
+}
+
+.info2 {
+  position: absolute;
+  top: 30rpx;
+  left: 40%;
+  font-size: 20rpx;
+}
+
+.cover {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background-color: rgba(0, 0, 0, 0.25);
+  /* background-color: transparent; */
+}
+
+.placeholder2 {
+  height: 70rpx;
+}

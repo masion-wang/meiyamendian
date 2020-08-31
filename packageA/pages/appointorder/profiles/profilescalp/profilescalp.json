@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "关于头皮",
+  "usingComponents": {
+    "mp-dialog": "/components/dialog/dialog"
+  }
+}

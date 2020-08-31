@@ -1,0 +1,331 @@
+<scroll-view scroll-y="true" class="srcollView">
+	<view class="title">基础信息</view>
+	<view class="content">
+		<!--备注名ok-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="toprofilename">
+				<view class="left">备注名</view>
+				<view class="right">
+					<view class="thing"> {{roomStaffUserArchivesDto.remarkName==-1?'未填写':roomStaffUserArchivesDto.remarkName}}</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--性别ok-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="togetSexLabel">
+				<view class="left">性别</view>
+				<view class="right">
+					<view wx:if="{{roomStaffUserArchivesDto.sexLabel.name=='1'}}" class="thing" style="position:relative">男</view>
+					<view wx:elif="{{roomStaffUserArchivesDto.sexLabel.name=='0'}}" class="thing" style="position:relative">女</view>
+					<view wx:else class="thing" style="position:relative">暂无</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--年龄-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="togetage">
+				<view class="left">年龄</view>
+				<view class="right">
+					<view class="thing" style="position:relative">{{roomStaffUserArchivesDto.age==-1?'暂无':roomStaffUserArchivesDto.age}}</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--消费档次ok-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="toconsumptiongrade">
+				<view class="left">消费档次</view>
+				<view class="right">
+					<view wx:if="{{roomStaffUserArchivesDto.csmFlId == -1}}" class="thing">未选择</view>
+					<view wx:if="{{roomStaffUserArchivesDto.csmFlId != -1}}" class="thing">{{roomStaffUserArchivesDto.consumeGradeLabel.name}}</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--用户照片ok-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="toprofileuserphoto">
+				<view class="left">用户照片</view>
+				<view class="right">
+					<view class="thing">{{roomStaffUserArchivesDto.userPic=='-1'?'未上传':'已上传'}}</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--家庭住址ok-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="toprofileaddress">
+				<view class="left">家庭住址</view>
+				<view class="right">
+					<view class="thing"> {{roomStaffUserArchivesDto.fmlAddr=='-1'?'未填写':'已填写'}}</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--家庭成员ok-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="toprofilefamily">
+				<view class="left">家庭成员</view>
+				<view class="right">
+					<view class="thing"> {{roomStaffUserArchivesDto.familyMemberLabels.length>0?'已选择':'未选择'}}</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--单位名称ok-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="toprofilecompanyname">
+				<view class="left">单位名称</view>
+				<view class="right">
+					<view class="thing"> {{roomStaffUserArchivesDto.companyName=='-1'?'未填写':'已填写'}}</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--资信标准ok-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="toprofilesalary">
+				<view class="left">薪资标准</view>
+				<view class="right">
+					<view class="thing">{{roomStaffUserArchivesDto.slrFlId==-1?'未选择':'已选择'}}</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+	</view>
+
+	<view class="title">个人要求</view>
+	<view class="content">
+		<!--发型要求ok-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="toprofilehairstylerequire">
+				<view class="left">发型要求</view>
+				<view class="right">
+					<view class="thing"> {{roomStaffUserArchivesDto.hairRequire=='-1'?'未填写':'已填写'}}</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--服务要求ok-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="toprofileservicerequire">
+				<view class="left">服务要求</view>
+				<view class="right">
+					<view class="thing"> {{roomStaffUserArchivesDto.serviceRequire=='-1'?'未填写':'已填写'}}</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--偏好ok-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="toprofilefavor">
+				<view class="left">偏好</view>
+				<view class="right">
+					<view class="thing"> {{roomStaffUserArchivesDto.preferences=='-1'?'未填写':'已填写'}}</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--意见和建议ok-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="toprofileadvice">
+				<view class="left">意见以及建议</view>
+				<view class="right">
+					<view class="thing"> {{roomStaffUserArchivesDto.opinion=='-1'?'未填写':'已填写'}}</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+	</view>
+
+	<view class="title">个人意愿</view>
+	<view class="content">
+		<!--关于会员卡ok-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="toprofileaboutcard">
+				<view class="left">关于会员卡</view>
+				<view class="right">
+					<view class="thing">
+						<view>{{roomStaffUserArchivesDto.cstmCardWish=='-1'?'未填写':'已填写'}}</view>
+						<view></view>
+					</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--关于次卡ok-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="toprofiletimecard">
+				<view class="left">关于次卡</view>
+				<view class="right">
+					<view class="thing">
+						<view>{{roomStaffUserArchivesDto.numCardWish=='-1'?'未填写':'已填写'}}</view>
+						<view></view>
+					</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--关于烫发-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="toprofileperm">
+				<view class="left">关于烫发</view>
+				<view class="right">
+					<view class="thing">
+						<view wx:if="{{roomStaffUserArchivesDto.permDays == -1}}">未填写</view>
+						<view wx:if="{{roomStaffUserArchivesDto.permDays != -1}}" class="hastimeandday">
+							<view>{{roomStaffUserArchivesDto.permPrevTime}}</view>
+							<view class="rest">剩余{{roomStaffUserArchivesDto.permDaysDiff}}天</view>
+						</view>
+					</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--关于染发-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="toprofilehaircolor">
+				<view class="left">关于染发</view>
+				<view class="right">
+					<view class="thing">
+						<view wx:if="{{roomStaffUserArchivesDto.dyeHairDays==-1}}">未填写</view>
+						<view wx:if="{{roomStaffUserArchivesDto.dyeHairDays!=-1}}" class="hastimeandday">
+							<view>{{roomStaffUserArchivesDto.dyeHairPrevTime}}</view>
+							<view class="rest">剩余{{roomStaffUserArchivesDto.dyeHairDaysDiff}}天</view>
+						</view>
+					</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--关于剪发-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="toprofilehaircut">
+				<view class="left">关于剪发</view>
+				<view class="right">
+					<view class="thing">
+						<view wx:if="{{roomStaffUserArchivesDto.haircutDays==-1}}">未填写</view>
+						<view wx:if="{{roomStaffUserArchivesDto.haircutDays!=-1}}" class="hastimeandday">
+							<view>{{roomStaffUserArchivesDto.haircutPrevTime}}</view>
+							<view class="rest">剩余{{roomStaffUserArchivesDto.haircutDaysDiff}}天</view>
+						</view>
+					</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--关于护发-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="toprofilehaircare">
+				<view class="left">关于护发</view>
+				<view class="right">
+					<view class="thing">
+						<view wx:if="{{roomStaffUserArchivesDto.hairCareDays==-1}}">未填写</view>
+						<view wx:if="{{roomStaffUserArchivesDto.hairCareDays!=-1}}" class="hastimeandday">
+							<view>{{roomStaffUserArchivesDto.hairCarePrevTime}}</view>
+							<view class="rest">剩余{{roomStaffUserArchivesDto.hairCareDaysDiff}}天</view>
+						</view>
+					</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--关于头皮-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="toprofilescalp">
+				<view class="left">关于头皮</view>
+				<view class="right">
+					<view class="thing">
+						<view wx:if="{{roomStaffUserArchivesDto.scalpDays==-1}}">未填写</view>
+						<view wx:if="{{roomStaffUserArchivesDto.scalpDays!=-1}}" class="hastimeandday">
+							<view>{{roomStaffUserArchivesDto.scalpPrevTime}}</view>
+							<view class="rest">剩余{{roomStaffUserArchivesDto.scalpDaysDiff}}天</view>
+						</view>
+					</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+	</view>
+
+	<view class="title">服务售后</view>
+	<view class="content">
+		<!--通话记录-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="tophonerecord">
+				<view class="left">通话记录</view>
+				<view class="right">
+					<view class="thing"> 未填写</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--聊天记录-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="tophonerecord">
+				<view class="left">聊天记录</view>
+				<view class="right">
+					<view class="thing"> 未填写</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--其它-->
+		<view class="sonofcontent">
+			<view class="up" bindtap="toprofileother">
+				<view class="left">其它</view>
+				<view class="right">
+					<view class="thing">{{roomStaffUserArchivesDto.elseCtn=='-1'?'未填写':'已填写'}}</view>
+					<image src="{{webServerUrl}}/images/index/appoint/profiles/profile/arrow.png" class="img"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+	</view>
+</scroll-view>
+<!--消费档次-->
+<mp-dialog title="消费档次" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+	<scroll-view style="height:15vh;" scroll-y="true">
+		<radio-group class="radio-group" bindchange="radioChange">
+			<radio class="radio" wx:for-items="{{firmLabels}}" wx:key="firmId" value="{{item.id}}">
+				<text style="margin-left:15rpx;">{{item.name}}</text>
+			</radio>
+		</radio-group>
+	</scroll-view>
+</mp-dialog>
+<!--性别标签-->
+<mp-dialog title="选择性别" show="{{dialogShow2}}" bindbuttontap="tapDialogButton2" buttons="{{buttons}}">
+	<scroll-view style="height:15vh;" scroll-y="true">
+		<radio-group class="radio-group2" bindchange="radioChange2">
+			<radio class="radio2" wx:for-items="{{firmLabels2}}" wx:key="firmId" value="{{item.id}}">
+				<text wx:if="{{item.name=='0'}}" style="margin-left:15rpx;">男</text>
+				<text wx:if="{{item.name=='1'}}" style="margin-left:15rpx;">女</text>
+				<text wx:if="{{item.name=='2'}}" style="margin-left:15rpx;">未知</text>
+			</radio>
+		</radio-group>
+	</scroll-view>
+</mp-dialog>

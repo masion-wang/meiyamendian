@@ -1,0 +1,5 @@
+<image src="{{webServerUrl}}/images/mine/invitebackground/invitebackground.png" class="img">
+	<view class="codetitle">您的合伙人邀请码为</view>
+	<view class="code">{{code}}</view>
+	<view class="codetip">该邀请码三分钟更新一次</view>
+</image>

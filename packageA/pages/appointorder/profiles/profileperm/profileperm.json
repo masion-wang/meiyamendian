@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "关于烫发",
+  "usingComponents": {
+    "mp-dialog": "/components/dialog/dialog"
+  }
+}

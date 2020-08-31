@@ -1,0 +1,162 @@
+page {
+  background-color: #f3f3f3;
+  height: 100%;
+}
+
+.placeholder {
+  height: 130rpx;
+}
+
+.guanjiaoutside {
+  width: 92.5%;
+  padding-left: 7%;
+  padding-right: 0.5%;
+  background-color: white;
+  height: 130rpx;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.srcollView {
+  height: 90%;
+}
+
+/*指定率*/
+.orderpercent {
+  width: 94%;
+  margin: 0 auto;
+  background-color: white;
+  /* height: 10vh; */
+  margin-top: 20rpx;
+  border-radius: 5px;
+  padding-left: 20rpx;
+  padding-top: 5rpx;
+  padding-bottom: 10rpx;
+}
+
+.orderpercenttitle {
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.father {
+  display: flex;
+  align-items: center;
+}
+
+.container1 {
+  width: 65vw;
+  height: 30vh;
+  padding-bottom: 10rpx;
+}
+.secondfather{
+  display: flex;
+  flex-direction: column;
+}
+.sonofsecondfather{
+  display: flex;
+  align-items: center;
+}
+
+ec-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.sonofsixtype {
+  font-size: 25rpx;
+  display: flex;
+  align-items: center;
+  width: 25%;
+}
+
+.one {
+  background-color: #ef5c28;
+  border-radius: 50%;
+  width: 15rpx;
+  height: 15rpx;
+  margin-right: 15rpx;
+  margin-left: 0rpx;
+}
+
+.two {
+  background-color: #f79822;
+  border-radius: 50%;
+  width: 15rpx;
+  height: 15rpx;
+  margin-right: 15rpx;
+  margin-left: 0rpx;
+}
+
+.three {
+  background-color: #b86de3;
+  border-radius: 50%;
+  width: 15rpx;
+  height: 15rpx;
+  margin-right: 15rpx;
+  margin-left: 0rpx;
+}
+
+.four {
+  background-color: #0c8de0;
+  border-radius: 50%;
+  width: 15rpx;
+  height: 15rpx;
+  margin-right: 15rpx;
+  margin-left: 0rpx;
+}
+
+.five {
+  background-color: #fde01a;
+  border-radius: 50%;
+  width: 15rpx;
+  height: 15rpx;
+  margin-right: 15rpx;
+  margin-left: 0rpx;
+}
+
+.six {
+  background-color: #67d4fd;
+  border-radius: 50%;
+  width: 15rpx;
+  height: 15rpx;
+  margin-right: 15rpx;
+  margin-left: 0rpx;
+}

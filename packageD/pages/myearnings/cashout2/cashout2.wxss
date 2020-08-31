@@ -1,0 +1,251 @@
+/*page背景*/
+page {
+  background-color: #f3f3f3;
+  height: 100%;
+}
+
+.radiogroup {
+  margin-top: 25rpx;
+  display: flex;
+  align-items: center;
+  width: 80vw;
+  justify-content: space-around;
+}
+
+.radio {
+  margin-left: 20rpx
+}
+
+/*tab栏*/
+.mytabs {
+  position: fixed;
+  top: 0;
+  height: 100rpx;
+  z-index: 999;
+  width: 100%;
+  font-weight: 600;
+}
+
+.weui-tabs-bar__title {
+  margin: 0px 10px;
+}
+
+.tab-bar-title__selected {
+  color: #f8a43b;
+  font-size: 40rpx;
+}
+
+.placeholder {
+  height: 100rpx;
+}
+
+/*账户通用样式*/
+.acount {
+  /* border: 1px solid black; */
+  width: 94%;
+  height: 70vh;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  border-radius: 5px;
+}
+
+/*余额账户样式*/
+.ShowRest {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.ShowResttop {
+  margin-top: 10vh;
+  width: 50%;
+  /* border:1px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ShowResttoptitle {
+  font-size: 25rpx;
+}
+
+.ShowResttopprice {
+  font-size: 40rpx;
+}
+
+.ShowRestmiddle {
+  margin-top: 10vh;
+  width: 50%;
+  /* border:1px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ShowRestmiddletitle {
+  font-size: 25rpx;
+}
+
+.ShowRestmiddleprice {
+  width: 70%;
+  height: 60rpx;
+  font-size: 30rpx;
+  border-radius: 30px;
+  background-color: white;
+  text-align: center;
+  /* vtical-align:middle; */
+}
+
+.ShowRestbottom {
+  margin-top: 2vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  height: 50rpx;
+  /* border: 1px solid black; */
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  color: white;
+  width: 95%;
+  margin: 0 auto;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60rpx;
+  margin-bottom: 20rpx;
+  /* position: relative;
+  left: -20rpx; */
+  background: -webkit-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -o-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -moz-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -mos-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+}
+
+.button2 {
+  height: 50rpx;
+  /* border: 1px solid black; */
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  color: white;
+  width: 95%;
+  margin: 0 auto;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60rpx;
+  margin-bottom: 20rpx;
+  background: #ccc;
+}
+
+.tip {
+  font-size: 25rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: 10rpx;
+}
+
+.radiogroup {
+  margin-top: 5vh;
+  display: flex;
+  align-items: center;
+  width: 80vw;
+  justify-content: space-between;
+}
+
+.radiogroup2 {
+  display: flex;
+  align-items: center;
+  /* width: 40vw; */
+  justify-content: space-between;
+}
+
+radio {
+  transform: scale(0.85);
+  position: relative;
+  top:-2rpx;
+}
+
+.tanhan {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 15rpx;
+}
+
+/*奖励金账户样式*/
+/* .ShowReward{} */
+
+/*股东账户样式*/
+/* .Showholder{} */
+
+/*验证码样式相关*/
+.oldphone {
+  /* border:1px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.titletip {
+  color: #999;
+  font-size: 25rpx;
+}
+
+.inputcode1 {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50rpx;
+}
+
+.safe {
+  width: 50rpx;
+  height: 50rpx;
+  /* padding-left: 5rpx; */
+  margin-right: 15rpx;
+  /* border:1px solid black; */
+}
+
+.inputcss {
+  width: 220rpx;
+  height: 60rpx;
+  padding-left: 10rpx;
+  border-radius: 5px;
+  background-color: #ece5e542;
+  /* border-bottom: 1px solid #363434; */
+  margin-right: 15rpx;
+  padding-left: 10rpx;
+}
+
+.btnLine {
+  background-image: linear-gradient(90deg, rgba(237, 240, 244, 0.00) 1%, #eef1f5 5%, #eef1f5 95%, rgba(237, 240, 244, 0.00) 99%);
+  width: 100%;
+  height: 1px;
+  margin-top: 5rpx;
+}
+
+.codeTest {
+  font-size: 22rpx;
+}
+
+.tipsscore {
+  font-size: 25rpx;
+  margin-top: 10rpx
+}

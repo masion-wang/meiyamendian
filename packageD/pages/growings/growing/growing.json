@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "我的成长",
+  "usingComponents": {
+    "mp-dialog": "/components/dialog/dialog"
+  },
+  "backgroundColor": "#f3f3f3"
+}

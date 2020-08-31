@@ -1,0 +1,40 @@
+<view class="recorddetail">
+	<view>提交日期 : 2020-01-02</view>
+	<view>门店名称 : 仓岛美业-天通苑店</view>
+	<view class="btnLine"></view>
+	<view>店长手机 : 18810645323</view>
+	<view>报销金额 : 343</view>
+	<view class="expenseone">
+		<view class="left"> 报销理由 :</view>
+		<view class="right"> 报销理由11111报销理由报销理由报销理由报销理由报销理由报销理由报销理由报销理由报销理由报销理由报销理由报销理由报销理由报销理由报销理由</view>
+	</view>
+	<view>凭证图片 : 无</view>
+	<view class="imgs">
+    
+  </view>
+	<view class="btnLine"></view>
+		<view class="recordson">
+			<view class="sonofrecord">
+				<view class="father">
+					<view class="content3">
+						<view class="son3">
+							<image class="IMG" src="http://192.168.44.110:3080/images/index/appionttime/leaverecord/yes.png"></image>
+						</view>
+						<view class="son2"></view>
+						<view class="son5">
+							<image class="IMG" src="http://192.168.44.110:3080/images/index/appionttime/leaverecord/no.png"></image>
+						</view>
+						<view class="son2"></view>
+						<view class="son4">
+							<image class="IMG2" src="http://192.168.44.110:3080/images/index/appionttime/leaverecord/void.png"></image>
+						</view>
+					</view>
+					<view class="content4">
+						<view>店长审核</view>
+						<view>区域审核</view>
+						<view>大区审核</view>
+					</view>
+				</view>
+			</view>
+		</view>
+</view>

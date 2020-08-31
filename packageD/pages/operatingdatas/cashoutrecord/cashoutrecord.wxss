@@ -1,0 +1,90 @@
+page {
+  background-color: #f3f3f3;
+  height: 100%;
+}
+
+.title {
+  width: 94%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  padding: 10rpx;
+  margin-top: 30rpx;
+  border-bottom: 1rpx solid #ddd;
+  border-radius: 5px;
+  font-size: 23rpx;
+  justify-content: space-between;
+}
+
+.title2 {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  /* margin-top: 30rpx; */
+  border-radius: 5px;
+  font-size: 18rpx;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.title>view {
+  text-align: center;
+}
+
+.title2>view {
+  text-align: center;
+  padding-top: 5rpx;
+  padding-bottom: 5rpx;
+}
+
+.time {
+  width: 15%;
+  /* border: 1rpx solid #ddd; */
+}
+
+.project {
+  width: 25%;
+  /* border: 1rpx solid #ddd; */
+}
+
+.money {
+  width: 13%;
+  /* border: 1rpx solid #ddd; */
+}
+
+.styleman {
+  width: 12%;
+  /* border: 1rpx solid #ddd; */
+}
+
+.status {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.img {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.crossstoreconsumption {
+  /* padding: 10rpx; */
+  margin: 0 auto;
+  width: 96%;
+  background-color: white;
+  height: 98vh;
+  padding-bottom: 10rpx;
+}
+
+scroll-view ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}

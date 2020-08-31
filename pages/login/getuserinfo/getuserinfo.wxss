@@ -1,0 +1,50 @@
+.imgBg {
+  width: 100%;
+  text-align: center;
+}
+
+.logo {
+  margin-top: 200rpx;
+  margin-bottom: 30rpx;
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+}
+
+.title {
+  text-align: center;
+  width: 100%;
+  font-size: 48rpx;
+  margin-top: 40rxp;
+}
+
+.content-title {
+  font-size: 32rpx;
+  margin-top: 50rpx;
+  text-align: center;
+}
+
+.content {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  text-align: center;
+  color: #ccc;
+}
+
+.btnBg {
+  background-color: rgb(26, 173, 25);
+  width: 100%;
+  border-radius: 10rpx;
+}
+
+.login_btn {
+  background-color: rgb(26, 173, 25);
+  width: 100%;
+  /* height: 90rpx; */
+  text-align: center;
+  margin-top: 100rpx;
+  color: #fff;
+  font-weight: 400;
+  /* padding-top: 3%; */
+
+}

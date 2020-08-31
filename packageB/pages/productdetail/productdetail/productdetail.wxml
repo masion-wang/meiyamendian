@@ -1,0 +1,258 @@
+<scroll-view scroll-y="true" class="scrollView">
+	<!--头像-->
+	<view class="logoImg">
+		<image src="{{userProjectOrderDto.userDto.avatar}}" class="img"></image>
+	</view>
+	<view class="content">
+		<view class="rightOfUP">
+			<view class="baoqian">
+				<image src='{{webServerUrl}}/images/index/appoint/baoqian.png' class="IMG"></image>
+				<view class="word" data-uid="{{userProjectOrderDto.uid}}" bindtap="gotoprofile">{{userProjectOrderDto.userDto.nick}} - {{userProjectOrderDto.userDto.phoneNum}} </view>
+			</view>
+			<image src="{{webServerUrl}}/images/index/appoint/chat.png" class="chat"></image>
+		</view>
+		<view wx:if="{{userProjectOrderDto.userSource==0}}" class="source">顾客来源: 一般项目</view>
+		<view wx:if="{{userProjectOrderDto.userSource==1}}" class="source">顾客来源: 拼团</view>
+		<view wx:if="{{userProjectOrderDto.userSource==2}}" class="source">顾客来源: 砍价</view>
+		<view wx:if="{{userProjectOrderDto.userSource==3}}" class="source">顾客来源: 亲密付</view>
+		<view wx:if="{{userProjectOrderDto.userSource==4}}" class="source">顾客来源: 消费返还</view>
+		<view wx:if="{{userProjectOrderDto.userSource==5}}" class="source">顾客来源: 闺蜜卡</view>
+		<view wx:if="{{userProjectOrderDto.userSource==6}}" class="source">顾客来源: 免费请客</view>
+		<view class="btnLine">
+		</view>
+		<view class="checkexpensesrecord" data-uid="{{userProjectOrderDto.uid}}" bindtap="toexpensesrecord">
+			<view>查看消费记录</view>
+			<image src="{{webServerUrl}}/images/order/arrow.png" class="arrow"></image>
+		</view>
+	</view>
+	<!--预约信息-->
+	<view class="appiontinfo1">
+		<view class="appiontTitle">
+			<view class="appiontTitleLeft">预约信息</view>
+			<view wx:if="{{userProjectOrderDto.status==0}}" class="appiontTitleRight">未支付</view>
+			<view wx:if="{{userProjectOrderDto.status==1}}" class="appiontTitleRight">未核销</view>
+			<view wx:if="{{userProjectOrderDto.status==2}}" class="appiontTitleRight">已核销</view>
+			<view wx:if="{{userProjectOrderDto.status==3}}" class="appiontTitleRight">退款中</view>
+			<view wx:if="{{userProjectOrderDto.status==4}}" class="appiontTitleRight">已退款</view>
+			<view wx:if="{{userProjectOrderDto.status==5}}" class="appiontTitleRight">取消订单</view>
+			<view wx:if="{{userProjectOrderDto.status==6}}" class="appiontTitleRight">已评论</view>
+			<view wx:if="{{userProjectOrderDto.status==7}}" class="appiontTitleRight">退款失败</view>
+		</view>
+		<view class="btnLine"></view>
+		<view class="appiontContent">
+			<view class="appiontContentfour">
+				<view class="appiontContentfourname">预约名称:</view>
+				<view class="appiontContentfourContent">{{userProjectOrderDto.apinmtName}}</view>
+			</view>
+			<view class="appiontContentfour">
+				<view class="appiontContentfourname">预约手机:</view>
+				<view class="appiontContentfourContent">{{userProjectOrderDto.apinmtPhone}}</view>
+			</view>
+			<view class="appiontContentfour">
+				<view class="appiontContentfourname">预约时间:</view>
+				<view class="appiontContentfourContent">{{userProjectOrderDto.reserveTemplate.rsvTime}}</view>
+			</view>
+			<view class="appiontContentfour">
+				<view class="appiontContentfourname">预约项目:</view>
+				<view class="appiontContentfourContentTwo">
+					<view class="projectItem" wx:for="{{userProjectOrderDto.userProOdItemDtos}}">
+						<view>{{item.firmProject.projectName}}</view>
+						<view>¥{{item.proPrice}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="btnLine2"></view>
+		<view class="appiontSum">
+			<view class="sum">
+				<view class="sumleft">共{{userProjectOrderDto.userProOdItemDtos.length}}个项目</view>
+				<view class="sumright">总计: ¥{{userProjectOrderDto.proTotalAmt}}</view>
+			</view>
+		</view>
+	</view>
+	<!--支付情况-->
+	<view class="appiontinfo2">
+		<!--现金支付-->
+		<view class="cash">
+			<view class="title">现金支付</view>
+			<view class="cashcontent">
+				<view class="sonofcashcontent">
+					<view class="sonofsonofcashcontent">
+						<view>微信</view>
+						<view>¥ {{userProjectOrderDto.totalPrice}}</view>
+					</view>
+					<view class="sonofsonofcashcontent">
+						<view>美吖币</view>
+						<view>¥ {{userProjectOrderDto.useMyCurrency?userProjectOrderDto.useMyCurrency:0}}</view>
+					</view>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--会员支付-->
+		<view wx:if="{{userProjectOrderDto.discountType==0}}" class="cash">
+			<view class="title">会员支付</view>
+			<view class="cashcontent">
+				<view class="sonofcashcontent">
+					<view class="sonofsonofcashcontent" wx:for="{{userProjectOrderDto.userProOdCdRcdDtos}}">
+						<!--会员卡卡名字-->
+						<block wx:if="{{item.userCstmId!=-1}}">
+							<view>{{item.firmUserDataDtoCstm.firmCustomerCardDto.customerCardName}}</view>
+							<view class="two">
+								<view class="decount">优惠¥ {{item.disAmt}}</view>
+								<view>¥ {{item.useAmt}}</view>
+							</view>
+						</block>
+						<!--闺蜜卡-->
+						<block wx:if="{{item.userGrlfrndCardItemId!=-1}}">
+							<view>闺蜜卡</view>
+							<view class="two">
+								<view class="decount">优惠¥ {{item.disAmt}}</view>
+								<view>¥ {{item.useAmt}}</view>
+							</view>
+						</block>
+						<!--次卡名字-->
+						<block wx:if="{{item.userNumCardId!=-1}}">
+							<view>{{item.firmUserNumCardDto.firmNumberCard.numberName}}</view>
+							<view class="two">
+								<view class="decount">优惠¥ {{item.disAmt}}</view>
+								<view>¥ {{item.useAmt}}</view>
+							</view>
+						</block>
+						<!--配送账户-->
+						<block wx:if="{{item.userWealActId!=-1}}">
+							<view>配送账户</view>
+							<view class="two">
+								<view class="decount">优惠¥ {{item.disAmt}}</view>
+								<view>¥ {{item.useAmt}}</view>
+							</view>
+						</block>
+						<!--会员福利卡-->
+						<block wx:if="{{item.userWealCardId!=-1}}">
+							<view>{{item.firmUserWealCardDto.firmWealCardDto.wealCardName}}</view>
+							<view class="two">
+								<view class="decount">优惠¥ {{item.disAmt}}</view>
+								<view>¥ {{item.useAmt}}</view>
+							</view>
+						</block>
+						<!--福利次卡-->
+						<block wx:if="{{item.userWealNumCardId!=-1}}">
+							<view>{{item.firmUserWealNumCardDto.firmWealNumberCard.wealNumberName}}</view>
+							<view class="two">
+								<view class="decount">优惠¥ {{item.disAmt}}</view>
+								<view>¥ {{item.useAmt}}</view>
+							</view>
+						</block>
+					</view>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--好友支付-->
+		<view wx:if="{{userProjectOrderDto.discountType==1}}" class="cash">
+			<view class="title">好友支付</view>
+			<view class="cashcontent">
+				<view class="sonofcashcontent" wx:for="{{userProjectOrderDto.userProOdFrdRcdDtos}}">
+					<!--会员卡-->
+					<block wx:if="{{item.bindUserCstmId!=-1}}">
+						<view class="sonofsonofcashcontent">
+							<view>{{item.userFriendCardBindItemDto.firmUserDataDtoCstm.firmCustomerCardDto.customerCardName}}</view>
+							<view class="two">
+								<view class="decount">优惠¥ {{item.disAmt}}</view>
+								<view>¥ {{item.useAmt}}</view>
+							</view>
+						</view>
+					</block>
+					<!--次卡-->
+					<block wx:if="{{item.bindUserNumId!=-1}}">
+						<view class="sonofsonofcashcontent">
+							<view>{{item.userFriendCardBindItemDto.firmUserNumCardDto.firmNumberCard.numberName}}</view>
+							<view class="two">
+								<view class="decount">优惠¥ {{item.disAmt}}</view>
+								<view>¥ {{item.useAmt}}</view>
+							</view>
+						</view>
+					</block>
+					<!--福利会员卡-->
+					<block wx:if="{{item.bindUserWealId!=-1}}">
+						<view class="sonofsonofcashcontent">
+							<view>{{item.userFriendCardBindItemDto.firmUserWealCardDto.firmWealCardDto.wealCardName}}</view>
+							<view class="two">
+								<view class="decount">优惠¥ {{item.disAmt}}</view>
+								<view>¥ {{item.useAmt}}</view>
+							</view>
+						</view>
+					</block>
+					<!--福利次卡-->
+					<block wx:if="{{item.bindUserWealNumId!=-1}}">
+						<view class="sonofsonofcashcontent">
+							<view>{{item.userFriendCardBindItemDto.firmUserWealNumCardDto.firmWealNumberCard.wealNumberName}}</view>
+							<view class="two">
+								<view class="decount">优惠¥ {{item.disAmt}}</view>
+								<view>¥ {{item.useAmt}}</view>
+							</view>
+						</view>
+					</block>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--其它优惠支付-->
+		<view wx:if="{{userProjectOrderDto.discountType==2}}" class="cash">
+			<view class="title">其它优惠支付</view>
+			<view class="cashcontent">
+				<view class="sonofcashcontent">
+					<view class="sonofsonofcashcontent2" wx:for="{{userProjectOrderDto.userProOdElseRcdDtos}}">
+						<!--优惠ma-->
+						<view wx:if="{{item.firmUserDisCodeDto}}" class="otherpay">
+							<view>{{item.firmUserDisCodeDto.firmDiscountCodeDto.name}}</view>
+							<view class="two">
+								<view>-¥ {{item.firmUserDisCodeDto.discountAmt}}</view>
+							</view>
+						</view>
+						<!--优惠quan-->
+						<view wx:if="{{item.firmUserDisTicketDto}}" class="otherpay">
+							<view>{{item.firmUserDisTicketDto.firmDiscountTicketDto.discountTicketName}}</view>
+							<view class="two">
+								<view>-¥ {{item.firmUserDisTicketDto.discountAmt}}</view>
+							</view>
+						</view>
+
+						<!--分享兑换-->
+						<view wx:if="{{item.useShareCount>0}}" class="otherpay">
+							<view>分享兑换</view>
+							<view class="two">
+								<view>-{{item.useShareCount}}人</view>
+							</view>
+						</view>
+						<!--积分-->
+						<view wx:if="{{item.useIntegral>0}}" class="otherpay">
+							<view>积分</view>
+							<view class="two">
+								<view>-¥{{item.useIntegral}}</view>
+							</view>
+						</view>
+
+					</view>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+		<!--优惠金额+实付金额-->
+		<view class="decountSum">
+			<view class="decountSummoney">优惠金额 : ¥ {{userProjectOrderDto.disAmt}}</view>
+			<view>实付金额 : ¥ {{userProjectOrderDto.totalPrice}}</view>
+		</view>
+	</view>
+	<!--订单编号+创建时间-->
+	<view class="appiontinfo3">
+		<view class="orderdetail">
+			<view class="order">订单编号 :</view>
+			<view class="order2">{{userProjectOrderDto.outTradeNo}}</view>
+		</view>
+		<view class="orderdetail">
+			<view class="time">创建时间 :</view>
+			<view class="time">{{userProjectOrderDto.createTime}}</view>
+		</view>
+	</view>
+</scroll-view>

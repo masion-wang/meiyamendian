@@ -1,0 +1,94 @@
+<scroll-view scroll-y="true" class="scrollView">
+	<!-- 用户所属类型（1.总部(平台)，2公司，3.大区 经理，4.小区 经理，5.股东 6.门店员工)-->
+	<!--历史累计收益=>员工-->
+	<view class="historycome" wx:if="{{admintype==6}}">
+		<view>历史累计收益</view>
+		<view>¥{{roomStaffAccount.cashAccounts}}</view>
+	</view>
+	<view class="historyrecord" bindtap="tomoneyrecord" wx:if="{{admintype==6}}">
+		<view>全部进出账明细</view>
+		<image src="{{webServerUrl}}/images/mine/myearnings/arrow.png" class="img"></image>
+	</view>
+	<!--提现分情况=>员工-->
+	<view class="four" wx:if="{{admintype==6}}">
+		<image src="{{webServerUrl}}/images/mine/myearnings/cashout.png" class="fourImg"></image>
+		<view class="content">
+			<view class="title">提现分总额</view>
+			<view class="sorceormoney">{{roomStaffAccount.withdrawFraction}}
+				<view style="font-size:28rpx;">分</view>
+			</view>
+			<view class="showandfunction">
+				<view class="sonof">
+					<view>累计使用</view>
+					<view>{{roomStaffAccount.useWithdrawFraction}}分</view>
+				</view>
+				<view class="sonof">
+					<view>历史累计</view>
+					<view>{{roomStaffAccount.totalWithdrawFraction}}分</view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<!--余额=>员工-->
+	<view class="four" wx:if="{{admintype==6}}">
+		<image src="{{webServerUrl}}/images/mine/myearnings/rest.png" class="fourImg"></image>
+		<view class="content">
+			<view class="title">余额账户金额</view>
+			<view class="sorceormoney">{{roomStaffAccount.baseBalance}}
+				<view style="font-size:28rpx;">元</view>
+			</view>
+			<view class="gotranfer" data-passmoney="{{roomStaffAccount.baseBalance}}" bindtap="totransfer" data-restmoney='{{roomStaffAccount.baseBalance}}'>去转账</view>
+			<view class="showandfunction2">
+				<view class="sonof">
+					<view>累计提现金额</view>
+					<view>{{roomStaffAccount.baseBalWithdrawalAmt}}元</view>
+				</view>
+				<view class="cashout" data-restmoney='{{roomStaffAccount.baseBalance}}' bindtap="tocashout">去提现</view>
+			</view>
+		</view>
+	</view>
+	<!--奖励金=>员工-->
+	<view class="four" wx:if="{{admintype==6}}">
+		<image src="{{webServerUrl}}/images/mine/myearnings/reward.png" class="fourImg"></image>
+		<view class="content">
+			<view class="title">奖励金账户金额</view>
+			<view class="sorceormoney">{{roomStaffAccount.awardBalance}}
+				<view style="font-size:28rpx;">元</view>
+			</view>
+			<view class="showandfunction">
+				<view class="sonof">
+					<view>累计提现金额</view>
+					<view>{{roomStaffAccount.awardBalWithdrawalAmt}}元</view>
+				</view>
+				<view class="cashout" bindtap="tocashout2" data-score="{{roomStaffAccount.withdrawFraction}}" data-restmoney='{{roomStaffAccount.awardBalance}}'>去提现</view>
+			</view>
+		</view>
+	</view>
+	<!---------------------------------------------------------------------------------------->
+	<!--历史累计收益=>股东-->
+	<view class="historycome" wx:if="{{admintype==5}}">
+		<view>历史累计收益</view>
+		<view>¥{{shareHolder.totalMoney}}</view>
+	</view>
+	<view class="historyrecord" bindtap="tomoneyrecord" wx:if="{{admintype==5}}">
+		<view>全部进出账明细</view>
+		<image src="{{webServerUrl}}/images/mine/myearnings/arrow.png" class="img"></image>
+	</view>
+	<!--股东-->
+	<view class="four2" wx:if="{{admintype==5}}">
+		<image src="{{webServerUrl}}/images/mine/myearnings/holdermoney.png" class="fourImg"></image>
+		<view class="content">
+			<view class="title">股东账户金额</view>
+			<view class="sorceormoney">{{shareHolder.balance}}
+				<view style="font-size:28rpx;">元</view>
+			</view>
+			<view class="showandfunction">
+				<view class="sonof">
+					<view>累计提现金额</view>
+					<view>{{shareHolder.withdrawBalance}}元</view>
+				</view>
+				<view class="cashout" data-restmoney="{{shareHolder.balance}}" bindtap="tocashout3">去提现</view>
+			</view>
+		</view>
+	</view>
+</scroll-view>

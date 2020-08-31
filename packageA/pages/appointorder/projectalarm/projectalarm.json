@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "项目提醒",
+  "usingComponents": {
+    "mp-dialog": "/components/dialog/dialog"
+  }
+}

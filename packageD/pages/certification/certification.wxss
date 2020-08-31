@@ -1,0 +1,162 @@
+page {
+  background-color: #f3f3f3;
+  height: 100%;
+}
+
+.testInfo {
+  background-color: white;
+  width: 90%;
+  margin: 0 auto;
+  /* display: inline-block; */
+  word-break: break-all;
+  margin-top: 15rpx;
+  padding: 20rpx;
+}
+
+.srcollView {
+  /* height: 100%; */
+  /* border: 1px solid black; */
+  padding: 20rpx;
+  padding-bottom: 1vh;
+  height: 100%;
+}
+
+scroll-view ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.radio {
+  text-align: left;
+  padding: 15rpx;
+}
+
+.sectionone {
+  /* border: 1px solid black; */
+  /* height: 100rpx; */
+  background-color: white;
+  border-radius: 5px;
+  width: 94%;
+}
+
+.inputfather {
+  /* border:1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 22rpx;
+  padding-bottom: 22rpx;
+}
+
+.secondtitle {
+  width: 90%;
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  word-wrap: break-word;
+  word-break: normal;
+}
+
+.input {
+  text-align: right;
+  margin-right: 20rpx;
+  font-size: 25rpx;
+  min-width: 50%
+}
+
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  direction: rtl;
+  color: #999;
+}
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  direction: rtl;
+  color: #999;
+}
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ but I'm not sure about working */
+  direction: rtl;
+  color: #999;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  direction: rtl;
+  color: #999;
+}
+
+.btnLine {
+  background-image: linear-gradient(90deg, rgba(237, 240, 244, 0.00) 1%, #eef1f5 5%, #eef1f5 95%, rgba(237, 240, 244, 0.00) 99%);
+  width: 100%;
+  height: 1px;
+}
+
+.title {
+  /* border: 1px solid black; */
+  border-radius: 5px;
+  width: 94%;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.sectionId {
+  /* border: 1px solid black; */
+  /* height: 100rpx; */
+  background-color: white;
+  border-radius: 5px;
+  width: 94%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f3f3f3;
+}
+
+.cardId {
+  width: 45%;
+  height: 200rpx;
+  /* border:1px solid black; */
+  border-radius: 5px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.idImg {
+  width: 80%;
+  height: 90%;
+}
+
+.button {
+  /* border:1px solid black; */
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  color: white;
+  width: 95%;
+  margin: 0 auto;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+  left: -20rpx;
+  background: -webkit-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -o-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -moz-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -mos-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+}

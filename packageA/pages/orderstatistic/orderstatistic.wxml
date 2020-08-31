@@ -1,0 +1,234 @@
+<mp-tabs class="tabs" tabs="{{tabs}}" activeTab="{{activeTab}}" tab-underline-color="white" tab-inactive-text-color="#bfbfbf" bindtabclick="onTabCLick" activeClass="tab-bar-title__selected">
+</mp-tabs>
+<view class="placeholder"></view>
+<!--配合当日统计接口 wx:if="{{istoday}}" -->
+<scroll-view scroll-y='true' class="scrollView" hidden="{{ishistory}}">
+	<!--六种-->
+	<view>
+		<view class="headerOneofOne">
+			<view class="itemtop">
+				<view class="bigDeepDark">{{data.odNums}}</view>
+				<view class="lightDarkColor">订单数</view>
+			</view>
+			<view class="itemtop">
+				<view class="bigDeepDark">{{data.designatedUserNums}}</view>
+				<view class="lightDarkColor">指定客数</view>
+			</view>
+			<view class="itemtop">
+				<view class="bigDeepDark">{{data.incomeAmt}}</view>
+				<view class="lightDarkColor">当日收益</view>
+			</view>
+		</view>
+		<view class="headerTwoofOne">
+			<view class="itemTwo">
+				<image src="{{webServerUrl}}/images/index/orderstatistic/share.png" class="IMG"></image>
+				<view class="small">分享<view>{{data.shareNums}}</view>人次
+				</view>
+			</view>
+			<view class="itemTwo">
+				<image src="{{webServerUrl}}/images/index/orderstatistic/appiont.png" class="IMG"></image>
+				<view class="small">预约<view>{{data.reservedNums}}</view>人次</view>
+			</view>
+			<view class="itemTwo">
+				<image src="{{webServerUrl}}/images/index/orderstatistic/horse.png" class="IMG"></image>
+				<view class="small">到店<view>{{data.acceptedNums}}</view>人次</view>
+			</view>
+			<view class="itemTwo">
+				<image src="{{webServerUrl}}/images/index/orderstatistic/haveCumstor.png" class="IMG"></image>
+				<view class="small">锁客<view>{{data.lockUserNums}}</view>人次</view>
+			</view>
+		</view>
+		<view class="sixtype">
+			<view class="sixtypetitle">引流拓客</view>
+			<view class="sonofsixtype">
+				<view class="one"></view>
+				<view>亲密付</view>
+			</view>
+			<!--wx:if="{{showE}}"-->
+			<view class="container1">
+				<ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ec1}}"></ec-canvas>
+			</view>
+			<view class="sonofsixtype">
+				<view class="two"></view>
+				<view>拼团</view>
+			</view>
+			<!--wx:if="{{showE}}"-->
+			<view class="container1">
+				<ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ec2}}"></ec-canvas>
+			</view>
+			<view class="sonofsixtype">
+				<view class="three"></view>
+				<view>砍价</view>
+			</view>
+			<!--wx:if="{{showE}}"-->
+			<view class="container1">
+				<ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ec3}}"></ec-canvas>
+			</view>
+			<view class="sonofsixtype">
+				<view class="four"></view>
+				<view>合伙人</view>
+			</view>
+			<!--wx:if="{{showE}}"-->
+			<view class="container1">
+				<ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ec4}}"></ec-canvas>
+			</view>
+			<view class="sonofsixtype">
+				<view class="five"></view>
+				<view>消费返还</view>
+			</view>
+			<!--wx:if="{{showE}}"-->
+			<view class="container1">
+				<ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ec5}}"></ec-canvas>
+			</view>
+			<view class="sonofsixtype">
+				<view class="six"></view>
+				<view>免费请客</view>
+			</view>
+			<!--wx:if="{{showE}}"-->
+			<view class="container1">
+				<ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ec6}}"></ec-canvas>
+			</view>
+		</view>
+	</view>
+	<!--指定率 - 日-->
+	<view class="orderpercent" wx:if="{{istoday}}">
+		<view class="orderpercenttitle" bindtap="openConfirm">
+			<view>资源价值</view>
+			<view class="orderpercenttitletimeselect" style="font-size:25rpx;">时间选择 : </view>
+			<view style=" font-size:25rpx;display:flex;align-items: center;">{{startTime}} {{endTime}}
+				<image src="{{webServerUrl}}/images/mine/kpi/open.png" class="openimg"></image>
+			</view>
+		</view>
+		<!--wx:if="{{showE}}"-->
+		<view class="container2">
+			<ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ec7}}" style="width:400rpx;height:400rpx"></ec-canvas>
+		</view>
+		<view class="ordersum">总接待人数 : {{receptionNumber}}
+			<view style="width:30rpx;"></view> 指定人数 : {{designatedNumber}}
+		</view>
+	</view>
+	<!--指定率 - 月-->
+	<view class="orderpercent" wx:if="{{ismonth}}">
+		<view class="orderpercenttitle" bindtap="openConfirm2">
+			<view>资源价值</view>
+			<view class="orderpercenttitletimeselect" style="font-size:25rpx;">时间选择 : </view>
+			<view style="font-size:25rpx;">{{startTime2}} {{endTime2}}
+				<image src="{{webServerUrl}}/images/mine/kpi/open.png" class="openimg"></image>
+			</view>
+		</view>
+		<!--wx:if="{{showE}}"-->
+		<view class="container2">
+			<ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ec7}}"></ec-canvas>
+		</view>
+		<view class="ordersum">总接待人数 : {{receptionNumber}}
+			<view style="width:30rpx;"></view> 指定人数 : {{designatedNumber}}
+		</view>
+	</view>
+	<view class="placeholder2"></view>
+</scroll-view>
+
+
+
+
+
+<!--配合历史统计接口 -->
+<scroll-view scroll-y='true' bindscrolltolower="getStaffOrderStatistic" class="scrollView" wx:if="{{ishistory}}">
+	<view class="history" wx:for="{{list}}">
+		<view class="title">{{item.year}}年{{item.month}}月</view>
+		<view class="headerOneofOne1">
+			<view class="itemtop">
+				<view class="bigDeepDark">{{item.odNums}}</view>
+				<view class="lightDarkColor">订单数</view>
+			</view>
+			<view class="itemtop">
+				<view class="bigDeepDark">{{item.designatedUserNums}}</view>
+				<view class="lightDarkColor">指定客数</view>
+			</view>
+			<view class="itemtop">
+				<view class="bigDeepDark">{{item.incomeAmt}}</view>
+				<view class="lightDarkColor">当日收益</view>
+			</view>
+		</view>
+		<view class="headerTwoofOne2">
+			<view class="itemTwo">
+				<image src="{{webServerUrl}}/images/index/orderstatistic/share.png" class="IMG"></image>
+				<view class="small">分享<view>{{item.shareNums}}</view>人次
+				</view>
+			</view>
+			<view class="itemTwo">
+				<image src="{{webServerUrl}}/images/index/orderstatistic/appiont.png" class="IMG"></image>
+				<view class="small">预约<view>{{item.reservedNums}}</view>人次</view>
+			</view>
+			<view class="itemTwo">
+				<image src="{{webServerUrl}}/images/index/orderstatistic/horse.png" class="IMG"></image>
+				<view class="small">到店<view>{{item.acceptedNums}}</view>人次</view>
+			</view>
+			<view class="itemTwo">
+				<image src="{{webServerUrl}}/images/index/orderstatistic/haveCumstor.png" class="IMG"></image>
+				<view class="small">锁客<view>{{item.lockUserNums}}</view>人次</view>
+			</view>
+		</view>
+	</view> 
+
+	<view class="wordTip" wx:if="{{isend}}">暂无更多数据</view>
+	<view class="placeholder2"></view>
+</scroll-view>
+
+
+<!--选择时间(当日的)-->
+<mp-dialog title="选择日期" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+	<view>开始日期</view>
+	<picker-view indicator-style="height:50px;" style="width: 100%; height: 270rpx;margin-top:15rpx;" value="{{value1}}" bindchange="bindChange1">
+		<picker-view-column>
+			<view wx:for="{{years}}" wx:key="{{years}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}年</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{months}}" wx:key="{{months}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}月</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{days}}" wx:key="{{days}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}日</view>
+		</picker-view-column>
+	</picker-view>
+	<view style="margin-top:50rpx;">结束日期</view>
+	<picker-view indicator-style="height:50px;" style="width: 100%; height: 270rpx;margin-top:15rpx;" value="{{value2}}" bindchange="bindChange2">
+		<picker-view-column>
+			<view wx:for="{{years}}" wx:key="{{years}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}年</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{months}}" wx:key="{{months}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}月</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{days}}" wx:key="{{days}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}日</view>
+		</picker-view-column>
+	</picker-view>
+</mp-dialog>
+<!--选择时间(当月的)-->
+<mp-dialog title="选择日期" show="{{dialogShow2}}" bindbuttontap="tapDialogButton2" buttons="{{buttons}}">
+	<view>开始日期</view>
+	<picker-view indicator-style="height:50px;" style="width: 100%; height: 270rpx;margin-top:15rpx;" value="{{value11}}" bindchange="bindChange11">
+		<picker-view-column>
+			<view wx:for="{{years2}}" wx:key="{{years2}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}年</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{months2}}" wx:key="{{months2}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}月</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{days2}}" wx:key="{{days2}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}日</view>
+		</picker-view-column>
+	</picker-view>
+	<view style="margin-top:50rpx;">结束日期</view>
+	<picker-view indicator-style="height:50px;" style="width: 100%; height: 270rpx;margin-top:15rpx;" value="{{value22}}" bindchange="bindChange22">
+		<picker-view-column>
+			<view wx:for="{{years2}}" wx:key="{{years2}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}年</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{months2}}" wx:key="{{months2}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}月</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{days2}}" wx:key="{{days2}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}日</view>
+		</picker-view-column>
+	</picker-view>
+</mp-dialog>
+
+<!--遮罩层-->
+<view class="cover" wx:if='{{iscover}}'></view>

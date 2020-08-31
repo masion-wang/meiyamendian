@@ -1,0 +1,30 @@
+<view class="orderProject">
+	<view class="order">
+		<view wx:if="{{acceptedOdType==0}}" class="title1">会员卡</view>
+		<view wx:elif="{{acceptedOdType==1 || acceptedOdType==2}}" class="title1">次卡</view>
+		<view wx:elif="{{acceptedOdType==3}}" class="title1">充值卡</view>
+		<view class="cardM">入会金额: ¥ <view style="margin-left:20rpx;">{{totalPrice}}</view>
+		</view>
+		<view class="chargeman">分配人: <view style="margin-left:20rpx;">{{cardholder}}</view>
+		</view>
+	</view>
+	<view class="title">
+		<view>发型师</view>
+		<view>助理</view>
+		<view>分配金额</view>
+	</view>
+	<scroll-view scroll-y="true" class="srcollView1">
+		<view class="project" wx:for="{{wrapperStaffs}}">
+			<view class="assint1">
+				<view class="name">{{item.mainRoomStaffBase.stageName}}</view>
+			</view>
+			<view class="assint2">
+				<view class="name">{{item.secondaryRoomStaffBase.stageName}}</view>
+			</view>
+			<view class="dealmoney">
+				{{item.alctAmt}}
+			</view>
+
+		</view>
+	</scroll-view>
+</view>

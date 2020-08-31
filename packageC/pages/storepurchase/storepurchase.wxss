@@ -1,0 +1,170 @@
+page {
+  background-color: #f3f3f3;
+  height: 100%;
+}
+
+.search {
+  /* border: 1px solid black; */
+  width: 100%;
+  padding-top: 8rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  height: 110rpx;
+  z-index: 999;
+  background-color: white;
+}
+
+.img {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+}
+
+.leftofsearch {
+  margin-left: 30rpx
+}
+
+.rightofsearch {
+  margin-right: 30rpx;
+  display: flex;
+  align-items: baseline;
+}
+
+.placeholder {
+  height: 120rpx;
+}
+
+
+
+scroll-view ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+
+/*进货列表*/
+.srcollView {
+  width: 93%;
+  /* border:1px solid black; */
+  margin: 0 auto;
+  padding-bottom: 13vh;
+  margin-bottom:5vh;
+}
+
+.good {
+  margin-top: 30rpx;
+  /* height: 300rpx; */
+  border-radius: 5px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+}
+
+.showgoodarea {
+  width: 40%;
+  height: 260rpx;
+  /* border: 1px solid black; */
+}
+
+.goodImg {
+  height: 250rpx;
+  width: 100%;
+}
+
+.goodcontent {
+  width: 60%;
+  height: 260rpx;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 10rpx;
+}
+
+.goodname {
+  margin-top: 35rpx;
+}
+
+.goodprice {
+  display: flex;
+  align-items: baseline;
+}
+
+.leftgoodprice {
+  color: #fdab27;
+}
+
+.rightgoodstore {
+  color: #8a8787;
+  font-size: 25rpx;
+  margin-left: 20rpx;
+}
+
+.selectnumber {
+  margin-top: 20rpx;
+  margin-right: 30rpx;
+  display: flex;
+  flex-direction: row-reverse;
+  margin-left: 140rpx;
+  align-items: center;
+  /* border:1px solid black; */
+}
+
+.shownum {
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+
+.circleDot {
+  width: 40rpx;
+  height: 40rpx;
+  /* margin-bottom:5rpx; */
+}
+
+.sum {
+  height: 100rpx;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+
+.selected {
+  margin-left: 20rpx;
+  font-size: 25rpx;
+  text-indent: 15rpx
+}
+
+.middleWord {
+  /* width:150rpx; */
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 10rpx;
+}
+
+.jiesuananniu {
+  width: 17%;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 30px;
+  background: #1E90FF;
+  text-align: center;
+  outline: none;
+  color: white;
+  font-size: 25rpx;
+  background: -webkit-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -o-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -moz-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -mos-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+}

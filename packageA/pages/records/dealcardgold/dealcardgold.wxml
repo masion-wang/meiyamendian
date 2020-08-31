@@ -1,0 +1,84 @@
+<view class="orderProject">
+	<view class="order">
+		<view wx:if="{{cardtype==0}}" class="title1">会员卡</view>
+		<view wx:elif="{{cardtype==1 || cardtype==2}}" class="title1">次卡</view>
+		<view wx:elif="{{cardtype==3}}" class="title1">充值卡</view>
+		<view class="cardM">入会金额: ¥ <view style="margin-left:20rpx;">{{totalPrice}}</view>
+		</view>
+		<view class="chargeman">分配人: <view style="margin-left:20rpx;">{{cardholder}}</view>
+		</view>
+	</view>
+	<view class="title">
+		<view>发型师</view>
+		<view>助理</view>
+		<view>分配金额</view>
+	</view>
+	<scroll-view scroll-y="true" class="srcollView1">
+		<view class="project" wx:for="{{wrapperStaffs}}">
+			<view class="assint1">
+				<view class="name">{{item.main.stageName}}</view>
+				<image src="{{webServerUrl}}/images/index/ordertest/add.png" class="add" bindtap="selectperson2" data-type="{{item.main.type}}" data-index="{{index}}"></image>
+			</view>
+			<view class="assint2">
+				<view class="name">{{item.secondary.stageName}}</view>
+				<image src="{{webServerUrl}}/images/index/ordertest/add.png" class="add" bindtap="selectperson" data-type="{{item.secondary.type}}" data-index="{{index}}"></image>
+			</view>
+			<view class="dealmoney">
+				<input type="number" value="{{item.money}}" class="money dark" data-index="{{index}}" bindinput="sub" bindfocus="focus"></input>
+			</view>
+			<image src="{{webServerUrl}}/images/index/cardgold/close.png" class="close" data-index="{{index}}" bindtap="deleteperson"></image>
+		</view>
+	</scroll-view>
+
+
+	<view class="button3" bindtap="addperson">
+		<image src="{{webServerUrl}}/images/index/cardgold/add.png" class="add2"></image> 添加发型师/助理
+	</view>
+
+	<view class="cancelOrsure">
+		<view class="button1" bindtap="cancel">取消</view>
+		<view class="button2" bindtap="confrim">确定</view>
+	</view>
+	<view class="tip">
+		<image src="{{webServerUrl}}/images/index/cardgold/tanhao.png" class="img"></image>分配金额总数不可超过用户入会金额
+	</view>
+</view>
+
+<!--添加修改发型师||助理-->
+<mp-dialog title="添加发型师助理" show="{{dialogShow1}}" bindbuttontap="tapDialogButton1" buttons="{{buttons}}">
+	<scroll-view scroll-y="true" class="srcollView2">
+		<!-- <view> -->
+			<radio-group class="radio-group" bindchange="radioChange1">
+				<block wx:for-items="{{selectInfoAll}}" wx:key="{{index}}}">
+					<radio class="radio" value="{{item.main.id}}">
+						<text style="min-width:100rpx;display:inline-block;">{{item.main.stageName}}</text>
+					</radio>
+				</block>
+			</radio-group>
+		<!-- </view> -->
+	</scroll-view>
+</mp-dialog>
+
+<!--删除修改发型师||助理-->
+<mp-dialog title="确定删除" show="{{dialogShow2}}" bindbuttontap="tapDialogButton2" buttons="{{buttons}}">
+</mp-dialog>
+
+<!--修改发型师||助理-->
+<mp-dialog title="修改发型师助理" show="{{dialogShow3}}" bindbuttontap="tapDialogButton3" buttons="{{buttons}}">
+	<scroll-view scroll-y="true" class="srcollView2">
+		<view>
+			<radio-group class="radio-group" bindchange="radioChange3">
+				<block wx:for-items="{{roomStaffBases}}" wx:key="{{index}}">
+					<!--checked="{{item.checked}}"-->
+					<radio class="radio" value="{{item.id}}" checked="{{checked}}">
+						<text style="min-width:100rpx;display:inline-block;">{{item.stageName}}</text>
+					</radio>
+				</block>
+			</radio-group>
+		</view>
+	</scroll-view>
+</mp-dialog>
+
+<!--取消||确定-->
+<mp-dialog title="确定提交" show="{{dialogShow4}}" bindbuttontap="tapDialogButton4" buttons="{{buttons}}">
+</mp-dialog>

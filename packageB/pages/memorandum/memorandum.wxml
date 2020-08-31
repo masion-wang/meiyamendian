@@ -1,0 +1,5 @@
+<view class="profileName">
+	<view class="titlename small">上次修改时间 : {{time==''?'暂无':time}}</view>
+	<textarea bindinput="getvalue" class="textInput enter" value="{{remark}}" />
+	</view>
+<view class="button" bindtap="editOrsave">保存</view>

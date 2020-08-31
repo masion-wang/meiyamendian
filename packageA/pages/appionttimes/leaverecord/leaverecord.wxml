@@ -1,0 +1,135 @@
+<!--弹窗和状态-->
+<mp-dialog title="选择状态" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+	<view>
+		<radio-group class="radio-group" bindchange="radioChange">
+			<radio class="radio" wx:for="{{items}}" wx:key="{{index}}" value="{{item.value}}" checked="{{item.checked}}">
+				<text>{{item.name}}</text>
+			</radio>
+		</radio-group>
+	</view>
+</mp-dialog>
+<view class="checkrecord">
+	<view class="checkrecordtitle">累计扣除数额</view>
+	<view class="checkrecordtitleContent">
+		<view class="fourofcheckrecordtitleContent">
+			<view class="price">
+				<view class="number">{{punish.deductBaseSalary}}</view>元
+			</view>
+			<view class="name">底薪金额</view>
+		</view>
+		<view class="fourofcheckrecordtitleContent">
+			<view class="price">
+				<view class="number">{{punish.deductMoney}}</view>元
+			</view>
+			<view class="name">罚款金额</view>
+		</view>
+		<view class="fourofcheckrecordtitleContent">
+			<view class="price">
+				<view class="number">{{punish.deductCreditIntegral}}</view>分
+			</view>
+			<view class="name">信用分数额</view>
+		</view>
+		<view class="fourofcheckrecordtitleContent">
+			<view class="price">
+				<view class="number">{{punish.deductCashIntegral}}</view>分
+			</view>
+			<view class="name">提现分数额</view>
+		</view>
+	</view>
+</view>
+<view class="checkrecorddetailtitle">请假记录</view>
+<!--请假记录-->
+<scroll-view scroll-y='true' class="checkrecorddetail" bindscrolltolower="loadMore">
+	<view class="record" wx:for="{{list}}">
+		<!--1.请假几天-->
+		<view class="title">
+			<view class="title1">
+				<view style="font-size:33rpx">{{item.roomStaffBaseDto.stageName}}</view>
+				<view style="font-size:23rpx">{{item.roomStaffBaseDto.roomBasicsData.roomName}} {{item.roomStaffBaseDto.roomBasicsData.roomName1}}</view>
+			</view>
+			<view class="title2" style="font-size:23rpx">{{item.createTime}}</view>
+		</view>
+		<view class="sonofrecord">
+			<view class="daterecord">
+				<view style="font-size:20rpx;margin-top:10rpx;" class="daterecord2">
+					<view style="width:50%" wx:for="{{item.firmLeaveDetails}}">
+						{{item.leaveDay}} {{item.leaveType==0?'上半天16:00前':item.leaveType==1?'下半天16:00后':'全天'}}
+					</view>
+				</view>
+			</view>
+			<view class="day">
+				<view class="daycheck">请假</view>{{item.leaveDayNumber}}天
+			</view>
+		</view>
+		<view class="sonofrecord">
+			<view class="content1">请假原因 : {{item.leaveExplain.length==0?'请假':item.leaveExplain}}</view>
+		</view>
+		<!--2.扣除条款-->
+		<view class="sonofrecord">
+			<view class="content2">
+				<image src="{{webServerUrl}}/images/index/appionttime/tanhao.png" class="img"></image>
+				<view class="fourofcontent2">
+					<view class="one">
+						<view class="four">底薪扣除 ：{{item.deductBaseSalary}}元</view>
+						<view class="four">信用分扣除 : {{item.deductCreditIntegral}}分</view>
+					</view>
+					<view class="two">
+						<view class="four">罚款 : {{item.deductMoney}}元</view>
+						<view class="four">提现分扣除 : {{item.deductGetCashIntegral}}分</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="sonofrecord">
+			<view class="father">
+				<view class="content3">
+					<!--店长审核-->
+					<!-- // 1.总部 2公司 3大区经理 4小区经理 5股东 6门店员工 bindtap="roomManagerCheckLeaveData" -->
+					<view data-id="{{item.id}}" data-roomcheckpermission="{{item.roomCheckPermission}}" data-state="{{item.roomCheckState}}" data-index="1" class="son3">
+						<image wx:if="{{item.roomCheckState==0}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/void.png"></image>
+						<image wx:if="{{item.roomCheckState==1}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/yes.png"></image>
+						<image wx:if="{{item.roomCheckState==2}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/no.png"></image>
+					</view>
+					<view class="son2"></view>
+					<!--小区审核 bindtap="smallAreaManagerCheckLeaveData"-->
+					<view data-id="{{item.id}}" data-smallareacheckpermission="{{item.smallAreaCheckPermission}}" data-state="{{item.smallAreaCheckState}}" data-index="2" class="son5">
+						<image wx:if="{{item.smallAreaCheckState==0}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/void.png"></image>
+						<image wx:if="{{item.smallAreaCheckState==1}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/yes.png"></image>
+						<image wx:if="{{item.smallAreaCheckState==2}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/no.png"></image>
+					</view>
+					<view class="son2"></view>
+					<!--大区审核 bindtap="bigAreaManagerCheck"-->
+					<view data-id="{{item.id}}" data-smallareacheckpermission="{{item.bigAreaCheckPermission}}" data-state="{{item.bigAreaCheckState}}" data-index="3" class="son4">
+						<image wx:if="{{item.bigAreaCheckState==0}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/void.png"></image>
+						<image wx:if="{{item.bigAreaCheckState==1}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/yes.png"></image>
+						<image wx:if="{{item.bigAreaCheckState==2}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/no.png"></image>
+					</view>
+					<view class="son2"></view>
+					<!--公司审核-->
+					<view data-id="{{item.id}}" class="son4">
+						<image wx:if="{{item.firmCheckState==0}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/void.png"></image>
+						<image wx:if="{{item.firmCheckState==1}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/yes.png"></image>
+						<image wx:if="{{item.firmCheckState==2}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/no.png"></image>
+					</view>
+				</view>
+				<view class="content4">
+					<view>门店审核</view>
+					<view>小区审核</view>
+					<view>大区审核</view>
+					<view>公司审核</view>
+				</view>
+			</view>
+		</view>
+		<!--显示条件 店长未审核 店长通过 小区未审核 店长小区通过 大区未审核-->
+		<!--把三个状态穿进去 根据状态判断调用哪个接口 三个接口(门店 小区 大区)-->
+		<view class="sonofrecord">
+			<!--两个按钮-->
+			<view class="buttons" wx:if="{{(item.roomCheckState==0 && item.sysUser.adminType==6 && item.firmCheckState==0&&isworker==false)|| (item.roomCheckState==1&&item.smallAreaCheckState==0 && item.sysUser.adminType==4&& item.firmCheckState==0&&isworker==false) || (item.roomCheckState==1&&item.smallAreaCheckState==1&&item.bigAreaCheckState==0&&item.sysUser.adminType==3&& item.firmCheckState==0&&isworker==false)}}">
+				<view bindtap="finebutton" class="finebutton" data-state="2" data-id="{{item.id}}" data-roomcheckstate="{{item.roomCheckState}}" data-smallareacheckstate="{{item.smallAreaCheckState}}" data-bigareacheckstate="{{item.bigAreaCheckState}}">驳回</view>
+				<view bindtap="sure" class="sure" data-state="1" data-id="{{item.id}}" data-roomcheckstate="{{item.roomCheckState}}" data-smallareacheckstate="{{item.smallAreaCheckState}}" data-bigareacheckstate="{{item.bigAreaCheckState}}">确认</view>
+			</view>
+		</view>
+	</view>
+	<view class="wordTip" wx:if="{{isend}}">暂无更多数据</view>
+</scroll-view>
+<view class="placeholder2"></view>

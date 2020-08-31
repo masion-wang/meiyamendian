@@ -1,0 +1,55 @@
+<scroll-view scroll-y="true" class="scrollView" bindscrolltolower="loadMore">
+	<!-- <view class="title">{{year}}年</view> -->
+	<block wx:for="{{list}}">
+		<view wx:if="{{item.remainNum>0}}" class="using">
+			<view class="time">{{item.firmNumCardPrchOdList.createTime}}</view>
+			<view class="project">
+				<view class="realproject">
+					<view class="up">
+						<view>{{item.firmNumberCard.numberName}}</view>
+						<view wx:if="{{item.useCstmCard}}" class="numtosta">次卡划会员卡</view>
+					</view>
+					<view class="down">发型师等级 : {{item.roomStaffBaseDto.roomStaffAccount.dutyData.dutyName}}</view>
+				</view>
+				<view class="sum">
+					<view class="up">{{item.totalNum}}</view>
+					<view class="down">总次数</view>
+				</view>
+				<view class="rest">
+					<view class="up">{{item.remainNum}}</view>
+					<view class="down">剩余次数</view>
+				</view>
+				<view class="set">
+					<view class="input" data-id="{{item.id}}" bindtap="gotoprojectalarm">去设置</view>
+					<view class="down">项目提醒/天</view>
+				</view>
+			</view>
+		</view>
+		<view wx:if="{{item.remainNum==0}}" class="used">
+			<image src="{{webServerUrl}}/images/index/appoint/done.png" class="done"></image>
+			<view class="time">{{item.firmNumCardPrchOdList.createTime}}</view>
+			<view class="project">
+				<view class="realproject">
+					<view class="up">
+						<view>{{item.firmNumberCard.numberName}}</view>
+						<view wx:if="{{item.useCstmCard}}" class="numtosta">次卡划会员卡</view>
+					</view>
+					<view class="down">发型师等级 : {{item.roomStaffBaseDto.roomStaffAccount.dutyData.dutyName}}</view>
+				</view>
+				<view class="sum">
+					<view class="up">{{item.totalNum}}</view>
+					<view class="down">总次数</view>
+				</view>
+				<view class="rest">
+					<view class="up">{{item.remainNum}}</view>
+					<view class="down">剩余次数</view>
+				</view>
+				<view class="set2">
+					<view class="input2">{{item.staffUserNumCardRemind.intervalDays}}</view>
+					<view class="down down2">项目提醒/天</view>
+				</view>
+			</view>
+		</view>
+	</block>
+	<view class="end" wx:if="{{isend}}">暂无更多</view>
+</scroll-view>

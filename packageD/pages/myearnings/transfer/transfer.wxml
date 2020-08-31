@@ -1,0 +1,45 @@
+<view class="transfer">
+	<view class="person">
+		<view class="title">请选择同事名称</view>
+		<view class="content">
+			<view class="fakeinput">
+				<view class="name">{{name}}</view>
+				<image src="{{webServerUrl}}/images/mine/transfer/add.png" class="add" bindtap="choose"></image>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+	</view>
+	<view class="money">
+		<view class="title">输入转入金额(元)</view>
+		<input type="number" value="{{money}}" class="input" bindinput="getmoney" bindfocus="clearZero"></input>
+		<view class="btnLine"></view>
+	</view>
+	<view class="tip">
+		<view class="tipword">文字说明</view>
+		<textarea maxlength='300' bindinput="getreason" auto-height="true" wx:if="{{ishide}}" value="{{reason}}" placeholder="请输入转账理由" class="reason"></textarea>
+	</view>
+	<view class="button" bindtap="transfermoney">点击发送验证码</view>
+</view>
+<mp-dialog title="选择同事" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+	<scroll-view scroll-y="true" style="height:20vh;">
+		<radio-group bindchange="radioChange">
+			<label wx:for="{{items}}" wx:key="{{item.id}}" class="flex">
+				<radio value="{{item.id}}" />
+				<view>{{item.stageName}}</view>
+			</label>
+		</radio-group>
+	</scroll-view>
+</mp-dialog>
+<mp-dialog title="输入验证码" show="{{dialogShow2}}" bindbuttontap="tapDialogButton2" buttons="{{buttons}}">
+	<view class="oldphone">
+		<view class="title">请输入验证码</view>
+		<view class="titletip">验证码发送手机{{phone}}</view>
+		<view class="inputcode1">
+			<image src="{{webServerUrl}}/images/product/safe.png" class="safe"></image>
+			<input type="number" value="{{code}}" class="inputcss" bindinput="getcode"></input>
+			<view wx:if="{{canTouch}}" class="codeTest" bindtap="getCode">{{seconds>0?seconds:'发送验证码'}}</view>
+			<view wx:elif="{{!canTouch}}" class="codeTest">{{seconds>0?seconds:'发送验证码'}}</view>
+		</view>
+		<view class="btnLine"></view>
+	</view>
+</mp-dialog>

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "处罚",
+  "usingComponents": {
+    "mp-dialog": "/components/dialog/dialog"
+  },
+  "disableScroll":true
+}

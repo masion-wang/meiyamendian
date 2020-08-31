@@ -1,0 +1,13 @@
+<!--pages/register/register.wxml-->
+<view>
+	<view class="imgBg">
+		<image src="{{roomtopimg}}" class="logo"></image>
+	</view>
+	<view class="title">{{name}}</view>
+	<view class="content-title">为了提供更优质的服务 需要获取以下信息：</view>
+	<view class="content">· 你的公开信息（昵称，头像等）</view>
+	<view class="btnBg">
+		<button open-type="getUserInfo" bindtap="geuuser" bindgetuserinfo="getUserInfoShouQuan" class="login_btn" form-type='default'>
+			确认</button>
+	</view>
+</view>

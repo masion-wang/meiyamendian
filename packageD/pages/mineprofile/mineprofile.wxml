@@ -1,0 +1,307 @@
+<!--可修改信息 员工6 -->
+<view class="personprofile" wx:if="{{admintype==6}}">
+	<!--头像-->
+	<view class="sonofpersonprofile">
+		<view class="title">头像</view>
+		<view bindtap="changeavatar">
+			<image src="{{images[0]}}" class="userimg"></image>
+		</view>
+		<view>
+			<image src="{{webServerUrl}}/images/mine/mineprofile/arrow.png" class="arrow"></image>
+		</view>
+	</view>
+	<view class="btnLine"></view>
+	<!--简历录入-->
+	<view class="sonofpersonprofile" bindtap="toresume">
+		<view class="title"> 简历录入</view>
+		<view class="right">
+			<view class="userimg32">
+				{{roomStaffBaseDto.resume&&roomStaffBaseDto.resume?'已填写':'可填写'}}
+			</view>
+			<view>
+				<image src="{{webServerUrl}}/images/mine/mineprofile/arrow.png" class="arrow"></image>
+			</view>
+		</view>
+	</view>
+	<!--修改账号-->
+	<view class="btnLine"></view>
+	<view class="sonofpersonprofile" data-oldphone="{{roomStaffBaseDto.phone}}" bindtap="tomodifyphonenumber">
+		<view class="title">登录账号</view>
+		<view class="phone">{{roomStaffBaseDto.phone}}</view>
+		<view class="right">
+			<view class="userimg33">
+				修改账号
+			</view>
+			<view>
+				<image src="{{webServerUrl}}/images/mine/mineprofile/arrow.png" class="arrow"></image>
+			</view>
+		</view>
+	</view>
+	<view class="btnLine"></view>
+	<!--认证-->
+	<view class="sonofpersonprofile" bindtap="tocertification">
+		<view class="title">认证</view>
+		<view class="right">
+			<view class="userimg32">
+				{{roomStaffBaseDto.certification&&roomStaffBaseDto.certification?'认证通过':'未认证'}}
+			</view>
+			<view>
+				<image src="{{webServerUrl}}/images/mine/mineprofile/arrow.png" class="arrow"></image>
+			</view>
+		</view>
+	</view>
+</view>
+<!--不可修改信息 员工6 -->
+<view class="personprofile" wx:if="{{admintype==6}}">
+	<view class="sonofpersonprofile">
+		<view class="title">昵称</view>
+		<view class="right">
+			<view class="userimg3">
+				{{roomStaffBaseDto.stageName}}
+			</view>
+
+		</view>
+	</view>
+	<view class="btnLine"></view>
+	<view class="sonofpersonprofile">
+		<view class="title">公司名称</view>
+		<view class="right">
+			<view class="userimg3">
+				{{roomStaffBaseDto.roomBasicsData.roomName}}-{{roomStaffBaseDto.roomBasicsData.roomName1}}
+			</view>
+
+		</view>
+	</view>
+	<view class="btnLine"></view>
+	<view class="sonofpersonprofile">
+		<view class="title">职务</view>
+		<view class="right">
+			<view class="userimg3">
+				{{roomStaffBaseDto.roomStaffAccount.dutyData.dutyName}}
+			</view>
+
+		</view>
+	</view>
+	<view class="btnLine"></view>
+	<view class="sonofpersonprofile">
+		<view class="title">级别</view>
+		<view class="right">
+			<view class="userimg3">
+				{{roomStaffBaseDto.roomStaffAccount.dutyRank.dutyName}}
+			</view>
+
+		</view>
+	</view>
+</view>
+
+<!--可修改信息 大区3 -->
+<view class="personprofile" wx:if="{{admintype==3}}">
+	<!--头像-->
+	<view class="sonofpersonprofile">
+		<view class="title">头像</view>
+		<view bindtap="changeavatar3">
+			<image src="{{images[0]}}" class="userimg"></image>
+		</view>
+		<view>
+			<image src="{{webServerUrl}}/images/mine/mineprofile/arrow.png" class="arrow"></image>
+		</view>
+	</view>
+	<view class="btnLine"></view>
+	<!--修改账号-->
+	<view class="btnLine"></view>
+	<view class="sonofpersonprofile" data-oldphone="{{bigAreaDto.managerPhone}}" bindtap="tomodifyphonenumber">
+		<view class="title">登录账号</view>
+		<view class="phone">{{bigAreaDto.managerPhone}}</view>
+		<view class="right">
+			<view class="userimg33">
+				修改账号
+			</view>
+			<view>
+				<image src="{{webServerUrl}}/images/mine/mineprofile/arrow.png" class="arrow"></image>
+			</view>
+		</view>
+	</view>
+	<view class="btnLine"></view>
+</view>
+<!--不可修改信息 大区3 -->
+<view class="personprofile" wx:if="{{admintype==3}}">
+	<view class="sonofpersonprofile">
+		<view class="title">昵称</view>
+		<view class="right">
+			<view class="userimg3">
+				{{bigAreaDto.stageName}}
+			</view>
+		</view>
+	</view>
+	<view class="btnLine"></view>
+	<view class="sonofpersonprofile">
+		<view class="title">公司名称</view>
+		<view class="right">
+			<view class="userimg3">
+				{{bigAreaDto.firmData.firmName}}
+			</view>
+
+		</view>
+	</view>
+	<view class="btnLine"></view>
+	<view class="sonofpersonprofile">
+		<view class="title">职务</view>
+		<view class="right">
+			<view class="userimg3">
+				大区经理
+			</view>
+		</view>
+	</view>
+	<view class="btnLine"></view>
+	<view class="sonofpersonprofile">
+		<view class="title">团队名称</view>
+		<view class="right">
+			<view class="userimg3">
+				{{bigAreaDto.bigAreaTeamName}}
+			</view>
+		</view>
+	</view>
+</view>
+<!--可修改信息 小区4 -->
+<view class="personprofile" wx:if="{{admintype==4}}">
+	<!--头像-->
+	<view class="sonofpersonprofile">
+		<view class="title">头像</view>
+		<view bindtap="changeavatar4">
+			<image src="{{images[0]}}" class="userimg"></image>
+		</view>
+		<view>
+			<image src="{{webServerUrl}}/images/mine/mineprofile/arrow.png" class="arrow"></image>
+		</view>
+	</view>
+	<view class="btnLine"></view>
+	<!--修改账号-->
+	<view class="btnLine"></view>
+	<view class="sonofpersonprofile" data-oldphone="{{smallAreaDto.managerPhone}}" bindtap="tomodifyphonenumber">
+		<view class="title">登录账号</view>
+		<view class="phone">{{smallAreaDto.managerPhone}}</view>
+		<view class="right">
+			<view class="userimg33">
+				修改账号
+			</view>
+			<view>
+				<image src="{{webServerUrl}}/images/mine/mineprofile/arrow.png" class="arrow"></image>
+			</view>
+		</view>
+	</view>
+	<view class="btnLine"></view>
+
+</view>
+<!--不可修改信息 小区4 -->
+<view class="personprofile" wx:if="{{admintype==4}}">
+	<view class="sonofpersonprofile">
+		<view class="title">昵称</view>
+		<view class="right">
+			<view class="userimg3">
+				{{smallAreaDto.stageName}}
+			</view>
+
+		</view>
+	</view>
+	<view class="btnLine"></view>
+	<view class="sonofpersonprofile">
+		<view class="title">公司名称</view>
+		<view class="right">
+			<view class="userimg3">
+				{{smallAreaDto.firmData.firmName}}
+			</view>
+
+		</view>
+	</view>
+	<view class="btnLine"></view>
+	<view class="sonofpersonprofile">
+		<view class="title">职务</view>
+		<view class="right">
+			<view class="userimg3">
+				小区经理
+			</view>
+
+		</view>
+	</view>
+	<view class="btnLine"></view>
+	<view class="sonofpersonprofile">
+		<view class="title">团队名称</view>
+		<view class="right">
+			<view class="userimg3">
+				{{smallAreaDto.smallAreaTeamName}}
+			</view>
+
+		</view>
+	</view>
+</view>
+<!--可修改信息 股东5 -->
+<view class="personprofile" wx:if="{{admintype==5}}">
+	<!--头像-->
+	<view class="sonofpersonprofile">
+		<view class="title">头像</view>
+		<view bindtap="changeavatar5">
+			<image src="{{images[0]}}" class="userimg"></image>
+		</view>
+		<view>
+			<image src="{{webServerUrl}}/images/mine/mineprofile/arrow.png" class="arrow"></image>
+		</view>
+	</view>
+	<view class="btnLine"></view>
+	<!--修改账号-->
+	<view class="btnLine"></view>
+	<view class="sonofpersonprofile" data-oldphone="{{shareHolder.phone}}" bindtap="tomodifyphonenumber">
+		<view class="title">登录账号</view>
+		<view class="phone">{{shareHolder.phone}}</view>
+		<view class="right">
+			<view class="userimg33">
+				修改账号
+			</view>
+			<view>
+				<image src="{{webServerUrl}}/images/mine/mineprofile/arrow.png" class="arrow"></image>
+			</view>
+		</view>
+	</view>
+	<view class="btnLine"></view>
+	<!--认证-->
+	<view class="sonofpersonprofile" bindtap="tocertification">
+		<view class="title">认证</view>
+		<view class="right">
+			<view class="userimg32">
+				{{certificationstatus==2?'认证通过':'未认证'}}
+			</view>
+			<view>
+				<image src="{{webServerUrl}}/images/mine/mineprofile/arrow.png" class="arrow"></image>
+			</view>
+		</view>
+	</view>
+</view>
+<!--不可修改信息 股东5 -->
+<view class="personprofile" wx:if="{{admintype==5}}">
+	<view class="btnLine"></view>
+	<view class="sonofpersonprofile">
+		<view class="title">公司名称</view>
+		<view class="right">
+			<view class="userimg3">
+				{{shareHolder.firmData.firmName}}
+			</view>
+
+		</view>
+	</view>
+	<view class="btnLine"></view>
+	<view class="sonofpersonprofile">
+		<view class="title">职务</view>
+		<view class="right">
+			<view class="userimg3">
+				股东
+			</view>
+
+		</view>
+	</view>
+	<view class="btnLine"></view>
+</view>
+
+
+<!--退出登录-->
+<view class="personprofile">
+	<view class="logout" bindtap="logout">退出登录</view>
+</view>

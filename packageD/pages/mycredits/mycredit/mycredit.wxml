@@ -1,0 +1,34 @@
+ <view class="container">
+ 	<view class="question">什么是信用分?</view>
+ 	<view class='progress_box'>
+ 		<canvas class="progress_bg" canvas-id="canvasProgressbg"></canvas>
+ 		<canvas class="progress_canvas" canvas-id="canvasProgress"></canvas>
+ 		<view class="progress_text">
+ 			<text class='progress_info'>当前信用分</text>
+ 			<text class='progress_info bignumber'>{{creditNumber}}</text>
+ 			<text class='progress_info'>{{word}}</text>
+ 		</view>
+ 	</view>
+ </view>
+ <view class="title">信用分评级</view>
+ <view></view>
+ <swiper class="swiper-box" indicator-dots="true" current-item-id="{{currentItemId}}" bindchange="swiperChange" previous-margin="50rpx" next-margin="60rpx">
+ 	<block wx:for="{{backClass}}" wx:key="index">
+ 		<swiper-item item-id="{{index}}" data-item-id="{{index}}" bindtap='clickChange' class='li'>
+ 			<view class='li'>
+ 				<!-- {{currentItemId == index ? "selected" : ""}}-->
+ 				<view class='li1 {{item}} {{currentItemId == index ? "selected" : ""}}'>
+ 					<image src="{{item.url}}" class="img"></image>
+ 					<view class="content">
+ 						<view wx:if="{{index==0}}" class="score level1score">{{item.score}}</view>
+ 						<view wx:elif="{{index==1}}" class="score level2score">{{item.score}}</view>
+ 						<view wx:elif="{{index==2}}" class="score level3score">{{item.score}}</view>
+ 						<view wx:elif="{{index==3}}" class="score level4score">{{item.score}}</view>
+ 						<view wx:elif="{{index==4}}" class="score level5score">{{item.score}}</view>
+ 						<view class="amerce">{{item.amerce}}{{index==0?firmLeaveSetDto.creditIntegralType1:index==1?firmLeaveSetDto.creditIntegralType2:index==2?firmLeaveSetDto.creditIntegralType3:index==3?firmLeaveSetDto.creditIntegralType4:firmLeaveSetDto.creditIntegralType5}}元</view>
+ 					</view>
+ 				</view>
+ 			</view>
+ 		</swiper-item>
+ 	</block>
+ </swiper>

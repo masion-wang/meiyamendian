@@ -1,0 +1,55 @@
+<view class="background">
+	<view class="header1">
+		<image src="{{webServerUrl}}/images/index/sign/rili.png" class="rili"></image>
+		<view class="font">本月已签到<view class="suc">{{signData.signInTimes}}</view>天, 迟到<view class="late">{{signData.lateTimes}}</view>天, 早退<view class="early">{{signData.leaveTimes}}</view>天</view>
+	</view>
+	<view class="header2">
+		<view class="four">
+			<view class="circle1"></view>
+			<view class="middle"></view>
+			<view class="circle2"></view>
+		</view>
+		<view class="four">
+			<view class="circle1"></view>
+			<view class="middle"></view>
+			<view class="circle2"></view>
+		</view>
+		<view class="four">
+			<view class="circle1"></view>
+			<view class="middle"></view>
+			<view class="circle2"></view>
+		</view>
+		<view class="four">
+			<view class="circle1"></view>
+			<view class="middle"></view>
+			<view class="circle2"></view>
+		</view>
+	</view>
+	<view class="bigbody">
+		<view class="body">
+			<calendar signEd='{{signEd}}' signOutEd='{{signOutEd}}' roomStaffSignRcdDtos='{{roomStaffSignRcdDtos}}' bindonGosign='onGosign' bindgoSignOut='onGoSignOut' />
+		</view>
+	</view>
+</view>
+<view class="cover" wx:if='{{iscover}}' bindtouchstart='funNone' bindtouchmove='funNone' bindtouchend="funNone" bindtap="funNone"></view>
+<view class="cover" wx:if='{{signModal||signOutModal||SignLateModal}}' bindtouchstart='funNone' bindtouchmove='funNone' bindtouchend="funNone" bindtap="funNone"></view>
+<view class="belate" wx:if='{{signModal}}'>
+	<view class="close" bindtap="close">×</view>
+	<view class="title">签到成功</view>
+	<view class="mess" style="color:red">早上好zz</view>
+	<image class="messIcon" src="{{webServerUrl}}/images/index/sign/success.png"></image>
+</view>
+
+<view class="belate" wx:if='{{signOutModal}}'>
+	<view class="close" bindtap="close">×</view>
+	<view class="title">签退成功</view>
+	<view class="mess">辛苦了，下班路上多多注意安全</view>
+	<image class="messIcon" src="{{webServerUrl}}/images/index/sign/success.png"></image>
+
+</view>
+<view class="belate" wx:if='{{SignLateModal}}'>
+	<view class="close" bindtap="close">×</view>
+	<view class="title">签到成功</view>
+	<view class="mess">早上好，今天也是充满干劲的一天</view>
+	<image class="messIcon" src="{{webServerUrl}}/images/index/sign/success.png"></image>
+</view>

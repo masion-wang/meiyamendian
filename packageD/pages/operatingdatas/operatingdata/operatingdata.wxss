@@ -1,0 +1,955 @@
+page {
+  background-color: #f3f3f3;
+  height: 100%;
+}
+
+.tab {
+  position: fixed;
+  top: 0;
+  height: 100rpx;
+  z-index: 999;
+  width: 100%;
+  font-weight: 600;
+}
+
+.weui-tabs-bar__title {
+  margin: 0px 10px;
+}
+
+.tab-bar-title__selected {
+  color: #f8a43b;
+  font-size: 40rpx;
+}
+
+.placeholder {
+  height: 100rpx;
+  background-color: #f3f3f3;
+}
+
+.placeholder2 {
+  height: 150rpx;
+}
+
+
+/*数据分析开始*/
+.isShowDataAnalyse {
+  background-color: #f3f3f3;
+}
+
+.DAsearch {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  margin: 0 auto;
+  height: 100rpx;
+  padding-top: 10rpx;
+  z-index: 5;
+  background-color: #f3f3f3;
+}
+
+.DAleftOfSearch {
+  min-width: 30%;
+  max-width: 70%;
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  margin-left: 20rpx;
+  height: 90rpx;
+  background-color: white;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.DAselecttime {
+  display: flex;
+  width: 28%;
+  align-items: center;
+  font-size: 28rpx;
+  height: 100%;
+}
+
+.DAicon {
+  width: 35rpx;
+  height: 35rpx;
+  margin-left: 15rpx;
+  padding-right: 20rpx;
+}
+
+/*五个单选*/
+.five {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-top: 15rpx;
+  padding-bottom: 0rpx;
+  position: fixed;
+  top: 200rpx;
+  background-color: #f3f3f3;
+  z-index: 9
+}
+
+.sonoffive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  height: 85rpx;
+}
+
+.img {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 8rpx;
+}
+
+.DAscrollView {
+  width: 94%;
+  margin: 0 auto;
+  padding-bottom: 100rpx;
+  font-size: 25rpx;
+}
+
+/*1业绩*/
+.DAOneOne {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 1rpx solid #ddd;
+  /* box-shadow: 1px 1px 1px rgba(20%, 20%, 40%, 0.5); */
+}
+
+.DAOneOneone {
+  text-align: center;
+  /* border-radius: 5px; */
+  background-color: white;
+  font-size: 25rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+.DAOneOnetwo {
+  width: 100%;
+  display: flex;
+  font-size: 25rpx;
+  background-color: white;
+  /* margin-top:10rpx; */
+}
+
+.DAOneOnetwoleft {
+  width: 50%;
+  padding-left: 10rpx;
+  /* border-left: 1rpx solid #ddd; */
+  border-top: 1rpx solid #ddd;
+  /* border-bottom: 1rpx solid #ddd; */
+  display: flex;
+  align-items: center;
+}
+
+.DAOneOnetwoleft2 {
+  width: 50%;
+  padding-left: 10rpx;
+  /* border-left: 1rpx solid #ddd; */
+  /* border-top: 1rpx solid #ddd; */
+  /* border-bottom: 1rpx solid #ddd; */
+  display: flex;
+  align-items: center;
+}
+
+.DAOneOnetworight {
+  width: 50%;
+  /* border-bottom: 1rpx solid #ddd; */
+}
+
+.DAOneOnetworightone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  border-top: 1rpx solid #ddd;
+  border-left: 1rpx solid #ddd;
+  /* border-right: 1rpx solid #ddd; */
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.leftDAOneOnetwo {
+  width: 50%;
+  text-align: left;
+  padding-left: 10rpx;
+  border-top: 1rpx solid #ddd;
+  /* padding-right: 5rpx; */
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  display: flex;
+  align-items: center;
+}
+
+.rightDAOneOnetwo {
+  width: 48.5%;
+  text-align: right;
+  padding-right: 10rpx;
+  border-top: 1rpx solid #ddd;
+  border-left: 1rpx solid #ddd;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.DAOneOnefour {
+  width: 100%;
+  font-size: 25rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10rpx;
+  padding-right: 20rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-top: 1rpx solid #ddd;
+  background-color: white;
+}
+
+.DAtwo {
+  text-align: center;
+  background-color: white;
+  border-bottom: 1rpx solid #ddd;
+  /* margin-top: 10rpx; */
+  font-size: 25rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.DAtwo3 {
+  text-align: center;
+  background-color: white;
+  /* border-bottom: 1rpx solid #ddd; */
+  /* margin-top: 10rpx; */
+  font-size: 25rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.DAtwo2 {
+  text-align: center;
+  background-color: white;
+  margin-top: 10rpx;
+  font-size: 25rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 5px;
+}
+
+.DAreadyfen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  font-size: 25rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  /* border: 1rpx solid #ddd; */
+  background-color: white;
+}
+
+.DAthree {
+  border: 1rpx solid #ddd;
+  border-radius: 5px;
+  margin-top: 10rpx;
+}
+
+/*5支出*/
+.DApayoutOne1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border: 1rpx solid #ddd;
+  border-radius: 5px;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+
+.DApayoutOne {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border: 1rpx solid #ddd;
+  border-radius: 5px;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  margin-top: 30rpx;
+}
+
+.DApayoutOneright {
+  display: flex;
+  align-items: center;
+}
+
+.DApayoutTwo {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  margin-top: 30rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 5px;
+  padding-top: 20rpx;
+  /* padding-bottom:20rpx; */
+}
+
+.DAtextareainputmoney {
+  min-height: 20vh;
+}
+
+
+
+.DApayoutTwomiddle {
+  display: flex;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.DApayoutTwomiddleleft {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.DApayoutTwomiddleright {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.DApayoutTwobottom {
+  display: flex;
+  align-items: center;
+}
+
+.DApayoutTwobottomleft {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1rpx solid #ddd;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.DApayoutTwobottomright {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.DApayoutThree {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  /* border-top: 1rpx solid #ddd; */
+  border-left: 1rpx solid #ddd;
+  border-bottom: 1rpx solid #ddd;
+  border-radius: 5px;
+  margin-top: 30rpx;
+}
+
+.DApayoutThreetitle {
+  display: flex;
+  align-items: center;
+}
+
+.DApayoutThreetitle>view {
+  width: 33%;
+  display: flex;
+  align-items: center;
+  padding-left: 10rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-top: 1rpx solid #ddd;
+  border-right: 1rpx solid #ddd;
+}
+
+.DApayoutThreetitleleft {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.DApayoutFour {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 5px;
+  background-color: white;
+  padding-bottom: 10rpx;
+}
+
+/*右边侧边栏*/
+.animation-element {
+  width: 75%;
+  height: 100%;
+  background-color: #ffffff;
+  z-index: 999;
+  border: 1px solid #f3f0f0;
+  position: absolute;
+  right: -572rpx;
+}
+
+.animation-button {
+  float: left;
+  font-size: 30rpx;
+  line-height: 2;
+  width: 200rpx;
+  border-radius: 30rpx;
+  margin: 20rpx 12rpx;
+  border: 1px solid #f3f0f0;
+  text-align: center;
+  color: white;
+  background: -webkit-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -o-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -moz-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -mos-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+}
+
+.isRuleShow {
+  display: block;
+}
+
+.isRuleHide {
+  display: none;
+}
+
+.float {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.DAtitle {
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+}
+
+.DAoneoftime {
+  margin-left: 40rpx;
+  margin-top: 20rpx;
+  width: 400rpx;
+  text-align: center;
+  height: 70rpx;
+  line-height: 70rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 5px;
+}
+
+.DApayoutFourtitle {
+  padding-left: 20rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.DApayoutFourmoney {
+  display: flex;
+  align-items: center;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  padding-left: 20rpx;
+  margin-bottom: 3vh;
+}
+
+.DArenminbi {
+  font-size: 40rpx;
+  padding-left: 10rpx;
+}
+
+.DApayoutFourmoney>input {
+  margin-left: 20vw;
+  font-size: 30rpx;
+  height: 4vh;
+  text-align: center;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.DAinputmony {
+  text-align: center;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.DApayoutFourmoney>textarea {
+  margin-top: 10rpx;
+  width: 94%;
+  min-height: 15vh;
+  background-color: #f3f3f3;
+  padding: 15rpx;
+  border-radius: 5px;
+}
+
+.threeToNineImage {
+  width: 94%;
+  /* height:500rpx; */
+  background-color: white;
+  /* border: 1px solid black; */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding-left: 30rpx;
+  padding-bottom: 30rpx;
+}
+
+.sonofimg {
+  width: 200rpx;
+  height: 200rpx;
+  margin-top: 25rpx;
+  margin-right: 20rpx;
+  /* margin-left:15rpx; */
+  background-color: #f3f3f3;
+  /* border: 1px solid black; */
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.DAimg {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.img2 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.delete {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.deleteimg {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+/*下拉框*/
+.sorting-list {
+  position: absolute;
+  top: 200rpx;
+  left: 5%;
+  font-size: 25rpx;
+  border-bottom: 1rpx solid ddd;
+  z-index: 999;
+  width: 90%;
+  background-color: white;
+  min-height: 75vh;
+  border-radius: 5px;
+}
+
+.chioce-list-hide {
+  display: none !important;
+  z-index: 999
+}
+
+.chioce-list-show {
+  animation: slide 500ms;
+  z-index: 999;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.DAsrcollView1 {
+  /* border: 1rpx solid black; */
+  width: 100%;
+  height: 68vh;
+  padding-bottom: 10rpx;
+}
+
+.DAbigArea {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+}
+
+.sonDAbigArea {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10rpx;
+
+}
+
+.DAleft {
+  display: flex;
+  align-items: center;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+}
+
+.open1 {
+  margin-right: 20rpx;
+}
+
+.close1 {
+  margin-right: 20rpx;
+}
+
+.DAsmallArea {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40rpx;
+}
+
+.DAwordersscroll {
+  width: 85%;
+  max-height: 15vh;
+  margin-left: 40rpx;
+  overflow: hidden;
+  margin-top: 10rpx;
+}
+
+.DAworders {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-height: 14vh;
+}
+
+.sonofDAworders {
+  width: 29%;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  margin-left: 15rpx;
+  margin-top: 5rpx;
+  border: 1rpx solid #ddd;
+  border-radius: 30px;
+}
+
+.red {
+  border: 1rpx solid rgb(250, 99, 99);
+  background-color: rgb(249, 204, 204);
+  color: white
+}
+
+.DAimg {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+
+.DAbtnLine {
+  background-image: linear-gradient(90deg, rgba(237, 240, 244, 0.00) 1%, #eef1f5 5%, #eef1f5 95%, rgba(237, 240, 244, 0.00) 99%);
+  width: 100%;
+  height: 1px;
+}
+
+.DAbuttonbottom {
+  /* position: fixed;
+  bottom: 11vh;
+  left:5%; */
+  margin-top: 5rpx;
+  display: flex;
+}
+
+.DAreset {
+  width: 336rpx;
+  /* border:1rpx solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80rpx;
+  font-size: 28rpx;
+  color: #666;
+  border-right: 1rpx solid #ddd;
+}
+
+.DAsure {
+  width: 336rpx;
+  /* border:1rpx solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80rpx;
+  font-size: 28rpx;
+  color: rgb(254, 170, 67);
+}
+
+.DAtwobutton {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 3vh;
+}
+
+.DAtwobuttonexpense {
+  padding: 15rpx;
+  border-radius: 30px;
+  border: 1rpx solid #f8a43b;
+  color: #f8a43b;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.DAtwobuttonexpensesure {
+  padding: 15rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  border-radius: 30px;
+  color: white;
+  background: -webkit-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -o-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -moz-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -mos-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+}
+
+/*数据分析结束*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*数据对比开始*/
+.isShowDataCompare {
+  background-color: white;
+}
+
+.DCshowStoreStatus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1rpx solid #ddd;
+  border-bottom: 1rpx solid #ddd;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  position: fixed;
+  top: 100rpx;
+  left: 0rpx;
+  width: 100%;
+  z-index: 999;
+  background-color: white;
+}
+
+.DCstore {
+  margin-top: 10rpx;
+  font-size: 30rpx;
+}
+
+.DCsum {
+  margin-top: 20rpx;
+  font-size: 25rpx;
+  color: #666;
+}
+
+.DCscrollView2 {
+  max-height: 65vh;
+  margin-top: 130rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+.DCSAW {
+  margin-top: 8rpx;
+}
+
+.weui-cell {
+  padding-top: 0rpx;
+  padding-bottom: 0rpx;
+}
+
+.DCfather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.DCsonoffather {
+  display: flex;
+  align-items: center;
+}
+
+.DCstoreInfo {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.DCnumber {
+  font-size: 25rpx;
+  color: #666;
+  margin-right: 20rpx;
+  margin-left: 100rpx;
+}
+
+.DCopenMove {
+  position: relative;
+  top: -60rpx;
+  left: 640rpx;
+  font-size: 30rpx;
+  padding: 10rpx;
+}
+
+.DCpersonInfoOpen {
+  /* height: 20vh; */
+  width: 90%;
+  margin-left: 10%;
+  margin-top: -70rpx;
+  padding-bottom: 10rpx;
+  padding-top: 10rpx;
+}
+
+.DCpersonInfoClose {
+  display: none;
+}
+
+.DCpersonInfoOutSide {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+  margin-bottom: 5rpx;
+}
+
+.DCsonpersonInfoOutSide {
+  width: 29%;
+  font-size: 20rpx;
+  margin: 5rpx;
+  background-color: rgb(240, 240, 240);
+  border: 1px solid rgb(219, 219, 219);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rpx;
+  align-items: center;
+}
+
+.DCsonpersonInfoOutSidered {
+  padding: 5rpx;
+  width: 29%;
+  font-size: 20rpx;
+  margin: 5rpx;
+  border: 1px solid rgb(189, 186, 186);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(244, 127, 127);
+  background-color: rgb(241, 215, 215);
+  border: 1rpx solid rgb(244, 127, 127);
+}
+
+.DCjiesuananniu {
+  width: 95%;
+  margin: 0 auto;
+  border-radius: 30px;
+  text-align: center;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  color: white;
+  background: -webkit-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -o-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -moz-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -mos-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+}
+
+.DCpage-body {
+  display: flex;
+  align-items: center;
+}
+
+.DCscrollView3 {
+  height: 200px;
+  width: 50%;
+}
+
+.weui-cell2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20rpx;
+}
+
+/*数据对比结束*/

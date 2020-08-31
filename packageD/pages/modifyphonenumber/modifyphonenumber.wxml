@@ -1,0 +1,87 @@
+<view class="changephonenumber">
+
+	<!--1.状态情况-->
+	<view class="status">
+		<!--1.账号验证-->
+		<view class="showImg">
+
+			<image src="{{webServerUrl}}/images/mine/mineprofile/ok.png" class="sonofshowimg"></image>
+		</view>
+		<view class="line"></view>
+
+		<!--3.绑定新账号-->
+		<view class="showImg">
+			<image wx:if="{{isvoid}}" src="{{webServerUrl}}/images/mine/mineprofile/void.png" class="sonofshowimg"></image>
+			<image wx:if="{{isoldphoneok || keep}}" src="{{webServerUrl}}/images/mine/mineprofile/ok.png" class="sonofshowimg"></image>
+
+		</view>
+		<view class="line"></view>
+		<!--4.修改成功||失败-->
+		<view class="showImg">
+			<image wx:if="{{!isnewphoneok}}" src="{{webServerUrl}}/images/mine/mineprofile/void.png" class="sonofshowimg"></image>
+			<image wx:if="{{isnewphoneok}}" src="{{webServerUrl}}/images/mine/mineprofile/ok.png" class="sonofshowimg"></image>
+
+		</view>
+	</view>
+	<!--2.状态提示语-->
+	<view class="statusword">
+		<view style="position:relative;left:26rpx;">账号验证</view>
+		<view>绑定新账号</view>
+		<view wx:if="{{!isnewphoneok}}" style="position:relative;right:26rpx;">修改成功</view>
+		<view wx:if="{{isnewphoneok || keep}}" style="position:relative;right:26rpx;">修改成功</view>
+	</view>
+
+
+
+	<!--操作-->
+	<view class="operating">
+		<!--旧手机号验证-->
+		<view wx:if="{{isvoid}}" class="oldphone">
+			<view class="title">请输入验证码</view>
+			<view class="titletip">验证码发送到{{oldphone}}</view>
+			<view class="inputcode1">
+				<image src="{{webServerUrl}}/images/product/safe.png" class="safe"></image>
+				<input type="number" class="inputcss" bindinput="getphoneCaptcha"></input>
+				<view wx:if="{{canTouch}}" class="codeTest" bindtap="getCode">{{seconds>0?seconds:'发送验证码'}}</view>
+				<view wx:elif="{{!canTouch}}" class="codeTest">{{seconds>0?seconds:'发送验证码'}}</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+
+		<!--新手机验证-->
+		<view wx:if="{{isoldphoneok}}" class="newphone">
+			<view class="title">绑定新账号</view>
+			<!--手机号-->
+			<view class="inputcode1">
+				<image src="{{webServerUrl}}/images/mine/mineprofile/phone.png" class="phone"></image>
+				<input type="number" bindinput="getnewphone" class="inputcss"></input>
+			</view>
+			<view class="btnLine"></view>
+			<!--验证码-->
+			<view class="inputcode1">
+				<image src="{{webServerUrl}}/images/mine/mineprofile/safe.png" class="safe"></image>
+				<input type="number" class="inputcss" bindinput="getnewphonecode"></input>
+				<view wx:if="{{canTouch2}}" class="codeTest" bindtap="getCode2">{{seconds2>0?seconds2:'发送验证码'}}</view>
+				<view wx:elif="{{!canTouch2}}" class="codeTest">{{seconds2>0?seconds2:'发送验证码'}}</view>
+			</view>
+			<view class="btnLine"></view>
+		</view>
+
+		<!--修改成功-->
+		<view wx:if="{{isnewphoneok}}" class="changeok">
+			<view class="title">修改成功!</view>
+		</view>
+	</view>
+
+
+
+
+
+
+
+
+	<!--验证旧的手机号-->
+	<view wx:if="{{isvoid}}" class="button" bindtap="validationModifyPhonePhoneCaptcha">确定</view>
+	<!--验证新的手机号-->
+	<view wx:if="{{isoldphoneok}}" class="button" bindtap="modifySelfPhone">确定</view>
+</view>

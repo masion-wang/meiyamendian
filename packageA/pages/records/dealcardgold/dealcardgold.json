@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "mp-dialog": "/components/dialog/dialog"
+  },
+  "navigationBarTitleText": "分配卡金",
+  "disableScroll": true
+}

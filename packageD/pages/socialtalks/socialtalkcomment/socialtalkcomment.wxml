@@ -1,0 +1,475 @@
+<scroll-view scroll-y='true' class="srollView" bindscrolltolower="loadMore">
+	<view class="newComment2"></view>
+	<view class="newComment2"></view>
+	<!--0 个人信息 匿名发布-->
+	<view class="hopeWords" wx:if="{{staffHeartVoicePostsDto.isAnonymous==0}}">
+		<view class="info">
+			<image src="{{webServerUrl}}/images/mine/socailtalk/niming.png" class="img"></image>
+			<view class="width70">
+				<view class="personInfo">
+					<view class="name">匿名者</view>
+				</view>
+				<view class="time light">{{staffHeartVoicePostsDto.createTime}}</view>
+			</view>
+		</view>
+		<view class="title">{{staffHeartVoicePostsDto.title}}</view>
+		<view class="content">{{staffHeartVoicePostsDto.detailCtn}}</view>
+		<view class="threeImg">
+			<image mode="aspectFill" wx:for="{{staffHeartVoicePostsDto.staffHeartVoicePostsImgs}}" bindtap="handleImagePreview" data-idx="{{index}}" src="{{item.img}}" class="width30 {{index>=1?'marginLeft':''}}"></image>
+		</view>
+		<view class="btnLine"></view>
+	</view>
+	<!--1 个人信息 正常发布 员工-->
+	<view class="hopeWords" wx:if="{{staffHeartVoicePostsDto.isAnonymous==1&&staffHeartVoicePostsDto.rsbId!=-1}}">
+		<view class="info">
+			<image src="{{staffHeartVoicePostsDto.roomStaffBaseDto.staffHeadImg?staffHeartVoicePostsDto.roomStaffBaseDto.staffHeadImg:webServerUrl+'/images/mine/socailtalk/niming.png'}}" class="img"></image>
+			<view class="width70">
+				<view class="personInfo">
+					<view class="name">{{staffHeartVoicePostsDto.roomStaffBaseDto.stageName?staffHeartVoicePostsDto.roomStaffBaseDto.stageName:'匿名者'}}</view>
+					<!-- <view class="light" wx:if="{{staffHeartVoicePostsDto.roomStaffBaseDto.roomBasicsData.roomName}}">{{staffHeartVoicePostsDto.roomStaffBaseDto.roomBasicsData.roomName}}</view>
+					<view class="light">{{staffHeartVoicePostsDto.roomStaffBaseDto.roomBasicsData.roomName1}}</view> -->
+					<view class="light">{{staffHeartVoicePostsDto.roomStaffBaseDto.roomStaffAccount.dutyData.dutyName}}</view>
+					<view class="light">{{staffHeartVoicePostsDto.roomStaffBaseDto.roomStaffAccount.dutyRank.dutyName}}</view>
+				</view>
+				<view class="personInfo">
+					<!-- <view class="name">{{staffHeartVoicePostsDto.roomStaffBaseDto.stageName?staffHeartVoicePostsDto.roomStaffBaseDto.stageName:'匿名者'}}</view> -->
+					<view class="light" wx:if="{{staffHeartVoicePostsDto.roomStaffBaseDto.roomBasicsData.roomName}}">{{staffHeartVoicePostsDto.roomStaffBaseDto.roomBasicsData.roomName}}</view>
+					<view class="light">{{staffHeartVoicePostsDto.roomStaffBaseDto.roomBasicsData.roomName1}}</view>
+					<!-- <view class="light">{{staffHeartVoicePostsDto.roomStaffBaseDto.roomStaffAccount.dutyData.dutyName}}</view>
+					<view class="light">{{staffHeartVoicePostsDto.roomStaffBaseDto.roomStaffAccount.dutyRank.dutyName}}</view> -->
+				</view>
+				<view class="time light">{{staffHeartVoicePostsDto.createTime}}</view>
+			</view>
+		</view>
+		<view class="title">{{staffHeartVoicePostsDto.title}}</view>
+		<view class="content">{{staffHeartVoicePostsDto.detailCtn}}</view>
+		<view class="threeImg">
+			<image mode="aspectFill" wx:for="{{staffHeartVoicePostsDto.staffHeartVoicePostsImgs}}" bindtap="handleImagePreview" data-idx="{{index}}" src="{{item.img}}" class="width30 {{index>=1?'marginLeft':''}}"></image>
+		</view>
+		<view class="btnLine"></view>
+	</view>
+	<!--2 个人信息 正常发布 大区-->
+	<view class="hopeWords" wx:if="{{staffHeartVoicePostsDto.isAnonymous==1&&staffHeartVoicePostsDto.bigAreaId!=-1}}">
+		<view class="info">
+			<image src="{{staffHeartVoicePostsDto.bigAreaDto.identityImg}}" class="img"></image>
+			<view class="width70">
+				<view class="personInfo">
+					<view class="name">{{staffHeartVoicePostsDto.bigAreaDto.stageName}}</view>
+					<view class="light">{{staffHeartVoicePostsDto.bigAreaDto.bigAreaName}}</view>
+					<view class="light">{{staffHeartVoicePostsDto.bigAreaDto.bigAreaTeamName}}</view>
+				</view>
+				<view class="time light">{{staffHeartVoicePostsDto.createTime}}</view>
+			</view>
+		</view>
+		<view class="title">{{staffHeartVoicePostsDto.title}}</view>
+		<view class="content">{{staffHeartVoicePostsDto.detailCtn}}</view>
+		<view class="threeImg">
+			<image mode="aspectFill" wx:for="{{staffHeartVoicePostsDto.staffHeartVoicePostsImgs}}" bindtap="handleImagePreview" data-idx="{{index}}" src="{{item.img}}" class="width30 {{index>=1?'marginLeft':''}}"></image>
+		</view>
+		<view class="btnLine"></view>
+	</view>
+	<!--3 个人信息 正常发布 小区-->
+	<view class="hopeWords" wx:if="{{staffHeartVoicePostsDto.isAnonymous==1&&staffHeartVoicePostsDto.smallAreaId!=-1}}">
+		<view class="info">
+			<image src="{{staffHeartVoicePostsDto.smallAreaDto.identityImg}}" class="img"></image>
+			<view class="width70">
+				<view class="personInfo">
+					<view class="name">{{staffHeartVoicePostsDto.smallAreaDto.stageName}}</view>
+					<view class="light">{{staffHeartVoicePostsDto.smallAreaDto.smallAreaName}}</view>
+					<view class="light">{{staffHeartVoicePostsDto.smallAreaDto.smallAreaTeamName}}</view>
+				</view>
+				<view class="time light">{{staffHeartVoicePostsDto.createTime}}</view>
+			</view>
+		</view>
+		<view class="title">{{staffHeartVoicePostsDto.title}}</view>
+		<view class="content">{{staffHeartVoicePostsDto.detailCtn}}</view>
+		<view class="threeImg">
+			<image mode="aspectFill" wx:for="{{staffHeartVoicePostsDto.staffHeartVoicePostsImgs}}" bindtap="handleImagePreview" data-idx="{{index}}" src="{{item.img}}" class="width30 {{index>=1?'marginLeft':''}}"></image>
+		</view>
+		<view class="btnLine"></view>
+	</view>
+	<!--4 个人信息 正常发布 股东-->
+	<view class="hopeWords" wx:if="{{staffHeartVoicePostsDto.isAnonymous==1&&staffHeartVoicePostsDto.shId!=-1}}">
+		<view class="info">
+			<image src="{{staffHeartVoicePostsDto.shareHolderDto.headImg}}" class="img"></image>
+			<view class="width70">
+				<view class="personInfo">
+					<view class="name">{{staffHeartVoicePostsDto.shareHolderDto.holderName}}</view>
+					<view class="light">股东</view>
+					<!-- <view class="light">{{staffHeartVoicePostsDto.smallAreaDto.smallAreaTeamName}}</view> -->
+				</view>
+				<view class="time light">{{staffHeartVoicePostsDto.createTime}}</view>
+			</view>
+		</view>
+		<view class="title">{{staffHeartVoicePostsDto.title}}</view>
+		<view class="content">{{staffHeartVoicePostsDto.detailCtn}}</view>
+		<view class="threeImg">
+			<image mode="aspectFill" wx:for="{{staffHeartVoicePostsDto.staffHeartVoicePostsImgs}}" bindtap="handleImagePreview" data-idx="{{index}}" src="{{item.img}}" class="width30 {{index>=1?'marginLeft':''}}"></image>
+		</view>
+		<view class="btnLine"></view>
+	</view>
+
+
+	<!--2.评价-->
+	<view class="newComment2"></view>
+	<view class="newComment">最新评论</view>
+	<block wx:for="{{list}}">
+		<!--0 匿名-->
+		<view class="sonofcomment" wx:if="{{item.isAnonymous==0}}">
+			<view class="avatar">
+				<image src="{{webServerUrl}}/images/mine/socailtalk/niming.png" class="avatarImg"></image>
+			</view>
+			<view class="avatarReative">
+				<view class="nameAndreply">
+					<!--用户的姓名-->
+					<view class="avatarname">
+						<view>匿名者</view>
+						<view class="avatartime2">{{item.cmtDate}}</view>
+					</view>
+					<view bindtap="toreply" class="replyImg" data-id="{{item.id}}" data-name="'匿名者'">
+						<image src="{{webServerUrl}}/images/index/mywork/comment2.png" class="huifu"></image> 回复
+					</view>
+				</view>
+				<!-- <view class="avatartime">{{item.cmtDate}}</view> -->
+				<view class="avatarContent">{{item.cmtCtn}}</view>
+				<view class="otherReply" wx:if="{{item.cmtSubs.length>0}}">
+					<block wx:for="{{item.cmtSubs}}" wx:for-item="val">
+						<!--子评论 匿名-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==0}}">
+							<view class="otheravator">
+								<image src="{{webServerUrl}}/images/mine/socailtalk/niming.png" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">匿名者</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论 不匿名 员工-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==1&&val.cmtRsbId!=-1}}">
+							<view class="otheravator">
+								<image src="{{val.replyBaseDto.staffHeadImg}}" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">{{val.replyBaseDto.stageName}}</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论 不匿名 大区-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==1&&val.bigAreaId!=-1}}">
+							<view class="otheravator">
+								<image src="{{val.bigAreaDto.identityImg}}" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">{{val.bigAreaDto.stageName}}</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论 不匿名 小区-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==1&&val.smallAreaId!=-1}}">
+							<view class="otheravator">
+								<image src="{{val.smallAreaDto.identityImg}}" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">{{val.smallAreaDto.stageName}}</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论 不匿名 股东-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==1&&val.shId!=-1}}">
+							<view class="otheravator">
+								<image src="{{val.shareHolderDto.headImg}}" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">{{val.shareHolderDto.holderName}}</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论内容-->
+						<view class="otherContent">{{val.cmtCtn}}</view>
+					</block>
+				</view>
+			</view>
+		</view>
+		<!--1 不匿名 员工 -->
+		<view class="sonofcomment" wx:if="{{item.isAnonymous==1 && item.cmtRsbId!=-1}}">
+			<view class="avatar">
+				<image src="{{item.cmtStaff.staffHeadImg}}" class="avatarImg"></image>
+			</view>
+			<view class="avatarReative">
+				<view class="nameAndreply">
+					<!--用户的姓名-->
+					<view class="avatarname">
+						<view>{{item.cmtStaff.stageName}} </view>
+						<view class="avatartime2">{{item.cmtDate}}</view>
+					</view>
+					<view bindtap="toreply" class="replyImg" data-id="{{item.id}}" data-name="{{item.cmtStaff.stageName}}">
+						<image src="{{webServerUrl}}/images/index/mywork/comment2.png" class="huifu"></image> 回复
+					</view>
+				</view>
+
+				<view class="avatarContent">{{item.cmtCtn}}</view>
+				<!--子评论 -->
+				<view class="otherReply" wx:if="{{item.cmtSubs.length>0}}">
+					<block wx:for="{{item.cmtSubs}}" wx:for-item="val">
+						<!--子评论 匿名-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==0}}">
+							<view class="otheravator">
+								<image src="{{webServerUrl}}/images/mine/socailtalk/niming.png" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">匿名者</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论 不匿名 员工-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==1&&val.cmtRsbId!=-1}}">
+							<view class="otheravator">
+								<image src="{{val.replyBaseDto.staffHeadImg}}" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">{{val.replyBaseDto.stageName}}</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论 不匿名 大区-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==1&&val.bigAreaId!=-1}}">
+							<view class="otheravator">
+								<image src="{{val.bigAreaDto.identityImg}}" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">{{val.bigAreaDto.stageName}}</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论 不匿名 小区-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==1&&val.smallAreaId!=-1}}">
+							<view class="otheravator">
+								<image src="{{val.smallAreaDto.identityImg}}" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">{{val.smallAreaDto.stageName}}</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论 不匿名 股东-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==1&&val.shId!=-1}}">
+							<view class="otheravator">
+								<image src="{{val.shareHolderDto.headImg}}" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">{{val.shareHolderDto.holderName}}</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论内容-->
+						<view class="otherContent">{{val.cmtCtn}}</view>
+					</block>
+				</view>
+			</view>
+		</view>
+		<!--2 不匿名 大区 -->
+		<view class="sonofcomment" wx:if="{{item.isAnonymous==1 && item.bigAreaId!=-1}}">
+			<view class="avatar">
+				<image src="{{item.bigAreaDto.identityImg}}" class="avatarImg"></image>
+			</view>
+			<view class="avatarReative">
+				<view class="nameAndreply">
+					<!--用户的姓名-->
+					<view class="avatarname">
+						<view>{{item.bigAreaDto.stageName}} </view>
+						<view class="avatartime2">{{item.cmtDate}}</view>
+					</view>
+					<view bindtap="toreply" class="replyImg" data-id="{{item.id}}" data-name="{{item.bigAreaDto.stageName}}">
+						<image src="{{webServerUrl}}/images/index/mywork/comment2.png" class="huifu"></image> 回复
+					</view>
+				</view>
+				<!-- <view class="avatartime">{{item.cmtDate}}</view> -->
+				<view class="avatarContent">{{item.cmtCtn}}</view>
+				<!--子评论 -->
+				<view class="otherReply" wx:if="{{item.cmtSubs.length>0}}">
+					<block wx:for="{{item.cmtSubs}}" wx:for-item="val">
+						<!--子评论 匿名-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==0}}">
+							<view class="otheravator">
+								<image src="{{webServerUrl}}/images/mine/socailtalk/niming.png" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">匿名者</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论 不匿名 员工-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==1&&val.cmtRsbId!=-1}}">
+							<view class="otheravator">
+								<image src="{{val.replyBaseDto.staffHeadImg}}" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">{{val.replyBaseDto.stageName}}</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论 不匿名 大区-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==1&&val.bigAreaId!=-1}}">
+							<view class="otheravator">
+								<image src="{{val.bigAreaDto.identityImg}}" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">{{val.bigAreaDto.stageName}}</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论 不匿名 小区-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==1&&val.smallAreaId!=-1}}">
+							<view class="otheravator">
+								<image src="{{val.smallAreaDto.identityImg}}" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">{{val.smallAreaDto.stageName}}</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论 不匿名 股东-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==1&&val.shId!=-1}}">
+							<view class="otheravator">
+								<image src="{{val.shareHolderDto.headImg}}" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">{{val.shareHolderDto.holderName}}</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论内容-->
+						<view class="otherContent">{{val.cmtCtn}}</view>
+					</block>
+				</view>
+			</view>
+		</view>
+		<!--3 不匿名 小区 -->
+		<view class="sonofcomment" wx:if="{{item.isAnonymous==1 && item.smallAreaId!=-1}}">
+			<view class="avatar">
+				<image src="{{item.smallAreaDto.identityImg}}" class="avatarImg"></image>
+			</view>
+			<view class="avatarReative">
+				<view class="nameAndreply">
+					<!--用户的姓名-->
+					<view class="avatarname">
+						<view>{{item.smallAreaDto.stageName}} </view>
+						<view class="avatartime2">{{item.cmtDate}}</view>
+					</view>
+					<view bindtap="toreply" class="replyImg" data-id="{{item.id}}" data-name="{{item.smallAreaDto.stageName}}">
+						<image src="{{webServerUrl}}/images/index/mywork/comment2.png" class="huifu"></image> 回复
+					</view>
+				</view>
+				<!-- <view class="avatartime">{{item.cmtDate}}</view> -->
+				<view class="avatarContent">{{item.cmtCtn}}</view>
+				<!--子评论 -->
+				<view class="otherReply" wx:if="{{item.cmtSubs.length>0}}">
+					<block wx:for="{{item.cmtSubs}}" wx:for-item="val">
+						<!--子评论 匿名-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==0}}">
+							<view class="otheravator">
+								<image src="{{webServerUrl}}/images/mine/socailtalk/niming.png" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">匿名者</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论 不匿名 员工-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==1&&val.cmtRsbId!=-1}}">
+							<view class="otheravator">
+								<image src="{{val.replyBaseDto.staffHeadImg}}" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">{{val.replyBaseDto.stageName}}</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论 不匿名 大区-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==1&&val.bigAreaId!=-1}}">
+							<view class="otheravator">
+								<image src="{{val.bigAreaDto.identityImg}}" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">{{val.bigAreaDto.stageName}}</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论 不匿名 小区-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==1&&val.smallAreaId!=-1}}">
+							<view class="otheravator">
+								<image src="{{val.smallAreaDto.identityImg}}" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">{{val.smallAreaDto.stageName}}</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论 不匿名 股东-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==1&&val.shId!=-1}}">
+							<view class="otheravator">
+								<image src="{{val.shareHolderDto.headImg}}" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">{{val.shareHolderDto.holderName}}</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论内容-->
+						<view class="otherContent">{{val.cmtCtn}}</view>
+					</block>
+				</view>
+			</view>
+		</view>
+		<!--4 不匿名 股东 -->
+		<view class="sonofcomment" wx:if="{{item.isAnonymous==1 && item.shId!=-1}}">
+			<view class="avatar">
+				<image src="{{item.shareHolderDto.headImg}}" class="avatarImg"></image>
+			</view>
+			<view class="avatarReative">
+				<view class="nameAndreply">
+					<!--用户的姓名-->
+					<view class="avatarname">
+						<view>{{item.shareHolderDto.holderName}} </view>
+						<view class="avatartime2">{{item.cmtDate}}</view>
+					</view>
+					<view bindtap="toreply" class="replyImg" data-id="{{item.id}}" data-name="{{item.smallAreaDto.stageName}}">
+						<image src="{{webServerUrl}}/images/index/mywork/comment2.png" class="huifu"></image> 回复
+					</view>
+				</view>
+				<!-- <view class="avatartime">{{item.cmtDate}}</view> -->
+				<view class="avatarContent">{{item.cmtCtn}}</view>
+				<!--子评论 -->
+				<view class="otherReply" wx:if="{{item.cmtSubs.length>0}}">
+					<block wx:for="{{item.cmtSubs}}" wx:for-item="val">
+						<!--子评论 匿名-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==0}}">
+							<view class="otheravator">
+								<image src="{{webServerUrl}}/images/mine/socailtalk/niming.png" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">匿名者</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论 不匿名 员工-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==1&&val.cmtRsbId!=-1}}">
+							<view class="otheravator">
+								<image src="{{val.replyBaseDto.staffHeadImg}}" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">{{val.replyBaseDto.stageName}}</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论 不匿名 大区-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==1&&val.bigAreaId!=-1}}">
+							<view class="otheravator">
+								<image src="{{val.bigAreaDto.identityImg}}" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">{{val.bigAreaDto.stageName}}</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论 不匿名 小区-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==1&&val.smallAreaId!=-1}}">
+							<view class="otheravator">
+								<image src="{{val.smallAreaDto.identityImg}}" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">{{val.smallAreaDto.stageName}}</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论 不匿名 股东-->
+						<view class="otherInfo" wx:if="{{val.isAnonymous==1&&val.shId!=-1}}">
+							<view class="otheravator">
+								<image src="{{val.shareHolderDto.headImg}}" class="otherImg"></image>
+							</view>
+							<view class="otheravatorname">{{val.shareHolderDto.holderName}}</view>
+							<view class="otheravatortime">{{val.cmtDate}}</view>
+						</view>
+						<!--子评论内容-->
+						<view class="otherContent">{{val.cmtCtn}}</view>
+					</block>
+				</view>
+			</view>
+		</view>
+	</block>
+	<view class="wordTip" wx:if="{{isend}}">暂无更多数据</view>
+</scroll-view>
+
+
+
+<!--评论 || 回复 输出页面-->
+<form bindsubmit="submitForm" report-submit="true">
+	<view class="release {{isreply?'release2':''}}">
+		<!-- 提示内容 -->
+		<view class="replyinfo1">
+			<text wx:if="{{isreply}}" class="text">回复:{{replyname}}</text>
+			<label class="radio">
+				<radio bindtap="selectednonename" checked="{{isanony}}" class="sonradio" />
+				<view>匿名发送</view>
+			</label>
+			<button wx:if="{{isreply}}" class="cancel" bindtap="cancleReply">取消回复</button>
+		</view>
+		<!-- 回复||评论 内容-->
+		<view class="replyinfo2">
+			<textarea class="textarea2" maxlength='300' disable-default-padding="true" value="{{comment}}" placeholder-class="input_null" fixed="true" show-confirm-bar="false" cursor-spacing="15" auto-height="true" placeholder="{{isreply?'请回复':'请评论'}}" name="comment"></textarea>
+			<button form-type="submit" class="submit">发送</button>
+		</view>
+	</view>
+</form>

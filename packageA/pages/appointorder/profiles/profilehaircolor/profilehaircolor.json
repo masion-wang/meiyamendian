@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "关于染发",
+  "usingComponents": {
+    "mp-dialog": "/components/dialog/dialog"
+  }
+}

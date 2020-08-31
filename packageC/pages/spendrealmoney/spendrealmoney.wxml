@@ -1,0 +1,53 @@
+<scroll-view scroll-y="true" class="srcollView">
+	<!--地址-->
+	<view class="address">
+		<view class="title">收货地址</view>
+		<view class="nameandphone">
+			<view class="name">店长a</view>
+			<view class="phone">13556393234</view>
+		</view>
+		<view class="addresscontent">北京市xxxxxxxxxxxxx13号</view>
+	</view>
+	<!--产品明细-->
+	<view class="selectgoods">
+		<view class="title">产品明细</view>
+		<view class="btnLine"></view>
+		<view class="content">
+			<view class="good" wx:for="{{selectgoods}}">
+				<image src="{{item.image}}" class="img"></image>
+				<view class="goodcontent">
+					<view class="goodtitle">{{item.name}}</view>
+					<view class="numandprice">
+						<view>x{{item.num}}</view>
+						<view>¥{{item.price}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="btnLine"></view>
+		<view class="sum">
+			<view class="money">¥{{totalprice}}</view>
+			<view class="total">共{{number}}件</view>
+			<view class="now">{{sort}}样产品</view>
+		</view>
+	</view>
+</scroll-view>
+<view class="sum2" style="position:fixed;bottom:0;width:750rpx;">
+	<view class="middleWord">
+		<view style="margin-left:25rpx">合计 : </view>
+		<view style="color:#f55e04;font-size:40rpx;margin-left:15rpx">¥{{totalprice}}</view>
+	</view>
+	<view class="jiesuananniu" bindtap="suremoneyagain">确认进货</view>
+</view>
+
+<mp-dialog title="请输入验证码" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+	<scroll-view scroll-y="true" class="srcollView2">
+		<view class="noticecode">验证码已经至13529482948</view>
+		<view class="inputcode">
+			<image src="{{webServerUrl}}/images/product/safe.png" class="safe1 {{canTouch?'':'safe2'}}"></image>
+			<input value="{{code}}" class="inputcss"></input>
+			<view wx:if="{{canTouch}}" class="codeTest" bindtap="getCode">{{seconds>0?seconds:'验证码'}}</view>
+ 			<view wx:elif="{{!canTouch}}" class="codeTest">{{seconds>0?seconds:'验证码'}}</view>
+		</view>
+	</scroll-view>
+</mp-dialog>

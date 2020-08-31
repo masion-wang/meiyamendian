@@ -1,0 +1,677 @@
+<view class="name">门店名称 : 仓岛美业-天通苑店</view>
+<view class="five">
+	<view class="sonoffive" wx:for="{{five}}" bindtap="tapone" data-index="{{index}}">
+		<image src="{{activeIndex==index?'http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png':'http://192.168.44.110:3080/images/mine/operatingdatamultmonths/void.png'}}" class="img"></image>
+		<view>{{item.name}}</view>
+	</view>
+</view>
+<view class="placeholder">1111</view>
+
+<!--业绩对应表格-->
+<scroll-view wx:if="{{activeIndex==0}}" scroll-y="true" class="scrollView">
+	<view class="table">
+		<!--标题-->
+		<view class="tableTitle">
+			<view class="titleOne">对比店铺/个人</view>
+			<view style="height:24rpx;opacity: 0;">1</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 现金总业绩
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 自动完成金额
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 现金劳动
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 办会员卡
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 办次卡
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 手工完成金额
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 现金劳动
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 办会员卡
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 办次卡
+			</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 用户跨店消费
+			</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 产品耗材
+			</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 支出产额
+			</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 利润
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 待分红金额
+			</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 劳动总业绩
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 现金业绩
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 划次卡业绩
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 划会员卡业绩
+			</view>
+		</view>
+		<!--内容-->
+		<scroll-view scroll-x='true' class="tableContent" style="height:{{swiperHeight+'px'}}">
+			<view class="sonofContent">
+				<view class="sonofContentStorePerson">2020-01-01</view>
+				<view class="haha">1</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+			</view>
+			<view class="sonofContent">
+				<view class="sonofContentStorePerson">2020-01-01</view>
+				<view class="haha">1</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+			</view>
+			<view class="sonofContent">
+				<view class="sonofContentStorePerson">2020-01-01</view>
+				<view class="haha">1</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+			</view>
+		</scroll-view>
+	</view>
+</scroll-view>
+
+<!--会员对应表格-->
+<scroll-view wx:if="{{activeIndex==1}}" scroll-y="true" class="scrollView">
+	<view class="table">
+		<!--标题-->
+		<view class="tableTitle">
+			<view class="titleOne">对比店铺/个人</view>
+			<view style="height:24rpx;opacity: 0;">1</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 入会总金额
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 入会总张数
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 入会剩余金额
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 会员卡
+			</view>
+			<view class="titleOneitem4">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img4"></image>张数
+			</view>
+			<view class="titleOneitem4">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img4"></image> 剩余金额
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 贵宾卡
+			</view>
+			<view class="titleOneitem4">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img4"></image>张数
+			</view>
+			<view class="titleOneitem4">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img4"></image> 剩余金额
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 银卡
+			</view>
+			<view class="titleOneitem4">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img4"></image>张数
+			</view>
+			<view class="titleOneitem4">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img4"></image> 剩余金额
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 金卡
+			</view>
+			<view class="titleOneitem4">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img4"></image>张数
+			</view>
+			<view class="titleOneitem4">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img4"></image> 剩余金额
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 钻石卡
+			</view>
+			<view class="titleOneitem4">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img4"></image>张数
+			</view>
+			<view class="titleOneitem4">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img4"></image> 剩余金额
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 至尊卡
+			</view>
+			<view class="titleOneitem4">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img4"></image>张数
+			</view>
+			<view class="titleOneitem4">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img4"></image> 剩余金额
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 退卡
+			</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 次卡
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 至尊卡
+			</view>
+			<view class="titleOneitem4">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img4"></image>张数
+			</view>
+			<view class="titleOneitem4">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img4"></image> 剩余金额
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 退卡
+			</view>
+
+
+
+
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 福利会员配送金额
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 张数
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 剩余金额
+			</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 福利次卡配送金额
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 张数
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 剩余金额
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 剩余次数
+			</view>
+
+		</view>
+		<!--内容-->
+		<scroll-view scroll-x='true' class="tableContent">
+			<view class="sonofContent">
+				<view class="sonofContentStorePerson">2020-01-01</view>
+				<view class="haha">1</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+
+			</view>
+			<view class="sonofContent">
+				<view class="sonofContentStorePerson">2020-01-01</view>
+				<view class="haha">1</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+
+			</view>
+			<view class="sonofContent">
+				<view class="sonofContentStorePerson">2020-01-01</view>
+				<view class="haha">1</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+
+			</view>
+		</scroll-view>
+	</view>
+</scroll-view>
+
+<!--客流对应表格-->
+<scroll-view wx:if="{{activeIndex==2}}" scroll-y="true" class="scrollView">
+	<view class="table">
+		<!--标题-->
+		<view class="tableTitle">
+			<view class="titleOne">对比店铺/个人</view>
+			<view style="height:24rpx;opacity: 0;">1</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 总客数
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 男客
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 新客
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 指定客
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 女客
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 新客
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 指定客
+			</view>
+		</view>
+		<!--内容-->
+		<scroll-view scroll-x='true' class="tableContent" style="height:{{swiperHeight+'px'}}">
+			<view class="sonofContent">
+				<view class="sonofContentStorePerson">2020-01-01</view>
+				<view class="haha">1</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+
+			</view>
+			<view class="sonofContent">
+				<view class="sonofContentStorePerson">2020-01-01</view>
+				<view class="haha">1</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+
+			</view>
+			<view class="sonofContent">
+				<view class="sonofContentStorePerson">2020-01-01</view>
+				<view class="haha">1</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+
+			</view>
+		</scroll-view>
+	</view>
+</scroll-view>
+
+<!--项目对应表格-->
+<scroll-view wx:if="{{activeIndex==3}}" scroll-y="true" class="scrollView">
+	<view class="table">
+		<!--标题-->
+		<view class="tableTitle">
+			<view class="titleOne">对比店铺/个人</view>
+			<view style="height:24rpx;opacity: 0;">1</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 烫发
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 项目人数
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 项目金额
+			</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 染发
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 项目人数
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 项目金额
+			</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 剪发
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 项目人数
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 项目金额
+			</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 护发
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 项目人数
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 项目金额
+			</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 头皮
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 项目人数
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 项目金额
+			</view>
+		</view>
+		<!--内容-->
+		<scroll-view scroll-x='true' class="tableContent" style="height:{{swiperHeight+'px'}}">
+			<view class="sonofContent">
+				<view class="sonofContentStorePerson">2020-01-01</view>
+				<view class="haha">1</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+			</view>
+			<view class="sonofContent">
+				<view class="sonofContentStorePerson">2020-01-01</view>
+				<view class="haha">1</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+			</view>
+			<view class="sonofContent">
+				<view class="sonofContentStorePerson">2020-01-01</view>
+				<view class="haha">1</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+			</view>
+		</scroll-view>
+	</view>
+</scroll-view>
+
+<!--支出对应表格-->
+<scroll-view wx:if="{{activeIndex==4}}" scroll-y="true" class="scrollView">
+	<view class="table">
+		<!--标题-->
+		<view class="tableTitle">
+			<view class="titleOne">对比店铺/个人</view>
+			<view style="height:24rpx;opacity: 0;">1</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 资薪支出
+			</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 固定支出
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 房租
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 装修折扣
+			</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 平台服务费
+			</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 退款
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 会员卡
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 张数
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 次卡
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 张数
+			</view>
+			<view class="titleOneitem2">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/twolevel.png" class="img2"></image> 项目订单
+			</view>
+			<view class="titleOneitem3">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/threelevel.png" class="img3"></image> 笔数
+			</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 用户跨店消费(出)
+			</view>
+			<view class="titleOneitem1">
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatasinglemonth/onelevel.png" class="img"></image> 报销金额
+			</view>
+		</view>
+		<!--内容-->
+		<scroll-view scroll-x='true' class="tableContent" style="height:{{swiperHeight+'px'}}">
+			<view class="sonofContent">
+				<view class="sonofContentStorePerson">2020-01-01</view>
+				<view class="haha">1</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+			</view>
+			<view class="sonofContent">
+				<view class="sonofContentStorePerson">2020-01-01</view>
+				<view class="haha">1</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+			</view>
+			<view class="sonofContent">
+				<view class="sonofContentStorePerson">2020-01-01</view>
+				<view class="haha">1</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+				<view class="sonofContentStorePersonitem">1111111</view>
+			</view>
+		</scroll-view>
+	</view>
+</scroll-view>

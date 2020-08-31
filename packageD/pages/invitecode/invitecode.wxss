@@ -1,0 +1,45 @@
+.img{
+  width:100vw;
+  height:100vh;
+  position: relative;
+}
+.codetitle{
+  z-index: 999;
+  width:340rpx;
+  position: absolute;
+  font-size: 35rpx;
+  /* border:1px solid black; */
+  color:rgb(82, 80, 80);
+  background-color: white;
+  top:25vh;
+  left:28vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.code{
+  color:#d7a649;
+  z-index: 999;
+  letter-spacing:5rpx;
+  width:300rpx;
+  position: absolute;
+  font-size: 60rpx;
+  /* border:1px solid black; */
+  top:41.5vh;
+  left:30vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.codetip{
+  z-index: 999;
+  width:300rpx;
+  position: absolute;
+  font-size: 25rpx;
+  /* border:1px solid black; */
+  top:62vh;
+  left:30vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

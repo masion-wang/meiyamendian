@@ -1,0 +1,42 @@
+<!--搜索-->
+<view class="search">
+	<view class="leftofsearch">可用店流水 ¥{{storemoney}}</view>
+	<view class="rightofsearch" bindtap="topurchaserecord">
+		<image src="{{webServerUrl}}/images/product/storeflowrecord.png" class="img"></image> 进货记录
+	</view>
+</view>
+<view class="placeholder"></view>
+<!--进货列表-->
+<scroll-view class="srcollView" scroll-y="true">
+	<view class="good" wx:for="{{goods}}" wx:key="{{index}}">
+		<view class="showgoodarea">
+			<image src="{{item.image}}" class="goodImg"></image>
+		</view>
+		<view class="goodcontent">
+			<view class="goodname">{{item.name}}</view>
+			<view class="goodprice">
+				<view class="leftgoodprice">¥{{item.price}}</view>
+				<view class="rightgoodstore">公司库存{{item.save}}件</view>
+			</view>
+			<view class="selectnumber">
+				<image src="{{webServerUrl}}/images/product/add.png" class="circleDot" bindtap="add" data-id="{{item.id}}" data-index="{{index}}"></image>
+				<view class="shownum">{{item.num}}</view>
+				<image src="{{webServerUrl}}/images/product/sub.png" class="circleDot" bindtap="sub" data-id="{{item.id}}" data-index="{{index}}" wx:if="{{item.num>0}}"></image>
+			</view>
+		</view>
+	</view>
+</scroll-view>
+<!--结算-->
+<view class="sum" style="position:fixed;bottom:0;width:750rpx;">
+	<view class="selected">已选{{selectNum}}样商品, 共{{total}}件</view>
+	<view class="middleWord">
+		<view style="margin-left:25rpx">合计 : </view>
+		<view style="color:#f55e04;font-size:40rpx;margin-left:15rpx">¥{{totalPrice}}</view>
+	</view>
+	<view class="jiesuananniu" bindtap="suremoney">进货</view>
+</view>
+
+<!--提醒钱不够-->
+<mp-dialog title="提示" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+	<view>门店流水金额不足</view>
+</mp-dialog>

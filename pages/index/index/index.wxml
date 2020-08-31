@@ -1,0 +1,124 @@
+<!--0.弹窗和状态-->
+<mp-dialog title="选择状态" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+	<view>
+		<radio-group class="radio-group" bindchange="radioChange">
+			<radio class="radio" wx:for="{{items}}" wx:key="{{index}}" value="{{item.value}}" checked="{{item.checked}}">
+				<text>{{item.name}}</text>
+			</radio>
+		</radio-group>
+	</view>
+</mp-dialog>
+
+<!--1.管家操作-->
+<view class="guanjiaoutside">
+	<view class="guanjia">
+		<view class="sonOfguanjia">
+			<image src="{{webServerUrl}}/images/index/sao.png" bindtap="saoyisao" class="four"></image>
+			<view class="fontSize">扫码验证</view>
+		</view>
+		<view class="sonOfguanjia">
+			<image src="{{webServerUrl}}/images/index/yanzheng.png" bindtap="toRecord" class="four"></image>
+			<view class="fontSize">验证记录</view>
+		</view>
+		<view class="sonOfguanjia">
+			<image src="{{webServerUrl}}/images/index/yuyue.png" bindtap="toRecordWithChat" class="four"></image>
+			<view class="fontSize">预约订单</view>
+		</view>
+		<view class="sonOfguanjia">
+			<image src="{{webServerUrl}}/images/index/qiandao.png" bindtap="toSign" class="four"></image>
+			<view class="fontSize">签到</view>
+		</view>
+	</view>
+</view>
+<view class="placeholder"></view>
+<!--2.首页-->
+<scroll-view scroll-with-animatio="true" class="scrollview" scroll-y="true" refresher-enabled='true' refresher-triggered="{{back}}" bindrefresherrefresh="upper">
+	<!--2.公告-->
+	<view class="xxx" bindtap="goNotice">
+		<view class="swiperfather">
+			<view class="fixed">
+				公告
+				<image src="{{webServerUrl}}/images/index/laba.png" class="laba"></image>
+			</view>
+			<swiper class="swiper" style="border:0" circular="true" vertical="true" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+				<swiper-item class="swiperI" style="border:0" wx:if="{{roomCarouselBoards.length>0}}" wx:for="{{roomCarouselBoards}}">
+					<view class="swiperItem">
+						<!--{{index+1}}-->
+						<view>{{item.title}}</view>
+					</view>
+				</swiper-item>
+				<swiper-item class="swiperI" wx:if="{{roomCarouselBoards.length==0}}">
+					<view class="swiperItem">
+						<view>暂无公告</view>
+					</view>
+				</swiper-item>
+			</swiper>
+		</view>
+		<image class="gonggaoback" src="{{webServerUrl}}/images/index/gonggaoback.png"></image>
+	</view>
+	<!--3.员工-->
+	<view class="sectionOne" wx:for="{{roomStaffLoopDto}}">
+		<view class="worker">
+			<view class="pic">
+				{{item.loopName}}
+			</view>
+			<scroll-view class='people' scroll-x="true">
+				<block wx:for="{{item.roomStaffLoopItemDtos}}" wx:key="index">
+					<view class="item {{index+1==item.roomStaffLoopItemDtos.length?'item20':''}}" data-status="{{item.status}}" data-id="{{item.id}}" data-sureid="{{item.rsbId}}" bindtap="openConfirm">
+						<!--头像-->
+						<image src="{{item.roomStaffBase.staffHeadImg}}" class="personImg"></image>
+						<!--员工艺名-->
+						<view style="font-size:33rpx;margin-top:5rpx;">{{item.roomStaffBase.stageName}}</view>
+						<!--小圆标-->
+						<view wx:if="{{item.status==0}}" class="personNumber freeN">{{index+1}}</view>
+						<view wx:elif="{{item.status==1 || item.status==2}}" class="personNumber haveCumstorN">{{index+1}}</view>
+						<view wx:elif="{{item.status==3}}" class="personNumber mistakeN">{{index+1}}</view>
+						<view wx:elif="{{item.status==4}}" class="personNumber offWorkN">{{index+1}}</view>
+						<view wx:elif="{{item.status==5}}" class="personNumber getdayoffN">{{index+1}}</view>
+						<!--状态  0 空闲中 1 有预约 2 过牌 3 被罚下牌4.下班时间 5.请假休息-->
+						<view wx:if="{{item.status==0}}" style="font-size:22rpx;color:#999999;display:flex;align-items:center; justify-content: center;">
+							<view class="free"></view>空闲
+						</view>
+						<view wx:elif="{{item.status==1 || item.status==2}}" style="font-size:22rpx;color:#999999;display:flex;align-items:center; justify-content: center;">
+							<view class="haveCumstor"> </view>有预约
+						</view>
+						<view wx:elif="{{item.status==3}}" style="font-size:22rpx;color:#999999;display:flex;align-items:center; justify-content: center;">
+							<view class="mistake"></view>被罚下牌
+						</view>
+						<view wx:elif="{{item.status==4}}" style="font-size:22rpx;color:#999999;display:flex;align-items:center; justify-content: center;">
+							<view class="offWork"></view>下班时间
+						</view>
+						<view wx:elif="{{item.status==5}}" style="font-size:22rpx;color:#999999;display:flex;align-items:center; justify-content: center;">
+							<view class="getdayoff"></view>请假休息
+						</view>
+					</view>
+				</block>
+			</scroll-view>
+		</view>
+	</view>
+	<!-- <view bindtap="goscroll">惯性滚动,回弹效果</view> -->
+	<!--4.6个列表页-->
+	
+	<view class="sixListShow">
+		<image class="listsBase" src="{{webServerUrl}}/images/index/statistics.png" bindtap="toOrderStatistic">
+			<view class="word">订单统计</view>
+		</image>
+		<image class="listsBase" src="{{webServerUrl}}/images/index/userList.png" bindtap="toUserList">
+			<view class="word">用户列表</view>
+		</image>
+		<image class="listsBase" src="{{webServerUrl}}/images/index/rank.png" bindtap="toRankList">
+			<view class="word">排行榜</view>
+		</image>
+		<image class="listsBase" src="{{webServerUrl}}/images/index/appiontment.png" bindtap="toAppiontTime">
+			<view class="word">预约时间</view>
+		</image>
+		<image class="listsBase" src="{{webServerUrl}}/images/index/checkComment.png" bindtap="toLookComment">
+			<view class="word">查看评价</view>
+		</image>
+		<image class="listsBase" src="{{webServerUrl}}/images/index/myWork.png" bindtap="toMyWork">
+			<view class="word">我的作品</view>
+		</image>
+	</view>
+	<!--4.7占位置的-->
+	<view class="placeholder2"></view>
+</scroll-view>

@@ -1,0 +1,168 @@
+page {
+  background-color: #f3f3f3;
+  height: 100%;
+}
+
+.tab {
+  position: fixed;
+  top: 0;
+  height: 100rpx;
+  z-index: 999;
+  width: 100%;
+  font-weight: 600;
+}
+
+.weui-tabs-bar__title {
+  margin: 0px 10px;
+}
+
+.tab-bar-title__selected {
+  color: #f8a43b;
+  font-size: 40rpx;
+}
+
+.placeholder {
+  height: 100rpx;
+}
+
+.srcollView {
+  width: 94%;
+  /* border: 1px solid black; */
+  margin: 0 auto;
+  margin-top: 24rpx;
+  /* padding-bottom: 2vh; */
+  height: 90vh;
+}
+
+scroll-view ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+
+.commentTitle {
+  color: #535050;
+  font-size: 25rpx;
+  padding-bottom: 10rpx;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25rpx;
+  /* border: 1px solid black; */
+  background-color: white;
+  padding: 30rpx;
+  border-radius: 5px;
+}
+
+.up {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  /* border: 1px solid black; */
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info {
+  /* border: 1px solid black; */
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: -10rpx;
+  top: 8rpx;
+}
+
+.leftofinfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name {
+  font-size: 35rpx;
+}
+
+.rightofinfo {
+  display: flex;
+  /* align-items: center; */
+  color: #b8b8b8;
+  flex-direction: column;
+}
+
+.projectTime {
+  font-size: 25rpx;
+  white-space: nowrap;
+}
+
+.projectName {
+  /* display: flex;
+  align-items: center; */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 25rpx;
+}
+
+.projectName>view {
+  /* margin-left: 15rpx; */
+  display: inline-block;
+}
+
+.down {
+  margin-top: 22rpx;
+  font-size: 28rpx;
+}
+
+.personImg {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+/*星星*/
+/* .star {
+  border: 1px solid black;
+} */
+.fivestar {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 5rpx;
+}
+
+/* 空星星图片 */
+.star-image {
+  width: 66rpx;
+  height: 66rpx;
+  margin: 10rpx;
+  src: "http://192.168.44.110:3080/images/index/lookcomment/zero.png";
+}
+
+/* 半个星 */
+.item {
+  position: absolute;
+  top: 0rpx;
+  width: 33rpx;
+  height: 66rpx;
+}
+
+.wordTip {
+  width: 100%;
+  /* border:1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999999;
+  font-size: 25rpx;
+  margin-top: 10rpx;
+}
+
+.placeholder2 {
+  height: 70rpx;
+}

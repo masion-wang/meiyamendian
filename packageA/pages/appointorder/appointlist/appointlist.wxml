@@ -1,0 +1,412 @@
+<scroll-view refresher-enabled='true' refresher-triggered="{{back}}" bindrefresherrefresh="upper" scroll-y='true'
+	class="scrollView" bindscrolltolower="loadMore">
+	<block wx:for="{{list}}">
+		<!--userProjectOrderDto-->
+		<view wx:if="{{item.odType==0}}" class="record">
+			<view class="customer"></view>
+			<view class="content">
+				<view class="up">
+					<view class="imageOutsider" bindtap="tocustomerdetail" data-idx="{{item.roomStaffUserListDto.id}}"
+						data-id="{{item.roomStaffUserListDto.user.id}}" data-sort="{{item.roomStaffUserListDto.sort}}">
+						<image src="{{item.userProjectOrderDto.user.avatar}}" class="leftOfUP"></image>
+					</view>
+					<view class="rightOfUP">
+						<!-- <view>颜如玉 - 135****4589</view>  bindtap="toprofile" -->
+						<view class="baoqian" data-uid='{{item.uid}}'>
+							<image data-uid='{{item.uid}}' bindtap="toprofile" src='{{webServerUrl}}/images/index/appoint/baoqian.png'
+								class="IMG"></image>
+							<view class="word" data-uid='{{item.uid}}' bindtap="toprofile">{{item.userProjectOrderDto.user.nick}}
+							</view>
+							<view class="word2" data-phone="{{item.userProjectOrderDto.user.phoneNum}}" bindtap="callPhone">
+								{{item.userProjectOrderDto.user.phoneNum}}</view>
+						</view>
+						<image src="{{webServerUrl}}/images/index/appoint/chat.png" class="chat"></image>
+					</view>
+				</view>
+				<view class="down" data-uid="{{item.uid}}" bindtap="tocustomerdetail"
+					data-idx="{{item.roomStaffUserListDto.id}}" data-id="{{item.roomStaffUserListDto.user.id}}"
+					data-sort="{{item.roomStaffUserListDto.sort}}">
+					<view class="leftOfDown">
+						<view class="item">
+							<view class="leftStyle">预约时间 : </view>
+							<view class="leftStyleTwo"> {{item.userProjectOrderDto.reserveTemplate.rsvTime}}</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">预约项目 :</view>
+							<view class="leftStyleTwo2">
+								<view wx:for="{{item.userProjectOrderDto.userProOdItemDtos}}">
+									{{item.firmProject.projectName}}
+								</view>
+							</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">顾客来源 : </view>
+							<view wx:if="{{item.userSource==-1}}" class="leftStyleTwo"> 无</view>
+							<view wx:if="{{item.userSource==0}}" class="leftStyleTwo"> 一般项目</view>
+							<view wx:if="{{item.userSource==1}}" class="leftStyleTwo"> 拼团</view>
+							<view wx:if="{{item.userSource==2}}" class="leftStyleTwo"> 砍价</view>
+							<view wx:if="{{item.userSource==3}}" class="leftStyleTwo"> 亲密付</view>
+							<view wx:if="{{item.userSource==4}}" class="leftStyleTwo"> 消费返还</view>
+							<view wx:if="{{item.userSource==5}}" class="leftStyleTwo"> 闺蜜卡</view>
+							<view wx:if="{{item.userSource==6}}" class="leftStyleTwo"> 免费请客</view>
+						</view>
+					</view>
+				</view>
+
+				<view class="realdown" bindtap="tocustomerdetail" data-idx="{{item.roomStaffUserListDto.id}}"
+					data-id="{{item.roomStaffUserListDto.user.id}}" data-sort="{{item.roomStaffUserListDto.sort}}">
+					<view class="leftOfDown">
+						<view class="time">
+							<view class="leftStyle">创建时间 :</view>
+							<view class="rightStyle">{{item.createTime}}</view>
+						</view>
+						<view class="time">
+							<view class="leftStyle">更新时间 :</view>
+							<view class="rightStyle">{{item.updateTime}}</view>
+						</view>
+					</view>
+					<view class="rightOfRealdown">
+						<view class="small">实付金额</view>
+						<view class="big">¥ {{item.userProjectOrderDto.totalPrice}}</view>
+					</view>
+				</view>
+
+
+				<view class="btnLine"></view>
+				<view class="memorandum" data-proodid="{{item.id}}" bindtap="tomemorandum">
+					<image src="{{webServerUrl}}/images/order/beiwang.png" class="beiwangImg"></image>
+					<text class="beiwang">备忘录 :</text>
+					<text class="beiwangContentTwo">{{item.remark=="-1"?'暂无':item.remark}}</text>
+				</view>
+			</view>
+		</view>
+		<!--groupBookingOrderItemDto-->
+		<view wx:if="{{item.odType==1}}" class="record">
+			<view class="customer"></view>
+			<view class="content">
+				<view class="up">
+					<view class="imageOutsider" data-idx="{{item.roomStaffUserListDto.id}}"
+						data-id="{{item.roomStaffUserListDto.user.id}}" data-sort="{{item.roomStaffUserListDto.sort}}"
+						bindtap="tocustomerdetail">
+						<image src="{{item.groupBookingOrderItemDto.user.avatar}}" class="leftOfUP"></image>
+					</view>
+					<view class="rightOfUP">
+						<!-- <view>颜如玉 - 135****4589</view> -->
+						<!-- <view class="baoqian" data-uid='{{item.uid}}' bindtap="toprofile">
+							<image src='{{webServerUrl}}/images/index/appoint/baoqian.png' class="IMG"></image>
+							<view class="word">{{item.groupBookingOrderItemDto.user.nick}} -
+								{{item.groupBookingOrderItemDto.user.phoneNum}}</view>
+							<view class="word">
+								{{item.groupBookingOrderItemDto.user.phoneNum}}
+							</view>
+						</view> -->
+						<view class="baoqian" data-uid='{{item.uid}}'>
+							<image data-uid='{{item.uid}}' bindtap="toprofile" src='{{webServerUrl}}/images/index/appoint/baoqian.png'
+								class="IMG"></image>
+							<view class="word" data-uid='{{item.uid}}' bindtap="toprofile">{{item.groupBookingOrderItemDto.user.nick}}
+							</view>
+							<view class="word2" data-phone="{{item.groupBookingOrderItemDto.user.phoneNum}}" bindtap="callPhone">
+								{{item.groupBookingOrderItemDto.user.phoneNum}}</view>
+						</view>
+						<image src="{{webServerUrl}}/images/index/appoint/chat.png" class="chat"></image>
+					</view>
+				</view>
+				<view class="down" bindtap="tocustomerdetail" data-idx="{{item.roomStaffUserListDto.id}}"
+					data-id="{{item.roomStaffUserListDto.user.id}}" data-sort="{{item.roomStaffUserListDto.sort}}">
+					<view class="leftOfDown">
+						<view class="item">
+							<view class="leftStyle">预约时间 : </view>
+							<view class="leftStyleTwo"> {{item.groupBookingOrderItemDto.reserveTemplate.rsvTime}}</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">预约项目 :</view>
+							<view class="leftStyleTwo">{{item.groupBookingOrderItemDto.firmProject.projectName}}</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">顾客来源 : </view>
+							<view wx:if="{{item.userSource==-1}}" class="leftStyleTwo"> 无</view>
+							<view wx:if="{{item.userSource==0}}" class="leftStyleTwo"> 一般项目</view>
+							<!-- <view wx:if="{{item.userSource==1}}" class="leftStyleTwo"> 拼团</view> -->
+							<view wx:if="{{item.groupBookingOrderItemDto.uid==item.groupBookingOrderItemDto.groupBookingOrder.uid}}"
+								class="leftStyleTwo"> 发起拼团</view>
+							<view wx:if="{{item.groupBookingOrderItemDto.uid!=item.groupBookingOrderItemDto.groupBookingOrder.uid}}"
+								class="leftStyleTwo"> 参与拼团</view>
+							<view wx:if="{{item.userSource==2}}" class="leftStyleTwo"> 砍价</view>
+							<view wx:if="{{item.userSource==3}}" class="leftStyleTwo"> 亲密付</view>
+							<view wx:if="{{item.userSource==4}}" class="leftStyleTwo"> 消费返还</view>
+							<view wx:if="{{item.userSource==5}}" class="leftStyleTwo"> 闺蜜卡</view>
+							<view wx:if="{{item.userSource==6}}" class="leftStyleTwo"> 免费请客</view>
+						</view>
+					</view>
+				</view>
+				<view class="realdown" data-idx="{{item.roomStaffUserListDto.id}}"
+					data-id="{{item.roomStaffUserListDto.user.id}}" data-sort="{{item.roomStaffUserListDto.sort}}"
+					bindtap="tocustomerdetail">
+					<view class="leftOfDown">
+						<view class="time">
+							<view class="leftStyle">创建时间 :</view>
+							<view class="rightStyle">{{item.createTime}}</view>
+						</view>
+						<view class="time">
+							<view class="leftStyle">更新时间 :</view>
+							<view class="rightStyle">{{item.updateTime}}</view>
+						</view>
+					</view>
+					<view class="rightOfRealdown">
+						<view class="small">实付金额</view>
+						<view class="big">¥ {{item.groupBookingOrderItemDto.totalPrice}}</view>
+					</view>
+				</view>
+				<view class="btnLine">
+				</view>
+				<view class="memorandum" data-proodid="{{item.id}}" bindtap="tomemorandum">
+					<image src="{{webServerUrl}}/images/order/beiwang.png" class="beiwangImg"></image>
+					<text class="beiwang">备忘录 :</text>
+					<text class="beiwangContentTwo">{{item.remark=="-1"?'暂无':item.remark}}</text>
+				</view>
+			</view>
+		</view>
+		<!--hackPriceOrderDto-->
+		<view wx:if="{{item.odType==2}}" class="record">
+			<view class="customer"></view>
+			<view class="content">
+				<view class="up">
+					<view class="imageOutsider" data-idx="{{item.roomStaffUserListDto.id}}"
+						data-id="{{item.roomStaffUserListDto.user.id}}" data-sort="{{item.roomStaffUserListDto.sort}}"
+						bindtap="tocustomerdetail">
+						<image src="{{item.hackPriceOrderDto.user.avatar}}" class="leftOfUP"></image>
+					</view>
+					<view class="rightOfUP">
+						<!-- <view>颜如玉 - 135****4589</view> -->
+						<!-- <view class="baoqian" data-uid='{{item.uid}}' bindtap="toprofile">
+							<image src='{{webServerUrl}}/images/index/appoint/baoqian.png' class="IMG"></image>
+							<view class="word">{{item.hackPriceOrderDto.user.nick}} - {{item.hackPriceOrderDto.user.phoneNum}}</view>
+							<view class="word"> {{item.hackPriceOrderDto.user.phoneNum}}
+							</view>
+						</view> -->
+						<view class="baoqian" data-uid='{{item.uid}}'>
+							<image data-uid='{{item.uid}}' bindtap="toprofile" src='{{webServerUrl}}/images/index/appoint/baoqian.png'
+								class="IMG"></image>
+							<view class="word" data-uid='{{item.uid}}' bindtap="toprofile">{{item.hackPriceOrderDto.user.nick}}
+							</view>
+							<view class="word2" data-phone="{{item.hackPriceOrderDto.user.phoneNum}}" bindtap="callPhone">
+								{{item.hackPriceOrderDto.user.phoneNum}}</view>
+						</view>
+						<image src="{{webServerUrl}}/images/index/appoint/chat.png" class="chat"></image>
+					</view>
+				</view>
+				<view class="down" data-idx="{{item.roomStaffUserListDto.id}}" data-id="{{item.roomStaffUserListDto.user.id}}"
+					data-sort="{{item.roomStaffUserListDto.sort}}" bindtap="tocustomerdetail">
+					<view class="leftOfDown">
+						<view class="item">
+							<view class="leftStyle">预约时间 : </view>
+							<view class="leftStyleTwo"> {{item.hackPriceOrderDto.reserveTemplate.rsvTime}}</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">预约项目 :</view>
+							<view class="leftStyleTwo">{{item.hackPriceOrderDto.firmProject.projectName}}</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">顾客来源 : </view>
+							<view wx:if="{{item.userSource==-1}}" class="leftStyleTwo"> 无</view>
+							<view wx:if="{{item.userSource==0}}" class="leftStyleTwo"> 一般项目</view>
+							<view wx:if="{{item.userSource==1}}" class="leftStyleTwo"> 拼团</view>
+							<view wx:if="{{item.userSource==2}}" class="leftStyleTwo"> 砍价</view>
+							<view wx:if="{{item.userSource==3}}" class="leftStyleTwo"> 亲密付</view>
+							<view wx:if="{{item.userSource==4}}" class="leftStyleTwo"> 消费返还</view>
+							<view wx:if="{{item.userSource==5}}" class="leftStyleTwo"> 闺蜜卡</view>
+							<view wx:if="{{item.userSource==6}}" class="leftStyleTwo"> 免费请客</view>
+						</view>
+					</view>
+				</view>
+				<view class="realdown" bindtap="tocustomerdetail" data-idx="{{item.roomStaffUserListDto.id}}"
+					data-id="{{item.roomStaffUserListDto.user.id}}" data-sort="{{item.roomStaffUserListDto.sort}}">
+					<view class="leftOfDown">
+						<view class="time">
+							<view class="leftStyle">创建时间 :</view>
+							<view class="rightStyle">{{item.createTime}}</view>
+						</view>
+						<view class="time">
+							<view class="leftStyle">更新时间 :</view>
+							<view class="rightStyle">{{item.updateTime}}</view>
+						</view>
+					</view>
+					<view class="rightOfRealdown">
+						<view class="small">实付金额</view>
+						<view class="big">¥ {{item.hackPriceOrderDto.totalPrice}}</view>
+					</view>
+				</view>
+				<view class="btnLine">
+
+				</view>
+				<view class="memorandum" data-proodid="{{item.id}}" bindtap="tomemorandum">
+					<image src="{{webServerUrl}}/images/order/beiwang.png" class="beiwangImg"></image>
+					<text class="beiwang">备忘录 :</text>
+					<text class="beiwangContentTwo">{{item.remark=="-1"?'暂无':item.remark}}</text>
+				</view>
+			</view>
+		</view>
+		<!--intimacyPayOrderDto-->
+		<view wx:if="{{item.odType==3}}" class="record">
+			<view class="customer"></view>
+			<view class="content">
+				<view class="up">
+					<view class="imageOutsider" bindtap="tocustomerdetail" data-idx="{{item.roomStaffUserListDto.id}}"
+						data-id="{{item.roomStaffUserListDto.user.id}}" data-sort="{{item.roomStaffUserListDto.sort}}">
+						<image src="{{item.intimacyPayOrderDto.user.avatar}}" class="leftOfUP"></image>
+					</view>
+					<view class="rightOfUP">
+						<!-- <view>颜如玉 - 135****4589</view> -->
+						<!-- <view class="baoqian" data-uid='{{item.uid}}' bindtap="toprofile">
+							<image src='{{webServerUrl}}/images/index/appoint/baoqian.png' class="IMG"></image>
+							<view class="word">{{item.intimacyPayOrderDto.user.nick}} - {{item.intimacyPayOrderDto.user.phoneNum}}
+								<view class="word">
+									{{item.intimacyPayOrderDto.user.phoneNum}}</view>
+							</view>
+						</view> -->
+						<view class="baoqian" data-uid='{{item.uid}}'>
+							<image data-uid='{{item.uid}}' bindtap="toprofile" src='{{webServerUrl}}/images/index/appoint/baoqian.png'
+								class="IMG"></image>
+							<view class="word" data-uid='{{item.uid}}' bindtap="toprofile">{{item.intimacyPayOrderDto.user.nick}}
+							</view>
+							<view class="word2" data-phone="{{item.intimacyPayOrderDto.user.phoneNum}}" bindtap="callPhone">
+								{{item.intimacyPayOrderDto.user.phoneNum}}</view>
+						</view>
+						<image src="{{webServerUrl}}/images/index/appoint/chat.png" class="chat"></image>
+					</view>
+				</view>
+				<view class="down" bindtap="tocustomerdetail" data-idx="{{item.roomStaffUserListDto.id}}"
+					data-id="{{item.roomStaffUserListDto.user.id}}" data-sort="{{item.roomStaffUserListDto.sort}}">
+					<view class="leftOfDown">
+						<view class="item">
+							<view class="leftStyle">预约时间 : </view>
+							<view class="leftStyleTwo"> {{item.intimacyPayOrderDto.reserveTemplate.rsvTime}}</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">预约项目 :</view>
+							<view class="leftStyleTwo">{{item.intimacyPayOrderDto.firmProject.projectName}}</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">顾客来源 : </view>
+							<view wx:if="{{item.userSource==-1}}" class="leftStyleTwo"> 无</view>
+							<view wx:if="{{item.userSource==0}}" class="leftStyleTwo"> 一般项目</view>
+							<view wx:if="{{item.userSource==1}}" class="leftStyleTwo"> 拼团</view>
+							<view wx:if="{{item.userSource==2}}" class="leftStyleTwo"> 砍价</view>
+							<view wx:if="{{item.userSource==3}}" class="leftStyleTwo"> 亲密付</view>
+							<view wx:if="{{item.userSource==4}}" class="leftStyleTwo"> 消费返还</view>
+							<view wx:if="{{item.userSource==5}}" class="leftStyleTwo"> 闺蜜卡</view>
+							<view wx:if="{{item.userSource==6}}" class="leftStyleTwo"> 免费请客</view>
+						</view>
+					</view>
+				</view>
+				<view class="realdown" data-idx="{{item.roomStaffUserListDto.id}}"
+					data-id="{{item.roomStaffUserListDto.user.id}}" data-sort="{{item.roomStaffUserListDto.sort}}"
+					bindtap="tocustomerdetail">
+					<view class="leftOfDown">
+						<view class="time">
+							<view class="leftStyle">创建时间 :</view>
+							<view class="rightStyle">{{item.createTime}}</view>
+						</view>
+						<view class="time">
+							<view class="leftStyle">更新时间 :</view>
+							<view class="rightStyle">{{item.updateTime}}</view>
+						</view>
+					</view>
+					<view class="rightOfRealdown">
+						<view class="small">实付金额</view>
+						<view class="big">¥ {{item.intimacyPayOrderDto.totalPrice}}</view>
+					</view>
+				</view>
+				<view class="btnLine"></view>
+				<view class="memorandum" data-proodid="{{item.id}}" bindtap="tomemorandum">
+					<image src="{{webServerUrl}}/images/order/beiwang.png" class="beiwangImg"></image>
+					<text class="beiwang">备忘录 :</text>
+					<text class="beiwangContentTwo">{{item.remark=="-1"?'暂无':item.remark}}</text>
+				</view>
+			</view>
+		</view>
+		<!--consumeReturnOrderDto-->
+		<view wx:if="{{item.odType==4}}" class="record">
+			<view class="customer"></view>
+			<view class="content">
+				<view class="up">
+					<view class="imageOutsider" data-idx="{{item.roomStaffUserListDto.id}}"
+						data-id="{{item.roomStaffUserListDto.user.id}}" data-sort="{{item.roomStaffUserListDto.sort}}"
+						bindtap="tocustomerdetail">
+						<image src="{{item.consumeReturnOrderDto.user.avatar}}" class="leftOfUP"></image>
+					</view>
+					<view class="rightOfUP">
+						<!-- <view class="baoqian" data-uid='{{item.uid}}' bindtap="toprofile">
+							<image src='{{webServerUrl}}/images/index/appoint/baoqian.png' class="IMG"></image>
+							<view class="word">{{item.consumeReturnOrderDto.user.nick}} - {{item.consumeReturnOrderDto.user.phoneNum}}
+							</view>
+							<view class="word"> {{item.consumeReturnOrderDto.user.phoneNum}}
+							</view>
+						</view> -->
+						<view class="baoqian" data-uid='{{item.uid}}'>
+							<image data-uid='{{item.uid}}' bindtap="toprofile" src='{{webServerUrl}}/images/index/appoint/baoqian.png'
+								class="IMG"></image>
+							<view class="word" data-uid='{{item.uid}}' bindtap="toprofile">{{item.consumeReturnOrderDto.user.nick}}
+							</view>
+							<view class="word2" data-phone="{{item.consumeReturnOrderDto.user.phoneNum}}" bindtap="callPhone">
+								{{item.consumeReturnOrderDto.user.phoneNum}}</view>
+						</view>
+						<image src="{{webServerUrl}}/images/index/appoint/chat.png" class="chat"></image>
+					</view>
+				</view>
+				<view class="down" data-idx="{{item.roomStaffUserListDto.id}}" data-id="{{item.roomStaffUserListDto.user.id}}"
+					data-sort="{{item.roomStaffUserListDto.sort}}" bindtap="tocustomerdetail">
+					<view class="leftOfDown">
+						<view class="item">
+							<view class="leftStyle">预约时间 : </view>
+							<view class="leftStyleTwo"> {{item.consumeReturnOrderDto.reserveTemplate.rsvTime}}</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">预约项目 :</view>
+							<view class="leftStyleTwo">{{item.consumeReturnOrderDto.firmProject.projectName}}</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">顾客来源 : </view>
+							<view wx:if="{{item.userSource==-1}}" class="leftStyleTwo"> 无</view>
+							<view wx:if="{{item.userSource==0}}" class="leftStyleTwo"> 一般项目</view>
+							<view wx:if="{{item.userSource==1}}" class="leftStyleTwo"> 拼团</view>
+							<view wx:if="{{item.userSource==2}}" class="leftStyleTwo"> 砍价</view>
+							<view wx:if="{{item.userSource==3}}" class="leftStyleTwo"> 亲密付</view>
+							<view wx:if="{{item.userSource==4}}" class="leftStyleTwo"> 消费返还</view>
+							<view wx:if="{{item.userSource==5}}" class="leftStyleTwo"> 闺蜜卡</view>
+							<view wx:if="{{item.userSource==6}}" class="leftStyleTwo"> 免费请客</view>
+						</view>
+					</view>
+				</view>
+				<view class="realdown" data-idx="{{item.roomStaffUserListDto.id}}"
+					data-id="{{item.roomStaffUserListDto.user.id}}" data-sort="{{item.roomStaffUserListDto.sort}}"
+					bindtap="tocustomerdetail">
+					<view class="leftOfDown">
+						<view class="time">
+							<view class="leftStyle">创建时间 :</view>
+							<view class="rightStyle">{{item.createTime}}</view>
+						</view>
+						<view class="time">
+							<view class="leftStyle">更新时间 :</view>
+							<view class="rightStyle">{{item.updateTime}}</view>
+						</view>
+					</view>
+					<view class="rightOfRealdown">
+						<view class="small">实付金额</view>
+						<view class="big">¥ {{item.consumeReturnOrderDto.totalPrice}}</view>
+					</view>
+				</view>
+				<view class="btnLine">
+				</view>
+				<view class="memorandum" data-proodid="{{item.id}}" bindtap="tomemorandum">
+					<image src="{{webServerUrl}}/images/order/beiwang.png" class="beiwangImg"></image>
+					<text class="beiwang">备忘录 :</text>
+					<text class="beiwangContentTwo">{{item.remark=="-1"?'暂无':item.remark}}</text>
+				</view>
+			</view>
+		</view>
+	</block>
+	<view class="wordTip" wx:if="{{isend}}">—— 暂时没有更多预约订单了 ——</view>
+</scroll-view>
+<!-- {{isend}} -->
+<!--list.length==0-->

@@ -1,0 +1,177 @@
+ page {
+   background-color: #f3f3f3;
+   height: 100%;
+ }
+
+ .container {
+   position: relative;
+ }
+
+ .question {
+   position: absolute;
+   top: 30rpx;
+   left: 30rpx;
+   color: white;
+   font-size: 25rpx;
+   z-index: 999
+ }
+
+ .progress_box {
+   position: relative;
+   width: 100%;
+   height: 700rpx;
+   /* 这里的宽高是必须大于等于canvas圆环的直径 否则绘制到盒子外面就看不见了
+ 一开始设置 width:440rpx; height:440rpx; 发现 在360X640分辨率的设备，下绘制的圆环跑盒子外去了
+ 小程序使用rpx单位适配 ，但是canvas绘制的是px单位的。所以只能用px单位绘制的圆环在盒子内显示 */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: #eee;
+   background: -webkit-linear-gradient(left, #f7b63cf3, #f6d73eef);
+   background: -o-linear-gradient(left, #f7b63cf3, #f6d73eef);
+   background: -moz-linear-gradient(left, #f7b63cf3, #f6d73eef);
+   background: -mos-linear-gradient(left, #f7b63cf3, #f6d73eef);
+ }
+
+ .progress_bg {
+   position: absolute;
+   width: 220px;
+   height: 220px;
+ }
+
+ .progress_canvas {
+   width: 220px;
+   height: 220px;
+ }
+
+ .progress_text {
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   color: white
+ }
+
+ .progress_info {
+   font-size: 30rpx;
+   padding-left: 16rpx;
+   letter-spacing: 2rpx
+ }
+
+ .bignumber {
+   font-size: 45rpx;
+   font-weight: 600;
+ }
+
+ .progress_dot {
+   width: 16rpx;
+   height: 16rpx;
+   border-radius: 50%;
+   background-color: #fb9126;
+ }
+
+ .title {
+   margin: 0 auto;
+   margin-top: 30rpx;
+   margin-bottom: 30rpx;
+   text-align: center;
+   font-size: 35rpx;
+   color: #888;
+ }
+
+ /*轮播图*/
+ .swiper-box {
+   height: 400rpx;
+   margin-bottom: 35rpx;
+ }
+
+ .li {
+   width: 100%;
+   height: 350rpx;
+   /* background-color: white; */
+ }
+
+ .li1 {
+   width: 650rpx;
+   margin: 0 auto;
+   border-radius: 10rpx;
+   height: 350rpx;
+   transform: scale(0.9);
+   /* border: 1px solid black; */
+   background-color: white;
+   display: flex;
+   padding: 5rpx;
+   justify-content: space-around;
+   align-items: center;
+ }
+
+ .selected {
+   transform: scale(1)
+ }
+
+ /*轮播图相关内容*/
+ .swiper-box .wx-swiper-dots.wx-swiper-dots-horizontal {
+   margin-bottom: 2rpx;
+ }
+
+ .swiper-box .wx-swiper-dot {
+   width: 40rpx;
+   display: inline-flex;
+   height: 10rpx;
+   margin-left: 20rpx;
+   justify-content: space-between;
+ }
+
+ .swiper-box .wx-swiper-dot::before {
+   content: '';
+   flex-grow: 1;
+   background: rgba(255, 255, 255, 0.8);
+   border-radius: 8rpx
+ }
+
+ .swiper-box .wx-swiper-dot-active::before {
+   background: #f8a43b;
+ }
+
+ .content {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+ }
+
+ .img {
+   width: 35%;
+   height: 90%;
+ }
+
+ .score {
+   font-size: 45rpx;
+ }
+
+ .amerce {
+   margin-top: 15rpx;
+   font-size: 30rpx;
+   color: #b9c9e0;
+ }
+
+ .level1score {
+   color: #5491fb;
+ }
+
+ .level2score {
+   color: #0fb0f0;
+ }
+
+ .level3score {
+   color: #c66cff;
+ }
+
+ .level4score {
+   color: #fda68d;
+ }
+
+ .level5score {
+   color: #fcb024;
+ }

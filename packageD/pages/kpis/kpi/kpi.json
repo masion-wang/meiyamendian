@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "KPI考核",
+  "usingComponents": {
+    "mp-tabs": "/components/@miniprogram-component-plus/tabs/index",
+    "mp-dialog": "/components/dialog/dialog"
+  }
+}

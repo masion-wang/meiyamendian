@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "预约时间",
+  "usingComponents": {
+    "mp-dialog": "/components/dialog/dialog",
+    "calendar": "/components/calendar2/calendar2"
+  }
+}

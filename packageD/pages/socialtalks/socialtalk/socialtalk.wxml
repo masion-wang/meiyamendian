@@ -1,0 +1,160 @@
+ <!--个人信息 员工 小区 大区 股东-->
+
+ <movable-area class="content-bg">
+ 	<scroll-view scroll-y='true' class="srollView" bindscrolltolower='loadMore'>
+ 		<block wx:for="{{list}}" wx:for-index="indexfater">
+ 			<!--个人信息 匿名发布 0 -->
+ 			<view wx:if="{{item.isAnonymous==0}}" class="hopeWords">
+ 				<view class="info">
+ 					<image src="{{webServerUrl}}/images/mine/socailtalk/niming.png" class="img"></image>
+ 					<view class="width70">
+ 						<view class="personInfo">
+ 							<view class="name">匿名用户</view>
+ 						</view>
+ 						<view class="time light">{{item.createTime}}</view>
+ 					</view>
+ 				</view>
+ 				<view class="title">{{item.title}}</view>
+ 				<view class="content">{{item.detailCtn}}</view>
+ 				<view class="threeImg">
+ 					<image catchtap="handleImagePreview" data-url="{{item.img}}" data-indexfater="{{indexfater}}" wx:for="{{item.staffHeartVoicePostsImgs}}" mode="aspectFill" src="{{item.img}}" class="width30 {{index>=1?'marginLeft':''}}"></image>
+ 				</view>
+ 				<view class="btnLine"></view>
+ 				<view class="likeAndComment">
+ 					<view class="like" data-shvpid="{{item.id}}" catchtap="like">
+ 						<image src="{{webServerUrl}}/images/mine/socailtalk/like2.png" class="img2"></image>点赞 {{item.likeNums}}
+ 					</view>
+ 					<view class="comment" data-shvpid="{{item.id}}" catchtap="gocomment">
+ 						<image src="{{webServerUrl}}/images/mine/socailtalk/comment2.png" class="img2 down2"></image>评论 {{item.cmtNums}}
+ 					</view>
+ 				</view>
+ 			</view>
+ 			<!--个人信息 正常发布 大区-->
+ 			<view wx:if="{{item.isAnonymous==1&&item.bigAreaId!=-1}}" class="hopeWords">
+ 				<view class="info">
+ 					<image src="{{item.bigAreaDto.identityImg}}" class="img"></image>
+ 					<view class="width70">
+ 						<view class="personInfo">
+ 							<view class="name">{{item.bigAreaDto.stageName}}</view>
+ 							<view class="light">{{item.bigAreaDto.bigAreaName}}</view>
+ 							<view class="light">{{item.bigAreaDto.bigAreaTeamName}}</view>
+ 						</view>
+ 						<view class="time light">{{item.createTime}}</view>
+ 					</view>
+ 				</view>
+ 				<view class="title">{{item.title}}</view>
+ 				<view class="content">{{item.detailCtn}}</view>
+ 				<view class="threeImg">
+ 					<image catchtap="handleImagePreview" data-url="{{item.img}}" data-indexfater="{{indexfater}}" wx:for="{{item.staffHeartVoicePostsImgs}}" mode="aspectFill" src="{{item.img}}" class="width30 {{index>=1?'marginLeft':''}}"></image>
+ 				</view>
+ 				<view class="btnLine"></view>
+ 				<view class="likeAndComment">
+ 					<view class="like" data-shvpid="{{item.id}}" catchtap="like">
+ 						<image src="{{webServerUrl}}/images/mine/socailtalk/like2.png" class="img2"></image>点赞 {{item.likeNums}}
+ 					</view>
+ 					<view class="comment" data-shvpid="{{item.id}}" catchtap="gocomment">
+ 						<image src="{{webServerUrl}}/images/mine/socailtalk/comment2.png" class="img2 down2"></image>评论 {{item.cmtNums}}
+ 					</view>
+ 				</view>
+ 			</view>
+ 			<!--个人信息 正常发布 小区-->
+ 			<view wx:if="{{item.isAnonymous==1&&item.smallAreaId!=-1}}" class="hopeWords">
+ 				<view class="info">
+ 					<image src="{{item.smallAreaDto.identityImg}}" class="img"></image>
+ 					<view class="width70">
+ 						<view class="personInfo">
+ 							<view class="name">{{item.smallAreaDto.stageName}}</view>
+ 							<view class="light">{{item.smallAreaDto.smallAreaName}}</view>
+ 							<view class="light">{{item.smallAreaDto.smallAreaTeamName}}</view>
+ 						</view>
+ 						<view class="time light">{{item.createTime}}</view>
+ 					</view>
+ 				</view>
+ 				<view class="title">{{item.title}}</view>
+ 				<view class="content">{{item.detailCtn}}</view>
+ 				<view class="threeImg">
+ 					<image catchtap="handleImagePreview" data-url="{{item.img}}" data-indexfater="{{indexfater}}" wx:for="{{item.staffHeartVoicePostsImgs}}" mode="aspectFill" src="{{item.img}}" class="width30 {{index>=1?'marginLeft':''}}"></image>
+ 				</view>
+ 				<view class="btnLine"></view>
+ 				<view class="likeAndComment">
+ 					<view class="like" data-shvpid="{{item.id}}" catchtap="like">
+ 						<image src="{{webServerUrl}}/images/mine/socailtalk/like2.png" class="img2"></image>点赞 {{item.likeNums}}
+ 					</view>
+ 					<view class="comment" data-shvpid="{{item.id}}" catchtap="gocomment">
+ 						<image src="{{webServerUrl}}/images/mine/socailtalk/comment2.png" class="img2 down2"></image>评论 {{item.cmtNums}}
+ 					</view>
+ 				</view>
+ 			</view>
+ 			<!--个人信息 正常发布 员工-->
+ 			<view wx:if="{{item.isAnonymous==1&&item.rsbId!=-1}}" class="hopeWords">
+ 				<view class="info">
+ 					<image src="{{item.roomStaffBaseDto.staffHeadImg}}" class="img"></image>
+ 					<view class="width70">
+ 						<view class="personInfo">
+ 							<view class="name">{{item.roomStaffBaseDto.stageName}}</view>
+ 							<view class="light">{{item.roomStaffBaseDto.roomStaffAccount.dutyData.dutyName}}</view>
+ 							<view class="light">{{item.roomStaffBaseDto.roomStaffAccount.dutyRank.dutyName}}</view>
+ 						</view>
+ 						<view class="personInfo">
+ 							<view class="light">{{item.roomStaffBaseDto.roomBasicsData.roomName}}</view>
+ 							<view class="light">{{item.roomStaffBaseDto.roomBasicsData.roomName1}}</view>
+ 						</view>
+ 						<view class="time light">{{item.createTime}}</view>
+ 					</view>
+ 				</view>
+ 				<view class="title">{{item.title}}</view>
+ 				<view class="content">{{item.detailCtn}}</view>
+ 				<view class="threeImg">
+ 					<image catchtap="handleImagePreview" data-url="{{item.img}}" data-indexfater="{{indexfater}}" wx:for="{{item.staffHeartVoicePostsImgs}}" mode="aspectFill" src="{{item.img}}" class="width30 {{index>=1?'marginLeft':''}}"></image>
+ 				</view>
+ 				<view class="btnLine"></view>
+ 				<view class="likeAndComment">
+ 					<view class="like" data-shvpid="{{item.id}}" catchtap="like">
+ 						<image src="{{webServerUrl}}/images/mine/socailtalk/like2.png" class="img2"></image>点赞 {{item.likeNums}}
+ 					</view>
+ 					<view class="comment" data-shvpid="{{item.id}}" catchtap="gocomment">
+ 						<image src="{{webServerUrl}}/images/mine/socailtalk/comment2.png" class="img2 down2"></image>评论 {{item.cmtNums}}
+ 					</view>
+ 				</view>
+ 			</view>
+ 			<!--个人信息 正常发布 股东-->
+ 			<view wx:if="{{item.isAnonymous==1&&item.shId!=-1}}" class="hopeWords">
+ 				<view class="info">
+ 					<image src="{{item.shareHolderDto.headImg}}" class="img"></image>
+ 					<view class="width70">
+ 						<view class="personInfo">
+ 							<view class="name">{{item.shareHolderDto.holderName}}</view>
+ 							<view class="light">股东</view>
+ 							<!-- <view class="light">{{item.roomStaffBaseDto.roomStaffAccount.dutyRank.dutyName}}</view> -->
+ 						</view>
+ 						<view class="personInfo">
+ 							<!-- <view class="light">{{item.roomStaffBaseDto.roomBasicsData.roomName}}</view>
+ 						<view class="light">{{item.roomStaffBaseDto.roomBasicsData.roomName1}}</view> -->
+ 						</view>
+ 						<view class="time light">{{item.createTime}}</view>
+ 					</view>
+ 				</view>
+ 				<view class="title">{{item.title}}</view>
+ 				<view class="content">{{item.detailCtn}}</view>
+ 				<view class="threeImg">
+ 					<image catchtap="handleImagePreview" data-url="{{item.img}}" data-indexfater="{{indexfater}}" wx:for="{{item.staffHeartVoicePostsImgs}}" mode="aspectFill" src="{{item.img}}" class="width30 {{index>=1?'marginLeft':''}}"></image>
+ 				</view>
+ 				<view class="btnLine"></view>
+ 				<view class="likeAndComment">
+ 					<view class="like" data-shvpid="{{item.id}}" catchtap="like">
+ 						<image src="{{webServerUrl}}/images/mine/socailtalk/like2.png" class="img2"></image>点赞 {{item.likeNums}}
+ 					</view>
+ 					<view class="comment" data-shvpid="{{item.id}}" catchtap="gocomment">
+ 						<image src="{{webServerUrl}}/images/mine/socailtalk/comment2.png" class="img2 down2"></image>评论 {{item.cmtNums}}
+ 					</view>
+ 				</view>
+ 			</view>
+ 		</block>
+ 		<view class="wordTip" wx:if="{{isend}}">暂无更多数据</view>
+ 		<view class="placeholder2"></view>
+ 	</scroll-view>
+
+ 	<movable-view class="content-block" x="{{x}}" y="{{y}}" direction="all">
+ 		<image src="{{webServerUrl}}/images/mine/socailtalk/addNew.png" class="output" catchtap="gosocialtalkoutput"></image>
+ 	</movable-view>
+ </movable-area>

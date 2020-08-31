@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "申请提现-股东",
+  "usingComponents": {
+    "mp-tabs": "/components/@miniprogram-component-plus/tabs/index",
+    "mp-dialog": "/components/dialog/dialog"
+  }
+}

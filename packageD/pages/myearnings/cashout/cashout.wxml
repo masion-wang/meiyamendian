@@ -1,0 +1,101 @@
+<mp-tabs bindtabclick="onTabCLick" class="mytabs" tabs="{{tabs}}" activeTab="{{activeTab}}" tab-underline-color="white" tab-inactive-text-color="#bfbfbf" activeClass="tab-bar-title__selected">
+</mp-tabs>
+<view class="placeholder"></view>
+<!--余额账户 wx:if="{{isShowRest}}" -->
+<view class="acount ShowRest">
+	<view class="ShowResttop">
+		<view class="ShowResttoptitle">未提现金额(元)</view>
+		<view class="ShowResttopprice">{{restmoney}}</view>
+	</view>
+	<view class="ShowRestmiddle">
+		<view class="ShowRestmiddletitle">可提现金额(元)</view>
+		<view class="ShowResttopprice">{{restmoney1}}</view>
+		<!-- <input class="ShowRestmiddleprice" value="{{restmoney1}}" bindfocus="getZerorestmoney1" bindinput="getrestmoney1"></input> -->
+		<view class="btnLine"></view>
+	</view>
+	<!--单选框-->
+	<view class="radiogroup">
+		<view class="page-section-title">提现到账 : </view>
+		<radio-group bindchange="radioChange" class="radiogroup2">
+			<label class="radio">
+				<radio value="0" />微信零钱
+			</label>
+			<label class="radio">
+				<radio value="1" />银行卡
+			</label>
+		</radio-group>
+	</view>
+
+
+	<view class="ShowRestbottom">
+		<view wx:if="{{restmoney1>0&&isPcSet}}" class="button" bindtap="open">提现验证</view>
+		<view wx:if="{{restmoney1<=0}}" class="button2">提现验证</view>
+		<view class="tip" wx:if="{{isPcSet}}">
+			<image src="{{webServerUrl}}/images/mine/cashout/tanhao.png" class="tanhan"></image> 每月{{dayvalue}}号提现上月收益
+		</view>
+	</view>
+</view>
+<mp-dialog title="请输入验证码" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+	<view class="oldphone">
+		<view class="titletip">验证码已发送手机{{phone}}</view>
+		<view class="inputcode1">
+			<image src="{{webServerUrl}}/images/product/safe.png" class="safe"></image>
+			<input type="number" value="{{code}}" class="inputcss" bindinput="getcode"></input>
+			<view wx:if="{{canTouch}}" class="codeTest" bindtap="getCode">{{seconds>0?seconds:'发送验证码'}}</view>
+			<view wx:elif="{{!canTouch}}" class="codeTest">{{seconds>0?seconds:'发送验证码'}}</view>
+		</view>
+	</view>
+</mp-dialog>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--奖励金账户-->
+<!-- <view wx:if="{{isShowReward}}" class="acount ShowRest">
+		<view class="ShowResttop">
+			<view class="ShowResttoptitle">未提现金额(元)</view>
+			<view class="ShowResttopprice">365.8</view>
+		</view>
+		<view class="ShowRestmiddle">
+			<view class="ShowRestmiddletitle">可提现金额(元)</view>
+			<input class="ShowRestmiddleprice" value="{{restmoney2}}" bindfocus="getZerorestmoney2" bindinput="getrestmoney2"></input>
+			<view class="btnLine"></view>
+		</view>
+		<view class="ShowRestbottom">
+			<view class="button" bindtap="open">提现验证</view>
+			<view class="tip">
+				<image src="http://192.168.44.110:3080/images/mine/cashout/tanhao.png" class="tanhan"></image> 提现分余额必须满3000才可提现
+			</view>
+		</view>
+	</view> -->
+<!--股东账户-->
+<!-- <view wx:if="{{isShowholder}}" class="acount ShowRest">
+		<view class="tip">
+			本次股东分红比例为40%
+		</view>
+		<view class="ShowResttop">
+			<view class="ShowResttoptitle">未提现金额(元)</view>
+			<view class="ShowResttopprice">365.8</view>
+		</view>
+		<view class="ShowRestmiddle">
+			<view class="ShowRestmiddletitle">可提现金额(元)</view>
+			<input class="ShowRestmiddleprice" value="{{restmoney3}}" bindfocus="getZerorestmoney3" bindinput="getrestmoney3"></input>
+			<view class="btnLine"></view>
+		</view>
+		<view class="ShowRestbottom">
+			<view class="button" bindtap="open">提现验证</view>
+		</view>
+	</view> -->

@@ -1,0 +1,77 @@
+<scroll-view scroll-y="true" class="scrollView">
+	<view class="leaveTest" wx:for="{{list}}">
+		<view>申请离职人 : {{item.roomStaffBase.stageName}}-{{item.roomStaffBase.phone}}</view>
+		<view class="btnLine"></view>
+		<view class="item">职务 : {{item.roomStaffBase.roomStaffAccount.dutyData.dutyName}}</view>
+		<view class="item">级别 : {{item.roomStaffBase.roomStaffAccount.dutyRank.dutyName}}</view>
+		<view class="item">人数指定率 : {{item.roomStaffBase.praiseRate}}%</view>
+		<view class="item">历史累计收益 : {{item.roomStaffBase.roomStaffAccount.cashAccounts}}</view>
+		<view class="item">店面名称 : {{item.roomStaffBase.roomBasicsData.roomName}}</view>
+		<view class="item">入职时间 : {{item.roomStaffBase.entryDate}}</view>
+		<view class="item">提交申请人 : {{item.commitUser.roomStaffBase.stageName}}</view>
+		<view class="item">提交时间 : {{item.createTime}}</view>
+		<view class="item flex2">
+			<view style="white-space:nowrap;">离职标题 :</view>
+			<view style="padding:10rpx;" class="contain2">{{item.leaveOfficeTitle}} </view>
+		</view>
+		<view class="item flex2">
+			<view style="white-space:nowrap;">离职原因 :</view>
+			<view style="padding:10rpx;" class="contain2">{{item.leaveOfficeDescribe}}</view>
+		</view>
+		<view class="btnLine"></view>
+
+
+
+		<!--进度条-->
+		<view class="recordson">
+			<view class="sonofrecord">
+				<view class="father">
+					<view class="content3">
+						<view class="son3">
+							<!--店面审核状态（0未审核1审核通过2审核驳回）-->
+							<image wx:if="{{item.roomCheckState==0}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/void.png"></image>
+							<image wx:if="{{item.roomCheckState==1}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/yes.png"></image>
+							<image wx:if="{{item.roomCheckState==2}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/no.png"></image>
+						</view>
+						<view class="son2"></view>
+						<view class="son5">
+							<!--店面审核状态（0未审核1审核通过2审核驳回）-->
+							<image wx:if="{{item.smallAreaCheckState==0}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/void.png"></image>
+							<image wx:if="{{item.smallAreaCheckState==1}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/yes.png"></image>
+							<image wx:if="{{item.smallAreaCheckState==2}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/no.png"></image>
+						</view>
+						<view class="son2"></view>
+						<view class="son4">
+							<!--店面审核状态（0未审核1审核通过2审核驳回）-->
+							<image wx:if="{{item.bigAreaCheckState==0}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/void.png"></image>
+							<image wx:if="{{item.bigAreaCheckState==1}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/yes.png"></image>
+							<image wx:if="{{item.bigAreaCheckState==2}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/no.png"></image>
+						</view>
+						<view class="son2"></view>
+						<view class="son4">
+							<!--店面审核状态（0未审核1审核通过2审核驳回）-->
+							<image wx:if="{{item.firmCheckState==0}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/void.png"></image>
+							<image wx:if="{{item.firmCheckState==1}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/yes.png"></image>
+							<image wx:if="{{item.firmCheckState==2}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/no.png"></image>
+						</view>
+					</view>
+					<view class="content4">
+						<view>店长审核</view>
+						<view>小区审核</view>
+						<view>大区审核</view>
+						<view>公司审核</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!--两个按钮-->
+		<view class="buttons" wx:if="{{(item.roomCheckState==0 && admintype==6 &&item.firmCheckState==0)|| (item.roomCheckState==1&&item.smallAreaCheckState==0 && admintype==4 &&item.firmCheckState==0) || (item.roomCheckState==1&&item.smallAreaCheckState==1&&item.bigAreaCheckState==0&&admintype==3 &&item.firmCheckState==0)}}">
+			<!--显示条件 店长未审核 店长通过 小区未审核 店长小区通过 大区未审核-->
+			<!--把三个状态穿进去 根据状态判断调用哪个接口 三个接口(门店 小区 大区)-->
+			<view bindtap="finebutton" class="finebutton" data-assess="1" data-id="{{item.id}}" data-roomcheckstate="{{item.roomCheckState}}" data-smallareacheckstate="{{item.smallAreaCheckState}}" data-bigareacheckstate="{{item.bigAreaCheckState}}" wx:if="{{(item.roomCheckState==0 && admintype==6)|| (item.roomCheckState==1&&item.smallAreaCheckState==0 && admintype==4) || (item.roomCheckState==1&&item.smallAreaCheckState==1&&item.bigAreaCheckState==0&&admintype==3)}}">驳回</view>
+			<view bindtap="sure" class="sure" data-assess="0" data-id="{{item.id}}" data-roomcheckstate="{{item.roomCheckState}}" data-smallareacheckstate="{{item.smallAreaCheckState}}" data-bigareacheckstate="{{item.bigAreaCheckState}}" wx:if="{{(item.roomCheckState==0 && admintype==6)|| (item.roomCheckState==1&&item.smallAreaCheckState==0 && admintype==4) || (item.roomCheckState==1&&item.smallAreaCheckState==1&&item.bigAreaCheckState==0&&admintype==3)}}">确认</view>
+		</view>
+	</view>
+	<view class="wordTip" wx:if="{{isend}}">暂无更多数据</view>
+
+</scroll-view>

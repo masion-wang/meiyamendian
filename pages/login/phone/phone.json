@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "手机登录",
+  "usingComponents": {
+    "mp-dialog": "/components/dialog/dialog"
+  },
+  "disableScroll": true
+}

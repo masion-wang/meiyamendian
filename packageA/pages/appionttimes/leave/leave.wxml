@@ -1,0 +1,69 @@
+<!--日历打卡(多选)-->
+<mp-dialog style="width:100%;" title="选择日期" show="{{dialogShow3}}" bindbuttontap="tapDialogButton3" buttons="{{buttons}}">
+	<swiper class="swiper-box" indicator-dots="{{indicatorDots}}" autoplay="{{false}}" interval="0" duration="500">
+		<swiper-item class="swiperI" wx:for='{{roomStaffSignRcdDtos}}' wx:key='index'>
+			<view class="recentThreeMonth">{{item.year}}年{{item.month}}月</view>
+			<view style="margin-top:10rpx;">
+				<calendar id="myComponent" rsvTmps="{{item.rsvTmps}}" currentMonth="{{item.month<10?'0'+item.month:item.month}}" bindselectDay="onSelectDay" />
+			</view>
+		</swiper-item>
+	</swiper>
+</mp-dialog>
+
+<!--选择时间-->
+<view class="up">
+	<view class="selectDate">
+		<view class="selectDateTitle">选择日期</view>
+		<!--日期-->
+		<view class="box">
+			<scroll-view scroll-x class="flex">
+				<view class="item {{index==7?'movedown':''}}" wx:for="{{rsvTmps}}" wx:key='index'>
+					<view bindtap="tapdate" class="{{activeIndex1==index?'activesonofItem':'sonofItem'}} " data-selected="{{item.selected}}" data-index="{{index}}" data-year="{{item.year}}" data-month="{{item.month}}" data-day="{{item.day}}">
+						<view wx:if="{{index<7}}" class="week">{{item.week}}</view>
+						<view wx:if="{{index==7}}" class="week">近三月</view>
+						<view class="date">{{index==7?'':item.month+'-'+ item.day}}</view>
+					</view>
+				</view>
+				<view style="height:10rpx;"></view>
+			</scroll-view>
+		</view>
+
+
+		<!--选择时间-->
+		<view class="selectDateTitle">选择时间段</view>
+		<view class="parent">
+			<view wx:for="{{selectTime}}" bindtap="taptime" class="son {{activeIndex2==index?'activeson':''}}" data-type="{{item.type}}" data-index="{{index}}">{{item.name}}</view>
+		</view>
+
+
+
+		<!--提示-->
+		<view class="tip">
+			<image src="{{webServerUrl}}/images/index/appionttime/tanhao.png" class="icon"></image>
+			<view class="cost">
+				<view class="two">
+					<view>罚款 : {{daysum<=0?punish.deductCash*sum:punish.deductCash*sum*daysum}} 元</view>
+					<view>提现分扣除 : {{daysum<=0?punish.getCashIntegral*sum:punish.getCashIntegral*sum*daysum}} 分</view>
+				</view>
+				<view class="one">
+					<view>信用分扣除 : {{daysum<=0?punish.creditIntegral*sum:punish.creditIntegral*sum*daysum}} 分</view>
+					<view class="opacity">底薪扣除 : {{daysum<=0?punish.deductBaseSalary*sum:punish.deductBaseSalary*sum*daysum}} 元</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+
+<!--请假理由-->
+<view class="down">
+	<view style="padding-left:20rpx;font-size:32rpx;">事假理由</view>
+	<textarea wx:if="{{istext}}" maxlength='300' value="{{leaveExplain}}" bindinput="bindInput" placeholder="请输入请假理由 不少于50字" class="textInput"></textarea>
+</view>
+<!--提交按钮-->
+<view class="buttons">
+	<view class="dayOff" bindtap="toleaverecord">请假记录</view>
+	<view class="button" bindtap="sureup">确认提交</view>
+</view>
+<!--遮罩层-->
+<view class="cover" wx:if='{{iscover}}'></view>

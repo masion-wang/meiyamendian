@@ -1,0 +1,9 @@
+.wordTip {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999999;
+  margin-top: 25rpx;
+  font-size: 25rpx;
+}

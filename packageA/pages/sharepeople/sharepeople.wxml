@@ -1,0 +1,40 @@
+<image src="{{webServerUrl}}/images/index/userlist/backgroundColor.png" class="background">
+	<view class="sum">总兑换人数 {{data.totalShareCount}}人</view>
+	<view class="howmany">
+		<view class="big">{{data.remainShareCount}}</view>人
+	</view>
+	<view class="already">已经兑换{{data.usedShareCount}}人 剩余可兑换人数</view>
+</image>
+<view class="shareList">
+
+	<view class="shareListtitle">
+		<view class="shareListtitleleft">分享列表</view>
+		<view class="shareListtitleright">
+			<view class="right">共计分享人数{{data.totalShareOrder}}人,</view>
+			<view class="right">已到店{{data.acceptedShareOrder}}人,</view>
+			<view class="right">未到店{{data.notAcceptShareOrder}}人</view>
+		</view>
+	</view>
+	<view class="btnLine"></view>
+	<view class="secondTitle">
+		<view class="four">顾客来源</view>
+		<view class="four">用户昵称</view>
+		<view class="four">手机号</view>
+		<view class="four">是否到店</view>
+	</view>
+
+	<!--请求分页-->
+	<scroll-view class="secondContent" scroll-y="true" bindscrolltolower="getUserShareOrderRcd">
+		<view class="info" wx:for="{{list}}">
+			<view wx:if="{{item.odType == 0}}" class="smallfour">拼团</view>
+			<view wx:if="{{item.odType == 1}}" class="smallfour">亲密付</view>
+			<view wx:if="{{item.odType == 2}}" class="smallfour">消费返还</view>
+			<view wx:if="{{item.odType == 3}}" class="smallfour">免费请客</view>
+			<view class="smallfour">{{item.user.nick}}</view>
+			<view class="smallfour">{{item.user.phoneNum}}</view>
+			<view class="smallfour">{{item.odStatus==0?'否':'是'}}</view>
+		</view>
+		<view class="wordTip" wx:if="{{isend}}">暂无更多数据</view>
+	</scroll-view>
+
+</view>

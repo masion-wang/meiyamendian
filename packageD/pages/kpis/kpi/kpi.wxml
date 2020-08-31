@@ -1,0 +1,251 @@
+<mp-tabs class="tab" tabs="{{tabs}}" activeTab="{{activeTab}}" tab-underline-color="white" tab-inactive-text-color="#bfbfbf" bindtabclick="onTabCLick" activeClass="tab-bar-title__selected">
+</mp-tabs>
+<view class="placeholder"></view>
+
+<!--按月度-->
+<view wx:if="{{isMonth}}" class="dueToMonth">
+	<!--审核时间 审核人-->
+	<view class="peopleAndTime">
+		<view class="people" bindtap="openConfirm">
+			<image src="{{webServerUrl}}/images/mine/kpi/rili.png" class="riliImg"></image>
+			<view>{{startTime}}</view>
+			<image src="{{webServerUrl}}/images/mine/kpi/down.png" class="downImg"></image>
+		</view>
+		<view class="time">
+			<view>考核人 : </view>
+			<view class="threename">
+				<view wx:for="{{sysUserDtos}}">
+					<text wx:if="{{item.adminType==6}}">{{item.roomStaffBase.stageName}}</text>
+					<text wx:if="{{item.adminType==4}}">{{item.smallArea.stageName}}</text>
+					<text wx:if="{{item.adminType==3}}">{{item.bigArea.stageName}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="placeholder2"></view>
+	<!--月份分页-->
+	<scroll-view scroll-y='true' class="classView1" bindscrolltolower="loadMore" bindtouchend="islastdone">
+		<view class="kpiRecord  {{index!=0?'marginTOP':''}}" wx:for="{{list}}">
+			<!--个人排名信息-->
+			<view class="info">
+				<view class="price">
+					<image wx:if="{{index==0}}" src="{{webServerUrl}}/images/mine/kpi/one.png" class="rankImg"></image>
+					<image wx:if="{{index==1}}" src="{{webServerUrl}}/images/mine/kpi/two.png" class="rankImg"></image>
+					<image wx:if="{{index==2}}" src="{{webServerUrl}}/images/mine/kpi/three.png" class="rankImg"></image>
+					<view wx:if="{{index>2}}" class="rankImg2">{{index+1}}</view>
+				</view>
+				<view class="logoImg">
+					<image src="{{item.roomStaffBaseDto.staffHeadImg}}" class="logoImg2"></image>
+				</view>
+				<view class="content">
+					<view class="contentTitle">
+						<view class="name">{{item.roomStaffBaseDto.stageName}}</view>
+						<view class="position">{{item.roomStaffBaseDto.roomStaffAccount.dutyData.dutyName}}</view>
+						<view class="address">{{item.roomStaffBaseDto.roomBasicsData.roomName}}-</view>
+						<view class="address">{{item.roomStaffBaseDto.roomBasicsData.roomName1}}</view>
+					</view>
+
+					<view class="contentSorce">
+						<view class="contentSorceLeft">
+							<view>现金目标得分: {{item.aimScore}}分</view>
+							<view>价值观: {{item.valueScore}}分</view>
+						</view>
+						<view class="contentSorceRight">综合 :<text style="font-size:40rpx;color:black;"> {{item.totalScore}}</text> 分</view>
+					</view>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+			<!--业绩-->
+			<view class="grade">
+				<view>现金业绩目标 {{item.firmKpiAimSet?item.firmKpiAimSet.aim+'元':'暂无设置'}} </view>
+				<view class="process">
+					<!--item.firmKpiAimScoreRcdDto aimFirScore aimSecScore aimThiScore-->
+					<view>{{item.firmKpiAimScoreRcdDto.aimFirScore==0?'一阶段未达标':'一阶段达标'+item.firmKpiAimScoreRcdDto.aimFirScore+'分'}}</view>
+					<view>{{item.firmKpiAimScoreRcdDto.aimSecScore==0?'二阶段未达标':'二阶段达标'+item.firmKpiAimScoreRcdDto.aimSecScore+'分'}}</view>
+					<view>{{item.firmKpiAimScoreRcdDto.aimThiScore==0?'三阶段未达标':'三阶段达标'+item.firmKpiAimScoreRcdDto.aimThiScore+'分'}}</view>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+			<!--价值观-->
+			<view class="value" bindtap="showDialogBtn" data-rsbid="{{item.roomStaffBaseDto.id}}">
+				<view style="font-size:29rpx;margin-bottom:25rpx;">价值观 :{{item.firmKpiValueDtos.length==0?'暂无':''}}
+				</view>
+				<!--wx:if="{{item.firmKpiValueDtos.length>0}}"-->
+				<view class="sonOfValue" wx:if="{{item.firmKpiValueDtos.length>0}}">
+					<view wx:for="{{item.firmKpiValueDtos}}" class="itemflex" style="margin-bottom:12rpx;">
+						<view>{{item.name}}</view>
+						<view style="margin-left:30rpx;">{{item.score}}分</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="wordTip" wx:if="{{isend}}">暂无更多数据</view>
+	</scroll-view>
+	<view class="placeholder2"></view>
+</view>
+
+<!--遮罩层-->
+<view class="cover" wx:if='{{iscover}}'></view>
+<!--按季度-->
+<view wx:if="{{isSeason}}" class="dueToSeason">
+	<!--四个季度-->
+	<view class="fourSeason">
+		<view class="sonoffourSeason" wx:for="{{fourseason}}" data-index="{{index+1}}" bindtap="whichOne">
+			<image src="{{activeIndex==index+1?webServerUrl+'/images/mine/kpi/ok.png':webServerUrl+'/images/mine/kpi/void.png'}}" class="img"></image>
+			{{item.name}}
+		</view>
+	</view>
+	<view class="placeholder2"></view>
+	<!--滚动条-->
+	<scroll-view scroll-y='true' class="scrollView2" bindscrolltolower="loadMore2">
+		<view class="kpiRecordBySeason {{index!=0?'marginTOP':''}}" wx:for="{{list}}">
+			<view class="info">
+				<view class="price">
+					<image wx:if="{{index==0}}" src="{{webServerUrl}}/images/mine/kpi/one.png" class="rankImg"></image>
+					<image wx:if="{{index==1}}" src="{{webServerUrl}}/images/mine/kpi/two.png" class="rankImg"></image>
+					<image wx:if="{{index==2}}" src="{{webServerUrl}}/images/mine/kpi/three.png" class="rankImg"></image>
+					<view wx:if="{{index>2}}" class="rank">{{index+1}}</view>
+				</view>
+				<view class="logoImg">
+					<image src="{{item.staffHeadImg}}" class="logoImg2"></image>
+				</view>
+				<view class="content">
+					<view class="contentTitle">
+						<view class="name">{{item.stageName}}</view>
+						<view class="position">{{item.roomStaffAccount.dutyData.dutyName}}</view>
+						<!-- <view class="address">{{item.roomBasicsData.roomName}}-</view>
+						<view class="address">{{item.roomBasicsData.roomName1}}</view> -->
+					</view>
+					<view class="contentTitle">
+						<!-- <view class="name">{{item.roomStaffBaseDto.stageName}}</view>
+						<view class="position">{{item.roomStaffBaseDto.roomStaffAccount.dutyData.dutyName}}</view> -->
+						<view class="address2">{{item.roomBasicsData.roomName}}-</view>
+						<view class="address2">{{item.roomBasicsData.roomName1}}</view>
+					</view>
+					<view class="contentSorce">
+						<view class="contentSorceLeft">
+							<view>现金目标得分: {{item.firmKpiMonthStatistics.aimScore}}分</view>
+							<view>价值观: {{item.firmKpiMonthStatistics.valueScore}}分</view>
+						</view>
+						<view class="contentSorceRight">合计 :<text style="font-size:40rpx;color:black;"> {{item.firmKpiMonthStatistics.totalScore}}</text> 分</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="wordTip" wx:if="{{isend}}">暂无更多数据</view>
+	</scroll-view>
+	<view class="placeholder2"></view>
+</view>
+
+
+<!--价值观-->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+	<view class="close" bindtap="onCancel">X</view>
+	<view class="modal-title">价值观得分</view>
+
+	<!--展示情况+下拉菜单-->
+	<view class="showAndSelect">
+		<view class="showinfo">{{start}}</view>
+		<view class="product-list">
+			<view class="choice-bar" bindtap="opens">
+				<view data-item="1" class="chioce-item">
+					<!--其它打分项-->
+					<image class="icon-chioce" src="{{!isstart?webServerUrl+'/images/mine/kpi/open.png':webServerUrl+'/images/mine/kpi/close.png'}}"></image>
+				</view>
+				<scroll-view class="sorting-list {{!isstart?'chioce-list-hide':'chioce-list-show'}}">
+					<view wx:for="{{seven}}" catchtap="selectOne" data-index="{{index}}" class="sorting-item" wx:key="{{index}}" data-name="{{item.name}}">{{item.name}}</view>
+				</scroll-view>
+			</view>
+		</view>
+	</view>
+
+	<!--价值观内容-->
+	<scroll-view class="{{isopen?'modal-contentS':'modal-content'}}" scroll-y="true">
+		<view class="five" wx:for="{{firmKpiValueRwdPntRcdDtos}}">
+			<view class="sonoffive">
+				<view class="zero">({{index+1}})</view>
+				<view class="one">{{item.firmKpiValueDataDto.details?item.firmKpiValueDataDto.details:'暂无具体规章制度'}}</view>
+				<!-- 状态 0 扣分 1 给分 2 提升 -->
+				<view wx:if="{{item.status==-1}}" class="two">无考评</view>
+				<view wx:if="{{item.status==0}}" class="two red">-{{item.firmKpiValueDataDto.subtractScore}}分</view>
+				<view wx:if="{{item.status==1}}" class="two orange">+{{item.firmKpiValueDataDto.addScore}}分</view>
+				<view wx:if="{{item.status==2}}" class="two">+{{item.firmKpiValueDataDto.elevateScore}}分</view>
+				<view class="three">
+					<image data-kpivaldataid="{{item.id}}" bindtap="edit" src="{{webServerUrl}}/images/mine/kpi/edit.png" class="edit"></image>
+				</view>
+			</view>
+			<view class="btnLine"></view>
+			<view class="reason">
+				{{item.cause==-1?'暂无评价':item.cause}}
+			</view>
+		</view>
+		<!-- <view wx:if="{{!isopen}}" class="noset">尚未配置</view> -->
+	</scroll-view>
+
+	<!--公司标准-->
+	<view class="modal-footer">
+		<view class="footerTitle">每月的最后一天系统将自动计算每个伙伴综合评分</view>
+		<view class="biaozhun {{isopen?'standardH':'standard'}}">
+			<view class="biaozhunOne">综合得分</view>
+			<view class="biaozhunTwo">
+				<view class="width20" wx:for="{{firmKpiValueRegulations}}">
+					<view>{{item.score}}分</view>
+					<view>{{item.rank2}}</view>
+				</view>
+
+			</view>
+			<view class="biaozhunThree">
+				<view wx:for="{{firmKpiValueRegulations}}" class="width202 {{item.type==1?'red':item.type==0?'orange':''}}">{{item.withdrawFraction}}分</view>
+			</view>
+			<view class="biaozhunThree">
+				<view class="width205 red">提现分扣除</view>
+				<view class="width2055 orange">提现分奖励</view>
+			</view>
+			<view class="biaozhunFour">
+				<view style="margin-bottom:20rpx;">建议: 每月KPI考核打分执行 3 6 1 标准</view>
+				<view class="threeofitem">30%: 3 -3.4分 <text style="margin-left:30rpx;">重点培养</text> </view>
+				<view class="threeofitem">60%: 2.5-2.9分 <text style="margin-left:30rpx;">规划提升</text> </view>
+				<view class="threeofitem">10%: 2.4分以下 <text style="margin-left:30rpx;">	约谈/开除</text></view>
+			</view>
+		</view>
+		<view bindtap="openOrClose" class="openOrClose {{isopen?'big':''}}">{{isopen?'收起':'kpi考核执行标准'}}
+			<image src="{{isopen?webServerUrl+'/images/mine/kpi/up.png':webServerUrl+'/images/mine/kpi/down.png'}}" class="down"></image>
+		</view>
+	</view>
+</view>
+
+
+<!--扣分(0.1) 给分(0.2) 保存草稿-->
+<view class="commodity_screen" bindtap="hideModal2" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+	<view class="piontsAndsave">
+		<block>
+			<view wx:for="{{threeitem}}" data-index="{{index}}" data-status="{{item.status}}" class="subaddup {{threeindex==index&&index==0?'red':threeindex==index?'orange':''}}" bindtap="oneofthree">{{item.name}}
+				<image wx:if="{{index<2}}" src="{{item.img}}" class="down"></image>
+			</view>
+		</block>
+		<view class="save" bindtap="save">保存草稿</view>
+	</view>
+	<view class="btnLine" style="margin-bottom:15rpx;"></view>
+	<textarea placeholder="请输入考评内容" placeholder-style="line-height:55rpx;padding-left:20rpx;" class="input" bindinput="inputcause" value="{{cause}}"></textarea>
+</view>
+
+
+<!--选择月份-->
+<mp-dialog title=" 选择时间" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+	<view class="page-body">
+		<picker-view indicator-style="height:50px;" style="width: 100%; height: 200px;" value="{{value}}" bindchange="bindChangeArea">
+			<picker-view-column>
+				<view wx:for="{{years}}" wx:key="{{index}}" style="line-height:50px;text-align:center;">
+					<view class="updown">{{item}}</view>
+				</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{months}}" wx:key="{{index}}" style="line-height:50px;text-align:center;">
+					<view class="updown">{{item}}</view>
+				</view>
+			</picker-view-column>
+		</picker-view>
+	</view>
+</mp-dialog>

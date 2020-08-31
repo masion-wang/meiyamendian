@@ -1,0 +1,132 @@
+page {
+  height: 100%;
+  background-color: #f3f3f3
+}
+
+.profileName {
+  width: 95%;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  padding: 1rpx;
+  border-radius: 5px;
+}
+
+.titlename {
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+  font-size: 33rpx;
+  font-weight: 700;
+}
+
+.textInput {
+  min-height: 13vh;
+  width: 90%;
+  background-color: #f3f3f3;
+  margin: 0 auto;
+  color: #6e6969;
+  padding-left: 25rpx;
+  border-radius: 5px;
+}
+
+.button {
+  width: 30%;
+  height: 5vh;
+  line-height: 5vh;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 60rpx;
+  margin-bottom: 60rpx;
+  border-radius: 30px;
+  color: white;
+  background: -webkit-linear-gradient(right, rgb(241, 127, 46), rgb(237, 76, 4));
+  background: -o-linear-gradient(right, rgb(241, 127, 46), rgb(237, 76, 4));
+  background: -moz-linear-gradient(right, rgb(241, 127, 46), rgb(237, 76, 4));
+  background: -mos-linear-gradient(right, rgb(241, 127, 46), rgb(237, 76, 4));
+}
+
+scroll-view ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+
+.history {
+  padding: 1rpx;
+  width: 95%;
+  height: 55vh;
+  background-color: white;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-top: 30rpx;
+}
+
+.sonofhistory {
+  margin-left: 4vw;
+  display: flex;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circle {
+  width: 20rpx;
+  height: 20rpx;
+  background-color: #b3a5a5;
+  border-radius: 50%;
+  box-shadow: 1px 1px 5px 5px #f3f3f3;
+  position: relative;
+  top: 15rpx;
+}
+
+.line {
+  min-height: 120rpx;
+  margin-top: 8rpx;
+  border: 1px dashed #b8afafc4;
+  height:95%;
+}
+
+.right {
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+
+.detail {
+  font-size: 25rpx;
+  color: #b3a5a5;
+  display: flex;
+  align-items: center;
+}
+
+.address {
+  margin-left: 20rpx;
+}
+
+.who {
+  margin-left: 20rpx;
+}
+
+.content {
+  font-size: 30rpx;
+  color: black;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+
+.wordTip {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999999;
+  font-size: 25rpx;
+}

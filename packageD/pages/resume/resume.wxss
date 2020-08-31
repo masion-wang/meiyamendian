@@ -1,0 +1,61 @@
+page {
+  background-color: #f3f3f3;
+  height: 100%;
+}
+.srcollView{
+  height: 100%;
+  /* border:1px solid black; */
+  padding-bottom: 1vh;
+}
+scroll-view ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+.whiteback {
+  width: 85%;
+  /* height:300rpx; */
+  margin: 0 auto;
+  background-color: white;
+  margin-top: 30rpx;
+  padding: 30rpx;
+  padding-top:10rpx;
+  border-radius: 5px;
+}
+
+.title {
+  /* margin-top: 30rpx; */
+  font-size: 28rpx;
+  /* border: 1px solid black; */
+}
+
+.textinput {
+  width: 96%;
+  /* border: 1px solid black; */
+  border-radius: 5px;
+  background-color: #f3f3f3;
+  padding-left: 20rpx;
+  padding-top:13rpx;
+  min-height: 10vh;
+  margin-top:20rpx;
+  margin-bottom: 20rpx;
+}
+.button{
+  /* border:1px solid black; */
+  padding-top:10rpx;
+  padding-bottom: 10rpx;
+  color:white;
+  width:95%;
+  margin:0 auto;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:30rpx;
+  margin-bottom: 20rpx;
+  background: -webkit-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -o-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -moz-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -mos-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+}

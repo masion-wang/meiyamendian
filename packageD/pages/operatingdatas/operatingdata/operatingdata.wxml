@@ -1,0 +1,426 @@
+<!--数据经营(数据分析)||(数据对比)-->
+<mp-tabs class="tab" tabs="{{tabs}}" activeTab="{{activeTab}}" tab-underline-color="white" tab-inactive-text-color="#bfbfbf" bindtabclick="onTabCLick" activeClass="tab-bar-title__selected">
+</mp-tabs>
+<view class="placeholder"></view>
+
+
+
+
+<!--1.数据分析-->
+<view wx:if="{{isShowDataAnalyse}}" class="isShowDataAnalyse">
+	<!--1.1选择区域店铺人员+选择时间-->
+	<view class="DAsearch">
+		<view class="DAleftOfSearch" bindtap="DAselect">
+			请选择区域店铺人员
+		</view>
+		<view class="DAselecttime" bindtap="DAtranslate">
+			选择时间<image src="{{webServerUrl}}/images/index/userlist/filter.png" class="DAicon"></image>
+		</view>
+	</view>
+	<view class="placeholder"></view>
+	<!--五个选择-->
+	<view class="five">
+		<view class="sonoffive" wx:for="{{five}}" bindtap="tapone" data-index="{{index}}">
+			<image src="{{activeIndex==index?webServerUrl+'/images/mine/operatingdatamultmonths/ok.png':webServerUrl+'/images/mine/operatingdatamultmonths/void.png'}}" class="img"></image>
+			<view>{{item.name}}</view>
+		</view>
+	</view>
+	<view class="placeholder"></view>
+	<!--业绩对应显示-->
+	<scroll-view wx:if="{{activeIndex==0}}" scroll-y="true" class="DAscrollView">
+		<view class="DAOneOne">
+			<view class="DAOneOneone">现金总业绩 : 33000</view>
+			<view class="DAOneOnetwo">
+				<view class="DAOneOnetwoleft">自动完成金额 : 13000</view>
+				<view class="DAOneOnetworight">
+					<view class="DAOneOnetworightone">现金劳动 : <text> 30000</text></view>
+					<view class="DAOneOnetworightone">办会员卡 : <text> 30000</text></view>
+					<view class="DAOneOnetworightone">办次卡 : <text> 30000</text></view>
+				</view>
+			</view>
+			<view class="DAOneOnetwo">
+				<view class="DAOneOnetwoleft">手动完成金额 : 13000</view>
+				<view class="DAOneOnetworight">
+					<view class="DAOneOnetworightone">现金劳动 : <text> 30000</text></view>
+					<view class="DAOneOnetworightone">办会员卡 : <text> 30000</text></view>
+					<view class="DAOneOnetworightone">办次卡 : <text> 30000</text></view>
+				</view>
+			</view>
+			<view class="DAOneOnetwo">
+				<view class="leftDAOneOnetwo">产品耗材</view>
+				<view class="rightDAOneOnetwo">60000</view>
+			</view>
+			<view class="DAOneOnefour" bindtap="gocrossstoreconsumption">
+				<view>用户跨店消费(进)</view>
+				<view style="margin-right:15rpx;">90504 ></view>
+			</view>
+		</view>
+		<view class="DAtwo2">支出总额 : 120000</view>
+		<view class="DAthree">
+			<view class="DAtwo">利润 : 120000</view>
+			<view class="DAreadyfen">
+				<view>待分红金额</view>
+				<view>180000</view>
+			</view>
+			<view class="DAOneOnetwo">
+				<view class="DAOneOnetwoleft">股东一 : XXX</view>
+				<view class="DAOneOnetworight">
+					<view class="DAOneOnetworightone">分红比例 : <text> 40%</text></view>
+					<view class="DAOneOnetworightone">分红金额 : <text> 80000</text></view>
+					<view class="DAOneOnetworightone">已分红金额 : <text> 30000</text></view>
+				</view>
+			</view>
+		</view>
+		<view class="DAthree">
+			<view class="DAtwo3">劳动总业绩 : 120000</view>
+			<view class="DAOneOnetwo">
+				<view class="leftDAOneOnetwo">现金劳动业绩</view>
+				<view class="rightDAOneOnetwo">60000</view>
+			</view>
+			<view class="DAOneOnetwo">
+				<view class="leftDAOneOnetwo">划次卡劳动业绩</view>
+				<view class="rightDAOneOnetwo">60000</view>
+			</view>
+			<view class="DAOneOnetwo">
+				<view class="leftDAOneOnetwo">划会员卡劳动业绩</view>
+				<view class="rightDAOneOnetwo">60000</view>
+			</view>
+		</view>
+	</scroll-view>
+	<!--会员对应显示 member-->
+	<scroll-view wx:if="{{activeIndex==1}}" scroll-y="true" class="DAscrollView">
+		<view>2222</view>
+		<view>2222</view>
+		<view>2222</view>
+		<view>2222</view>
+	</scroll-view>
+	<!--客流对应显示 flow -->
+	<scroll-view wx:if="{{activeIndex==2}}" scroll-y="true" class="DAscrollView">
+		<view>3333</view>
+		<view>3333</view>
+		<view>3333</view>
+		<view>3333</view>
+	</scroll-view>
+	<!--项目对应显示 project -->
+	<scroll-view wx:if="{{activeIndex==3}}" scroll-y="true" class="DAscrollView">
+		<view>4444</view>
+		<view>4444</view>
+		<view>4444</view>
+		<view>4444</view>
+	</scroll-view>
+	<!--支出对应显示 payout -->
+	<scroll-view wx:if="{{activeIndex==4}}" scroll-y="true" class="DAscrollView">
+		<view class="DApayoutOne1" bindtap="gocashoutrecord">
+			<view>资薪支出</view>
+			<view class="DApayoutOneright">
+				累计金额
+				<view style="margin-left:10rpx;margin-right:10rpx;">49394</view>
+				>
+			</view>
+		</view>
+		<view class="DApayoutTwo">
+			<view class="DApayoutTwotop">固定支出</view>
+			<view class="DApayoutTwomiddle">
+				<view class="DApayoutTwomiddleleft">
+					<view>2432432</view>
+					<view>金额累计</view>
+				</view>
+				<view class="DApayoutTwomiddleright">
+					<view>2432432</view>
+					<view>金额累计</view>
+				</view>
+			</view>
+			<view class="DApayoutTwobottom">
+				<view class="DApayoutTwobottomleft">
+					<view>房租/月</view>
+					<view>52000~94200</view>
+				</view>
+				<view class="DApayoutTwobottomright">
+					<view>装修折扣/月</view>
+					<view>52000~94200</view>
+				</view>
+			</view>
+		</view>
+		<view class="DApayoutOne">
+			<view> 平台服务费</view>
+			<view class="DApayoutOneright">
+				累计金额
+				<view style="margin-left:10rpx;margin-right:10rpx;">49394</view>
+			</view>
+		</view>
+		<view class="DApayoutThree">
+			<view class="DApayoutThreetitle">
+				<view>退款</view>
+				<view class="DApayoutThreetitleleft">金额</view>
+				<view class="DApayoutThreetitleleft">笔数/张数</view>
+			</view>
+			<view class="DApayoutThreetitle">
+				<view>会员卡</view>
+				<view class="DApayoutThreetitleleft">32132</view>
+				<view class="DApayoutThreetitleleft">68</view>
+			</view>
+			<view class="DApayoutThreetitle">
+				<view>次卡</view>
+				<view class="DApayoutThreetitleleft">3123213</view>
+				<view class="DApayoutThreetitleleft">78</view>
+			</view>
+			<view class="DApayoutThreetitle">
+				<view>订单</view>
+				<view class="DApayoutThreetitleleft">321321</view>
+				<view class="DApayoutThreetitleleft">98</view>
+			</view>
+		</view>
+		<view class="DApayoutOne" bindtap="gocrossstoreconsumption">
+			<view>用户跨店消费(出)</view>
+			<view class="DApayoutOneright">
+				<view style="margin-left:10rpx;margin-right:10rpx;">49394</view>
+				>
+			</view>
+		</view>
+		<!--支出报销支出报销支出报销支出报销支出报销支出报销-->
+		<view class="DApayoutFour">
+			<view class="DApayoutFourtitle">支出报销</view>
+			<!--报销金额-->
+			<view class="DApayoutFourmoney">
+				<view class="DArenminbi">¥</view><input placeholder="输入报销金额" value="{{DAvalue}}" bindinput="getDAvalue"></input>
+			</view>
+			<!--报销-->
+			<view class="DApayoutFourtitle">上传报销凭证(张数不限制)</view>
+			<!--报销图片-->
+			<view class="threeToNineImage">
+				<view wx:for="{{images}}" class="sonofimg">
+					<image wx:if="{{images.length<=0}}" src="{{webServerUrl}}/images/index/mywork/uploadmywork/upimg.png" class="img" bindtap="upimg"></image>
+					<image wx:if="{{images.length>0}}" src="{{item}}" mode="aspectFill" data-idx="{{index}}" class="img2" bindtap="handleImagePreview">
+						<view class="delete" wx:if="{{images.length>0}}">
+							<image data-idx="{{index}}" src="{{webServerUrl}}/images/index/mywork/uploadmywork/delete.png" class="deleteimg" catchtap="removeImage"></image>
+						</view>
+					</image>
+				</view>
+				<!-- wx:if="{{isfakeshow&&images.length<1}}"-->
+				<view class="sonofimg" bindtap="upimg">
+					<image src="{{webServerUrl}}/images/index/mywork/uploadmywork/upimg.png" class="img"></image>
+				</view>
+			</view>
+			<!--报销理由-->
+			<view class="DApayoutFourmoney">
+				<textarea maxlength="300" placeholder="报销理由" value="{{DAvalue2}}" bindinput="getDAvalue2"> </textarea>
+			</view>
+			<view class="DAtwobutton">
+				<view class="DAtwobuttonexpense" bindtap="goexpenserecord">报销明细</view>
+				<view class="DAtwobuttonexpensesure" bindtap="surereimbursement">确认报销</view>
+			</view>
+		</view>
+	</scroll-view>
+
+
+
+
+
+
+
+
+
+	<!--右边popup-->
+	<view class="float {{isRuleTrue?'isRuleShow':'isRuleHide'}} " catchtouchmove="DAprevent">
+		<view class="animation-element" animation="{{animation}}">
+			<view class="DAtitle">时间</view>
+			<view class="DAoneoftime {{index==activeIndex2?'red':''}}" wx:for="{{threeTime}}" data-index="{{index}}" bindtap="DAchooseOne">{{item.name}}</view>
+			<view class="DAtitle">选择时间范围</view>
+			<view class="DAoneoftime" bindtap="openConfirm">起始时间 : {{startTime}}</view>
+			<view class="DAoneoftime">结束时间 : {{endTime}}</view>
+			<view class="animation-button" bindtap="DAcancel">取消</view>
+			<view class="animation-button" bindtap="DAsuccess">完成</view>
+		</view>
+	</view>
+	<!--下拉菜单-->
+	<view class="float {{isRuleTrue2?'isRuleShow':'isRuleHide'}} " catchtouchmove="DAprevent">
+		<view class="sorting-list {{!isstart?'chioce-list-hide':'chioce-list-show'}}">
+			<scroll-view class="DAsrcollView1" scroll-y="true">
+				<!--大区-->
+				<view class="DAbigArea" wx:for="{{DAitems}}">
+					<view class="sonDAbigArea">
+						<view class="DAleft" data-index="{{index}}" bindtap="selectedbig">
+							<image wx:if="{{!item.isselected}}" src="{{webServerUrl}}/images/mine/operatingdata/void.png" class="DAimg"></image>
+							<image wx:if="{{item.isselected}}" src="{{webServerUrl}}/images/mine/operatingdata/ok.png" class="DAimg"></image>
+							<view>{{item.name}}</view>
+						</view>
+						<view wx:if="{{!item.isopen}}" class="open1" data-index="{{index}}" bindtap="open1">展开</view>
+						<view wx:if="{{item.isopen}}" class="close1" data-index="{{index}}" bindtap="close1">收起</view>
+					</view>
+					<!--小区-->
+					<view wx:if="{{item.isopen}}" class="DAsmallArea">
+						<block wx:for="{{item.second}}">
+							<view class="sonDAbigArea">
+								<view class="DAleft" data-index="{{index}}" data-bigareaid="{{item.bigareaid}}" bindtap="selectedsmall">
+									<image wx:if="{{!item.isselected}}" src="{{webServerUrl}}/images/mine/operatingdata/void.png" class="DAimg"></image>
+									<image wx:if="{{item.isselected}}" src="{{webServerUrl}}/images/mine/operatingdata/ok.png" class="DAimg"></image>
+									<view>{{item.name}}</view>
+								</view>
+								<view wx:if="{{!item.isopen}}" bindtap="open2" class="open1" data-index="{{index}}" data-bigareaid="{{item.bigareaid}}">展开</view>
+								<view wx:if="{{item.isopen}}" bindtap="close2" class="close1" data-index="{{index}}" data-bigareaid="{{item.bigareaid}}">收起</view>
+							</view>
+							<!--门店-->
+							<view wx:if="{{item.isopen}}" class="DAsmallArea">
+								<block wx:for="{{item.third}}">
+									<view class="sonDAbigArea">
+										<view class="DAleft" data-index="{{index}}" data-bigareaid="{{item.bigareaid}}" data-smallareaid="{{item.smallareaid}}" bindtap="selectedstore">
+											<image wx:if="{{!item.isselected}}" src="{{webServerUrl}}/images/mine/operatingdata/void.png" class="DAimg"></image>
+											<image wx:if="{{item.isselected}}" src="{{webServerUrl}}/images/mine/operatingdata/ok.png" class="DAimg"></image>
+											<view>{{item.name}}</view>
+										</view>
+										<view wx:if="{{!item.isopen}}" bindtap="open3" class="open1" data-index="{{index}}" data-bigareaid="{{item.bigareaid}}" data-smallareaid="{{item.smallareaid}}">展开</view>
+										<view wx:if="{{item.isopen}}" bindtap="close3" class="close1" data-index="{{index}}" data-bigareaid="{{item.bigareaid}}" data-smallareaid="{{item.smallareaid}}">收起</view>
+									</view>
+									<!--店员们-->
+									<scroll-view wx:if="{{item.isopen}}" class="DAwordersscroll" scroll-y='true'>
+										<view class="DAworders">
+											<view wx:for="{{item.workers}}" class="sonofDAworders {{item.isselected?'red':''}}" data-index="{{index}}" data-bigareaid="{{item.bigareaid}}" data-smallareaid="{{item.smallareaid}}" data-storeid="{{item.storeid}}" data-id="{{item.id}}" bindtap="selectedone">{{item.name}}</view>
+										</view>
+									</scroll-view>
+								</block>
+							</view>
+						</block>
+					</view>
+				</view>
+			</scroll-view>
+			<view class="DAbtnLine"></view>
+			<view class="DAbuttonbottom">
+				<view class="DAreset" bindtap="DAreset">取消</view>
+				<view class="DAsure" bindtap="DAsure">确定</view>
+			</view>
+		</view>
+	</view>
+	<!--时间选择器-->
+	<mp-dialog title="选择日期" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+		<view>开始日期</view>
+		<picker-view indicator-style="height:50px;" style="width: 100%; height: 270rpx;margin-top:15rpx;" value="{{value1}}" bindchange="bindChange1">
+			<picker-view-column>
+				<view wx:for="{{years1}}" wx:key="{{index}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}年</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{months1}}" wx:key="{{index}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}月</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{days1}}" wx:key="{{index}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}日</view>
+			</picker-view-column>
+		</picker-view>
+		<view style="margin-top:50rpx;">结束日期</view>
+		<picker-view indicator-style="height:50px;" style="width: 100%; height: 270rpx;margin-top:15rpx;" value="{{value1}}" bindchange="bindChange2">
+			<picker-view-column>
+				<view wx:for="{{years1}}" wx:key="{{index}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}年</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{months1}}" wx:key="{{index}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}月</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{days1}}" wx:key="{{index}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}日</view>
+			</picker-view-column>
+		</picker-view>
+	</mp-dialog>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--数据对比-->
+<view wx:if="{{isShowDataCompare}}" class="isShowDataCompare">
+	<!--展示店铺数量-->
+	<view class="DCshowStoreStatus">
+		<view class="DCstore">选择店铺/个人对比</view>
+		<view class="DCsum">共24家门店</view>
+	</view>
+	<view class="DCplaceholder2"></view>
+	<!--门店 || 员工-->
+	<scroll-view scroll-y='true' class="DCscrollView2">
+		<checkbox-group bindchange="DCcheckboxChange">
+			<view wx:for="{{items}}" wx:key="{{item.id}}" class="DCSAW">
+				<!--门店信息-->
+				<label class="weui-cell weui-check__label">
+					<view class="DCfather">
+						<view class="DCsonoffather">
+							<view>
+								<checkbox value="{{item.id}}" checked="{{item.checked}}" class="checkbox" disabled="{{item.isdisabled}}" />
+							</view>
+							<view class="DCstoreInfo">
+								<view>{{item.name}}</view>
+								<view class="DCnumber">(22位员工)</view>
+							</view>
+						</view>
+					</view>
+				</label>
+				<!--展开-->
+				<view wx:if="{{!item.isShowWorker}}" bindtap="DCopen" class='DCopenMove' data-index="{{index}}">展开</view>
+				<!--收起-->
+				<view wx:if="{{item.isShowWorker}}" bindtap="DCclose" class='DCopenMove' data-index="{{index}}">收起</view>
+				<!--员工信息-->
+				<scroll-view class="{{item.isShowWorker?'DCpersonInfoOpen':'DCpersonInfoClose'}}" scroll-y='true'>
+					<view class="DCpersonInfoOutSide">
+						<view wx:for="{{item.worker}}" class="{{item.isSelected?'DCsonpersonInfoOutSidered':'DCsonpersonInfoOutSide'}}" bindtap="DCsletectMore" data-index="{{index}}" data-id="{{item.id}}">
+							<view>{{item.name}}</view>
+							<view>{{item.position}}</view>
+						</view>
+					</view>
+				</scroll-view>
+			</view>
+		</checkbox-group>
+	</scroll-view>
+	<!--开始对比-->
+	<view class="DCjiesuananniu" bindtap="DCCompare">开始对比</view>
+</view>
+
+
+
+
+<!--数据对比 多店(人) 单月-->
+<mp-dialog title="选择年月(单月)" show="{{dialogShow1}}" bindbuttontap="DCtapDialogButton1" buttons="{{buttons}}">
+	<view class="page-body">
+		<picker-view indicator-style="height:50px;" style="width: 100%; height: 200px;" value="{{value1}}" bindchange="bindChangeArea">
+			<picker-view-column>
+				<view wx:for="{{years}}" wx:key="{{index}}" style="line-height: 50px; text-align: center;">
+					{{item}}
+				</view>
+			</picker-view-column>
+			<picker-view-column>
+				<view wx:for="{{months}}" wx:key="{{index}}" style="line-height: 50px; text-align: center;">
+					{{item}}
+				</view>
+			</picker-view-column>
+		</picker-view>
+	</view>
+</mp-dialog>
+<!--数据对比 单店(人) 单年多月-->
+<mp-dialog title="选择年月(多月)" show="{{dialogShow2}}" bindbuttontap="DCtapDialogButton2" buttons="{{buttons}}">
+	<view class="DCpage-body">
+		<picker-view indicator-style="height:50px;" style="width: 50%; height: 200px;" value="{{value1}}" bindchange="bindChangeArea">
+			<picker-view-column>
+				<view wx:for="{{years}}" wx:key="{{index}}" style="line-height: 50px; text-align: center;">
+					{{item}}
+				</view>
+			</picker-view-column>
+		</picker-view>
+		<scroll-view scroll-y="true" class="DCscrollView3">
+			<checkbox-group bindchange="DCcheckboxChange2">
+				<label class="weui-cell2" wx:for="{{months2}}" wx:key="{{item.value}}">
+					<checkbox value="{{item.value}}" checked="{{item.checked}}" />
+					<view style="margin-left:20rpx;font-size:28rpx;">{{item.name}}</view>
+				</label>
+			</checkbox-group>
+		</scroll-view>
+	</view>
+</mp-dialog>

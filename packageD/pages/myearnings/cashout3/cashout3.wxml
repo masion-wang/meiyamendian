@@ -1,0 +1,45 @@
+<mp-tabs bindtabclick="onTabCLick" class="mytabs" tabs="{{tabs}}" activeTab="{{activeTab}}" tab-underline-color="white" tab-inactive-text-color="#bfbfbf" activeClass="tab-bar-title__selected">
+</mp-tabs>
+<view class="placeholder"></view>
+<!--股东账户 -->
+<view class="acount ShowRest">
+	<view class="tip">本次股东分红比例为{{firmShareWithdrawSet.moneyRatio*100}}%</view>
+	<view class="ShowResttop">
+		<view class="ShowResttoptitle">未提现金额(元)</view>
+		<view class="ShowResttopprice">{{shareHolder.withdrawBalance}}</view>
+	</view>
+	<view class="ShowRestmiddle">
+		<view class="ShowRestmiddletitle">可提现金额(元)</view>
+		<view class="ShowRestmiddleprice">{{shareHolder.canWithdrawBalance}}</view>
+		<view class="btnLine"></view>
+	</view>
+	<!--单选框-->
+	<view class="radiogroup">
+		<view class="page-section-title">提现方式 : </view>
+		<radio-group bindchange="radioChange" class="radiogroup2">
+			<label class="radio">
+				<radio value="0" />微信零钱
+			</label>
+			<label class="radio">
+				<radio value="1" />银行卡
+			</label>
+		</radio-group>
+
+	</view>
+	<view class="ShowRestbottom">
+		<view wx:if="{{shareHolder.canWithdrawBalance>0}}" class="button" bindtap="open">提现验证</view>
+		<view wx:if="{{shareHolder.canWithdrawBalance<=0}}" class="button2">提现验证</view>
+	</view>
+</view>
+
+<mp-dialog title="请输入验证码" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+	<view class="oldphone">
+		<view class="titletip">验证码已发送手机{{phone}}</view>
+		<view class="inputcode1">
+			<image src="{{webServerUrl}}/images/product/safe.png" class="safe"></image>
+			<input type="number" value="{{code}}" class="inputcss" bindinput="getcode"></input>
+			<view wx:if="{{canTouch}}" class="codeTest" bindtap="getCode">{{seconds>0?seconds:'发送验证码'}}</view>
+			<view wx:elif="{{!canTouch}}" class="codeTest">{{seconds>0?seconds:'发送验证码'}}</view>
+		</view>
+	</view>
+</mp-dialog>

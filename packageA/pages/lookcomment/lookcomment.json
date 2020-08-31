@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "查看评价",
+  "component": true,
+  "usingComponents": {
+    "mp-tabs": "/components/@miniprogram-component-plus/tabs/index"
+  }
+}

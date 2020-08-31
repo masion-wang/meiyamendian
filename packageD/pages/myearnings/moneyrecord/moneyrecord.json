@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "全部明细",
+  "usingComponents": {
+    "mp-dialog": "/components/dialog/dialog"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "转账-余额",
+  "usingComponents": {
+    "mp-dialog": "/components/dialog/dialog"
+  }
+}

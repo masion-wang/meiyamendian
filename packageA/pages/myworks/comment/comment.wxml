@@ -1,0 +1,103 @@
+<!--1 朋友圈和评价页面-->
+<scroll-view scroll-y='true' class="scrollView" bindscrolltolower="loadMore">
+	<!--1.1 朋友圈详情-->
+	<view class="friendShare">
+		<view class="info">
+			<view class="leftsonofinfo">
+				<view>
+					<image src="{{workdetail.roomStaffBaseDto.staffHeadImg}}" class="psersonImg"></image>
+				</view>
+				<view class="nameandtime">
+					<view class="name">{{workdetail.roomStaffBaseDto.stageName}}</view>
+					<view class="time">{{workdetail.releaseDate}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="words">{{workdetail.textCtn}}</view>
+		<view class="photo">
+			<image bindtap="handleImagePreview" data-url="{{item.img}}" wx:for="{{workdetail.roomStaffWorksImgs}}" src="{{item.img}}" mode="aspectFill" class="sonofphoto"></image>
+		</view>
+		<view class="tip">
+			<view class="sonoftip">{{workdetail.hairLenTypeObj.name}}</view>
+			<view class="sonoftip">{{workdetail.faceTypeObj.name}}</view>
+			<view class="sonoftip">{{workdetail.hairTypeObj.name}}</view>
+			<!-- <view class="sonoftip">最新</view> -->
+		</view>
+		<view class="btnLine"></view>
+		<view class="end">
+			<view class="threeadd">
+				<image src="{{webServerUrl}}/images/index/mywork/like2.png" class="IMG"></image>
+				<view class="addWord">点赞</view>
+				<view class="addWord">{{workdetail.likeNum}}</view>
+			</view>
+			<view class="threeadd">
+				<image src="{{webServerUrl}}/images/index/mywork/comment2.png" class="IMG"></image>
+				<view class="addWord">评论</view>
+				<view class="addWord">{{workdetail.cmtNum}}</view>
+			</view>
+			<view class="threeadd">
+				<image src="{{webServerUrl}}/images/index/mywork/share2.png" class="IMG"></image>
+				<!--open-type="share"-->
+				<button class="addWord share" style="width:70rpx">转发</button>
+				<view class="addWord">{{workdetail.forwardNum}}</view>
+			</view>
+		</view>
+	</view>
+
+	<!--1.2 评价显示分页-->
+	<!-- <view class="scrollView2"> -->
+	<view class="newComment2"></view>
+	<view class="newComment">最新评论</view>
+
+	<view class="sonofcomment" wx:for="{{list}}">
+		<!--评价-->
+		<view class="avatar">
+			<image src="{{item.uid!=-1?item.user.avatar:item.roomStaffBase.staffHeadImg}}" class="avatarImg"></image>
+		</view>
+		<view class="avatarReative">
+			<view class="nameAndreply">
+				<view class="avatarname">{{item.uid!=-1?item.user.nick:item.roomStaffBase.stageName}}</view>
+				<!--item.uid!=-1?item.user.id:-->
+				<view bindtap="reply" class="replyImg" data-id="{{item.id}}" data-name="{{item.uid!=-1?item.user.nick:item.roomStaffBase.stageName}}">
+					<image src="{{webServerUrl}}/images/index/mywork/comment2.png" class="huifu"></image> 回复
+				</view>
+			</view>
+			<view class="avatartime">{{item.cmtDate}}</view>
+			<view class="avatarContent">{{item.cmtCtn}}</view>
+			<!--子评价-->
+			<view class="otherReply" wx:if="{{item.roomStaffWorksCmtSubs.length>0}}">
+				<block wx:for="{{item.roomStaffWorksCmtSubs}}">
+					<view class="otherInfo">
+						<view class="otheravator">
+							<image src="{{item.uid!=-1?item.user.avatar:item.roomStaffBase.staffHeadImg}}" class="otherImg"></image>
+						</view>
+						<view class="otheravatorname">{{item.uid!=-1?item.user.nick:item.roomStaffBase.stageName}}</view>
+						<view class="otheravatortime">{{item.cmtDate}}</view>
+					</view>
+					<view class="otherContent">{{item.cmtCtn}}</view>
+				</block>
+			</view>
+		</view>
+	</view>
+	<!-- </view> -->
+	<view class="wordTip" wx:if="{{isend}}">暂无更多数据</view>
+</scroll-view>
+
+<!--2 评论 or 回复-->
+<form bindsubmit="submitForm" report-submit="true">
+	<view class="release {{isreply?'release2':''}}">
+		<view wx:if="{{isreply}}" class="replyinfo1">
+			<text class="text">回复:{{replyname}}</text>
+			<button class="cancel" bindtap="cancle">取消回复</button>
+		</view>
+		<!--输入内容-->
+		<view class="replyinfo2">
+			<textarea placeholder="{{isreply?'请回复':'请评论'}}" value="{{comment}}" disable-default-padding="true" placeholder-class="input_null" fixed="true" maxlength="300" show-confirm-bar="false" cursor-spacing="15" auto-height="true" name="comment"></textarea>
+			<button form-type="submit" class="submit">发送</button>
+		</view>
+	</view>
+</form>
+
+
+<!--遮罩层-->
+<view class="cover" wx:if='{{iscover}}'></view>

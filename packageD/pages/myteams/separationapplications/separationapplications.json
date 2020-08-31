@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "申请离职",
+  "usingComponents": {
+    "mp-dialog": "/components/dialog/dialog"
+  }
+}

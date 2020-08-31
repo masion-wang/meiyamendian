@@ -1,0 +1,13 @@
+<scroll-view refresher-enabled='true' refresher-triggered="{{back}}" bindrefresherrefresh="upper" scroll-y='true' class="scrollView" bindscrolltolower="loadMore">
+	<view class="notice" wx:for="{{list}}">
+		<view class="dflex" data-rcbId="{{item.id}}" bindtap="tonoticedetail">
+			<image src="{{item.img}}" class="left" mode='aspectFill'></image>
+			<view class="right">
+				<view class="title">{{item.title}}</view>
+				<view class="content">{{item.details}}</view>
+				<view class="date">{{item.createTime}}</view>
+			</view>
+		</view>
+	</view>
+	<view class="wordTip" wx:if="{{isend}}">暂无更多数据</view>
+</scroll-view>

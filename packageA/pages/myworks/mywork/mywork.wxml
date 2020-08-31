@@ -1,0 +1,102 @@
+<scroll-view scroll-y='true' class="scrollView" bindscrolltolower="loadMore">
+	<view>
+		<view class="headerTwoofOne">
+			<view class="itemTwo">
+				<view>{{totalRelease}}</view>
+				<view class="small">
+					<image src="{{webServerUrl}}/images/index/mywork/push1.png" class="IMG"></image>发布总数
+				</view>
+			</view>
+			<view class="itemTwo">
+				<view>{{totalLike}}</view>
+				<view class="small">
+					<image src="{{webServerUrl}}/images/index/mywork/like1.png" class="IMG"></image>点赞总数
+				</view>
+			</view>
+			<view class="itemTwo">
+				<view>{{totalComment}}</view>
+				<view class="small">
+					<image src="{{webServerUrl}}/images/index/mywork/comment1.png" class="IMG"></image>评论总数
+				</view>
+			</view>
+			<view class="itemTwo">
+				<view>{{totalForward}}</view>
+				<view class="small">
+					<image src="{{webServerUrl}}/images/index/mywork/share1.png" class="IMG"></image>分享总数
+				</view>
+			</view>
+		</view>
+		<!-- 用户所属类型（1.总部(平台)，2公司，3.大区 经理 4.小区 经理，5.股东6.门店员工） -->
+		<view class="button" bindtap="uploadmywork" wx:if="{{admintype==6}}">上传新作品</view>
+	</view>
+	<view class="friendShare" wx:for="{{list}}">
+		<view class="info">
+			<view class="leftsonofinfo">
+				<view>
+					<image src="{{item.roomStaffBaseDto.staffHeadImg}}" class="psersonImg"></image>
+				</view>
+				<view class="nameandtime">
+					<view class="name">{{item.roomStaffBaseDto.stageName}}</view>
+					<view class="time">{{item.releaseDate}}</view>
+				</view>
+			</view>
+			<view>
+				<image data-id="{{item.id}}" bindtap="delete" src="{{webServerUrl}}/images/index/mywork/delete2.png" class="delete"></image>
+			</view>
+		</view>
+		<view class="words">{{item.textCtn}}</view>
+		<view class="photo">
+			<image bindtap="getbig" class="sonofphoto" data-url="{{item.img}}" mode="aspectFill" wx:for="{{item.roomStaffWorksImgs}}" src="{{item.img}}" >
+				<view wx:if="{{item.top==0}}" class="toptop">置顶</view>
+			</image>
+		</view>
+		<view class="tip">
+			<view class="sonoftip">{{item.hairLenTypeObj.name}}</view>
+			<view class="sonoftip">{{item.faceTypeObj.name}}</view>
+			<view class="sonoftip">{{item.hairTypeObj.name}}</view>
+			<!-- <view class="sonoftip">最新</view> -->
+		</view>
+		<view class="btnLine"></view>
+		<view class="end">
+			<!--bindtap="like"-->
+			<view class="threeadd" data-id="{{item.id}}">
+				<image src="{{webServerUrl}}/images/index/mywork/like2.png" class="IMG"></image>
+				<view class="addWord">点赞</view>
+				<view class="addWord">{{item.likeNum}}</view>
+			</view>
+			<view class="threeadd" data-id="{{item.id}}" bindtap="tocomment">
+				<image src="{{webServerUrl}}/images/index/mywork/comment2.png" class="IMG"></image>
+				<view class="addWord">评论</view>
+				<view class="addWord">{{item.cmtNum}}</view>
+			</view>
+			<view class="threeadd">
+				<image src="{{webServerUrl}}/images/index/mywork/share2.png" class="IMG"></image>
+				<!--open-type="share" -->
+				<button class="addWord share" style="width:70rpx" data-id="{{item.id}}">转发</button>
+				<view class="addWord">{{item.forwardNum}}</view>
+			</view>
+		</view>
+	</view>
+	<view class="wordTip" wx:if="{{isend}}">暂无更多内容</view>
+</scroll-view>
+<view class="placeholder2"></view>
+<!--关闭-->
+<mp-dialog title="您确认删除此作品吗？" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+</mp-dialog>
+<!--遮罩层-->
+<view class="cover" wx:if='{{iscover}}'></view>
+<!--配合大图片的遮罩层-->
+<view class="cover2" wx:if='{{iscover2}}'>
+	<view class="parents">
+		<view class="box-shadow">
+			<image mode="widthFix" src="{{src}}" class="chooseOne">
+				<view class="wordtip" wx:if='{{iscover2}}'>置顶造型作品会展示在用户端发型师详情页
+					最多保留置顶4张造型作品、循环顶掉前面设置的</view>
+			</image>
+		</view>
+		<view class="twobuttons" wx:if='{{iscover2}}'>
+			<view class="buttonOne2" bindtap="closethat">关闭</view>
+			<view class="buttonOne" bindtap="upthat">置顶图片</view>
+		</view>
+	</view>
+</view>

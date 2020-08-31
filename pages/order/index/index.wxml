@@ -1,0 +1,82 @@
+<view wx:if="{{isshow}}">
+	<mp-tabs style="position:fixed;top:0;height:100rpx;z-index:999;width:100%;font-weight:600;" tabs="{{tabs}}" tab-underline-color="white" tab-inactive-text-color="#bfbfbf" bindtabclick="onTabCLick" activeClass="tab-bar-title__selected">
+	</mp-tabs>
+	<view class="placeholder"></view>
+	<!--内容-->
+	<scroll-view class="srcollView" scroll-y="true" bindscrolltoupper="getList" bindscrolltolower="loadMore">
+		<view class="allList">
+			<!--文章内容-->
+			<view class="Listitem" wx:for="{{list}}">
+				<view class="up">
+					<view class="left" data-odtype="{{item.odType}}" data-odid="{{item.odId}}" bindtap="toproductdetail">
+						<image src="{{item.user.avatar}}"></image>
+					</view>
+					<view class="right" data-odtype="{{item.odType}}" data-odid="{{item.odId}}" bindtap="toproductdetail">
+						<!--名字-->
+						<view class="nick">
+							<view class="nicksmallname">{{item.user.nick}}</view>
+							<view class="remankname">({{item.user.userRemarkName==-1?'暂无':item.user.userRemarkName}})</view>
+						</view>
+						<!--项目 类型 状态 金额-->
+						<view class="nick2">
+							<view class="rightright">
+								<view class="middle">
+									<view class="zhong">
+										<view wx:for="{{item.firmProjects}}" wx:if="{{index<2}}">{{item.projectName}}</view>
+									</view>
+									<view class="favourable">
+										<image wx:if="{{item.userSource==1}}" src="{{webServerUrl}}/images/order/pin.png" class="imgshow"></image>
+										<image wx:if="{{item.userSource==2}}" src="{{webServerUrl}}/images/order/kan.png" class="imgshow"></image>
+										<image wx:if="{{item.userSource==3}}" src="{{webServerUrl}}/images/order/qin.png" class="imgshow"></image>
+										<image wx:if="{{item.userSource==4}}" src="{{webServerUrl}}/images/order/fan.png" class="imgshow"></image>
+										<image wx:if="{{item.userSource==6}}" src="{{webServerUrl}}/images/order/free.png" class="imgshow"></image>
+										<view wx:if="{{item.userSource==0}}" class="tipTypeOne">一般项目</view>
+										<view wx:if="{{item.userSource==1}}" class="tipTypeOne">拼团</view>
+										<view wx:if="{{item.userSource==2}}" class="tipTypeOne">砍价</view>
+										<view wx:if="{{item.userSource==3}}" class="tipTypeOne">亲密付</view>
+										<view wx:if="{{item.userSource==4}}" class="tipTypeOne">消费返还</view>
+										<view wx:if="{{item.userSource==5}}" class="tipTypeOne">闺蜜卡</view>
+										<view wx:if="{{item.userSource==6}}" class="tipTypeOne">免费请客</view>
+										<!-- <view class="tipTypeTwo">兑换次卡</view> -->
+									</view>
+								</view>
+								<!-- 订单状态 0 未支付  待支付	1 已支付,未验收  待消费 2 已支付,已验收  待评价	3 已支付退款中 退款/售后	4 已退款 已退款	5 未支付已取消订单 已取消  	6 已支付、已核销、已经评论  已完成7 退款失败 待核销	8 超时,订单因长时间未核销而超时,等待用户申请退款 已过期-->
+
+							</view>
+							<view class="end">
+								<view wx:if="{{item.odStatus==0 }}" class="readyToPay">待支付</view>
+								<view wx:if="{{item.odStatus==1 }}" class="readyToPay">待消费</view>
+								<view wx:if="{{item.odStatus==2 }}" class="readyToPay">待评价</view>
+								<view wx:if="{{item.odStatus==3 }}" class="readyToPay">退款/售后</view>
+								<view wx:if="{{item.odStatus==4 }}" class="readyToPay">已退款</view>
+								<view wx:if="{{item.odStatus==5 }}" class="readyToPay">已取消</view>
+								<view wx:if="{{item.odStatus==6 }}" class="readyToPay">已完成</view>
+								<view wx:if="{{item.odStatus==7 }}" class="readyToPay">待核销</view>
+								<view wx:if="{{item.odStatus==8 }}" class="readyToPay">已过期</view>
+								<!-- <view wx:else class="readyToPay">未知 后台问题</view> -->
+								<view class="price">¥ {{item.consumeAmt}}</view>
+								<view class="nick3" wx:if="{{item.returnMyCurrency>0}}">
+									<view class="nicksmallname2">合伙人支出 : </view>
+									<view class="remankname2">{{item.returnMyCurrency}}</view>
+								</view>
+							</view>
+						</view>
+						<!-- <view class="nick3">
+							<view class="nicksmallname2">合伙人提现:</view>
+							<view class="remankname2">6799</view>
+						</view> -->
+					</view>
+				</view>
+				<view class="btnLine"></view>
+				<view class="down" data-id="{{item.id}}" bindtap="tomemorandum">
+					<image src="{{webServerUrl}}/images/order/beiwang.png" class="beiwangImg"></image>
+					<text class="beiwang">备忘录 :</text>
+					<text class="beiwangContentOne">{{item.remark=='-1'||item.remark==''?'暂无':item.remark}}</text>
+				</view>
+			</view>
+		</view>
+		<view wx:if="{{isend}}" class="wordTip">暂无数据</view>
+	</scroll-view>
+</view>
+<view wx:if="{{!isshow}}" class="wordTip">暂无权限查看</view>
+<view class="placeholder2"></view>

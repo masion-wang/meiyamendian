@@ -1,0 +1,65 @@
+<view class="selecttime" bindtap="open">选择时间 : {{startTimeshow}}-{{endTimeshow}}</view>
+<view class="placeholder"></view>
+<scroll-view scroll-y="true" class="scrollView" bindscrolltolower="loadMore">
+	<view class="li2">
+		<view class="moneyrecord" wx:for="{{list}}">
+			<view class="title">
+				<view>{{item.year}}-{{item.month}}-{{item.day}}</view>
+				<view class="base {{item.status==0?'nodone':''}}">{{item.status==0?'待完成':'已完成'}}</view>
+			</view>
+			<view class="btnLine"></view>
+			<view class="content" wx:for="{{item.staffAccountDetailsDtos}}">
+				<!--账户类型 0 余额账户(待完成) 1 奖励金账户(待完成) 2 提现分账户 3 信用分账户 4 股东账户(待完成)-->
+				<view wx:if="{{item.accountType==0}}" class="one">余额账户</view>
+				<view wx:if="{{item.accountType==1}}" class="one">奖励金账户</view>
+				<view wx:if="{{item.accountType==4}}" class="one">股东账户</view>
+				<view wx:if="{{item.accountType==2}}" class="one">提现分账户</view>
+				<view wx:if="{{item.accountType==3}}" class="one">信用分账户</view>
+				<!--奖励扣除类型 0 提现(待完成)  1 奖励 2 处罚 3 收益 4 转账 5 底薪（收益） 6 底薪（处罚）-->
+				<view wx:if="{{item.type==0}}" class="two">提现</view>
+				<view wx:if="{{item.type==1}}" class="two">奖励</view>
+				<view wx:if="{{item.type==2}}" class="two">处罚</view>
+				<view wx:if="{{item.type==3}}" class="two">收益</view>
+				<view wx:if="{{item.type==4}}" class="two">转账</view>
+				<view wx:if="{{item.type==5}}" class="two">底薪(收益)</view>
+				<view wx:if="{{item.type==6}}" class="two">底薪(处罚)</view>
+				<view wx:if="{{item.type==7}}" class="two">提现(驳回)</view>
+				<!--账户类型 0 余额账户 1 奖励金账户 2 提现分账户 3 信用分账户 4 股东账户-->
+				<view wx:if="{{item.accountType==0}}" class="one">{{item.eiType==0?'+':'-'}} {{item.balanceAmount}}元</view>
+				<view wx:if="{{item.accountType==1}}" class="one">{{item.eiType==0?'+':'-'}} {{item.awardAmount}}元</view>
+				<view wx:if="{{item.accountType==2}}" class="one">{{item.eiType==0?'+':'-'}} {{item.withdrawIntegral}}分</view>
+				<view wx:if="{{item.accountType==3}}" class="one">{{item.eiType==0?'+':'-'}} {{item.creditIntegral}}分</view>
+				<view wx:if="{{item.accountType==4}}" class="one">{{item.eiType==0?'+':'-'}} {{item.shareAmount}}分</view>
+				<view class="four">{{item.updateTime}}</view>
+			</view>
+		</view>
+	</view>
+	<view class="wordTip" wx:if="{{isend}}">暂无更多数据</view>
+</scroll-view>
+<view class="placeholder2"></view>
+<mp-dialog title="选择日期" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+	<view>开始日期</view>
+	<picker-view indicator-style="height:50px;" style="width: 100%; height: 270rpx;margin-top:15rpx;" value="{{value2}}" bindchange="bindChange1">
+		<picker-view-column>
+			<view wx:for="{{years}}" wx:key="{{years}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}年</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{months}}" wx:key="{{months}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}月</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{days}}" wx:key="{{days}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}日</view>
+		</picker-view-column>
+	</picker-view>
+	<view style="margin-top:50rpx;">结束日期</view>
+	<picker-view indicator-style="height:50px;" style="width: 100%; height: 270rpx;margin-top:15rpx;" value="{{value1}}" bindchange="bindChange2">
+		<picker-view-column>
+			<view wx:for="{{years}}" wx:key="{{years}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}年</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{months}}" wx:key="{{months}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}月</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{days}}" wx:key="{{days}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}日</view>
+		</picker-view-column>
+	</picker-view>
+</mp-dialog>

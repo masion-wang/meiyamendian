@@ -1,0 +1,482 @@
+<!--tabs-->
+<mp-tabs class="tab" tabs="{{tabs}}" activeTab="{{activeTab}}" tab-underline-color="white" tab-inactive-text-color="#bfbfbf" bindtabclick="onTabCLick" activeClass="tab-bar-title__selected">
+</mp-tabs>
+<view class="placeholder"></view>
+<scroll-view scroll-y='true' class="scrollView" bindscrolltolower="loadMore">
+	<block wx:if="{{list.length>0}}" wx:for="{{list}}">
+		<!--订单3种 (0123因为后台数据结构没设计好 返回四个)-->
+		<!--
+		 核销订单类型 
+		 0 会员卡订单 
+		 1 会员卡中的次卡订单id list表中的id 
+		 2 次卡订单（次卡订单子表的记录id）
+		 3 会员卡充值订单类型 
+		 4 一般项目订单类型 
+		 5 拼团订单类型(子表订单id) 
+		 6 砍价订单类型 
+		 7 亲密付订单类型 
+		 8 消费返还订单类型-->
+		<!--0-会员卡订单-->
+		<view class="record" wx:if="{{item.acceptedOdType==0}}">
+			<view class="customer"></view>
+			<view class="content">
+				<view class="up">
+					<view class="imageOutsider">
+						<image src="{{item.user.avatar}}" class="leftOfUP"></image>
+					</view>
+					<view class="rightOfUPTwo">
+						<view>{{item.user.nick}} - {{item.user.phoneNum}}</view>
+					</view>
+				</view>
+				<view class="down">
+					<view class="leftOfDown">
+						<view class="item">
+							<view class="leftStyle">办卡类型 :</view>
+							<view class="leftStyleTwo">{{item.firmCstmCardPrchOdDto.firmCustomerCard.customerCardName}}</view>
+							<!-- <view class="leftStyleTwoLogo">次卡划会员</view> -->
+						</view>
+						<view class="item">
+							<view class="leftStyle">入会金额 :</view>
+							<view class="leftStyleTwo">¥ {{item.firmCstmCardPrchOdDto.totalPrice}}</view>
+						</view>
+					</view>
+				</view>
+				<view class="realdown">
+					<view class="leftOfDown">
+						<view class="time">
+							<view class="leftStyle">创建时间 :</view>
+							<view class="rightStyle">{{item.createTime}}</view>
+						</view>
+						<view class="time">
+							<view class="leftStyle">更新时间 :</view>
+							<view class="rightStyle">{{item.updateTime}}</view>
+						</view>
+					</view>
+					<view class="rightOfRealdown">
+						<view wx:if="{{item.acceptedStatus==0}}" class="waitOrder" bindtap="totapdealcardgold" data-type="{{item.acceptedOdType}}" data-id="{{item.acceptedOdId}}" data-acceptedstatus="{{item.acceptedStatus}}">待分配</view>
+						<view wx:if="{{item.acceptedStatus!=0}}" class="waitOrder2" bindtap="totapdealcardgold" data-type="{{item.acceptedOdType}}" data-id="{{item.acceptedOdId}}" data-acceptedstatus="{{item.acceptedStatus}}">已分配</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!--1-会员卡中的次卡订单id-->
+		<view class="record" wx:if="{{item.acceptedOdType==1}}">
+			<view class="customer"></view>
+			<view class="content">
+				<view class="up">
+					<view class="imageOutsider">
+						<image src="{{item.user.avatar}}" class="leftOfUP"></image>
+					</view>
+					<view class="rightOfUPTwo">
+						<view>{{item.user.nick}} - {{item.user.phoneNum}}</view>
+					</view>
+				</view>
+				<view class="down">
+					<view class="leftOfDown">
+						<view class="item">
+							<view class="leftStyle">办卡类型 :</view>
+							<view class="leftStyleTwo">{{item.firmNumCardPrchOdListDto.firmNumberCard.numberName}}</view>
+							<view class="leftStyleTwoLogo" wx:if="{{item.firmNumCardPrchOdListDto.useCstmCardAmt>0}}">次卡划会员</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">入会金额 :</view>
+							<view class="leftStyleTwo">¥ {{item.firmNumCardPrchOdListDto.prchAmount}}</view>
+						</view>
+					</view>
+				</view>
+				<view class="realdown">
+					<view class="leftOfDown">
+						<view class="time">
+							<view class="leftStyle">创建时间 :</view>
+							<view class="rightStyle">{{item.createTime}}</view>
+						</view>
+						<view class="time">
+							<view class="leftStyle">更新时间 :</view>
+							<view class="rightStyle">{{item.updateTime}}</view>
+						</view>
+					</view>
+					<view class="rightOfRealdown">
+						<view wx:if="{{item.acceptedStatus==0}}" class="waitOrder" bindtap="totapdealcardgold" data-type="{{item.acceptedOdType}}" data-id="{{item.acceptedOdId}}" data-acceptedstatus="{{item.acceptedStatus}}">待分配</view>
+						<view wx:if="{{item.acceptedStatus!=0}}" class="waitOrder2" bindtap="totapdealcardgold" data-type="{{item.acceptedOdType}}" data-id="{{item.acceptedOdId}}" data-acceptedstatus="{{item.acceptedStatus}}">已分配</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+
+		<!--2ok-->
+		<view class="record" wx:if="{{item.acceptedOdType==2}}">
+			<view class="customer"></view>
+			<view class="content">
+				<view class="up">
+					<view class="imageOutsider">
+						<image src="{{item.user.avatar}}" class="leftOfUP"></image>
+					</view>
+					<view class="rightOfUPTwo">
+						<view>{{item.user.nick}} - {{item.user.phoneNum}}</view>
+					</view>
+				</view>
+				<view class="down">
+					<view class="leftOfDown">
+						<view class="item">
+							<view class="leftStyle">办卡类型 :</view>
+							<view class="leftStyleTwo">{{item.firmNumCardPrchOdListDto.firmNumberCard.numberName}}</view>
+							<view class="leftStyleTwoLogo" wx:if="{{item.firmNumCardPrchOdListDto.useCstmCardAmt>0}}">次卡划会员</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">入会金额 :</view>
+							<!-- useCstmCardAmt -->
+							<view class="leftStyleTwo">¥ {{item.firmNumCardPrchOdListDto.useCstmCardAmt>0?item.firmNumCardPrchOdListDto.useCstmCardAmt:item.firmNumCardPrchOdListDto.prchAmount}}</view>
+						</view>
+					</view>
+				</view>
+				<view class="realdown">
+					<view class="leftOfDown">
+						<view class="time">
+							<view class="leftStyle">创建时间 :</view>
+							<view class="rightStyle">{{item.createTime}}</view>
+						</view>
+						<view class="time">
+							<view class="leftStyle">更新时间 :</view>
+							<view class="rightStyle">{{item.updateTime}}</view>
+						</view>
+					</view>
+					<view class="rightOfRealdown">
+						<view wx:if="{{item.acceptedStatus==0}}" class="waitOrder" bindtap="totapdealcardgold" data-type="{{item.acceptedOdType}}" data-id="{{item.acceptedOdId}}" data-acceptedstatus="{{item.acceptedStatus}}">待分配</view>
+						<view wx:if="{{item.acceptedStatus!=0}}" class="waitOrder2" bindtap="totapdealcardgold" data-type="{{item.acceptedOdType}}" data-id="{{item.acceptedOdId}}" data-acceptedstatus="{{item.acceptedStatus}}">已分配</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+
+
+
+
+		<!--3ok-->
+		<view class="record" wx:if="{{item.acceptedOdType==3}}">
+			<view class="customer"></view>
+			<view class="content">
+				<view class="up">
+					<view class="imageOutsider">
+						<image src="{{item.user.avatar}}" class="leftOfUP"></image>
+					</view>
+					<view class="rightOfUPTwo">
+						<view>{{item.user.nick}} - {{item.user.phoneNum}}</view>
+					</view>
+				</view>
+				<view class="down">
+					<view class="leftOfDown">
+						<view class="item">
+							<view class="leftStyle">办卡类型 :</view>
+							<view class="leftStyleTwo">{{item.firmUserCstmCardTopUpOdDto.firmCustomerCard.customerCardName}}</view>
+							<!-- <view class="leftStyleTwoLogo">次卡划会员</view> -->
+						</view>
+						<view class="item">
+							<view class="leftStyle">入会金额 :</view>
+							<view class="leftStyleTwo">¥ {{item.firmUserCstmCardTopUpOdDto.totalPrice}}</view>
+						</view>
+					</view>
+				</view>
+				<view class="realdown">
+					<view class="leftOfDown">
+						<view class="time">
+							<view class="leftStyle">创建时间 :</view>
+							<view class="rightStyle">{{item.createTime}}</view>
+						</view>
+						<view class="time">
+							<view class="leftStyle">更新时间 :</view>
+							<view class="rightStyle">{{item.updateTime}}</view>
+						</view>
+					</view>
+					<view class="rightOfRealdown">
+						<view wx:if="{{item.acceptedStatus==0}}" class="waitOrder" bindtap="totapdealcardgold" data-type="{{item.acceptedOdType}}" data-id="{{item.acceptedOdId}}" data-acceptedstatus="{{item.acceptedStatus}}">待分配</view>
+						<view wx:if="{{item.acceptedStatus!=0}}" class="waitOrder2" bindtap="totapdealcardgold" data-type="{{item.acceptedOdType}}" data-id="{{item.acceptedOdId}}" data-acceptedstatus="{{item.acceptedStatus}}">已分配</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!--项目5种-->
+		<!--4.一般订单-->
+		<view class="record" wx:if="{{item.acceptedOdType==4}}">
+			<view class="customer"></view>
+			<view class="content">
+				<view class="up">
+					<view class="imageOutsider">
+						<image src="{{item.user.avatar}}" class="leftOfUP"></image>
+					</view>
+					<view class="rightOfUP">
+						<view class="wordname">{{item.user.nick}}</view>
+						<view>-{{item.user.phoneNum}}</view>
+					</view>
+				</view>
+				<view class="down">
+					<view class="leftOfDown">
+						<view class="item">
+							<view class="leftStyle">预约时间 :</view>
+							<view class="leftStyleTwo">{{item.userProjectOrderDto.reserveTemplate.rsvTime}}</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">预约项目 :</view>
+							<view class="leftStyleTwo2">
+								<block style="margin-right:15rpx;" wx:for="{{item.userProjectOrderDto.userProOdItemDtos}}">
+									{{item.firmProject.projectName}}
+								</block>
+							</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">顾客来源 :</view>
+							<view wx:if="{{item.userSource==0}}" class="leftStyleTwo">一般项目</view>
+							<view wx:elif="{{item.userSource==1}}" class="leftStyleTwo">拼团 </view>
+							<view wx:elif="{{item.userSource==2}}" class="leftStyleTwo">砍价</view>
+							<view wx:elif="{{item.userSource==3}}" class="leftStyleTwo">亲密付</view>
+							<view wx:elif="{{item.userSource==4}}" class="leftStyleTwo">消费返还</view>
+							<view wx:elif="{{item.userSource==5}}" class="leftStyleTwo">闺蜜卡</view>
+							<view wx:elif="{{item.userSource==6}}" class="leftStyleTwo">免费请客</view>
+						</view>
+					</view>
+				</view>
+				<view class="realdown">
+					<view class="leftOfDown">
+						<view class="time">
+							<view class="leftStyle">创建时间 :</view>
+							<view class="rightStyle">{{item.createTime}}</view>
+						</view>
+						<view class="time">
+							<view class="leftStyle">更新时间 :</view>
+							<view class="rightStyle">{{item.updateTime}}</view>
+						</view>
+					</view>
+					<view class="rightOfRealdown">
+						<view class="small">实付金额</view>
+						<view class="big">¥ {{item.userProjectOrderDto.totalPrice}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!--5.拼团-->
+		<view class="record" wx:if="{{item.acceptedOdType==5}}">
+			<view class="customer"></view>
+			<view class="content">
+				<view class="up">
+					<view class="imageOutsider">
+						<image src="{{item.user.avatar}}" class="leftOfUP"></image>
+					</view>
+					<view class="rightOfUP">
+						<view class="wordname">{{item.user.nick}}</view>
+						<view>-{{item.user.phoneNum}}</view>
+					</view>
+				</view>
+				<view class="down">
+					<view class="leftOfDown">
+						<view class="item">
+							<view class="leftStyle">预约时间 :</view>
+							<view class="leftStyleTwo">{{item.groupBookingOrderItemDto.reserveTemplate.rsvTime}}</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">预约项目 :</view>
+							<view class="leftStyleTwo2">
+								{{item.groupBookingOrderItemDto.firmProject.projectName}}
+							</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">顾客来源 :</view>
+							<view wx:if="{{item.userSource==0}}" class="leftStyleTwo">一般项目</view>
+							<view wx:elif="{{item.userSource==1}}" class="leftStyleTwo">拼团 </view>
+							<view wx:elif="{{item.userSource==2}}" class="leftStyleTwo">砍价</view>
+							<view wx:elif="{{item.userSource==3}}" class="leftStyleTwo">亲密付</view>
+							<view wx:elif="{{item.userSource==4}}" class="leftStyleTwo">消费返还</view>
+							<view wx:elif="{{item.userSource==5}}" class="leftStyleTwo">闺蜜卡</view>
+							<view wx:elif="{{item.userSource==6}}" class="leftStyleTwo">免费请客</view>
+						</view>
+					</view>
+				</view>
+				<view class="realdown">
+					<view class="leftOfDown">
+						<view class="time">
+							<view class="leftStyle">创建时间 :</view>
+							<view class="rightStyle">{{item.createTime}}</view>
+						</view>
+						<view class="time">
+							<view class="leftStyle">更新时间 :</view>
+							<view class="rightStyle">{{item.updateTime}}</view>
+						</view>
+					</view>
+					<view class="rightOfRealdown">
+						<view class="small">实付金额</view>
+						<view class="big">¥ {{item.userPayPrice}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!--6.砍价-->
+		<view class="record" wx:if="{{item.acceptedOdType==6}}">
+			<view class="customer"></view>
+			<view class="content">
+				<view class="up">
+					<view class="imageOutsider">
+						<image src="{{item.user.avatar}}" class="leftOfUP"></image>
+					</view>
+					<view class="rightOfUP">
+						<view class="wordname">{{item.user.nick}}</view>
+						<view>-{{item.user.phoneNum}}</view>
+					</view>
+				</view>
+				<view class="down">
+					<view class="leftOfDown">
+						<view class="item">
+							<view class="leftStyle">预约时间 :</view>
+							<view class="leftStyleTwo">{{item.hackPriceOrderDto.reserveTemplate.rsvTime}}</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">预约项目 :</view>
+							<view class="leftStyleTwo2">
+								{{item.hackPriceOrderDto.firmProject.projectName}}
+							</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">顾客来源 :</view>
+							<view wx:if="{{item.userSource==0}}" class="leftStyleTwo">一般项目</view>
+							<view wx:elif="{{item.userSource==1}}" class="leftStyleTwo">拼团 </view>
+							<view wx:elif="{{item.userSource==2}}" class="leftStyleTwo">砍价</view>
+							<view wx:elif="{{item.userSource==3}}" class="leftStyleTwo">亲密付</view>
+							<view wx:elif="{{item.userSource==4}}" class="leftStyleTwo">消费返还</view>
+							<view wx:elif="{{item.userSource==5}}" class="leftStyleTwo">闺蜜卡</view>
+							<view wx:elif="{{item.userSource==6}}" class="leftStyleTwo">免费请客</view>
+						</view>
+					</view>
+				</view>
+				<view class="realdown">
+					<view class="leftOfDown">
+						<view class="time">
+							<view class="leftStyle">创建时间 :</view>
+							<view class="rightStyle">{{item.createTime}}</view>
+						</view>
+						<view class="time">
+							<view class="leftStyle">更新时间 :</view>
+							<view class="rightStyle">{{item.updateTime}}</view>
+						</view>
+					</view>
+					<view class="rightOfRealdown">
+						<view class="small">实付金额</view>
+						<view class="big">¥ {{item.userPayPrice}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!--7.亲密付-->
+		<view class="record" wx:if="{{item.acceptedOdType==7}}">
+			<view class="customer"></view>
+			<view class="content">
+				<view class="up">
+					<view class="imageOutsider">
+						<image src="{{item.user.avatar}}" class="leftOfUP"></image>
+					</view>
+					<view class="rightOfUP">
+						<view class="wordname">{{item.user.nick}}</view>
+						<view>-{{item.user.phoneNum}}</view>
+					</view>
+				</view>
+				<view class="down">
+					<view class="leftOfDown">
+						<view class="item">
+							<view class="leftStyle">预约时间 :</view>
+							<view class="leftStyleTwo">{{item.intimacyPayOrderDto.reserveTemplate.rsvTime}}</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">预约项目 :</view>
+							<view class="leftStyleTwo2">
+								{{item.intimacyPayOrderDto.firmProject.projectName}}
+							</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">顾客来源 :</view>
+							<view wx:if="{{item.userSource==-1}}" class="leftStyleTwo">无</view>
+							<view wx:elif="{{item.userSource==0}}" class="leftStyleTwo">一般项目</view>
+							<view wx:elif="{{item.userSource==1}}" class="leftStyleTwo">拼团 </view>
+							<view wx:elif="{{item.userSource==2}}" class="leftStyleTwo">砍价</view>
+							<view wx:elif="{{item.userSource==3}}" class="leftStyleTwo">亲密付</view>
+							<view wx:elif="{{item.userSource==4}}" class="leftStyleTwo">消费返还</view>
+							<view wx:elif="{{item.userSource==5}}" class="leftStyleTwo">闺蜜卡</view>
+							<view wx:elif="{{item.userSource==6}}" class="leftStyleTwo">免费请客</view>
+						</view>
+					</view>
+				</view>
+				<view class="realdown">
+					<view class="leftOfDown">
+						<view class="time">
+							<view class="leftStyle">创建时间 :</view>
+							<view class="rightStyle">{{item.createTime}}</view>
+						</view>
+						<view class="time">
+							<view class="leftStyle">更新时间 :</view>
+							<view class="rightStyle">{{item.updateTime}}</view>
+						</view>
+					</view>
+					<view class="rightOfRealdown">
+						<view class="small">实付金额</view>
+						<view class="big">¥ {{item.userPayPrice}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!--8.消费返还-->
+		<view class="record" wx:if="{{item.acceptedOdType==8}}">
+			<view class="customer"></view>
+			<view class="content">
+				<view class="up">
+					<view class="imageOutsider">
+						<image src="{{item.user.avatar}}" class="leftOfUP"></image>
+					</view>
+					<view class="rightOfUP">
+						<view class="wordname">{{item.user.nick}}</view>
+						<view>-{{item.user.phoneNum}}</view>
+					</view>
+				</view>
+				<view class="down">
+					<view class="leftOfDown">
+						<view class="item">
+							<view class="leftStyle">预约时间 :</view>
+							<view class="leftStyleTwo">{{item.consumeReturnOrderDto.reserveTemplate.rsvTime}}</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">预约项目 :</view>
+							<view class="leftStyleTwo2">
+								{{item.consumeReturnOrderDto.firmProject.projectName}}
+							</view>
+						</view>
+						<view class="item">
+							<view class="leftStyle">顾客来源 :</view>
+							<view wx:if="{{item.userSource==0}}" class="leftStyleTwo">一般项目</view>
+							<view wx:elif="{{item.userSource==1}}" class="leftStyleTwo">拼团 </view>
+							<view wx:elif="{{item.userSource==2}}" class="leftStyleTwo">砍价</view>
+							<view wx:elif="{{item.userSource==3}}" class="leftStyleTwo">亲密付</view>
+							<view wx:elif="{{item.userSource==4}}" class="leftStyleTwo">消费返还</view>
+							<view wx:elif="{{item.userSource==5}}" class="leftStyleTwo">闺蜜卡</view>
+							<view wx:elif="{{item.userSource==6}}" class="leftStyleTwo">免费请客</view>
+						</view>
+					</view>
+				</view>
+				<view class="realdown">
+					<view class="leftOfDown">
+						<view class="time">
+							<view class="leftStyle">创建时间 :</view>
+							<view class="rightStyle">{{item.createTime}}</view>
+						</view>
+						<view class="time">
+							<view class="leftStyle">更新时间 :</view>
+							<view class="rightStyle">{{item.updateTime}}</view>
+						</view>
+					</view>
+					<view class="rightOfRealdown">
+						<view class="small">实付金额</view>
+						<view class="big">¥ {{item.userPayPrice}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</block>
+	<block wx:if="{{isend}}">
+		<view class="nodata">暂无数据</view>
+	</block>
+</scroll-view>

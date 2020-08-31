@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "mp-dialog": "/components/dialog/dialog"
+  },
+  "navigationBarTitleText": "评论详情"
+}

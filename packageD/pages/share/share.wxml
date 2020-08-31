@@ -1,0 +1,145 @@
+<scroll-view scroll-y='true' class="scrollView">
+	<view class="intr0">
+		<!-- <view>500万奖励等你拿!</view>
+		<view>分享好友门店注册成功</view>
+		<view>获得兑换开通：消费返还/免费请客/合伙人功能或平台奖励5000元</view>
+		<view>注：平台奖励实时到账、兑换功能实时开通（好友门店注册成功）</view> -->
+		<image mode="widthFix" src="{{webServerUrl}}/images/share/sharetop.jpg" class="shareimg"></image>
+	</view>
+	<!--单选框1-->
+	<radio-group bindchange="radioChange" class="radiogroup">
+		<label wx:for="{{items}}" wx:key="{{item.value}}" class="radiochoice">
+			<view>
+				<radio value="{{item.value}}" />
+			</view>
+			<view class="weui-cell__bd">{{item.name}}</view>
+		</label>
+	</radio-group>
+	<!--单选框2-->
+	<radio-group wx:if="{{isshow}}" bindchange="radioChange2" class="radiogroup">
+		<label wx:for="{{items2}}" wx:key="{{item.value}}" class="radiochoice2">
+			<view>
+				<radio value="{{item.value}}" />
+			</view>
+			<view class="weui-cell__bd">{{item.name}}</view>
+		</label>
+	</radio-group>
+
+
+	<image wx:if="{{!showrealshare}}" class="getnewcompany" bindtap="addShareRecord"
+		src="{{webServerUrl}}/images/share/button.png">
+		<view class="getnew1">确定</view>
+	</image>
+
+	<!-- <image wx:if="{{showrealshare}}" class="getnewcompany" src="http://192.168.44.106:3080/imagesong/mine/share/button.png" bindtap="goohthersmallroutine">
+		<view class="getnew2">立刻分享</view>
+	</image>
+
+	<view wx:if="{{!showrealshare}}" class="middle" >确定</view> -->
+	<button wx:if="{{showrealshare}}" data-id="shareBtn" open-type="share" class='sharebutton'>立即分享</button>
+
+
+	<view class="intr12">
+		您分享的连接带有您个人的账户ID 、当您的好友门店注册成功后平台自动将奖励的5000元转入到您的微信零钱或此账号认证的银行卡内！
+	</view>
+	<!--介绍一-->
+	<view class="intr1">
+		<view class="sonOneintr1">
+			<image src="{{webServerUrl}}/images/share/svg.png" class="circle"></image>
+			<view style="font-size:25rpx;">功能优势</view>
+		</view>
+		<view class="sonTwointr1">
+			<view class="smallone">
+				<view class="smallcircle"></view>
+				<view class="smallword">分享给好友 <text class="orange">免费</text> 兑换 <text class="orange">引流拓客</text> 功能</view>
+			</view>
+			<view class="smallone">
+				<view class="smallcircle"></view>
+				<view class="smallword">好友获得 <text class="orange">1000人新客</text>快速进店体验，我们承诺 <text class="orange">零成本</text>
+				</view>
+			</view>
+			<view class="smallone">
+				<view class="smallcircle"></view>
+				<view class="smallword">365天内 让每一个顾客循环到店 (分享/预约/到店/锁客/再循环)</view>
+			</view>
+		</view>
+	</view>
+	<!--介绍二-->
+	<view class="openfunction">开通功能</view>
+	<view class="intr2">
+		<view class="sonintr2">
+			<view class="sonintr2title">
+				<view class="shugan"></view>
+				<view class="title">免费请客</view>
+			</view>
+			<view class="smallword22">零成本引流拓客,将当下顾客的家人/好朋友引流到店,使用当下顾客会员卡/次卡消费,到店顾客信任度高,快速实现嫁接项目/卡项等</view>
+		</view>
+		<view class="sonintr2">
+			<view class="sonintr2title">
+				<view class="shugan"></view>
+				<view class="title">消费返还</view>
+			</view>
+			<view class="smallword22">针对用户/顾客(少花钱/不花钱做项目)的心理需求实现零成本引流拓客、用户/顾客分享动力强、引流拓客到店数量/业绩双向快速提升。</view>
+		</view>
+		<view class="sonintr2">
+			<view class="sonintr2title">
+				<view class="shugan"></view>
+				<view class="title">亲密付</view>
+			</view>
+			<view class="smallword22">
+				不需要加微信好友、不发朋友圈，不需要拍抖音,导致内容剧本创意匮乏没推荐量;不需要懂某些平台运营机制,零成本大量快速引流拓客,复制全部员工利用微信社交强关系链实现几何裂变引流(分享/预约/到店/锁客/再循环)。一年365天,每一个用户顾客重复循环,缩短养店/新员工养客周期,快速实现更多利润
+			</view>
+		</view>
+		<view class="sonintr2">
+			<view class="sonintr2title">
+				<view class="shugan"></view>
+				<view class="title">合伙人</view>
+			</view>
+			<view class="smallword22">
+				只要是入会目标顾客就很容易成为合伙人,同时为部分顾客提供共同创业的机会,成为企业门店的主人/BOSS。分享或传播店面、企业文化,合伙人赚取长期稳定的可观收入,使公司/店面业绩、品牌知名度稳定不断提高。</view>
+		</view>
+
+	</view>
+	<!--介绍三-->
+	<view class="intr2">
+		<view class="sonintr2">
+			<view class="sonintr2title">
+				<view class="shugan"></view>
+				<view class="title">您推荐好友开通---好友获得以下权益</view>
+			</view>
+			<view class="smallword2">系统原价49,000元，好友推荐仅需 <text class="orange">9800</text>元 </view>
+		</view>
+		<view class="content">
+			<view class="left">
+				<view class="item">
+					<view class="itemborder">1</view>
+					<view class="smallword3"> <text class="orange">免费</text> 全员培训操作流程</view>
+				</view>
+				<view class="item">
+					<view class="itemborder">2</view>
+					<view class="smallword3"> <text class="orange">免费</text>培训移动互联网思维,具备5-10年更强的企业竞争力</view>
+				</view>
+				<view class="item">
+					<view class="itemborder">3</view>
+					<view class="smallword3"> <text class="orange">免费</text>维护不限次更新系统</view>
+				</view>
+			</view>
+			<view class="right">
+				<view class="item">
+					<view class="itemborder">4</view>
+					<view class="smallword3"> <text class="orange">免费</text>更新更多有效的引流拓客/提升业绩/精准营销/店务管理等功能</view>
+				</view>
+				<view class="item">
+					<view class="itemborder">5</view>
+					<view class="smallword3"> <text class="orange">免费</text>承诺并做到帮助使用系统公司/店面 <text
+							class="orange">零成本拓1000人</text>精准顾客到店</view>
+				</view>
+				<view class="item">
+					<view class="itemborder">6</view>
+					<view class="smallword3" bindtap="callPhone">更多了解请咨询客服: <text class="orange">400-6336-010</text></view>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view class="placeholder"></view>
+</scroll-view>

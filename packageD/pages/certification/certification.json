@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "认证",
+  "usingComponents": {
+    "mp-dialog": "/components/dialog/dialog"
+  }
+}

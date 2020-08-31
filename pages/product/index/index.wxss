@@ -1,0 +1,229 @@
+page {
+  background-color: #f3f3f3;
+  height: 100%;
+}
+
+.search {
+  /* border: 1px solid black; */
+  width: 93%;
+  padding-top: 8rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  height: 110rpx;
+  z-index: 999;
+  background-color: #f3f3f3;
+}
+
+.placeholder {
+  height: 100rpx;
+}
+
+.leftOfSearch {
+  width: 85%;
+  display: flex;
+  justify-content: center;
+}
+
+.weui-input {
+  height: 65rpx;
+  border-radius: 30px;
+  padding-left: 90rpx;
+  width: 100%;
+  height: 80rpx;
+  font-size: 15px;
+  background-color: white;
+  /* border:1px solid black; */
+}
+
+.store {
+  display: flex;
+  width: 15%;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  padding-left: 10rpx;
+  /* border:1px solid black; */
+}
+
+
+.store>image {
+  margin-top: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.move {
+  position: absolute;
+  top: 45rpx;
+  left: 30rpx;
+}
+
+.srcollView {
+  width: 93%;
+  /* border:1px solid black; */
+  margin: 0 auto;
+  padding-bottom: 13vh;
+}
+
+scroll-view ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+
+.allList {
+  width: 100%;
+  padding-left: 3rpx;
+  /* border:1px solid black; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.Listitem {
+  margin-top: 25rpx;
+  margin-right: 6rpx;
+  margin-bottom: 4rpx;
+  width: 48%;
+  height: 470rpx;
+  padding-top: 10rpx;
+  border-radius: 5px;
+  background-color: white;
+  -moz-box-shadow: 1px 1px 1px rgba(20%, 20%, 40%, 0.5);
+  -webkit-box-shadow: 1px 1px 1px rgba(20%, 20%, 40%, 0.5);
+  box-shadow: 1px 1px 1px rgba(20%, 20%, 40%, 0.5);
+}
+
+.up {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 100%;
+  height: 63%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.goodImg {
+  width: 250rpx;
+  height: 250rpx;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.down {
+  width: 100%;
+  /* height: 37%; */
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.goodName {
+  margin-top: 10rpx;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  padding-left: 10rpx;
+  position: relative;
+  /* border: 1px solid black; */
+}
+
+.shang {
+  /* border: 1px solid black; */
+  padding-left: 15rpx;
+  color: rgb(60, 58, 58);
+}
+
+.zhong {
+  /* border: 1px solid black; */
+  display: flex;
+  padding-left: 15rpx;
+  align-items: baseline;
+
+}
+
+.price {
+  color: #f55e04;
+  font-size: 40rpx;
+}
+
+.xia {
+  /* border:1px solid black; */
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  padding-right: 20rpx;
+  margin-top: 5rpx;
+  /* border: 1px solid black; */
+}
+
+.storeNum {
+  font-size: 25rpx;
+  margin-left: 9rpx;
+  /* position: relative;
+  top:2rpx; */
+}
+
+.circleDot {
+  width: 40rpx;
+  height: 40rpx;
+  margin-bottom: 5rpx;
+}
+
+.sum {
+  height: 100rpx;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+
+.middleWord {
+  /* width:150rpx; */
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 10rpx;
+}
+
+.jiesuananniu {
+  width: 18%;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 30px;
+  text-align: center;
+  outline: none;
+  color: white;
+  font-size: 25rpx;
+  background: -webkit-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -o-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -moz-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -mos-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+}
+
+.wordTip {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999999;
+  margin-top: 25rpx;
+  font-size: 25rpx;
+}

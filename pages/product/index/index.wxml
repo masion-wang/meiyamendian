@@ -1,0 +1,46 @@
+<!--搜索-->
+<view wx:if="{{1<0}}">
+	<view class="search">
+		<view style="width:100%;" class="leftOfSearch">
+			<image src="http://192.168.44.110:3080/images/product/search.png" class="icon move"></image>
+			<input value="{{value}}" bindinput='getvalue' bindconfirm="submit" class="weui-input" placeholder="耗材名称搜素" />
+		</view>
+		<view class="store" bindtap="gostorepurchase">
+			<image src="http://192.168.44.110:3080/images/product/dianmian.png"></image>
+			<view style="font-size:20rpx;margin-top:5rpx;">门店进货</view>
+		</view>
+	</view>
+	<view class="placeholder"></view>
+	<!--商品-->
+	<scroll-view class="srcollView" scroll-y="true">
+		<view class="allList">
+			<view class="Listitem" wx:for="{{goods}}" wx:key="{{index}}">
+				<view class="up">
+					<image src="{{item.image}}" class="goodImg"></image>
+				</view>
+				<view class="down">
+					<view class="goodName">{{item.name}}</view>
+					<view class="zhong">
+						<view class="price">¥ {{item.price}}</view>
+						<view class="storeNum">库存120件</view>
+					</view>
+					<view class="xia">
+						<image class="circleDot" catchtap="add" src="http://192.168.44.110:3080/images/product/add.png" data-id="{{item.id}}" data-index="{{index}}"></image>
+						<view style="margin-right:25rpx;font-size:30rpx;">{{item.num}}</view>
+						<image class="circleDot" catchtap="sub" data-id="{{item.id}}" data-index="{{index}}" wx:if="{{item.num>0}}" src="http://192.168.44.110:3080/images/product/sub.png" style="margin-right:25rpx;"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+	</scroll-view>
+	<!--结算-->
+	<view class="sum" style="position:fixed;bottom:0;width:750rpx;padding-left:30rpx;">
+		<view style="font-size:28rpx;text-indent:15rpx">已选{{selectNum}}样商品, 共{{total}}件</view>
+		<view class="middleWord">
+			<view style="margin-left:25rpx">合计 : </view>
+			<view style="color:#f55e04;font-size:40rpx;margin-left:15rpx">¥{{totalPrice}}</view>
+		</view>
+		<view class="jiesuananniu">结算</view>
+	</view>
+</view>
+<view class="wordTip">公司还没有添加耗材产品</view>

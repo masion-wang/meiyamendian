@@ -1,0 +1,92 @@
+<!--选择时间-->
+<mp-dialog title="选择日期" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+	<view>开始日期</view>
+	<picker-view indicator-style="height:50px;" style="width: 100%; height: 270rpx;margin-top:15rpx;" value="{{value1}}" bindchange="bindChange1">
+		<picker-view-column>
+			<view wx:for="{{years}}" wx:key="{{years}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}年</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{months}}" wx:key="{{months}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}月</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{days}}" wx:key="{{days}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}日</view>
+		</picker-view-column>
+	</picker-view>
+	<view style="margin-top:50rpx;">结束日期</view>
+	<picker-view indicator-style="height:50px;" style="width: 100%; height: 270rpx;margin-top:15rpx;" value="{{value1}}" bindchange="bindChange2">
+		<picker-view-column>
+			<view wx:for="{{years}}" wx:key="{{years}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}年</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{months}}" wx:key="{{months}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}月</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{days}}" wx:key="{{days}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}日</view>
+		</picker-view-column>
+	</picker-view>
+</mp-dialog>
+<view class="timeAndsum">
+	<view class="timeinfo" bindtap="openConfirm">{{startTime}} 至 {{endTime}}</view>
+	<view class="suminfo">
+		<view>报销总额 : </view>
+		<view> {{summoney}}</view>
+	</view>
+</view>
+<view class="placeholder"></view>
+
+<scroll-view scroll-y='true' class="scrollView">
+	<view class="expenserecord" wx:for="{{list}}" data-id="{{item.id}}" bindtap="goexpenserecorddetail">
+		<view class="title">
+			<view>店名称 : 仓岛美业-天通苑店</view>
+			<view>2019-12-01</view>
+		</view>
+		<view class="btnLine"></view>
+		<view class="middle">报销金额 : 8997998</view>
+		<!--审核情况-->
+		<view class="recordson">
+			<view class="sonofrecord">
+				<view class="father">
+					<view class="content3">
+						<view class="son3">
+							<image wx:if="{{item.firmCheckState==0}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/void.png"></image>
+							<image wx:if="{{item.firmCheckState==1}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/yes.png"></image>
+							<image wx:if="{{item.firmCheckState==2}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/no.png"></image>
+						</view>
+						<view class="son2"></view>
+						<view class="son3">
+							<image wx:if="{{item.firmCheckState==0}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/void.png"></image>
+							<image wx:if="{{item.firmCheckState==1}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/yes.png"></image>
+							<image wx:if="{{item.firmCheckState==2}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/no.png"></image>
+						</view>
+						<view class="son2"></view>
+						<view class="son3">
+							<image wx:if="{{item.firmCheckState==0}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/void.png"></image>
+							<image wx:if="{{item.firmCheckState==1}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/yes.png"></image>
+							<image wx:if="{{item.firmCheckState==2}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/no.png"></image>
+						</view>
+						<view class="son2"></view>
+						<view class="son3">
+							<!--公司审核状态 bigAreaCheckState （0未审核1审核通过2审核驳回）-->
+							<image wx:if="{{item.firmCheckState==0}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/void.png"></image>
+							<image wx:if="{{item.firmCheckState==1}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/yes.png"></image>
+							<image wx:if="{{item.firmCheckState==2}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/no.png"></image>
+						</view>
+					</view>
+					<view class="content4">
+						<view>店长审核</view>
+						<view>小区审核</view>
+						<view>大区审核</view>
+						<view>公司审核</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!--驳回 通过-->
+		<view class="buttons" wx:if="{{(item.roomCheckState==0&&admintype==6&&item.firmCheckState==0&&isworker==false) || (item.roomCheckState==1&&item.smallAreaCheckState==0&&admintype==4&&item.firmCheckState==0&&isworker==false) || (item.roomCheckState==1&&item.smallAreaCheckState==1&&item.bigAreaCheckState==0&&admintype==3&&item.firmCheckState==0&&isworker==false)}}">
+			<view bindtap="finebutton" class="finebutton" data-state="2" data-id="{{item.id}}" data-roomcheckstate="{{item.roomCheckState}}" data-smallareacheckstate="{{item.smallAreaCheckState}}" data-bigareacheckstate="{{item.bigAreaCheckState}}">驳回</view>
+			<view bindtap="sure" class="sure" data-state="1" data-id="{{item.id}}" data-roomcheckstate="{{item.roomCheckState}}" data-smallareacheckstate="{{item.smallAreaCheckState}}" data-bigareacheckstate="{{item.bigAreaCheckState}}">确认</view>
+		</view>
+	</view>
+
+	<view class="wordTip" wx:if="{{isend}}">暂无更多数据</view>
+</scroll-view>

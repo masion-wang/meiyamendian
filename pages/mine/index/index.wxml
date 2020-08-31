@@ -1,0 +1,164 @@
+<!--弹窗和状态内容-->
+<mp-dialog title="选择公司" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+	<view>
+		<scroll-view style="height:15vh;" scroll-y='true'>
+			<radio-group class="radio-group" bindchange="radioChange">
+				<view wx:for-items="{{multipleCompanies}}" wx:key="{{items.uid}}" bindtap="getFidAndSdminType" data-fid="{{item.firmId}}" data-adminType="{{item.adminType}}">
+					<radio class="radio">
+						<text >{{item.firmRegisterDto.firmData.firmName}}</text>
+					</radio>
+				</view>
+			</radio-group>
+		</scroll-view>
+	</view>
+</mp-dialog>
+<scroll-view scroll-y="true" class="scrollView">
+	<!--背景区域 员工 6 -->
+	<view class="background" wx:if='{{admintypeindex==6}}'>
+		<image src="{{webServerUrl}}/images/mine/background.png" class="backgroundimg"></image>
+		<view class="info info1">
+			<view class="left">
+				<image src="{{webServerUrl}}/images/mine/renzheng.png" class="renzheng"></image>
+				<image src="{{roomStaffBaseDto.staffHeadImg}}" class="yourself"></image>
+			</view>
+			<view class="right">
+				<view class="rightTop">
+					<view class="barber">{{roomStaffBaseDto.stageName==''?'暂无艺名':roomStaffBaseDto.stageName}}</view>
+					<view class="logoTip">{{roomStaffBaseDto.roomStaffAccount.dutyData.dutyName}}</view>
+					<view class="logoTip">{{roomStaffBaseDto.roomStaffAccount.dutyRank.dutyName}}</view>
+				</view>
+				<view class="address">{{roomStaffBaseDto.roomBasicsData.roomName}}-{{roomStaffBaseDto.roomBasicsData.roomName1}}</view>
+				<view class="address2">门店编号 : {{roomcode}}</view>
+			</view>
+		</view>
+	</view>
+	<!--背景区域 小区 4 -->
+	<view class="background" wx:if='{{admintypeindex==4}}'>
+		<image src="{{webServerUrl}}/images/mine/background.png" class="backgroundimg"></image>
+		<view class="info info1">
+			<view class="left">
+				<image src="{{webServerUrl}}/images/mine/renzheng.png" class="renzheng"></image>
+				<image src="{{smallAreaDto.identityImg?smallAreaDto.identityImg:webServerUrl+'/images/mine/background.png'}}" class="yourself"></image>
+			</view>
+			<view class="right">
+				<view class="rightTop">
+					<view class="barber">{{smallAreaDto.stageName==''?'暂无艺名':smallAreaDto.stageName}}</view>
+					<view class="logoTip">小区经理</view>
+					<view class="logoTip">{{smallAreaDto.smallAreaTeamName}}</view>
+				</view>
+				<view class="address">{{smallAreaDto.firmData.firmName}}</view>
+			</view>
+		</view>
+	</view>
+	<!--背景区域 大区 3 -->
+	<view class="background" wx:if='{{admintypeindex==3}}'>
+		<image src="{{webServerUrl}}/images/mine/background.png" class="backgroundimg"></image>
+		<view class="info info1">
+			<view class="left">
+				<image src="{{webServerUrl}}/images/mine/renzheng.png" class="renzheng"></image>
+				<image src="{{bigAreaDto.identityImg?bigAreaDto.identityImg:webServerUrl+'/images/mine/background.png'}}" class="yourself"></image>
+			</view>
+			<view class="right">
+				<view class="rightTop">
+					<view class="barber">{{bigAreaDto.stageName==""?'暂无艺名':bigAreaDto.stageName}}</view>
+					<view class="logoTip">大区经理</view>
+					<view class="logoTip">{{bigAreaDto.bigAreaTeamName}}</view>
+				</view>
+				<view class="address">{{bigAreaDto.firmData.firmName}}</view>
+			</view>
+		</view>
+	</view>
+	<!--背景区域 股东 5 -->
+	<view class="background" wx:if='{{admintypeindex==5}}'>
+		<image src="{{webServerUrl}}/images/mine/background.png" class="backgroundimg"></image>
+		<view class="info info1">
+			<view class="left">
+				<image src="{{webServerUrl}}/images/mine/renzheng.png" class="renzheng"></image>
+				<image src="{{shareHolder.headImg?shareHolder.headImg:webServerUrl+'/images/mine/background.png'}}" class="yourself"></image>
+			</view>
+			<view class="right">
+				<view class="rightTop">
+					<view class="barber">{{shareHolder.holderName}}</view>
+					<view class="logoTip">股东</view>
+					<!-- <view class="logoTip">{{shareHolder.firmData.firmName}}</view> -->
+				</view>
+				<view class="address">{{shareHolder.firmData.firmName}}</view>
+			</view>
+		</view>
+	</view>
+	<!--背景区域 未登录 0 -->
+	<view class="background" wx:if='{{admintypeindex==0}}'>
+		<image src="{{webServerUrl}}/images/mine/background.png" class="backgroundimg">
+		</image>
+	</view>
+	<!--bindtap="gologin"-->
+	<button class="login" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" wx:if='{{admintypeindex==0}}'>请登录</button>
+	<!--个人信息-->
+	<view class="info info2" bindtap="tomineprofile">
+		<image src="{{webServerUrl}}/images/mine/bi.png" class="personinfo" bindtap="tomineprofile"></image>
+		个人信息
+	</view>
+
+	<!--我本身-->
+	<view class="my">
+		<view class="san" style="padding-left:20rpx" bindtap="tomyearings">
+			<image class="threeIcon" src="{{webServerUrl}}/images/mine/benifit.png"></image>
+			<view class="threeOfWord">我的收益</view>
+		</view>
+		<view class="san" bindtap="tooperatingdatas">
+			<image class="threeIcon" src="{{webServerUrl}}/images/mine/data.png"></image>
+			<view class="threeOfWord">经营数据</view>
+		</view>
+		<view class="san" style="padding-right:20rpx" bindtap="togrowings">
+			<image class="threeIcon" src="{{webServerUrl}}/images/mine/grow.png"></image>
+			<view class="threeOfWord">我的成长</view>
+		</view>
+	</view>
+
+
+	<!--分享页-->
+	<view class="myConnectionTitle" bindtap="toshare">
+		<image class="myConnectionTitleimg" src="{{webServerUrl}}/images/share/sharebanner.jpg"></image>
+	</view>
+
+	<!-- <view class="myConnectionTitle" bindtap="tosharetoohter">注册页</view> -->
+	<view class="myConnection">
+		<view class="sonOfMyConnection" bindtap="tomyteams">
+			<image src="{{webServerUrl}}/images/mine/team.png" class="fiveIcon"></image>
+			<view style="width:40%;margin-right:40%;">我的团队</view>
+			<image src="{{webServerUrl}}/images/mine/arrow.png" style="width:40rpx;height:40rpx;font-size:20rpx;"></image>
+		</view>
+		<view class="btnLine"></view>
+		<view class="sonOfMyConnection" bindtap="tomycredits">
+			<image src="{{webServerUrl}}/images/mine/trust.png" class="fiveIcon"></image>
+			<view style="width:40%;margin-right:40%;">信用分</view>
+			<image src="{{webServerUrl}}/images/mine/arrow.png" style="width:40rpx;height:40rpx;font-size:20rpx;"></image>
+		</view>
+		<view class="btnLine"></view>
+		<view class="sonOfMyConnection" bindtap="toinvitecode">
+			<image src="{{webServerUrl}}/images/mine/code.png" class="fiveIcon"></image>
+			<view style="width:40%;margin-right:40%;">合伙人邀请码</view>
+			<image src="{{webServerUrl}}/images/mine/arrow.png" style="width:40rpx;height:40rpx;font-size:20rpx;"></image>
+		</view>
+		<view class="btnLine"></view>
+		<view class="sonOfMyConnection" bindtap="tokpis">
+			<image src="{{webServerUrl}}/images/mine/kpi.png" class="fiveIcon"></image>
+			<view style="width:40%;margin-right:40%;">KPI考核</view>
+			<image src="{{webServerUrl}}/images/mine/arrow.png" style="width:40rpx;height:40rpx;font-size:20rpx;"></image>
+		</view>
+		<view class="btnLine"></view>
+
+		<view class="sonOfMyConnection" bindtap="tosocialtalks">
+			<image src="{{webServerUrl}}/images/mine/community.png" class="fiveIcon"></image>
+			<view style="width:40%;margin-right:40%;">心声社区</view>
+			<image src="{{webServerUrl}}/images/mine/arrow.png" style="width:40rpx;height:40rpx;font-size:20rpx;"></image>
+		</view>
+	</view>
+
+	<!--技术支持-->
+	<view class="TechSupport" bindtap="callPhone">
+		<view>技术支持</view>
+		<view>由北京易购时代信息科技有限公司提供</view>
+		<view>平台咨询：<text class="TechSupport2"> 400-6336-010 </text></view>
+	</view>
+</scroll-view>

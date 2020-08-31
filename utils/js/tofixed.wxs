@@ -1,0 +1,10 @@
+var numberToFix = function (value, sum) {
+  var value = value
+  var sum = sum
+  value = Number(value)
+  sum = Number(sum)
+  var percent = (value / sum).toFixed(2)
+  console.log('percent', percent)
+  return percent;
+}
+module.exports.numberToFix = numberToFix;

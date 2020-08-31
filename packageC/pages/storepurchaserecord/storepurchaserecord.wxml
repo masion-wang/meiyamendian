@@ -1,0 +1,37 @@
+<scroll-view scroll-y="true" class="srcollView">
+	<view class="goodrecord" wx:for="{{arr}}">
+		<view class="title">
+			<view class="titletime">{{item.titletime}}</view>
+			<view class="titlestatus {{item.titlestatus=='待收货'?'orage':''}}">{{item.titlestatus}}</view>
+		</view>
+		<view class="btnLine"></view>
+
+		<view class="{{item.isfold?'contentfold':'content'}}">
+			<block wx:for="{{item.content}}">
+				<view class="sonofcontent">
+					<view class="goodshow">
+						<image src="{{item.image}}" class="img"></image>
+					</view>
+					<view class="goodcontent">
+						<view class="nameandprice">
+							<view class="name">{{item.name}}</view>
+							<view class="price">¥{{item.price}}</view>
+						</view>
+						<view class="num">x{{item.num}}</view>
+					</view>
+				</view>
+			</block>
+		</view>
+
+		<view class="btnLine"></view>
+		<view class="foldOrUnfold">
+			<view class="ufp">
+				<view class="uf" bindtap="openorclose" data-isfold="{{item.isfold}}" data-orderid="{{item.orderId}}">
+					<image src="{{item.isfold?webServerUrl+'/images/product/unfold.png':webServerUrl+'/images/product/fold.png'}}" class="ufimg"></image>
+					<view>{{item.isfold?'收起':'展开'}}</view>
+				</view>
+				<view class="sumprice">总计:¥{{item.totalprice}}</view>
+			</view>
+		</view>
+	</view>
+</scroll-view>

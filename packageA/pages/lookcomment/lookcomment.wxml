@@ -1,0 +1,61 @@
+<mp-tabs class="tab" tabs="{{tabs}}" tab-underline-color="white" tab-inactive-text-color="#bfbfbf" bindtabclick="onTabCLick" activeClass="tab-bar-title__selected">
+</mp-tabs>
+<view class="placeholder"></view>
+<scroll-view scroll-y="true" class="srcollView" bindscrolltolower="loadMore">
+	<block wx:for="{{list}}">
+		<view wx:if="{{item.isAnonymous==0}}" class="comment">
+			<view class="up">
+				<view class="logo">
+					<image src="{{webServerUrl}}/images/mine/socailtalk/niming.png" class="personImg"></image>
+				</view>
+				<view class="info">
+					<view class="leftofinfo">
+						<view class="name">匿名者</view>
+						<view class="star">
+							<image src="{{item.starLevel==0.5?webServerUrl+'/images/index/lookcomment/half.png':webServerUrl+'/images/index/lookcomment/full.png'}}" class="fivestar"></image>
+							<image src="{{item.starLevel<=1?webServerUrl+'/images/index/lookcomment/zero.png':item.starLevel==1.5?webServerUrl+'/images/index/lookcomment/half.png':webServerUrl+'/images/index/lookcomment/full.png'}}" class="fivestar"></image>
+							<image src="{{item.starLevel<=2?webServerUrl+'/images/index/lookcomment/zero.png':item.starLevel==2.5?webServerUrl+'/images/index/lookcomment/half.png':webServerUrl+'/images/index/lookcomment/full.png'}}" class="fivestar"></image>
+							<image src="{{item.starLevel<=3?webServerUrl+'/images/index/lookcomment/zero.png':item.starLevel==3.5?webServerUrl+'/images/index/lookcomment/half.png':webServerUrl+'/images/index/lookcomment/full.png'}}" class="fivestar"></image>
+							<image src="{{item.starLevel<=4?webServerUrl+'/images/index/lookcomment/zero.png':item.starLevel==4.5?webServerUrl+'/images/index/lookcomment/half.png':webServerUrl+'/images/index/lookcomment/full.png'}}" class="fivestar"></image>
+						</view>
+					</view>
+					<view class="rightofinfo">
+						<view class="projectTime">{{item.dateCmt}}</view>
+						<view class="projectName">
+							<view class="project" wx:for="{{item.firmProjects}}">{{item.projectName}}</view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="down">{{item.ctn.length==""?'暂无':item.ctn}}</view>
+		</view>
+		<view wx:if="{{item.isAnonymous==1}}" class="comment">
+			<view class="up">
+				<view class="logo">
+					<image src="{{item.user.avatar}}" class="personImg"></image>
+				</view>
+				<view class="info">
+					<view class="leftofinfo">
+						<view class="name">{{item.user.nick}}</view>
+						<view class="star">
+							<image src="{{item.starLevel==0.5?webServerUrl+'/images/index/lookcomment/half.png':webServerUrl+'/images/index/lookcomment/full.png'}}" class="fivestar"></image>
+							<image src="{{item.starLevel<=1?webServerUrl+'/images/index/lookcomment/zero.png':item.starLevel==1.5?webServerUrl+'/images/index/lookcomment/half.png':webServerUrl+'/images/index/lookcomment/full.png'}}" class="fivestar"></image>
+							<image src="{{item.starLevel<=2?webServerUrl+'/images/index/lookcomment/zero.png':item.starLevel==2.5?webServerUrl+'/images/index/lookcomment/half.png':webServerUrl+'/images/index/lookcomment/full.png'}}" class="fivestar"></image>
+							<image src="{{item.starLevel<=3?webServerUrl+'/images/index/lookcomment/zero.png':item.starLevel==3.5?webServerUrl+'/images/index/lookcomment/half.png':webServerUrl+'/images/index/lookcomment/full.png'}}" class="fivestar"></image>
+							<image src="{{item.starLevel<=4?webServerUrl+'/images/index/lookcomment/zero.png':item.starLevel==4.5?webServerUrl+'/images/index/lookcomment/half.png':webServerUrl+'/images/index/lookcomment/full.png'}}" class="fivestar"></image>
+						</view>
+					</view>
+					<view class="rightofinfo">
+						<view class="projectTime">{{item.dateCmt}}</view>
+						<view class="projectName">
+							<view class="project" wx:for="{{item.firmProjects}}">{{item.projectName}}</view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="down">{{item.ctn.length==""?'暂无':item.ctn}}</view>
+		</view>
+	</block>
+	<view class="wordTip" wx:if="{{isend}}">暂无更多</view>
+	<view class="placeholder2"></view>
+</scroll-view>

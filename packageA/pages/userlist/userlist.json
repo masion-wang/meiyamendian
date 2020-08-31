@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "用户列表",
+  "usingComponents": {
+    "mp-dialog": "/components/dialog/dialog"
+  }
+}

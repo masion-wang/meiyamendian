@@ -1,0 +1,129 @@
+<!--关闭-->
+<mp-dialog title="确定关闭？" show="{{dialogShow1}}" bindbuttontap="tapDialogButton1" buttons="{{buttons}}">
+</mp-dialog>
+<!--打开-->
+<mp-dialog title="确定打开？" show="{{dialogShow2}}" bindbuttontap="tapDialogButton2" buttons="{{buttons}}">
+</mp-dialog>
+
+
+
+<!--日历打卡(日历)-->
+<mp-dialog style="width:100%;" title="选择日期" show="{{dialogShow3}}" bindbuttontap="tapDialogButton3" buttons="{{buttons}}">
+	<swiper class="swiper-box" indicator-dots="{{indicatorDots}}" autoplay="{{false}}" interval="0" duration="500">
+		<swiper-item class="swiperI" wx:for='{{roomStaffSignRcdDtos}}' wx:key='index'>
+			<view class="recentThreeMonth">{{item.year}}年{{item.month}}月</view>
+			<view style="margin-top:10rpx;">
+				<calendar id="myComponent" rsvTmps="{{item.rsvTmps}}" currentMonth="{{item.month<10?'0'+item.month:item.month}}" bindselectDay="onSelectDay" />
+			</view>
+		</swiper-item>
+	</swiper>
+</mp-dialog>
+
+
+
+
+
+
+
+
+<!--1.个人信息+跳转事假-->
+<view class="barber">
+	<view class="left">
+		<image src="{{roomStaffBaseDto.staffHeadImg}}" class="personImg"></image>
+	</view>
+	<view class="middle">
+		<view class="name">{{roomStaffBaseDto.roomStaffAccount.dutyData.dutyName}}</view>
+		<view class="position">{{roomStaffBaseDto.roomBasicsData.roomName}}-{{roomStaffBaseDto.roomBasicsData.roomName1}}</view>
+	</view>
+	<view class="right" bindtap="gotoleave">
+		<image src="{{webServerUrl}}/images/index/appionttime/dayOff.png" class='dayOff'></image>
+		<view class="shijie">事假申请</view>
+	</view>
+</view>
+
+
+
+
+
+
+<!--2.选择日期时间-->
+<view class="apionttime">
+	<view class="apionttimetitle">预约时间管理</view>
+	<view class="down">
+		<!--选择日期-->
+		<view class="selectDate">
+			<view class="selectDateTitle">选择日期</view>
+			<view class="box">
+				<scroll-view scroll-x class="flex">
+					<view class="item {{index==7?'movedown':''}}" wx:for="{{rsvTmps}}" wx:key='index'>
+						<view bindtap="tapdate" class="{{activeIndex==index?'activesonofItem':'sonofItem'}}" data-selected="{{item.selected}}" data-index="{{index}}" data-year="{{item.year}}" data-month="{{item.month}}" data-day="{{item.day}}">
+							<view wx:if="{{index<7}}" class="week">{{item.week}}</view>
+							<view wx:if="{{index==7}}" class="week">近三月</view>
+							<view class="date">{{index==7?'':item.month+'-'+ item.day}}</view>
+						</view>
+					</view>
+				</scroll-view>
+			</view>
+		</view>
+		<!--选择时间段-->
+		<view class="selecttime">
+			<view class="selectDateTitle">选择时间段</view>
+			<view class="parent">
+				<block wx:for="{{reserveTelateDtos}}">
+					<!--时间段+全天-->
+					<view bindtap="taptime" data-index="{{index}}" data-year="{{item.year}}" data-month="{{item.month}}" data-day="{{item.day}}" data-hour="{{item.timeFrame}}" class="son {{item.select?'activeson':''}} {{item.isClose?'deadson':''}}" data-select="{{item.select}}" data-isclose="{{item.isClose}}" wx:if='{{(index+1)<reserveTelateDtos.length}}'>
+						<view>{{item.timeFrame}}</view>
+						<view wx:if="{{item.rsvStatus==0}}" style="font-size:15rpx">休息</view>
+						<view wx:if="{{item.rsvStatus==1}}" style="font-size:15rpx">请假</view>
+						<view wx:if="{{item.rsvStatus==2}}" style="font-size:15rpx">预约</view>
+						<view wx:if="{{item.rsvStatus==3}}" style="font-size:15rpx">关闭</view>
+						<view wx:if="{{item.rsvStatus==4}}" style="font-size:15rpx">已预约</view>
+					</view>
+					<view bindtap="taptime" data-index="{{index}}" data-year="{{item.year}}" data-month="{{item.month}}" data-day="{{item.day}}" data-hour="{{item.timeFrame}}" class="son {{item.select?'activeson':''}} {{allClose?'deadson':''}}" data-allclose="{{allClose}}" wx:if='{{(index+1)==reserveTelateDtos.length}}'>{{item.timeFrame}}</view>
+				</block>
+			</view>
+			<view class="tip">
+				<image src="{{webServerUrl}}/images/index/appionttime/tanhao.png" class="icon"></image>请按顾客预约时间准时为顾客服务, 避免让顾客等待
+			</view>
+			<view wx:if="{{index<7}}" class="button" bindtap="openConfirm1">关闭该时间</view>
+			<view wx:if="{{index==7}}" class="button" bindtap="openConfirm1">关闭该时间</view>
+		</view>
+	</view>
+</view>
+
+<!--3.关闭时间-->
+<scroll-view class="closeRecord" bindscrolltolower="loadMore" scroll-y="true">
+	<view class="selectDateTitle">关闭记录</view>
+	<view class="detail">
+		<block wx:for="{{list}}">
+			<view class="sonofdetail">
+				<view class="date2">
+					<block wx:for="{{item.reserveTemplates}}" wx:for-item="element">
+						<view class="three1">{{element.month}}-{{element.day}} {{element.week}}</view>
+					</block>
+				</view>
+				<view class="three2">
+					<view>
+						<block wx:for="{{item.reserveTemplates}}" wx:for-item="element" wx:for-index="in">
+							<view wx:if="{{element.hours.length==0&&in==0}}">全天</view>
+							<view wx:if="{{item.reserveTemplates.length==1}}" wx:for="{{element.hours}}" wx:for-item="element2">
+								<view>{{element2}}</view>
+							</view>
+							<view wx:if="{{item.reserveTemplates.length>1&&in==0}}" wx:for="{{element.hours}}" wx:for-item="element3">
+								<view>{{element3}}</view>
+							</view>
+						</block>
+					</view>
+					<view style="margin-left:25rpx;">已关闭</view>
+				</view>
+				<view class="rightsonofdetail" data-id='{{item.id}}' bindtap="openConfirm2">打开</view>
+			</view>
+
+		</block>
+		<view class="wordTip" wx:if="{{isend}}">暂无更多数据</view>
+	</view>
+	<!-- <view class="placeholder2"></view> -->
+</scroll-view>
+<view class="placeholder2"></view>
+<!--遮罩层-->
+<view class="cover" wx:if='{{iscover}}'></view>

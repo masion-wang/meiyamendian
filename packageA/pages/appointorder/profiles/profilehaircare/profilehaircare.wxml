@@ -1,0 +1,54 @@
+<view class="profileName">
+	<view class="titlename">间隔天数</view>
+	<view class="titlecontent">
+		<input type="number" class="input" value="{{hairCareDays}}" bindinput="getday" bindfocus="nothing"></input>
+		<view>天/次</view>
+	</view>
+	<view class="titlename">上次项目时间</view>
+	<view class="titlecontent">
+		<view class="selecttime" bindtap="selecttime">点击选择时间</view>
+		<view class="selecttime2">{{endTime}}</view>
+	</view>
+	<view class="button" bindtap="save">保存</view>
+</view>
+<view class="profileName">
+	<view class="titlename2">自动客服/提醒功能</view>
+	<view class="titlename2">1 根据与顾客沟通达成一致做项目间隔的时间/天 系统会根据填写的(上次项目时间起始算起) 间隔天数自动推送消息提前2天提醒顾客和造型师建立沟通/预约</view>
+	<view class="titlename2">2 此功能可重新修改保存 修改后系统将按照新设置的田间提醒顾客和造型师</view>
+</view>
+
+<scroll-view scroll-y="true" class="history" bindscrolltolower="loadMore">
+	<view class="titlename">历史填写</view>
+	<view class="sonofhistory" wx:for="{{list}}">
+		<view class="left">
+			<view class="circle"></view>
+			<view class="line"  wx:if="{{index!=(list.length-1)}}"></view>
+		</view>
+		<view class="right">
+			<view class="detail">
+				<view class="time">{{item.createDate}}</view>
+				<view class="address">{{item.roomStaffBaseDto.roomBasicsData.roomName}}</view>
+				<view class="who">{{item.roomStaffBaseDto.stageName}}</view>
+			</view>
+			<view class="content">
+				<view>间隔时间{{item.hairCareDays}}天/次</view>
+				<view>上次项目时间{{item.hairCarePrevTime}}</view>
+			</view>
+		</view>
+	</view>
+	 <view class="wordTip" wx:if="{{isend}}">暂无更多数据</view>
+</scroll-view>
+<!--弹窗和状态内容-->
+<mp-dialog title="选择日期" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+	<picker-view indicator-style="height:50px;" style="width: 100%; height: 270rpx;margin-top:15rpx;" value="{{value1}}" bindchange="bindChange2">
+		<picker-view-column>
+			<view wx:for="{{years}}" wx:key="{{years}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}年</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{months}}" wx:key="{{months}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}月</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{days}}" wx:key="{{days}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}日</view>
+		</picker-view-column>
+	</picker-view>
+</mp-dialog>

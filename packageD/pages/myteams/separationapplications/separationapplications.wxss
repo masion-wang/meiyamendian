@@ -1,0 +1,79 @@
+page {
+  background-color: #f3f3f3;
+  height: 100%;
+}
+
+.separationapplications {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  background-color: white;
+  padding: 20rpx;
+  border-radius: 5px;
+}
+
+.input {
+  width: 94%;
+  border-radius: 5px;
+  background-color: #f3f3f3;
+  margin-top:20rpx;
+  margin-bottom: 20rpx;
+  padding:15rpx;
+}
+
+.input2 {
+  width: 93%;
+  border-radius: 5px;
+  background-color: #f3f3f3;
+  min-height: 20vh;
+  margin-top:20rpx;
+  margin-bottom: 20rpx;
+  padding:20rpx;
+}
+
+.img {
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.proposer {
+  background-color: #f3f3f3;
+  width: 40%;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top:25rpx;
+  margin-bottom: 25rpx;
+  padding-left:20rpx;
+  padding-right:20rpx;
+  padding-top:10rpx;
+  padding-bottom:10rpx;
+}
+.button{
+  width:95%;
+  margin:0 auto;
+  border-radius: 30px;
+  text-align: center;
+  color: white;
+  margin-top:60rpx;
+  padding-top:20rpx;
+  padding-bottom:20rpx;
+  background: -webkit-linear-gradient(right, rgb(241, 127, 46), rgb(237, 76, 4));
+  background: -o-linear-gradient(right, rgb(241, 127, 46), rgb(237, 76, 4));
+  background: -moz-linear-gradient(right, rgb(241, 127, 46), rgb(237, 76, 4));
+  background: -mos-linear-gradient(right, rgb(241, 127, 46), rgb(237, 76, 4));
+}
+.scrollView{
+  height:15vh;
+}
+.radio-group{
+  display: flex;
+  flex-direction: column;
+}
+.radio{
+  width:40%;
+  text-align: left;
+  margin-left:32%;
+  margin-top:20rpx;
+}

@@ -1,0 +1,163 @@
+<!--搜索-->
+<view class="search">
+	<view class="leftOfSearch">
+		<image src="{{webServerUrl}}/images/index/userlist/search.png" class="icon move"></image>
+		<input value="{{remarkName}}" bindinput='getvalue' bindconfirm="submit" class="weui-input" placeholder="输入用户备注名关键字" />
+	</view>
+	<view class="store" bindtap="translate">
+		<image src="{{webServerUrl}}/images/index/userlist/filter.png"></image>
+	</view>
+</view>
+<view class="placeholder"></view>
+
+<!--用户列表-->
+<scroll-view scroll-y="true" class="srcollView" bindscrolltolower="loadMore">
+	<view wx:for="{{list}}" class="{{item.sort>0?'user1':'user2'}}">
+		<view class="up">
+			<view class="logoImg">
+				<!--置顶图标-->
+				<image wx:if="{{item.sort>0}}" src="{{webServerUrl}}/images/index/userlist/toTop.png" class="totop" data-id="{{item.id}}"></image>
+				<image src="{{item.user.avatar}}" class="IMG" data-idx="{{item.id}}" data-id="{{item.user.id}}" data-sort="{{item.sort}}" bindtap="tocustomerdetail"></image>
+			</view>
+			<view class='right'>
+				<view class="word" data-idx="{{item.id}}" data-id="{{item.user.id}}" data-sort="{{item.sort}}" bindtap="tocustomerdetail">
+					<view class="titleOfword">
+						<view class="smallname">{{item.user.nick}}</view>
+						<view class="small">{{!item.roomStaffUserArchives || !item.roomStaffUserArchives.remarkName || item.roomStaffUserArchives.remarkName==-1?'':'('+item.roomStaffUserArchives.remarkName+')'}}</view>
+						<image wx:if="{{item.roomStaffUserArchives.sexLabel.name=='0'}}" src="{{webServerUrl}}/images/index/userlist/woman.png" class="woman"></image>
+						<image wx:if="{{item.roomStaffUserArchives.sexLabel.name=='1'}}" src="{{webServerUrl}}/images/index/userlist/man.png" class="woman"></image>
+					</view>
+					<!-- 0 一般项目订单（不包括闺蜜卡或者免费请客）1 拼团 2 砍价 3 亲密付 4 消费返还 5 闺蜜卡订单（闺蜜卡项订单,领取闺蜜卡的订单） 6 免费请客 -->
+					<view wx:if="{{item.userSource==0}}" class="smalltype">顾客来源 : 一般项目</view>
+					<view wx:if="{{item.userSource==1}}" class="smalltype">顾客来源 : 拼团</view>
+					<view wx:if="{{item.userSource==2}}" class="smalltype">顾客来源 : 砍价</view>
+					<view wx:if="{{item.userSource==3}}" class="smalltype">顾客来源 : 亲密付</view>
+					<view wx:if="{{item.userSource==4}}" class="smalltype">顾客来源 : 消费返还</view>
+					<view wx:if="{{item.userSource==5}}" class="smalltype">顾客来源 : 闺蜜卡</view>
+					<view wx:if="{{item.userSource==6}}" class="smalltype">顾客来源 : 免费请客</view>
+				</view>
+				<view class="phoneandr">
+					<view class="phone">{{item.user.phoneNum}}</view>
+					<view class="exchange">
+						<view class="number" data-id="{{item.user.id}}" bindtap="gotosharepeople">可兑换人数 : {{item.shareUser}}人</view>
+					</view>
+				</view>
+
+			</view>
+		</view>
+
+		<view class="btnLine">
+		</view>
+		<view class="down">
+			<view wx:if="{{item.customerAccount}}">
+				<image class="fourImg" src="{{webServerUrl}}/images/index/userlist/vip.png"></image>会员用户
+			</view>
+			<view>
+				<image class="fourImg" src="{{webServerUrl}}/images/index/userlist/supervip.png"></image>{{item.roomStaffUserArchives.consumeGradeLabel.name==''?'暂无':item.roomStaffUserArchives.consumeGradeLabel.name}}
+			</view>
+			<view>
+				<image class="fourImg" src="{{webServerUrl}}/images/index/userlist/times.png"></image>到店{{item.acceptedTimes}}次
+			</view>
+			<view>
+				<image class="fourImg" src="{{webServerUrl}}/images/index/userlist/when.png"></image>{{item.acceptedDays}}天前到店
+			</view>
+		</view>
+	</view>
+	<view class="end" wx:if="{{isend}}">暂无更多</view>
+	<view class="placeholder2"></view>
+</scroll-view>
+
+<!--右边popup-->
+<view class="float {{isRuleTrue?'isRuleShow':'isRuleHide'}} " catchtouchmove="preventD">
+	<view class="animation-element" animation="{{animation}}">
+		<!--时间-->
+		<view class='use'>
+			<view>时间</view>
+			<view class="timesort">
+				<view bindtap="tapTime" class="sonoftimesort {{activeIndex==index?'activetime':''}}" wx:for="{{time}}" data-key='{{index}}' data-recentdays="{{item.recentDays}}">{{item.name}}</view>
+			</view>
+			<view class="recent">近 <input class="ui" value="{{recentDays2}}" bindinput="recentDays" bindfocus='focus'></input> 天</view>
+		</view>
+		<!--状态-->
+		<view class='use'>
+			<view>状态</view>
+			<view class="timesort">
+				<view wx:for="{{status2}}" wx:key="item.id" data-index="{{index}}" class="sonoftimesort2 {{item.selected ? 'activetime' : ''}}" bindtap="tapStatus">{{item.name}}</view>
+			</view>
+		</view>
+		<!--项目-->
+		<view class='use'>
+			<view>购买过的项目</view>
+			<view class="timesort">
+				<view class="sonoftimesort2" bindtap="tapProject">点击选择项目</view>
+			</view>
+		</view>
+		<!--卡类型-->
+		<view class='use'>
+			<view>购买过的卡项</view>
+			<view class="timesort">
+				<view class="sonoftimesort2" bindtap="tapType">点击选择卡种类</view>
+			</view>
+		</view>
+		<view class='buttom'>
+			<view class="animation-reset" bindtap="reset">取消</view>
+			<view class="animation-button" bindtap="success" style="margin-left:50rpx;">完成</view>
+		</view>
+	</view>
+</view>
+
+<!--选择项目-->
+<mp-dialog title="选择项目" show="{{dialogShow1}}" bindbuttontap="tapDialogButton3" buttons="{{buttons}}">
+	<scroll-view scroll-y="true" class="srcollView2">
+		<block wx:for="{{projects}}" wx:for-index="in">
+			<view style="margin-top:20rpx;">{{item.dutyName}}</view>
+			<checkbox-group bindchange="checkboxChange3" data-index="{{in}}">
+				<label wx:for="{{item.firmProjectDtos}}">
+					<view class="displayOne">
+						<checkbox value="{{item.id}}" checked="{{item.checked}}" />
+						<view>{{item.projectName}}</view>
+					</view>
+				</label>
+			</checkbox-group>
+		</block>
+
+		<!-- 
+		<checkbox-group bindchange="checkboxChange3">
+			<label wx:for="{{projects}}">
+				<view class="displayOne">
+					<checkbox value="{{item.id}}" checked="{{item.checked}}" />
+					<view>{{item.projectName}}</view>
+				</view>
+			</label>
+		</checkbox-group> -->
+
+	</scroll-view>
+</mp-dialog>
+
+<!--选择卡类型-->
+<mp-dialog title="选择卡种类" show="{{dialogShow2}}" bindbuttontap="tapDialogButton2" buttons="{{buttons}}">
+	<scroll-view class="displaytwo" scroll-y='true'>
+		<view>会员卡</view>
+		<view class="srcollView2">
+			<checkbox-group bindchange="checkboxChange1" class="checkmiddle">
+				<label wx:for="{{cards}}" class="labelW">
+					<view class="displayOne">
+						<checkbox value="{{item.id}}" checked="{{item.checked}}" />
+						<view style="margin-left:100rpx;">{{item.customerCardName}}</view>
+					</view>
+				</label>
+			</checkbox-group>
+		</view>
+		<view style="margin-top:55rpx;">次卡</view>
+		<view class="srcollView2">
+			<checkbox-group bindchange="checkboxChange2" class="checkmiddle">
+				<label wx:for="{{cardsnumber}}" class="labelW">
+					<view class="displayOne">
+						<checkbox value="{{item.id}}" checked="{{item.checked}}" />
+						<view style="margin-left:100rpx;">{{item.numberName}}</view>
+					</view>
+				</label>
+			</checkbox-group>
+		</view>
+	</scroll-view>
+</mp-dialog>

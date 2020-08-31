@@ -1,0 +1,48 @@
+<view>
+	<view class="calendar-wrapper active">
+		<view class="calendar-header">
+			<view>日</view>
+			<view>一</view>
+			<view>二</view>
+			<view>三</view>
+			<view>四</view>
+			<view>五</view>
+			<view>六</view>
+		</view>
+		<view class="calendar-body">
+			<block wx:for="{{roomStaffSignRcdDtos}}">
+				<view class="calender-body-date-week">
+					<block wx:for="{{item}}" wx:key="{{index}}" class="block">
+						<!--placeholder-->
+						<view class="date {{item.month==currentMonth?'':'placeholder'}}">
+							<view class="num">{{item.day }} </view>
+							<!-- 当天样式 -->
+							<!-- signInStatus -1 未签到 0 正常签到 1 迟到 2 请假正常签到 3 关闭预约正常签到 4 休息也是关闭预约 -->
+							<!-- 签退类型 signOutStatus -1 未签退 0 正常 1 早退 2 请假正常签退 3 关闭预约正常签退 4 休息也是关闭预约 -->
+							<!-- 未签到，请假样式  -->
+							<view class="earlyDate" wx:if='{{item.signInStatus==2 || item.signOutStatus==2}}'></view>
+							<!-- 迟到早退样式  迟到早退-->
+							<view class="lateDate" wx:elif='{{item.signInStatus==1 || item.signOutStatus==1}}'></view>
+							<!-- 签到正常状态 0 正常签退 0 正常签到 3 关闭预约正常签到 3 关闭预约正常签退 4 休息也是关闭预约 4 休息也是关闭预约-->
+							<view class="lianxuOnlyone" wx:elif='{{item.signInStatus==0&&item.signOutStatus==-1||item.signInStatus==0&&item.signOutStatus==0||item.signInStatus==3&&item.signOutStatus==3||item.signInStatus==4&&item.signOutStatus==4}}'></view>
+							<view class="today" wx:else></view>
+						</view>
+					</block>
+				</view>
+			</block>
+		</view>
+		<view class="saoyisao">
+			<view class="round signEd" wx:if='{{signEd&&signOutEd}}'>
+				<image class="dui" src="http://192.168.44.110:3080/images/index/sign/dui.png"></image>
+				<view class="saoyisaoword2" wx:if='{{signEd}}'>已签退</view>
+			</view>
+			<view class="round" wx:elif='{{signEd}}'>
+				<view class="saoyisaoword" bindtap="goSignOut">签退</view>
+			</view>
+			<view class="round" wx:else>
+				<view class="saoyisaoword" bindtap="onGosign">签到</view>
+			</view> <!-- {{signEd?'今日已签到':signEd&&!signOutEd?'未签退':'暂未签到'}}-->
+			<view>{{canlender.year}}年{{canlender.month}}月{{canlender.date}}号 - 今日{{signEd?'已签到':'未签到'}} / {{!signOutEd?'未签退':'已签退'}}</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,156 @@
+page {
+  background-color: #f3f3f3;
+  height: 100%;
+}
+
+.btnLine {
+  background-image: linear-gradient(90deg, rgba(237, 240, 244, 0.00) 1%, #eef1f5 5%, #eef1f5 95%, rgba(237, 240, 244, 0.00) 99%);
+  width: 100%;
+  /* margin-top: 20rpx; */
+  margin-bottom: 20rpx;
+  height: 1px;
+}
+
+.srcollView {
+  width: 94%;
+  /* border: 1px solid black; */
+  height: 100%;
+  background-color: f3f3f3;
+  margin: 0 auto;
+  padding-bottom: 5vh;
+}
+scroll-view ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+
+.goodrecord {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid black; */
+  background-color: white;
+  margin-top: 30rpx;
+  border-radius: 5px;
+  /* -webkit-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0); */
+}
+
+.title {
+  width: 100%;
+  /* border: 1px solid black; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.titletime {
+  margin-left: 25rpx;
+}
+
+.titlestatus {
+  margin-right: 25rpx;
+}
+.orage{
+  color:#f7a521;
+}
+.content {
+  width: 100%;
+  /* border: 1px solid black; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  height: 210rpx;
+  overflow: hidden;
+}
+
+.contentfold {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sonofcontent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15rpx;
+}
+
+.goodshow {
+  width: 35%;
+  /* border:1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  width: 200rpx;
+  height: 200rpx;
+  /* object-fit: fill; */
+}
+
+.goodcontent {
+  width: 60%;
+  height: 200rpx;
+  /* border:1px solid black; */
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nameandprice {
+  /* border:1px solid black; */
+  font-size: 25rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15rpx;
+}
+
+.price {
+  margin-right: 25rpx;
+}
+
+.num {
+  margin-top: 80rpx;
+  font-size: 25rpx;
+}
+
+.foldOrUnfold {
+  width: 100%;
+  /* border: 1px solid black; */
+  display: flex;
+  font-size: 25rpx;
+  align-items: center;
+  flex-direction: row-reverse;
+  margin-bottom: 20rpx;
+}
+
+.ufp {
+  width: 63%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.uf {
+  display: flex;
+  align-items: center;
+}
+
+.ufimg {
+  width: 30rpx;
+  height: 30rpx;
+  position: relative;
+  top:-2rpx;
+}
+
+.sumprice {
+  margin-right: 20rpx;
+}

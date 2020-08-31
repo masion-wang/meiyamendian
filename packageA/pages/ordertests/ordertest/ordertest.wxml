@@ -1,0 +1,56 @@
+<view class="orderProject">
+	<view class="order">
+		<image src="{{webServerUrl}}/images/index/ordertest/orderlogo.png" class="IMG"></image>
+		<view class="title">订单项目 <view class="small">(共{{projectnumber}}项)</view>
+		</view>
+	</view>
+
+	<scroll-view scroll-y="true" class="srcollView1">
+		<view class="project" wx:for="{{projectdata}}" wx:key="{{idnex}}">
+			<view class="projectTitle">
+				<view class="name">
+					<view class="one">{{item.projectname}} </view>
+					<view class="onename">{{item.firmProject.projectName}}</view>
+				</view>
+				<view class="price">¥ {{item.proPayPrice}}</view>
+			</view>
+			<view class="twoperson">
+				<view class="barber">
+					<view class="baeberson">发型师</view>
+					<view class="input">
+						<view>{{item.wrapperStaff.main.stageName}}</view>
+						<image src="{{webServerUrl}}/images/index/ordertest/add.png" class="add" bindtap="select2" data-type="{{item.wrapperStaff.main.type}}" data-index="{{index}}"></image>
+					</view>
+				</view>
+				<view class="assistant">
+					<view class="assistantson">助理</view>
+					<view class="input">
+						<view>{{item.wrapperStaff.secondary.stageName}}</view>
+						<image src="{{webServerUrl}}/images/index/ordertest/add.png" class="add" bindtap="select" data-type="{{item.wrapperStaff.secondary.type}}" data-index="{{index}}"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+	</scroll-view>
+
+	<view class="cancelOrsure">
+		<view class="button1" bindtap="cancel">取消</view>
+		<view class="button2" bindtap="sureorder">确定</view>
+	</view>
+</view>
+<!--选择发型师-->
+
+<!--选择发型师或者助理-->
+<mp-dialog title="请选择" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+	<scroll-view scroll-y="true" class="srcollView2">
+		<!-- <view> -->
+		<radio-group class="radio-group" bindchange="radioChange">
+			<label wx:for="{{roomStaffBases}}" wx:key="{{index}}">
+				<radio class="radio" value="{{item.id}}" checked="{{checked}}">
+					<text>{{item.stageName}}</text>
+				</radio>
+			</label>
+		</radio-group>
+		<!-- </view> -->
+	</scroll-view>
+</mp-dialog>

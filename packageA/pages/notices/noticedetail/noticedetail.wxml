@@ -1,0 +1,61 @@
+<view class="noticeDetail">
+	<view class="title">{{roomCarouselBoard.title}}</view>
+	<view class="titleContent">{{roomCarouselBoard.details}}</view>
+	<!--dataClientType 0 普通公告 OR 1惩罚公告 奖励公告-->
+	<block wx:if="{{roomCarouselBoard.dataClientType==1}}">
+		<!--奖励 0 -->
+		<block wx:if="{{roomCarouselBoard.clickType==0}}">
+			<view class="four">
+				<view class="twoOffour">
+					<view>提现分奖励 : <text wx:if="{{roomCarouselBoard.deductCashIntegral!=-1}}">{{roomCarouselBoard.deductCashIntegral}} 分</text></view>
+					<view>信用分奖励 : <text wx:if="{{roomCarouselBoard.deductCreditScore!=-1}}">{{roomCarouselBoard.deductCreditScore}} 分</text></view>
+					<view>执行人 : {{roomCarouselBoard.exeSysUid==-1?'无':roomCarouselBoard.exeSysUser.nick}}</view>
+				</view>
+				<view class="twoOffour">
+					<view>金额奖励 : <text wx:if="{{roomCarouselBoard.deductMoney!=-1}}">{{roomCarouselBoard.deductMoney}} 元</text></view>
+					<view>底薪奖励 : <text wx:if="{{roomCarouselBoard.deductBaseSalary!=-1}}">{{roomCarouselBoard.deductBaseSalary}} 元</text></view>
+					<view>被执行人 : {{roomCarouselBoard.exedSysUid==-1?'无':roomCarouselBoard.roomStaffBase.stageName}}</view>
+				</view>
+			</view>
+		</block>
+		<!--惩罚 1 -->
+		<block wx:if="{{roomCarouselBoard.clickType==1}}">
+			<view class="four">
+				<view class="twoOffour">
+					<view>提现分扣除 : <text wx:if="{{roomCarouselBoard.deductCashIntegral!=-1}}">{{roomCarouselBoard.deductCashIntegral}} 分</text></view>
+					<view>信用分扣除 : <text wx:if="{{roomCarouselBoard.deductCreditScore!=-1}}">{{roomCarouselBoard.deductCreditScore}} 分</text></view>
+					<view>执行人 : {{roomCarouselBoard.exeSysUid==-1?'无':roomCarouselBoard.exeSysUser.nick}}</view>
+				</view>
+				<view class="twoOffour">
+					<view>金额扣除 : <text wx:if="{{roomCarouselBoard.deductMoney!=-1}}">{{roomCarouselBoard.deductMoney}} 元</text></view>
+					<view>底薪扣除 : <text wx:if="{{roomCarouselBoard.deductBaseSalary!=-1}}">{{roomCarouselBoard.deductBaseSalary}} 元</text></view>
+					<view>被执行人 : {{roomCarouselBoard.exedSysUid==-1?'无':roomCarouselBoard.roomStaffBase.stageName}}</view>
+				</view>
+			</view>
+		</block>
+	</block>
+
+	<image src="{{roomCarouselBoard.img}}" class="img" mode='aspectFill'></image>
+	<view class="rightbottom">
+		<view>{{roomCarouselBoard.createTime}}</view>
+		<!--2.公司 5.股东-->
+		<!-- <view wx:if="{{roomCarouselBoard.relSysUser.adminType==2|| roomCarouselBoard.relSysUser.adminType==5}}">{{roomCarouselBoard.relSysUser.firmData.firmName}}</view> -->
+		<!--3.大区-->
+		<!-- <view wx:if="{{roomCarouselBoard.relSysUser.adminType==3}}">{{roomCarouselBoard.relSysUser.bigArea.bigAreaName}}-{{roomCarouselBoard.relSysUser.bigArea.bigAreaTeamName}}</view> -->
+		<!--4.小区-->
+		<!-- <view wx:if="{{roomCarouselBoard.relSysUser.adminType==4}}">{{roomCarouselBoard.relSysUser.smallArea.smallAreaName}}-{{roomCarouselBoard.relSysUser.smallArea.smallAreaTeamName}}</view> -->
+		<!--6.门店员工-->
+		<!-- <view wx:if="{{roomCarouselBoard.relSysUser.adminType==6}}">{{roomCarouselBoard.relSysUser.roomBasicsData.roomName}}-{{roomCarouselBoard.relSysUser.roomBasicsData.roomName1}}</view>-->
+		<view>
+			<!-- 1.总部(平台)，2公司，3.大区 经理，4.小区 经理，5.股东6.门店员工） -->
+			<text wx:if="{{roomCarouselBoard.relSysUser.adminType==1}}">总部 </text>
+			<text wx:if="{{roomCarouselBoard.relSysUser.adminType==2}}">公司 </text>
+			<text wx:if="{{roomCarouselBoard.relSysUser.adminType==3}}">大区经理 </text>
+			<text wx:if="{{roomCarouselBoard.relSysUser.adminType==4}}">小区经理 </text>
+			<text wx:if="{{roomCarouselBoard.relSysUser.adminType==5}}">股东 </text>
+			<text wx:if="{{roomCarouselBoard.relSysUser.adminType==6}}">员工 </text>
+			<text>{{roomCarouselBoard.relSysUser.nick}}</text>
+			<text> 发布</text>
+		</view>
+	</view>
+</view>

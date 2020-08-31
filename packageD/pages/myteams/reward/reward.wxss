@@ -1,0 +1,253 @@
+page {
+  background-color: #f3f3f3;
+  height: 100%;
+}
+
+.leftshowAndSelect {
+  height: 85rpx;
+  line-height: 85rpx;
+  width: 70%;
+}
+
+/*下拉菜单*/
+.product-list {
+  width: 150rpx;
+  box-sizing: border-box;
+  z-index: 999
+}
+
+.choice-bar {
+  position: relative;
+  display: flex;
+  width: 270rpx;
+  font-size: 30rpx;
+  background-color: #fff;
+  z-index: 999;
+  padding: 15rpx;
+}
+
+.chioce-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 55rpx;
+  background-color: #f3f3f399;
+  font-size: 25rpx;
+  justify-content: center;
+  z-index: 999
+}
+
+.icon-chioce {
+  height: 25rpx;
+  width: 25rpx;
+  margin-left: 15rpx;
+  opacity: 0.3;
+}
+
+.sorting-list {
+  position: absolute;
+  /* width:700rpx !important; */
+  top: 75rpx;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  font-size: 25rpx;
+  border-bottom: 1rpx solid ddd;
+  z-index: 999
+}
+
+.sorting-list2 {
+  position: absolute;
+  width: 695rpx !important;
+  top: 75rpx;
+  left: -412rpx;
+  width: 100%;
+  z-index: -1;
+  font-size: 25rpx;
+  border-bottom: 1rpx solid ddd;
+  z-index: 999
+}
+
+
+.chioce-list-hide {
+  display: none !important;
+  z-index: 999
+}
+
+.chioce-list-show {
+  animation: slide 500ms;
+  z-index: 999;
+  border-bottom: 1rpx solid #ddd;
+  max-height: 40vh;
+}
+
+.chioce-list-show2 {
+  animation: slide 500ms;
+  z-index: 999;
+  border-bottom: 1rpx solid #ddd;
+  max-height: 60vh;
+}
+
+.sorting-item {
+  word-break: break-all;
+  border-left: 1rpx solid #ddd;
+  border-right: 1rpx solid #ddd;
+  border-top: 1rpx solid #ddd;
+  padding: 10rpx;
+  text-align: center;
+  background-color: white;
+}
+
+
+.scrollView {
+  height: 100%;
+  padding-bottom: 2vh;
+}
+
+.btnLine {
+  background-image: linear-gradient(90deg, rgba(237, 240, 244, 0.00) 1%, #eef1f5 5%, #eef1f5 95%, rgba(237, 240, 244, 0.00) 99%);
+  width: 100%;
+  margin-top: 20rpx;
+  height: 1px;
+}
+
+.title {
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+}
+
+.content {
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  background-color: white;
+  border-radius: 5px;
+  /* padding-top: 20rpx; */
+  padding-bottom: 35rpx;
+}
+
+.titleOne {
+  margin-left: 20rpx;
+  padding-right: 20rpx;
+  margin-bottom: 20rpx;
+  margin-top: 20rpx;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+}
+
+
+.titleOne3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  margin-bottom: 15rpx;
+  margin-top: 35rpx;
+}
+
+.img {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.titleOne2 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 25rpx;
+  padding-bottom: 25rpx;
+}
+
+.red {
+  background-color: rgba(231, 22, 22, 0.39);
+  color: white;
+  padding: 10rpx;
+  border-radius: 30px;
+}
+
+.input1 {
+  padding-left: 20rpx;
+  font-size: 25rpx;
+}
+
+.input2 {
+  padding-left: 20rpx;
+  font-size: 25rpx;
+  text-align: right;
+}
+
+.more {
+  min-height: 10vh;
+  background-color: rgb(226, 226, 226);
+  margin: 0 auto;
+  width: 90%;
+  border-radius: 5px;
+  padding: 15rpx;
+}
+
+.threeoftake {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+}
+
+.buttons {
+  margin-top: 30rpx;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.finebutton {
+  border-radius: 30px;
+  width: 250rpx;
+  text-align: center;
+  border: 1px solid #f7b90f;
+  color: #f7b90f;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+}
+
+.sure {
+  border-radius: 30px;
+  width: 250rpx;
+  text-align: center;
+  color: white;
+  background: -webkit-linear-gradient(right, rgb(241, 127, 46), rgb(237, 76, 4));
+  background: -o-linear-gradient(right, rgb(241, 127, 46), rgb(237, 76, 4));
+  background: -moz-linear-gradient(right, rgb(241, 127, 46), rgb(237, 76, 4));
+  background: -mos-linear-gradient(right, rgb(241, 127, 46), rgb(237, 76, 4));
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.radio {
+  margin-top: 25rpx;
+  width: 50%;
+  text-align: left;
+  margin-left: 10%;
+}
+
+.wordTip {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999999;
+  font-size: 25rpx;
+}

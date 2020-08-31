@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "事假申请",
+  "usingComponents": {
+    "mp-dialog": "/components/dialog/dialog",
+    "calendar": "/components/calendar2/calendar2"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "mp-dialog": "/components/dialog/dialog"
+  },
+  "navigationBarTitleText": "进货结算",
+  "backgroundColor": "#f3f3f3"
+}

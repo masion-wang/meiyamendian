@@ -1,0 +1,39 @@
+<scroll-view scroll-y='true' class="scrollView">
+	<view class="privatemind">
+		<view class="title">主题</view>
+		<input maxlength="20" placeholder="请输入内容" class="input" value="{{title}}" bindinput="gettitle"></input>
+		<view class="title">心声详情</view>
+		<textarea adjust-position="false"  maxlength='300' placeholder="请输入内容" class="textarea" value="{{detailCtn}}" bindinput="getdetailCtn"></textarea>
+
+		<view class="title">上传图片 <text class="small">(最多三张)</text></view>
+		<view class="threeToNineImage">
+			<!-- <view wx:if="{{isfakeshow&&images.length<1}}" class="sonofimg" bindtap="upimg">
+				<image src="http://192.168.44.110:3080/images/index/mywork/uploadmywork/upimg.png" class="img"></image>
+			</view>
+			<view wx:if="{{isfakeshow&&images.length<1}}" class="sonofimg" bindtap="upimg">
+				<image src="http://192.168.44.110:3080/images/index/mywork/uploadmywork/upimg.png" class="img"></image>
+			</view> -->
+
+			<view wx:for="{{images}}" class="sonofimg">
+				<image wx:if="{{!isup}}" src="{{webServerUrl}}/images/index/mywork/uploadmywork/upimg.png" class="img"></image>
+				<image wx:if="{{isup}}" src="{{item}}" mode="aspectFill" data-idx="{{index}}" class="img2" bindtap="handleImagePreview">
+					<view class="delete" wx:if="{{isup}}">
+						<image data-idx="{{index}}" src="{{webServerUrl}}/images/index/mywork/uploadmywork/delete.png" class="deleteimg" catchtap="removeImage"></image>
+					</view>
+				</image>
+			</view>
+
+			<view class="sonofimg" wx:if="{{images.length<3}}" bindtap="upimg">
+				<image src="{{webServerUrl}}/images/index/mywork/uploadmywork/upimg.png" class="img"></image>
+			</view>
+		</view>
+		<!--匿名-->
+		<view class="title">
+			<label class="radio" bindtap="isAnonymous">
+				<radio value="r2" checked="{{isAnonymous}}" />匿名发布
+			</label>
+		</view>
+		<!--发表-->
+		<view class="button" bindtap="sureup">确认发表</view>
+	</view>
+</scroll-view>

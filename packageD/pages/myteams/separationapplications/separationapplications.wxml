@@ -1,0 +1,26 @@
+<view class="separationapplications">
+	<block wx:if="{{isShowapl}}">
+		<view>申请人</view>
+		<view class="proposer">
+			<view>{{name}}</view>
+			<image src="{{webServerUrl}}/images/mine/separationapplications/add.png" class="img" bindtap="openConfirm"></image>
+		</view>
+	</block>
+	<view>标题</view>
+	<input maxlength='20' bindinput='gettitle' value="{{title}}" placeholder="内容不能空" class="input"></input>
+	<view>离职原因</view>
+	<textarea maxlength='300' bindinput='getcontent' value="{{content}}" class="input2"></textarea>
+</view>
+<view class="button" bindtap="sureup">提交</view>
+
+
+<!--弹窗和状态内容-->
+<mp-dialog title="请选择" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+	<scroll-view scroll-y="true" class="scrollView">
+		<radio-group class="radio-group" bindchange="radioChange">
+			<radio class="radio" wx:for-items="{{items}}" wx:key="name" value="{{index}}">
+				<text>{{item.stageName}}</text>
+			</radio>
+		</radio-group>
+	</scroll-view>
+</mp-dialog>

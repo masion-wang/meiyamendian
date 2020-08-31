@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "奖励记录",
+  "usingComponents": {
+    "mp-dialog": "/components/dialog/dialog"
+  }
+}

@@ -1,0 +1,97 @@
+page {
+  background-color: #f3f3f3
+}
+
+.scrollView {
+  background-color: #f3f3f3;
+  height: 100vh;
+  padding-bottom: 20rpx;
+  display: flex;
+}
+
+.scroll-view ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+
+.notice {
+  width: 88%;
+  margin: 0 auto;
+  background-color: white;
+  margin-top: 30rpx;
+  border-radius: 5px;
+  padding: 25rpx 20rpx;
+  margin-bottom: 10rpx;
+  -moz-box-shadow: 1px 1px 1px rgba(20%, 20%, 40%, 0.5);
+  -webkit-box-shadow: 1px 1px 1px rgba(20%, 20%, 40%, 0.5);
+  box-shadow: 1px 1px 1px rgba(20%, 20%, 40%, 0.5);
+}
+
+.dflex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 1px solid black; */
+}
+
+.left {
+  height: 200rpx;
+  width: 30%;
+
+}
+
+.right {
+  height: 200rpx;
+  width: 70%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 30rpx;
+  font-weight: 700;
+  padding-left: 15rpx;
+  border-radius: 1px;
+  color: #434242;
+}
+
+.content {
+  /* position: relative;
+  top: -10rpx; */
+  /* margin-bottom: 10rpx; */
+  padding-left: 15rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 25rpx;
+  color: #666666;
+}
+
+.date {
+  /* position: relative;
+  top: -5rpx; */
+  /* margin-bottom: 5rpx; */
+  width: 100%;
+  text-align: end;
+  font-size: 22rpx;
+  color: #999999;
+}
+
+.wordTip {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999999;
+  font-size: 25rpx;
+  margin-bottom: 15rpx;
+  padding-top: 18rpx;
+  padding-bottom: 30rpx;
+}

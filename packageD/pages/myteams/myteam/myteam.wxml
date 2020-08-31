@@ -1,0 +1,118 @@
+<scroll-view scroll-y="true" class="srcollView">
+	<!--我的团队-->
+	<view class="mygrade">
+		<view class="sonofmygrade">我的级别</view>
+		<!--级别类型(3大区经理 4小区经理 5股东 6店长)-->
+		<view wx:if="{{info.levelType==3}}" class="position">大区经理</view>
+		<view wx:if="{{info.levelType==4}}" class="position">小区经理</view>
+		<view wx:if="{{info.levelType==5}}" class="position">股东</view>
+		<view wx:if="{{info.levelType==6}}" class="position">{{roomStaffBaseDto.roomStaffAccount.dutyRank.dutyName}}</view>
+		<view class="btnLine"></view>
+		<view class="threeofmygrade">
+			<view class="threepart">
+				<image src="{{webServerUrl}}/images/mine/myteam/area.png" class="img"></image>
+				<text>{{info.smallAreaQuantity==-1?0:info.smallAreaQuantity}}个区域</text>
+			</view>
+			<view class="threepart">
+				<image src="{{webServerUrl}}/images/mine/myteam/team.png" class="img"></image>
+				<text>{{info.roomQuantity==-1?0:info.roomQuantity}}家门店</text>
+			</view>
+			<view class="threepart">
+				<image src="{{webServerUrl}}/images/mine/myteam/store.png" class="img"></image>
+				<text>{{info.staffQuantity==-1?0:info.staffQuantity}}员工</text>
+			</view>
+		</view>
+	</view>
+	<!--管理-->
+	<view class="manager">
+		<view class="sonofmanager">管理</view>
+		<view class="flex">
+			<!--三个picker 区域 店铺 店员-->
+			<!--区域-->
+			<view class="page-body" wx:if="{{areas.length>0}}">
+				<picker-view indicator-style="height:50px;" style="width: 100%; height: 200px;" value="{{value1}}" bindchange="bindChangeArea">
+					<picker-view-column>
+						<view wx:for="{{areas}}" wx:key="{{index}}" style="line-height: 50px; text-align: center;">
+							<view class="updown">
+								<text>{{item.smallAreaName}}</text>
+								<view class="info">{{item.roomQuantity?item.roomQuantity:0}}家店 {{item.staffQuantity?item.staffQuantity:0}}人</view>
+							</view>
+						</view>
+					</picker-view-column>
+				</picker-view>
+			</view>
+			<!--店铺-->
+			<view class="page-body" wx:if="{{stores.length>0}}">
+				<picker-view indicator-style="height:50px;" style="width: 100%; height: 200px;" value="{{value2}}" bindchange="bindChangeStore" bindpickstart="bindChangeStore2">
+					<picker-view-column>
+						<view wx:for="{{stores}}" wx:key="{{index}}" data-id="111" style="line-height:50px;text-align:center;">
+							<view class="updown"><text>{{item.roomName}}</text>
+								<view class="info2">{{item.staffQuantity?item.staffQuantity:0}}人</view>
+							</view>
+						</view>
+					</picker-view-column>
+				</picker-view>
+			</view>
+			<!--店员-->
+			<view class="page-body">
+				<picker-view indicator-style="height:50px;" style="width: 100%; height: 200px;" value="{{value3}}" bindchange="bindChangeWorker">
+					<picker-view-column>
+						<view wx:for="{{workers}}" wx:key="{{index}}" style="line-height: 50px; text-align: center;">{{item.stageName}}</view>
+					</picker-view-column>
+				</picker-view>
+			</view>
+		</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!--奖惩-->
+		<view class="rewardOrfine" wx:if="{{isshowrewardandpunish}}">
+			<view class="sonofrewardOrfine" bindtap="tofine">处罚</view>
+			<view class="sonofrewardOrfine" bindtap="toreward">奖励</view>
+		</view>
+	</view>
+	<!--申请离职-->
+	<view class="separationapplications" bindtap="toseparationapplications">
+		<view>申请离职</view>
+		<image src="{{webServerUrl}}/images/mine/myteam/arrow.png" class="img"></image>
+	</view>
+	<!--离职审核-->
+	<view wx:if="{{isshowoffjugde}}" class="separationaudit" bindtap="toseparationaudit">
+		<view>离职审核</view>
+		<image src="{{webServerUrl}}/images/mine/myteam/arrow.png" class="img"></image>
+	</view>
+	<!--奖励记录-->
+	<view class="separationaudit" bindtap="torewardrecords">
+		<view>奖励记录</view>
+		<image src="{{webServerUrl}}/images/mine/myteam/arrow.png" class="img"></image>
+	</view>
+	<!--惩罚记录-->
+	<view class="separationaudit separationaudit2" bindtap="tofinerecords">
+		<view>惩罚记录</view>
+		<image src="{{webServerUrl}}/images/mine/myteam/arrow.png" class="img"></image>
+	</view>
+</scroll-view>
+<view class="placeholder2"></view>
+<!--遮罩层-->
+<view class="cover" wx:if='{{iscover}}'></view>

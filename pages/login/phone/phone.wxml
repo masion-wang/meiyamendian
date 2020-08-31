@@ -1,0 +1,36 @@
+ <view style="margin-top:20px;">
+ 	<!--logo-->
+ 	<view class="loginImgView">
+ 		<image src="{{roomtopimg}}" class="loginImg" style="height:200rpx;width:200rpx"></image>
+ 	</view>
+ 	<!--手机号和验证码-->
+ 	<view class="sectionOne">
+ 		<view class="three">
+ 			<image src="{{webServerUrl}}/images/login/phone.png" class="icon move"></image>
+ 			<input type="number" class="weui-input1" bindinput="getNumber" placeholder="手机号" />
+ 		</view>
+ 		<view class="three">
+ 			<image src="{{webServerUrl}}/images/login/code.png" class="icon move move2"></image>
+ 			<input type="number" class="weui-input2" bindinput="getPhoneCaptcha" placeholder="验证码" />
+ 			<view wx:if="{{canTouch}}" class="codeTest" bindtap="getCode">{{seconds>0?seconds:'获取验证码'}}</view>
+ 			<view wx:elif="{{!canTouch}}" class="codeTest">{{seconds>0?seconds:'获取验证码'}}</view>
+ 		</view>
+ 		<view class="threeLogin">
+ 			<view class="loginButton" bindtap="loginByPhone">登录</view>
+ 		</view>
+ 	</view>
+ 	<!--弹窗和状态内容-->
+ 	<mp-dialog title="选择商店" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+ 		<view>
+ 			<scroll-view style="height:15vh;" scroll-y='true'>
+ 				<radio-group class="radio-group" bindchange="radioChange">
+ 					<view wx:for-items="{{items}}" wx:key="{{items.uid}}" bindtap="getFidAndSdminType" data-fid="{{item.firmId}}" data-adminType="{{item.adminType}}">
+ 						<radio class="radio" bindtap="getFidAndSdminType" data-fid="{{item.firmId}}" data-adminType="{{item.adminType}}">
+ 							<text >{{item.firmRegisterDto.firmData.firmName}}</text>
+ 						</radio>
+ 					</view>
+ 				</radio-group>
+ 			</scroll-view>
+ 		</view>
+ 	</mp-dialog>
+ </view>

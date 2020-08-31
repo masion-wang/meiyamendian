@@ -1,0 +1,28 @@
+<view class="profileName">
+	<view class="titlename">性别</view>
+	<view class="lots">
+		<view class="sonoflots {{index==activeIndex?'red':''}}" wx:for="{{firmLabels}}" data-index="{{index}}" data-selected="{{item.selected}}" data-id="{{item.id}}" bindtap="tapone">{{item.name==1?'男':'女'}}</view>
+	</view>
+	<view class="button" bindtap="save">保存</view>
+</view>
+
+<scroll-view scroll-y="true" class="history" bindscrolltolower="loadMore">
+	<view class="titlename">历史填写</view>
+	<view class="sonofhistory" wx:for="{{list}}">
+		<view class="left">
+			<view class="circle"></view>
+			<view class="line" wx:if="{{index!=(list.length-1)}}"></view>
+		</view>
+		<view class="right">
+			<view class="detail">
+				<view class="time">{{item.createDate}}</view>
+				<view class="address">{{item.roomStaffBaseDto.roomBasicsData.roomName}}</view>
+				<view class="who">{{item.roomStaffBaseDto.stageName}}</view>
+			</view>
+			<view class="content">
+				{{item.firmLabel.name==1?'男':'女'}}
+			</view>
+		</view>
+	</view>
+	<view class="wordTip" wx:if="{{isend}}">暂无更多数据</view>
+</scroll-view>

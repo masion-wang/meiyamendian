@@ -1,0 +1,6 @@
+<view class="profileName">
+	<view wx:if="{{time.length>0}}" class="titlename small">上次修改:{{time}}</view>
+
+	<textarea bindinput="getvalue" maxlength="300" class="textInput enter" value="{{remark}}" />
+	</view>
+<view class="button" bindtap="editOrsave">保存</view>

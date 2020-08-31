@@ -1,0 +1,128 @@
+<view>
+	<scroll-view class="content" scroll-y="true" bindscrolltolower="loadMore" class="scrollView">
+		<view class='itemsonson' wx:for="{{list}}">
+			<!--此人情况-->
+			<view class="fouritem1">
+				<!--接待人数-->
+				<view class="fouritem1left">
+					<view class="fouritemtitle">接待人数</view>
+					<view>
+						<text class="big">{{item.receptionNum}}</text>
+						<text class="small">/ {{item.firmDutyUpgrade.receptionNumber}} 标准</text>
+					</view>
+					<view class="small "> {{item.receptionRate}}%</view>
+				</view>
+				<!--指定人数-->
+				<view class="fouritem1right">
+					<view class="fouritemtitle">指定人数</view>
+					<view>
+						<text class="big">{{item.designatedNum}}</text>
+						<text class="small">/ {{item.firmDutyUpgrade.appointNumber}} 标准</text>
+					</view>
+					<view class="small success"> {{item.designatedRate}} %</view>
+				</view>
+			</view>
+			<!--那根线-->
+			<view class="btnLine"></view>
+			<!--申请人和申请职务-->
+			<view class="twoPerson">
+				<view class="left">
+					<view style="margin-right:10rpx;">申请人 :</view>
+					<view><text>{{item.roomStaffBaseDto.stageName}}</text><text style="color:#999;margin-left:30rpx">{{item.roomStaffBaseDto.roomStaffAccount.dutyData.dutyName}}</text></view>
+				</view>
+				<view class="right">
+					<view style="margin-right:10rpx;">申请职务 :</view>
+					<view><text>{{item.dutyDataDto.dutyName}}</text></view>
+				</view>
+			</view>
+			<!--照片视频参考资料-->
+			<view class="presomething" wx:if="{{item.checkImgs.length>0}}">
+				<view class="left">预考照片</view>
+				<view class="threePic">
+					<!-- <view class="picOrvideo"></view> -->
+					<image bindtap='imgYu' data-list="{{item.checkImgs}}" data-src="{{val}}" wx:for="{{item.checkImgs}}" mode="aspectFill" wx:for-item="val" class="picOrvideo" src="{{val}}"></image>
+				</view>
+			</view>
+			<view class="presomething" wx:if="{{item.checkMp4}}">
+				<view class="left">预考视频</view>
+				<view class="threePic2">
+					<video picture-in-picture-mode="{{['push', 'pop']}}" src="{{item.checkMp4}}"> </video>
+				</view>
+			</view>
+			<!--考核时间-->
+			<view class="textTime">
+				<view class="left">考核时间 : </view>
+				<view class="left">{{item.checkTime}}</view>
+			</view>
+			<!--店长意见输入-->
+			<view class="managerOption">
+				<view class="inputleft"> 店长意见 :</view>
+				<textarea bindinput="getshopkeeperinput" disabled='{{item.roomCheckState==0&&admintype==6&&isworker==false?false:true}}' maxlength="300" auto-height class="{{item.shopManagerAdvise=='-1'&&shopkeeperinput.length==0?'textinput':'textinput2'}}" value="{{item.shopManagerAdvise=='-1'?'':item.shopManagerAdvise}}" placeholder="暂无评价"></textarea>
+			</view>
+			<!--小区意见输入-->
+			<view class="managerOption">
+				<view class="inputleft"> 小区意见 :</view>
+				<textarea bindinput="getsmallareainput" disabled='{{item.smallAreaCheckState==0&&admintype==4&&isworker==false?false:true}}' maxlength="300" auto-height class="{{item.smallAreaAdvise=='-1'&&smallareainput.length==0?'textinput':'textinput2'}}" value="{{item.smallAreaAdvise=='-1'?'':item.smallAreaAdvise}}" placeholder="暂无评价"></textarea>
+			</view>
+			<!--大区意见输入-->
+			<view class="managerOption">
+				<view class="inputleft"> 大区意见 :</view>
+				<textarea bindinput="getbigareainput" disabled='{{item.bigAreaCheckState==0&&admintype==3&&isworker==false?false:true}}' maxlength="300" auto-height class="{{item.bigAreaAdvise=='-1'&&bigareainput.length==0?'textinput':'textinput2'}}" value="{{item.bigAreaAdvise=='-1'?'':item.bigAreaAdvise}}" placeholder="暂无评价"></textarea>
+			</view>
+
+
+			<!--店长 区域 大区 公司意见-->
+			<view class="record">
+				<view class="sonofrecord">
+					<view class="father">
+						<view class="content3">
+							<!--店长-->
+							<view class="son3">
+								<!--店面审核状态 roomCheckState（0未审核1审核通过2审核驳回）-->
+								<image wx:if="{{item.roomCheckState==0}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/void.png"></image>
+								<image wx:if="{{item.roomCheckState==1}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/yes.png"></image>
+								<image wx:if="{{item.roomCheckState==2}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/no.png"></image>
+							</view>
+							<view class="son2"></view>
+							<!--小区-->
+							<view class="son3">
+								<!--小区审核状态 smallAreaCheckState（0未审核1审核通过2审核驳回）-->
+								<image wx:if="{{item.smallAreaCheckState==0}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/void.png"></image>
+								<image wx:if="{{item.smallAreaCheckState==1}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/yes.png"></image>
+								<image wx:if="{{item.smallAreaCheckState==2}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/no.png"></image>
+							</view>
+							<view class="son2"></view>
+							<!--大区-->
+							<view class="son3">
+								<!--大区审核状态 bigAreaCheckState （0未审核1审核通过2审核驳回）-->
+								<image wx:if="{{item.bigAreaCheckState==0}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/void.png"></image>
+								<image wx:if="{{item.bigAreaCheckState==1}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/yes.png"></image>
+								<image wx:if="{{item.bigAreaCheckState==2}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/no.png"></image>
+							</view>
+							<view class="son2"></view>
+							<!--公司-->
+							<view class="son3">
+								<!--公司审核状态 bigAreaCheckState （0未审核1审核通过2审核驳回）-->
+								<image wx:if="{{item.firmCheckState==0}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/void.png"></image>
+								<image wx:if="{{item.firmCheckState==1}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/yes.png"></image>
+								<image wx:if="{{item.firmCheckState==2}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/no.png"></image>
+							</view>
+						</view>
+						<view class="content4">
+							<view>店长审核</view>
+							<view>小区意见</view>
+							<view>大区意见</view>
+							<view>公司意见</view>
+						</view>
+						<view class="buttons" wx:if="{{(item.roomCheckState==0&&admintype==6&&item.firmCheckState==0&&isworker==false) || (item.roomCheckState==1&&item.smallAreaCheckState==0&&admintype==4&&item.firmCheckState==0&&isworker==false) || (item.roomCheckState==1&&item.smallAreaCheckState==1&&item.bigAreaCheckState==0&&admintype==3&&item.firmCheckState==0&&isworker==false)}}">
+							<view bindtap="finebutton" class="finebutton" data-state="2" data-id="{{item.id}}" data-roomcheckstate="{{item.roomCheckState}}" data-smallareacheckstate="{{item.smallAreaCheckState}}" data-bigareacheckstate="{{item.bigAreaCheckState}}">驳回</view>
+							<view bindtap="sure" class="sure" data-state="1" data-id="{{item.id}}" data-roomcheckstate="{{item.roomCheckState}}" data-smallareacheckstate="{{item.smallAreaCheckState}}" data-bigareacheckstate="{{item.bigAreaCheckState}}">确认</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="wordTip" wx:if="{{isend}}">暂无更多数据</view>
+	</scroll-view>
+	<view class="placeholder2"></view>
+</view>

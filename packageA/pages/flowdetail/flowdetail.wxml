@@ -1,0 +1,265 @@
+			<wxs module="m1">
+				var numberToFix = function(value, sum) {
+					var value = value
+					var sum = sum
+					value = Number(value)
+					sum = Number(sum)
+					var percent = (value / sum) * 100
+					console.log('percent', percent)
+					return percent.toFixed(0);
+				}
+				module.exports.numberToFix = numberToFix;
+			</wxs>
+			<view class="guanjiaoutside">
+				<view class="sonofsixtype">
+					<view class="one"></view>
+					<view>亲密付</view>
+				</view>
+				<view class="sonofsixtype">
+					<view class="two"></view>
+					<view>拼团</view>
+				</view>
+				<view class="sonofsixtype">
+					<view class="three"></view>
+					<view>砍价</view>
+				</view>
+				<view class="sonofsixtype">
+					<view class="four"></view>
+					<view>合伙人</view>
+				</view>
+				<view class="sonofsixtype">
+					<view class="five"></view>
+					<view>消费返还</view>
+				</view>
+				<view class="sonofsixtype">
+					<view class="six"></view>
+					<view>免费请客</view>
+				</view>
+			</view>
+			<view class="placeholder"></view>
+			<scroll-view scroll-y="true" class="srcollView">
+				<!--分享人数-->
+				<view class="orderpercent">
+					<view class="orderpercenttitle">
+						<view>分享人数 {{shareNum}}人</view>
+					</view>
+					<view class="father">
+						<view class="container1">
+							<ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ec1}}"></ec-canvas>
+						</view>
+						<view class="secondfather">
+							<view class="sonofsecondfather">
+								<view class="one"></view>
+								<view style="margin-left:25rpx;">{{data.sharePeople.intimacy}}</view>
+								<view style="margin-left:25rpx;">{{shareNum==0?0:m1.numberToFix(data.sharePeople.intimacy,shareNum)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="two"></view>
+								<view style="margin-left:25rpx;">{{data.sharePeople.grpBuy}}</view>
+								<view style="margin-left:25rpx;">{{shareNum==0?0:m1.numberToFix(data.sharePeople.grpBuy,shareNum)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="three"></view>
+								<view style="margin-left:25rpx;">{{data.sharePeople.hackPrice}}</view>
+								<view style="margin-left:25rpx;">{{shareNum==0?0:m1.numberToFix(data.sharePeople.hackPrice,shareNum)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="four"></view>
+								<view style="margin-left:25rpx;">{{data.sharePeople.grlfrndCard}}</view>
+								<view style="margin-left:25rpx;">{{shareNum==0?0:m1.numberToFix(data.sharePeople.grlfrndCard,shareNum)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="five"></view>
+								<view style="margin-left:25rpx;">{{data.sharePeople.csmReturn}}</view>
+								<view style="margin-left:25rpx;">{{shareNum==0?0:m1.numberToFix(data.sharePeople.csmReturn,shareNum)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="six"></view>
+								<view style="margin-left:25rpx;">{{data.sharePeople.freeHospitality}}</view>
+								<view style="margin-left:25rpx;">{{shareNum==0?0:m1.numberToFix(data.sharePeople.freeHospitality,shareNum)}}%</view>
+							</view>
+						</view>
+					</view>
+
+				</view>
+				<!--分享人次-->
+				<view class="orderpercent">
+					<view class="orderpercenttitle">
+						<view>分享人次 {{shareTime}}人</view>
+					</view>
+					<view class="father">
+						<view class="container1">
+							<ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ec2}}"></ec-canvas>
+						</view>
+						<view class="secondfather">
+							<view class="sonofsecondfather">
+								<view class="one"></view>
+								<view style="margin-left:25rpx;">{{data.shareQuantity.intimacy}}</view>
+								<view style="margin-left:25rpx;">{{shareTime==0?0:m1.numberToFix(data.shareQuantity.intimacy,shareTime)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="two"></view>
+								<view style="margin-left:25rpx;">{{data.shareQuantity.grpBuy}}</view>
+								<view style="margin-left:25rpx;">{{shareTime==0?0:m1.numberToFix(data.shareQuantity.grpBuy,shareTime)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="three"></view>
+								<view style="margin-left:25rpx;">{{data.shareQuantity.hackPrice}}</view>
+								<view style="margin-left:25rpx;">{{shareTime==0?0:m1.numberToFix(data.shareQuantity.hackPrice,shareTime)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="four"></view>
+								<view style="margin-left:25rpx;">{{data.shareQuantity.grlfrndCard}}</view>
+								<view style="margin-left:25rpx;">{{shareTime==0?0:m1.numberToFix(data.shareQuantity.grlfrndCard,shareTime)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="five"></view>
+								<view style="margin-left:25rpx;">{{data.shareQuantity.csmReturn}}</view>
+								<view style="margin-left:25rpx;">{{shareTime==0?0:m1.numberToFix(data.shareQuantity.csmReturn,shareTime)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="six"></view>
+								<view style="margin-left:25rpx;">{{data.shareQuantity.freeHospitality}}</view>
+								<view style="margin-left:25rpx;">{{shareTime==0?0:m1.numberToFix(data.shareQuantity.freeHospitality,shareTime)}}%</view>
+							</view>
+						</view>
+					</view>
+
+				</view>
+				<!--预约人次-->
+				<view class="orderpercent">
+					<view class="orderpercenttitle">
+						<view>预约人次 {{appointTime}}人</view>
+					</view>
+					<view class="father">
+						<view class="container1">
+							<ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ec3}}"></ec-canvas>
+						</view>
+						<view class="secondfather">
+							<view class="sonofsecondfather">
+								<view class="one"></view>
+								<view style="margin-left:25rpx;">{{data.reserveQuantity.intimacy}}</view>
+								<view style="margin-left:25rpx;">{{appointTime==0?0:m1.numberToFix(data.reserveQuantity.intimacy,appointTime)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="two"></view>
+								<view style="margin-left:25rpx;">{{data.reserveQuantity.grpBuy}}</view>
+								<view style="margin-left:25rpx;">{{appointTime==0?0:m1.numberToFix(data.reserveQuantity.grpBuy,appointTime)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="three"></view>
+								<view style="margin-left:25rpx;">{{data.reserveQuantity.hackPrice}}</view>
+								<view style="margin-left:25rpx;">{{appointTime==0?0:m1.numberToFix(data.reserveQuantity.hackPrice,appointTime)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="four"></view>
+								<view style="margin-left:25rpx;">{{data.reserveQuantity.grlfrndCard}}</view>
+								<view style="margin-left:25rpx;">{{appointTime==0?0:m1.numberToFix(data.reserveQuantity.grlfrndCard,appointTime)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="five"></view>
+								<view style="margin-left:25rpx;">{{data.reserveQuantity.csmReturn}}</view>
+								<view style="margin-left:25rpx;">{{appointTime==0?0:m1.numberToFix(data.reserveQuantity.csmReturn,appointTime)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="six"></view>
+								<view style="margin-left:25rpx;">{{data.reserveQuantity.freeHospitality}}</view>
+								<view style="margin-left:25rpx;">{{appointTime==0?0:m1.numberToFix(data.reserveQuantity.freeHospitality,appointTime)}}%</view>
+							</view>
+						</view>
+					</view>
+
+				</view>
+				<!--到店人次-->
+				<view class="orderpercent">
+					<view class="orderpercenttitle">
+						<view>到店人次 {{atStore}}人</view>
+					</view>
+					<view class="father">
+						<view class="container1">
+							<ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ec4}}"></ec-canvas>
+						</view>
+						<view class="secondfather">
+							<view class="sonofsecondfather">
+								<view class="one"></view>
+								<view style="margin-left:25rpx;">{{data.acceptedQuantity.intimacy}}</view>
+								<view style="margin-left:25rpx;">{{atStore==0?0:m1.numberToFix(data.acceptedQuantity.intimacy,atStore)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="two"></view>
+								<view style="margin-left:25rpx;">{{data.acceptedQuantity.grpBuy}}</view>
+								<view style="margin-left:25rpx;">{{atStore==0?0:m1.numberToFix(data.acceptedQuantity.grpBuy,atStore)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="three"></view>
+								<view style="margin-left:25rpx;">{{data.acceptedQuantity.hackPrice}}</view>
+								<view style="margin-left:25rpx;">{{atStore==0?0:m1.numberToFix(data.acceptedQuantity.hackPrice,atStore)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="four"></view>
+								<view style="margin-left:25rpx;">{{data.acceptedQuantity.grlfrndCard}}</view>
+								<view style="margin-left:25rpx;">{{atStore==0?0:m1.numberToFix(data.acceptedQuantity.grlfrndCard,atStore)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="five"></view>
+								<view style="margin-left:25rpx;">{{data.acceptedQuantity.csmReturn}}</view>
+								<view style="margin-left:25rpx;">{{atStore==0?0:m1.numberToFix(data.acceptedQuantity.csmReturn,atStore)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="six"></view>
+								<view style="margin-left:25rpx;">{{data.acceptedQuantity.freeHospitality}}</view>
+								<view style="margin-left:25rpx;">{{atStore==0?0:m1.numberToFix(data.acceptedQuantity.freeHospitality,atStore)}}%</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<!--锁客人次-->
+				<view class="orderpercent">
+					<view class="orderpercenttitle">
+						<view>锁客人数 {{lockNum}}人</view>
+					</view>
+					<view class="father">
+						<view class="container1">
+							<ec-canvas id="mychart-dom-pie" canvas-id="mychart-pie" ec="{{ec5}}"></ec-canvas>
+						</view>
+						<view class="secondfather">
+							<view class="sonofsecondfather">
+								<view class="one"></view>
+								<view style="margin-left:25rpx;">{{data.lockUserPeople.intimacy}}</view>
+								<view style="margin-left:25rpx;">{{lockNum==0?0:m1.numberToFix(data.lockUserPeople.intimacy,lockNum)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="two"></view>
+								<view style="margin-left:25rpx;">{{data.lockUserPeople.grpBuy}}</view>
+								<view style="margin-left:25rpx;">{{lockNum==0?0:m1.numberToFix(data.lockUserPeople.grpBuy,lockNum)}}%</view>
+							</view>
+							<!-- <view class="sonofsecondfather">
+								<view class="three"></view>
+								<view style="margin-left:25rpx;">0</view>
+								<view style="margin-left:25rpx;">0%</view>
+							</view> -->
+							<view class="sonofsecondfather">
+								<view class="four"></view>
+								<view style="margin-left:25rpx;">{{data.lockUserPeople.grlfrndCard}}</view>
+								<view style="margin-left:25rpx;">{{lockNum==0?0:m1.numberToFix(data.lockUserPeople.grlfrndCard,lockNum)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="five"></view>
+								<view style="margin-left:25rpx;">{{data.lockUserPeople.csmReturn}}</view>
+								<view style="margin-left:25rpx;">{{lockNum==0?0:m1.numberToFix(data.lockUserPeople.csmReturn,lockNum)}}%</view>
+							</view>
+							<view class="sonofsecondfather">
+								<view class="six"></view>
+								<view style="margin-left:25rpx;">{{data.lockUserPeople.freeHospitality}}</view>
+								<view style="margin-left:25rpx;">{{lockNum==0?0:m1.numberToFix(data.lockUserPeople.freeHospitality,lockNum)}}%</view>
+							</view>
+								<view class="sonofsecondfather">
+								<view class="six"></view>
+								<view style="margin-left:25rpx;">{{data.lockUserPeople.hackPrice}}</view>
+								<view style="margin-left:25rpx;">{{lockNum==0?0:m1.numberToFix(data.lockUserPeople.hackPrice,lockNum)}}%</view>
+							</view>
+						</view>
+					</view>
+
+				</view>
+			</scroll-view>

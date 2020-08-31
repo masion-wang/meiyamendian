@@ -1,0 +1,83 @@
+<scroll-view scroll-y="true" class="scrollView" bindscrolltolower="loadMore">
+	<!-- <view class="title">{{year}}年</view> -->
+	<block wx:for="{{list}}">
+			<!--2 砍价 0 用户项目 4 消费返还 1 拼团 -3 亲密付-->
+		<!--2 砍价-->
+		<view wx:if="{{item.odType==2}}" class="content">
+			<view class="time">
+				<view>预约时间 : {{item.hackPriceOrderDto.reserveTemplate.rsvTime}}</view>
+				<view>消费时间 : {{item.acceptedTime}}</view>
+			</view>
+			<view class="project">
+				<view class="sonofproject">
+					<view class="price">¥ {{item.hackPriceOrderDto.totalPrice}}</view>
+					<view class="hideword">{{item.hackPriceOrderDto.firmProject.projectName}}</view>
+					<view class="address">{{item.roomBasicsData.roomName}}-{{item.roomBasicsData.roomName1}}</view>
+					<view class="person">{{item.roomStaffBase.stageName}}</view>
+				</view>
+			</view>
+		</view>
+		<!--0 用户项目 一般-->
+		<view wx:if="{{item.odType==0}}" class="content">
+			<view class="time">
+				<view>预约时间 : {{item.userProjectOrderDto.reserveTemplate.rsvTime}}</view>
+				<view>消费时间 : {{item.acceptedTime}}</view>
+			</view>
+			<view class="project">
+				<view class="sonofproject" wx:for="{{item.userProjectOrderDto.userProOdItemDtos}}">
+					<view class="price">¥ {{item.proPayPrice}}</view>
+					<view class="hideword">{{item.firmProject.projectName}}</view>
+					<view class="address">{{item.roomBasicsData.roomName}}-{{item.roomBasicsData.roomName1}}</view>
+					<view class="person">{{item.roomStaffBase.stageName}}</view>
+				</view>
+			</view>
+		</view>
+		<!--4 消费返还-->
+		<view wx:if="{{item.odType==4}}" class="content">
+			<view class="time">
+				<view>预约时间 : {{item.consumeReturnOrderDto.reserveTemplate.rsvTime}}</view>
+				<view>消费时间 : {{item.acceptedTime}}</view>
+			</view>
+			<view class="project">
+				<view class="sonofproject">
+					<view class="price">¥ {{item.consumeReturnOrderDto.totalPrice}}</view>
+					<view class="hideword">{{item.consumeReturnOrderDto.firmProject.projectName}}</view>
+					<view class="address">{{item.roomBasicsData.roomName}}-{{item.roomBasicsData.roomName1}}</view>
+					<view class="person">佳文{{item.consumeReturnOrderDto.roomStaffBase.stageName}}</view>
+				</view>
+			</view>
+		</view>
+		<!--3 亲密付-->
+		<view wx:if="{{item.odType==3}}" class="content">
+			<view class="time">
+				<view>预约时间 : {{item.intimacyPayOrderDto.reserveTemplate.rsvTime}}</view>
+				<view>消费时间 : {{item.acceptedTime}}</view>
+			</view>
+			<view class="project">
+				<view class="sonofproject">
+					<view class="price">¥ {{item.intimacyPayOrderDto.totalPrice}}</view>
+					<view class="hideword">{{item.intimacyPayOrderDto.firmProject.projectName}}</view>
+					<view class="address">{{item.roomBasicsData.roomName}}-{{item.roomBasicsData.roomName1}}</view>
+					<view class="person">{{item.roomStaffBase.stageName}}</view>
+				</view>
+			</view>
+		</view>
+		<!--1 拼团-->
+		<view wx:if="{{item.odType==1}}" class="content">
+			<view class="time">
+				<view>预约时间 : {{item.groupBookingOrderItemDto.reserveTemplate.rsvTime}}</view>
+				<view>消费时间 : {{item.acceptedTime}}</view>
+			</view>
+			<view class="project">
+				<view class="sonofproject">
+					<view class="price">¥ {{item.groupBookingOrderItemDto.totalPrice}}</view>
+					<view class="hideword">{{item.groupBookingOrderItemDto.firmProject.projectName}}</view>
+					<view class="address">{{item.roomBasicsData.roomName}}-{{item.roomBasicsData.roomName1}}</view>
+					<view class="person">{{item.roomStaffBase.stageName}}</view>
+				</view>
+			</view>
+		</view>
+	</block>
+	<view class="end" wx:if="{{!isend}}">上拉刷新</view>
+	<view class="end" wx:if="{{isend}}">暂无更多</view>
+</scroll-view>

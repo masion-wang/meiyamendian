@@ -1,0 +1,177 @@
+{
+  "pages": [
+    "pages/mine/index/index",
+    "pages/index/index/index",
+    "pages/order/index/index",
+    "pages/product/index/index",
+    "pages/login/phone/phone",
+    "pages/mine/nooperatingdatas/nooperatingdatas"
+  ],
+  "subpackages": [{
+      "root": "packageA",
+      "pages": [
+        "pages/appointorder/appointlist/appointlist",
+        "pages/appointorder/profiles/profile/profile",
+        "pages/appointorder/profiles/profilename/profilename",
+        "pages/appointorder/profiles/profilesex/profilesex",
+        "pages/appointorder/profiles/profileage/profileage",
+        "pages/appointorder/profiles/profilecustomerlabel/profilecustomerlabel",
+        "pages/appointorder/profiles/profileuserphoto/profileuserphoto",
+        "pages/appointorder/profiles/profileaddress/profileaddress",
+        "pages/appointorder/profiles/profilefamily/profilefamily",
+        "pages/appointorder/profiles/profilecompanyname/profilecompanyname",
+        "pages/appointorder/profiles/profilesalary/profilesalary",
+        "pages/appointorder/profiles/profilehairstylerequire/profilehairstylerequire",
+        "pages/appointorder/profiles/profileservicerequire/profileservicerequire",
+        "pages/appointorder/profiles/profilefavor/profilefavor",
+        "pages/appointorder/profiles/profileadvice/profileadvice",
+        "pages/appointorder/profiles/profileaboutcard/profileaboutcard",
+        "pages/appointorder/profiles/profiletimecard/profiletimecard",
+        "pages/appointorder/profiles/profileperm/profileperm",
+        "pages/appointorder/profiles/profilehaircolor/profilehaircolor",
+        "pages/appointorder/profiles/profilehaircut/profilehaircut",
+        "pages/appointorder/profiles/profilehaircare/profilehaircare",
+        "pages/appointorder/profiles/profilescalp/profilescalp",
+        "pages/appointorder/profiles/phonerecord/phonerecord",
+        "pages/appointorder/profiles/profileother/profileother",
+        "pages/appointorder/profiles/chatrecord/chatrecord",
+        "pages/appointorder/profiles/consumptiongrade/consumptiongrade",
+        "pages/appointorder/customerdetail/customerdetail",
+        "pages/appointorder/memorandum/memorandum",
+        "pages/sharepeople/sharepeople",
+        "pages/appointorder/expensesrecord/expensesrecord",
+        "pages/appointorder/cardrecord/cardrecord",
+        "pages/appointorder/rechargerecord/rechargerecord",
+        "pages/appointorder/projectalarm/projectalarm",
+        "pages/sign/sign",
+        "pages/records/record/record",
+        "pages/records/dealcardgold/dealcardgold",
+        "pages/records/checkcardgold/checkcardgold",
+        "pages/notices/notice/notice",
+        "pages/notices/noticedetail/noticedetail",
+        "pages/orderstatistic/orderstatistic",
+        "pages/userlist/userlist",
+        "pages/ranklist/ranklist",
+        "pages/flowdetail/flowdetail",
+        "pages/appionttimes/appionttime/appionttime",
+        "pages/appionttimes/leave/leave",
+        "pages/appionttimes/leaverecord/leaverecord",
+        "pages/lookcomment/lookcomment",
+        "pages/myworks/mywork/mywork",
+        "pages/myworks/uploadmywork/uploadmywork",
+        "pages/myworks/comment/comment",
+        "pages/ordertests/ordertest/ordertest",
+        "pages/ordertests/pintuan/pintuan",
+        "pages/ordertests/kanjia/kanjia",
+        "pages/ordertests/qinmifu/qinmifu",
+        "pages/ordertests/xiaofeifanhuan/xiaofeifanhuan"
+      ]
+    },
+    {
+      "root": "packageB",
+      "pages": [
+        "pages/productdetail/productdetail/productdetail",
+        "pages/productdetail/pintuan/pintuan",
+        "pages/productdetail/kanjia/kanjia",
+        "pages/productdetail/qinmifu/qinmifu",
+        "pages/productdetail/xiaofeifanhuan/xiaofeifanhuan",
+        "pages/memorandum/memorandum"
+      ]
+    },
+    {
+      "root": "packageC",
+      "pages": [
+        "pages/storepurchase/storepurchase",
+        "pages/storepurchaserecord/storepurchaserecord",
+        "pages/spendrealmoney/spendrealmoney"
+      ]
+    },
+    {
+      "root": "packageD",
+      "pages": [
+        "pages/mineprofile/mineprofile",
+        "pages/resume/resume",
+        "pages/certification/certification",
+        "pages/modifyphonenumber/modifyphonenumber",
+        "pages/myearnings/myearning/myearning",
+        "pages/myearnings/moneyrecord/moneyrecord",
+        "pages/myearnings/transfer/transfer",
+        "pages/myearnings/cashout/cashout",
+        "pages/myearnings/cashout2/cashout2",
+        "pages/myearnings/cashout3/cashout3",
+        "pages/operatingdatas/operatingdata/operatingdata",
+        "pages/operatingdatas/operatingdatamultmonths/operatingdatamultmonths",
+        "pages/operatingdatas/operatingdatasinglemonth/operatingdatasinglemonth",
+        "pages/operatingdatas/crossstoreconsumption/crossstoreconsumption",
+        "pages/operatingdatas/cashoutrecord/cashoutrecord",
+        "pages/operatingdatas/expenserecord/expenserecord",
+        "pages/operatingdatas/expenserecorddetail/expenserecorddetail",
+        "pages/growings/growing/growing",
+        "pages/growings/applicationrecords/applicationrecords",
+        "pages/myteams/myteam/myteam",
+        "pages/myteams/fine/fine",
+        "pages/myteams/finerecords/finerecords",
+        "pages/myteams/reward/reward",
+        "pages/myteams/rewardrecords/rewardrecords",
+        "pages/myteams/separationapplications/separationapplications",
+        "pages/myteams/separationaudit/separationaudit",
+        "pages/mycredits/mycredit/mycredit",
+        "pages/invitecode/invitecode",
+        "pages/kpis/kpi/kpi",
+        "pages/socialtalks/socialtalk/socialtalk",
+        "pages/socialtalks/socialtalkcomment/socialtalkcomment",
+        "pages/socialtalks/socialtalkoutput/socialtalkoutput",
+        "pages/share/share",
+        "pages/sharetoother/sharetoohther"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#f6a33b",
+    "backgroundColor": "#ffffff",
+    "list": [{
+        "pagePath": "pages/index/index/index",
+        "text": "首页",
+        "iconPath": "images/index/shouyeweix@2x.png",
+        "selectedIconPath": "images/index/shouye@2x.png"
+      },
+      {
+        "pagePath": "pages/order/index/index",
+        "text": "订单",
+        "iconPath": "images/order/dingdanweix@2x.png",
+        "selectedIconPath": "images/order/dingdan@2x.png"
+      },
+      {
+        "pagePath": "pages/product/index/index",
+        "text": "产品",
+        "iconPath": "images/product/chanpinweix@2x.png",
+        "selectedIconPath": "images/product/chanpinl@2x.png"
+      },
+      {
+        "pagePath": "pages/mine/index/index",
+        "text": "我的",
+        "iconPath": "images/mine/mineBefore2X.png",
+        "selectedIconPath": "images/mine/mineAfter2X.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "networkTimeout": {
+    "request": 20000,
+    "onnecSocket": 20000,
+    "downloadFile": 20000
+  },
+  "navigateToMiniProgramAppIdList": ["wxffed40c84ef92f70"]
+}

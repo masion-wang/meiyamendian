@@ -1,0 +1,11 @@
+<scroll-view class="srcollView" scroll-y="true">
+	<view class="whiteback">
+		<view class="title">学习经历</view>
+		<textarea auto-height maxlength="100" class="textinput" value="{{learnExperience}}" bindinput="getlearnExperience"></textarea>
+		<view class="title">工作经历</view>
+		<textarea auto-height maxlength="100" class="textinput" value="{{workExperience}}" bindinput="getworkExperience"></textarea>
+		<view class="title">获奖经历</view>
+		<textarea auto-height maxlength="100" class="textinput" value="{{awardExperience}}" bindinput="getawardExperience"></textarea>
+	</view>
+	<view class="button" bindtap="sure">确定录入</view>
+</scroll-view>

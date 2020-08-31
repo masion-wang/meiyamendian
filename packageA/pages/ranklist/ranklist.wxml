@@ -1,0 +1,180 @@
+<mp-tabs tabs="{{tabs}}" tab-underline-color="white" tab-inactive-text-color="#bfbfbf" bindtabclick="onTabCLick" activeClass="tab-bar-title__selected">
+</mp-tabs>
+<swiper bindtap="goNotice" class="swiper-box" bindchange="changeswperitem" autoplay="{{false}}">
+	<!--客量排行-->
+	<swiper-item class="swiperI">
+		<view class="swiperItem">
+			<view class="title">
+				<view class="sonoftitle">客量排行</view>
+				<view class="select">
+					<view wx:for="{{guest}}" data-key='{{index}}' bindtap="changeImg1">
+						<image src="{{activeIndex==index?webServerUrl+'/images/index/ranklist/selected.png':webServerUrl+'/images/index/ranklist/notselected.png'}}" class="img"></image>{{item.name}}
+					</view>
+				</view>
+			</view>
+			<scroll-view scroll-y="true" class="scrollView" bindscrolltolower="loadMore1">
+				<view class="person" wx:for="{{list}}">
+					<view class="foursection">
+						<view class="prize">
+							<image wx:if="{{index==0}}" src="{{webServerUrl}}/images/index/ranklist/one.png" class="prizeImg"></image>
+							<image wx:if="{{index==1}}" src="{{webServerUrl}}/images/index/ranklist/two.png" class="prizeImg"></image>
+							<image wx:if="{{index==2}}" src="{{webServerUrl}}/images/index/ranklist/three.png" class="prizeImg"></image>
+							<view wx:if="{{index>2}}" class="rank">{{index+1}}</view>
+						</view>
+						<view class="personlogo">
+							<image src="{{item.staffHeadImg}}" class="personlogoImg"></image>
+						</view>
+						<view class="threeOf">
+							<view class="sonofthreeOf">
+								<view class="name">{{item.stageName}}</view>
+								<view wx:if="{{item.roomStaffAccountDto.dutyData.dutyName}}" class="position">{{item.roomStaffAccountDto.dutyData.dutyName}}</view>
+							</view>
+							<view class="location">{{item.roomBasicsData.roomName}}-{{item.roomBasicsData.roomName1}}</view>
+							<view class="fourOf">
+								<view class="left">
+									<view class="fourItem">接单客数 : {{item.visitsNums}}</view>
+									<view class="fourItem">指定率 : {{item.designatedVisitsRate}}%</view>
+								</view>
+								<view class="right">
+									<view class="fourItem">指定客数 : {{item.designatedVisitsNums}}</view>
+									<view class="fourItem">收益 : {{item.incomeAmt}}</view>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="btnLine"></view>
+				</view>
+				<view class="end" wx:if="{{isend}}">暂无更多</view>
+				<view class="placeholder2"></view>
+			</scroll-view>
+		</view>
+	</swiper-item>
+	<!--裂变引流-->
+	<swiper-item class="swiperI">
+		<view class="swiperItem">
+			<view class="title">
+				<view class="sonoftitle">裂变引流</view>
+				<view class="select">
+					<view wx:for="{{spread}}" data-key='{{index}}' bindtap="changeImg2">
+						<image src="{{activeIndex==index?webServerUrl+'/images/index/ranklist/selected.png':webServerUrl+'/images/index/ranklist/notselected.png'}}" class="img"></image>{{item.name}}
+					</view>
+				</view>
+			</view>
+			<scroll-view scroll-y="true" class="scrollView" bindscrolltolower="loadMore2">
+				<view class="person" wx:for="{{list}}">
+					<view class="foursection" data-timeway="{{timeWay}}" data-id="{{item.id}}" data-endtime="{{endTime}}" data-starttime="{{startTime}}" data-dayrange="{{dayRange}}" data-orderway="{{orderWay}}" data-dayRange="{{dayRange}}" bindtap="goflowdetail">
+						<view class="prize">
+							<image wx:if="{{index==0}}" src="{{webServerUrl}}/images/index/ranklist/one.png" class="prizeImg"></image>
+							<image wx:if="{{index==1}}" src="{{webServerUrl}}/images/index/ranklist/two.png" class="prizeImg"></image>
+							<image wx:if="{{index==2}}" src="{{webServerUrl}}/images/index/ranklist/three.png" class="prizeImg"></image>
+							<view wx:if="{{index>2}}" class="rank">{{index+1}}</view>
+						</view>
+						<view class="personlogo">
+							<image src="{{item.staffHeadImg}}" class="personlogoImg"></image>
+						</view>
+						<view class="threeOf">
+							<view class="sonofthreeOf">
+								<view class="name">{{item.stageName}}</view>
+								<view wx:if="{{item.roomStaffAccountDto.dutyData.dutyName}}" class="position">{{item.roomStaffAccountDto.dutyData.dutyName}}</view>
+
+							</view>
+							<view class="location">{{item.roomBasicsData.roomName}}-{{item.roomBasicsData.roomName1}}</view>
+							<view class="fourOf">
+								<view class="left">
+									<view class="fourItem">分享人数: {{item.shareUserNums}}</view>
+									<view class="fourItem">预约人次: {{item.reservedNums}}</view>
+									<view class="fourItem">锁客人数: {{item.lockUserNums}}</view>
+								</view>
+								<view class="right">
+									<view class="fourItem">分享人次: {{item.shareNums}}</view>
+									<view class="fourItem">到店人次: {{item.acceptedNums}}</view>
+								</view>
+							</view>
+						</view>
+						<image src="{{webServerUrl}}/images/mine/arrow.png" class="tipss"></image>
+						<!-- <view class='tipss'>></view> -->
+					</view>
+					<view class="btnLine"></view>
+				</view>
+				<view class="end" wx:if="{{isend}}">暂无更多</view>
+				<view class="placeholder2"></view>
+			</scroll-view>
+		</view>
+	</swiper-item>
+	<!--资源价值-->
+	<swiper-item class="swiperI">
+		<view class="swiperItem">
+			<view class="title">
+				<view class="sonoftitle">资源价值</view>
+				<view class="select">
+					<view wx:for="{{value}}" data-key='{{index}}' bindtap="changeImg3">
+						<image src="{{activeIndex==index?webServerUrl+'/images/index/ranklist/selected.png':webServerUrl+'/images/index/ranklist/notselected.png'}}" class="img"></image>{{item.name}}
+					</view>
+				</view>
+			</view>
+			<scroll-view scroll-y="true" class="scrollView" bindscrolltolower="loadMore3">
+				<view class="person" wx:for="{{list}}">
+					<view class="foursection">
+						<view class="prize">
+							<image wx:if="{{index==0}}" src="{{webServerUrl}}/images/index/ranklist/one.png" class="prizeImg"></image>
+							<image wx:if="{{index==1}}" src="{{webServerUrl}}/images/index/ranklist/two.png" class="prizeImg"></image>
+							<image wx:if="{{index==2}}" src="{{webServerUrl}}/images/index/ranklist/three.png" class="prizeImg"></image>
+							<view wx:if="{{index>2}}" class="rank">{{index}}</view>
+						</view>
+						<view class="personlogo">
+							<image src="{{item.staffHeadImg}}" class="personlogoImg"></image>
+						</view>
+						<view class="threeOf">
+							<view class="sonofthreeOf">
+								<view class="name">{{item.stageName}}</view>
+								<view wx:if="{{item.roomStaffAccountDto.dutyData.dutyName}}" class="position">{{item.roomStaffAccountDto.dutyData.dutyName}}</view>
+							</view>
+							<view class="location">{{item.roomBasicsData.roomName}}-{{item.roomBasicsData.roomName1}}</view>
+							<view class="fourOf">
+								<view class="left">
+									<view class="fourItem">接待人数 : {{item.receptionNum}}</view>
+									<view class="fourItem">指定率 : {{item.designatedRate}}%</view>
+								</view>
+								<view class="right">
+									<view class="fourItem">指定人数 : {{item.designatedNum}}</view>
+								</view>
+							</view>
+						</view>
+					</view>
+					<view class="btnLine"></view>
+				</view>
+				<view class="end" wx:if="{{isend}}">暂无更多</view>
+				<view class="placeholder2"></view>
+			</scroll-view>
+		</view>
+	</swiper-item>
+</swiper>
+<!--选择时间-->
+<mp-dialog title="选择日期" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+	<view>开始日期</view>
+	<picker-view indicator-style="height:50px;" style="width: 100%; height: 270rpx;margin-top:15rpx;" value="{{value1}}" bindchange="bindChange1">
+		<picker-view-column>
+			<view wx:for="{{years}}" wx:key="{{years}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}年</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{months}}" wx:key="{{months}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}月</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{days}}" wx:key="{{days}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}日</view>
+		</picker-view-column>
+	</picker-view>
+	<view style="margin-top:50rpx;">结束日期</view>
+	<picker-view indicator-style="height:50px;" style="width: 100%; height: 270rpx;margin-top:15rpx;" value="{{value1}}" bindchange="bindChange2">
+		<picker-view-column>
+			<view wx:for="{{years}}" wx:key="{{years}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}年</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{months}}" wx:key="{{months}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}月</view>
+		</picker-view-column>
+		<picker-view-column>
+			<view wx:for="{{days}}" wx:key="{{days}}" style="line-height: 50px; text-align: center;height:300rpx">{{item}}日</view>
+		</picker-view-column>
+	</picker-view>
+</mp-dialog>
+<!--遮罩层-->
+<view class="cover" wx:if='{{iscover}}'></view>

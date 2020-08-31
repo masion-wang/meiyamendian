@@ -1,0 +1,108 @@
+page {
+  height: 100%;
+  background-color: #f3f3f3
+}
+
+.title {
+  /* position: fixed;
+  top: 10rpx;
+  left: 25rpx;
+  height: 70rpx; */
+  font-size: 35rpx;
+  margin-left:22rpx;
+}
+
+.placeholder {
+  height: 70rpx;
+}
+
+.scrollView {
+  margin-top: 10rpx;
+  margin-bottom: 2vh;
+  /* border: 1px solid black; */
+  background-color: #f3f3f3;
+  height: 98%;
+  /* border:1px solid black; */
+}
+
+scroll-view ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+
+.content {
+  background-color: white;
+  width: 94%;
+  /* height: 300rpx; */
+  margin: 0 auto;
+  margin-top: 30rpx;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20rpx;
+  padding-bottom: 10rpx;
+  /* border:1px solid black; */
+  /* justify-content: center; */
+}
+
+.time {
+  width: 95%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 25rpx;
+}
+
+.project {
+  margin-top: 20rpx;
+  width: 95%;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+}
+
+.sonofproject {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  width: 25%;
+  font-size: 25rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.hideword {
+  font-size: 25rpx;
+  font-weight: 600;
+  width: 150rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.address {
+  font-size: 25rpx;
+  color: #575656;
+}
+
+.person {
+  font-size: 25rpx;
+  color: #575656;
+}
+.end{
+  margin-top:20rpx;
+  margin-bottom:10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25rpx;
+}

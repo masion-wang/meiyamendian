@@ -1,0 +1,89 @@
+<scroll-view scroll-y="true" class="srcollView" bindscrolltolower="loadMore">
+	<view class="record" wx:for="{{list}}">
+		<view class="date"><text>提交日期 :</text> <text>{{item.createTime}}</text></view>
+		<view class="toOrget">
+			<view>被执行人 : {{item.roomStaffBaseDto.stageName}}</view>
+			<view wx:if="{{item.exeSysUserDto.adminType==6}}">执行人 : {{item.exeSysUserDto.roomStaffBase.stageName}}</view>
+			<view wx:if="{{item.exeSysUserDto.adminType==4}}">执行人 : {{item.exeSysUserDto.smallArea.stageName}}</view>
+			<view wx:if="{{item.exeSysUserDto.adminType==3}}">执行人 : {{item.exeSysUserDto.bigArea.stageName}}</view>
+		</view>
+		<view class="btnLine"></view>
+		<view class="date2">事由主题</view>
+		<view class="data2Content">
+			<view class="contentdetail">{{item.titel}}</view>
+		</view>
+		<view class="date2">事由详情</view>
+		<view class="data2Content">
+			<view class="contentdetail">{{item.describeName}}</view>
+		</view>
+		<!-- <view class="date2">触犯价值观</view>
+		<view class="data2Content">
+			<block>
+				<view>1.客户第一</view>
+				<view>(2)微笑面对投诉和受到的委屈，积极主动地在工作中 为顾客解决问题。</view>
+			</block>
+		</view> -->
+		<view class="date2">处罚</view>
+		<view class="data2Content2">
+			<view class="sonofdata2Content">
+				<view>提现分扣除 : {{item.cashIntegralDe}}分</view>
+				<view style="margin-left:100rpx;">信用分扣除 : {{item.creditScoreDe}}分</view>
+			</view>
+			<view class="sonofdata2Content">
+				<view>金额扣除 : {{item.money}}元 </view>
+				<!-- <view>底薪扣除 : 20元</view> -->
+			</view>
+		</view>
+		<view class="btnLine"></view>
+		<!--进度条-->
+		<view class="recordson">
+			<view class="sonofrecord">
+				<view class="father">
+					<view class="content3">
+						<view class="son3">
+							<!--店面审核状态 roomCheckState（0未审核1审核通过2审核驳回）-->
+							<image wx:if="{{item.roomCheckState==0}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/void.png"></image>
+							<image wx:if="{{item.roomCheckState==1}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/yes.png"></image>
+							<image wx:if="{{item.roomCheckState==2}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/no.png"></image>
+						</view>
+						<view class="son2"></view>
+						<view class="son5">
+							<!--小区审核状态 smallAreaCheckState（0未审核1审核通过2审核驳回）-->
+							<image wx:if="{{item.smallAreaCheckState==0}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/void.png"></image>
+							<image wx:if="{{item.smallAreaCheckState==1}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/yes.png"></image>
+							<image wx:if="{{item.smallAreaCheckState==2}}" class="IMG" src="{{webServerUrl}}/images/index/appionttime/leaverecord/no.png"></image>
+						</view>
+						<view class="son2"></view>
+						<view class="son4">
+							<!--大区审核状态 bigAreaCheckState （0未审核1审核通过2审核驳回）-->
+							<image wx:if="{{item.bigAreaCheckState==0}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/void.png"></image>
+							<image wx:if="{{item.bigAreaCheckState==1}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/yes.png"></image>
+							<image wx:if="{{item.bigAreaCheckState==2}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/no.png"></image>
+						</view>
+						<view class="son2"></view>
+						<view class="son4">
+							<!--公司审核状态 bigAreaCheckState （0未审核1审核通过2审核驳回）-->
+							<image wx:if="{{item.firmCheckState==0}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/void.png"></image>
+							<image wx:if="{{item.firmCheckState==1}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/yes.png"></image>
+							<image wx:if="{{item.firmCheckState==2}}" class="IMG2" src="{{webServerUrl}}/images/index/appionttime/leaverecord/no.png"></image>
+						</view>
+					</view>
+					<view class="content4">
+						<view>店长审核</view>
+						<view>小区审核</view>
+						<view>大区审核</view>
+						<view>公司审核</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!--显示条件 店长未审核 店长通过 小区未审核 店长小区通过 大区未审核  并且公司未审核-->
+		<!--两个按钮-->
+		<view class="buttons" wx:if="{{(item.roomCheckState==0&&admintype==6&&item.firmCheckState==0&&isworker==false) || (item.roomCheckState==1&&item.smallAreaCheckState==0&&admintype==4&&item.firmCheckState==0&&isworker==false) || (item.roomCheckState==1&&item.smallAreaCheckState==1&&item.bigAreaCheckState==0&&admintype==3&&item.firmCheckState==0&&isworker==false)}}">
+			<view bindtap="finebutton" class="finebutton" data-state="2" data-id="{{item.id}}" data-roomcheckstate="{{item.roomCheckState}}" data-smallareacheckstate="{{item.smallAreaCheckState}}" data-bigareacheckstate="{{item.bigAreaCheckState}}">驳回</view>
+			<view bindtap="sure" class="sure" data-state="1" data-id="{{item.id}}" data-roomcheckstate="{{item.roomCheckState}}" data-smallareacheckstate="{{item.smallAreaCheckState}}" data-bigareacheckstate="{{item.bigAreaCheckState}}">确认</view>
+		</view>
+	</view>
+	<view class="wordTip" wx:if="{{isend}}">暂无更多数据</view>
+</scroll-view>
+<view class="placeholder2"></view>

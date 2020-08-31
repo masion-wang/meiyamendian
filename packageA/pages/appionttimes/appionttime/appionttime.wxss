@@ -1,0 +1,407 @@
+page {
+  background-color: #f3f3f3;
+  height: 100%;
+}
+
+scroll-view ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+
+/* 理发师 */
+.barber {
+  width: 93%;
+  height: 200rpx;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 40rpx;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 35rpx;
+}
+
+.name {
+  font-size: 35rpx;
+  font-weight: 700;
+  top: -15rpx;
+}
+
+.position {
+  font-size: 25rpx;
+  color: #bbb1b1;
+  position: relative;
+  top: 10rpx;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25rpx;
+  width: 50%;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 5rpx;
+}
+
+.shijie {
+  font-size: 25rpx;
+}
+
+.personImg {
+  width: 145rpx;
+  height: 145rpx;
+  border-radius: 50%;
+}
+
+.dayOff {
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.apionttimetitle {
+  background-color: #f3f3f3;
+  font-size: 35rpx;
+  line-height: 80rpx;
+  margin-top: 10rpx;
+}
+
+.down {
+  width: 100%;
+  background-color: white;
+}
+
+/* 中间部分 */
+.apionttime {
+  width: 93%;
+  margin: 0 auto;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.selectDate {
+  display: flex;
+  flex-direction: column;
+}
+
+.selectDateTitle {
+  width: 100%;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  text-indent: 20rpx;
+}
+
+.box {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 10rpx 20rpx 10rpx;
+  background: #fff;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.item {
+  width: 160rpx;
+  height: auto;
+  text-align: center;
+  margin-left: 15rpx;
+  display: inline-block;
+}
+
+.movedown {
+  position: relative;
+  top: 10rpx;
+}
+
+.item:nth-last-child(1) {
+  margin-right: 15rpx;
+  position: absolute;
+  top: 0rpx;
+}
+
+.sonofItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #f3f3f3;
+  border-radius: 30px;
+  height: 70rpx;
+  background-color: #f3f3f3;
+  color: #575454;
+}
+
+.activesonofItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70rpx;
+  flex-direction: column;
+  border-radius: 30px;
+  border: 1px solid #e48144;
+  background-color: #fff6f4;
+  color: #e48144;
+}
+
+.week {
+  width: 100%;
+  font-size: 24rpx;
+  line-height: 30rpx;
+  margin-top: 10rpx;
+}
+
+.date {
+  width: 100%;
+  font-size: 20rpx;
+  line-height: 30rpx;
+  margin: 5rpx 0;
+}
+
+.date2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  background-color: #f3f3f3;
+  padding: 10rpx;
+  border-radius: 5px;
+}
+
+.parent {
+  width: 100%;
+  margin: 0 auto;
+  height: 400rpx;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.son {
+  margin-right: 11rpx;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+  width: 20%;
+  height: 70rpx;
+  font-size: 25rpx;
+  border-radius: 5px;
+  background-color: #f3f3f3;
+  color: #575454;
+  text-align: center;
+  /* line-height: 70rpx; */
+  border: 1px solid #fffefe;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.activeson {
+  border: 1px solid #e48144;
+  background-color: #fff6f4;
+  color: #e48144;
+}
+
+.placeholder {
+  color: #a4a4a4;
+}
+
+.deadson {
+  background-color: #a79e9e70;
+  color: #474444f6;
+}
+
+.tip {
+  margin-left: 22rpx;
+  margin-top: 30rpx;
+  display: flex;
+  align-items: center;
+  font-size: 25rpx;
+}
+
+.icon {
+  width: 25rpx;
+  height: 25rpx;
+  position: relative;
+  top: 3rpx;
+  margin-right: 8rpx;
+}
+
+.button {
+  width: 300rpx;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 30px;
+  margin: 0 auto;
+  margin-top: 45rpx;
+  margin-bottom: 25rpx;
+  color: white;
+  background: -webkit-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -o-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -moz-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+  background: -mos-linear-gradient(right, rgb(250, 106, 4), rgb(237, 76, 4));
+}
+
+/* 关闭记录 */
+.closeRecord {
+  width: 93%;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 40rpx;
+  border-radius: 5px;
+  margin-bottom: 5vh;
+  height: 50vh;
+}
+
+.detail {
+  padding-bottom: 2vh;
+}
+
+.sonofdetail {
+  width: 94%;
+  margin: 0 auto;
+  display: flex;
+  margin-top: 30rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  align-items: center;
+}
+
+.leftsonofdetail {
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  padding: 10rpx 0;
+  width: 76%;
+  line-height: 40rpx;
+}
+
+.rightsonofdetail {
+  border: 1px solid #eaa33e;
+  color: #eaa33e;
+  border-radius: 30px;
+  text-align: center;
+  width: 20%;
+  height: 60rpx;
+  margin-left: 20rpx;
+  font-size: 27rpx;
+  line-height: 60rpx;
+}
+
+.three1 {
+  font-size: 24rpx;
+  text-align: center;
+  margin-top: 5rpx;
+  box-sizing: border-box;
+}
+
+.three2 {
+  width: 55%;
+  font-size: 24rpx;
+  text-align: center;
+  margin-left: 20rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+}
+
+.three3 {
+  width: 25%;
+  float: right;
+  font-size: 24rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* 轮播图日历*/
+.swiper-box .wx-swiper-dots.wx-swiper-dots-horizontal {
+  margin-bottom: -20rpx;
+}
+
+.swiper-box .wx-swiper-dot {
+  width: 40rpx;
+  display: inline-flex;
+  height: 10rpx;
+  margin-left: 20rpx;
+  justify-content: space-between;
+}
+
+.swiper-box .wx-swiper-dot::before {
+  content: '';
+  flex-grow: 1;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8rpx
+}
+
+.swiper-box .wx-swiper-dot-active::before {
+  background: #f8a43b;
+}
+
+.swiper-box {
+  border-radius: 10rpx;
+  height: 50vh;
+}
+
+.weui-dialog__bd {
+  padding: 0;
+}
+
+.swiperI {
+  width: 100%;
+}
+
+.recentThreeMonth {
+  color: #eaa33e;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  border-top: 1px solid rgb(207, 202, 202);
+  border-bottom: 1px solid rgb(207, 202, 202);
+}
+
+.wordTip {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999999;
+  font-size: 25rpx;
+  margin-top: 20rpx;
+}
+
+.cover {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  /* background-color:rgba(0, 0, 0, 0.25); */
+  background-color: transparent;
+}
+.placeholder2 {
+  height: 70rpx;
+}

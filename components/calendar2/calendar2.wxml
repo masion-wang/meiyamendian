@@ -1,0 +1,68 @@
+<!--判断是否90天内-->
+
+<wxs module="m1">
+	var getMax = function(year, month, day) {
+		var dayday = year + '-' + month + '-' + day
+		var date = getDate()
+		var yearnow = date.getFullYear(); // 获取当年
+		var monthnow = date.getMonth() + 1; // 获取当月
+		var daynow = date.getDate() // 获取当天
+		if (monthnow < 10) {
+			monthnow = '0' + monthnow
+		}
+		if (daynow < 10) {
+			daynow = '0' + daynow
+		}
+		var currentTime = yearnow + '-' + monthnow + '-' + daynow
+		console.log('今日日期', currentTime)
+		// 获取今日时间戳 加上90天 
+		var datetoday = getDate(currentTime);
+		console.log('今日日期时间戳', datetoday)
+		// 一天的时间戳
+		var dateperday = 24 * 60 * 60 * 1000
+		// 第90天
+		var dateninety = datetoday + dateperday * 89
+		// 获取用户点击天数的时间戳
+		var chooseday2 = getDate(dayday);
+
+
+
+		// 如果用户选择的天数 小于等于 90限制
+		if (chooseday2 <= dateninety) {
+			console.log('小于90')
+			return true
+		}
+		if (chooseday2 > dateninety) {
+			console.log('大于90')
+			return false
+		}
+	}
+	module.exports.getMax = getMax;
+</wxs>
+<view>
+	<view class="calendar-wrapper active">
+		<view class="calendar-header">
+			<view>日</view>
+			<view>一</view>
+			<view>二</view>
+			<view>三</view>
+			<view>四</view>
+			<view>五</view>
+			<view>六</view>
+		</view>
+		<view class="calendar-body">
+			<block wx:for="{{rsvTmps}}" wx:key="{{index}}">
+				<view class="calender-body-date-week">
+					<block wx:for="{{item}}" wx:key="{{index}}" class="block">
+						<view bindtap='selectDay' data-isoverninety="{{item.isoverninety}}" data-index="{{index}}" data-weekindex="{{item.weekindex}}" data-year="{{item.year}}" data-month="{{item.month}}" data-day="{{item.day}}" data-isclose="{{item.isClose}}" data-selected="{{item.selected}}" class="date {{item.isClose?'deadson':''}} {{currentMonth==item.month?'':'placeholder'}} {{monthnow==item.month&&item.day<daynow?'placeholder':''}} {{item.isoverninety?'placeholder':''}}">
+							<view class="{{item.selected?'riqi':''}}">{{item.day}}</view>
+						</view>
+					</block>
+
+				</view>
+			</block>
+		</view>
+	</view>
+</view>
+<!-- 54 之间 55 行 wx:if={{item.rsvTime == currentTime}} -->
+<!--{{monthnow==item.month&&item.day<daynow?'placeholder':''}}-->

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "订单统计",
+  "component": true,
+  "usingComponents": {
+    "mp-tabs": "/components/@miniprogram-component-plus/tabs/index",
+    "ec-canvas": "/ec-canvas/ec-canvas",
+    "mp-dialog": "/components/dialog/dialog"
+  }
+}

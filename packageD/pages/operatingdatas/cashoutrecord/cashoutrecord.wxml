@@ -1,0 +1,312 @@
+<view class="title">
+	<view class="time">提现日期</view>
+	<view class="project">提现金额</view>
+	<view class="money">提现账户</view>
+	<view class="styleman">姓名</view>
+	<view class="status">状态</view>
+</view>
+
+<scroll-view class="crossstoreconsumption" scroll-y='true'>
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+
+		</view>
+	</view>
+
+	<view class="title2">
+		<view class="time">2020-01-02</view>
+		<view class="project">7558</view>
+		<view class="money">奖励金账户</view>
+		<view class="styleman">佳文</view>
+		<view class="status">
+			<view>
+				<image src="http://192.168.44.110:3080/images/mine/operatingdatamultmonths/ok.png" class="img"></image>
+			</view>
+			<view>仓岛美业-天通苑店</view>
+		</view>
+	</view>
+</scroll-view>

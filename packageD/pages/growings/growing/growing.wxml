@@ -1,0 +1,99 @@
+<scroll-view scroll-y="true" class="srcollView">
+	<!--1.职务情况-->
+	<view class="myposition">
+		<view class='li1'>
+			<view class="titlecolor">{{firmDutyUpgradeDto.dutyData.dutyName}}</view>
+			<image wx:if="{{firmDutyUpgradeDto.dutyData.isCurr==true}}"
+				src="{{firmDutyUpgradeDto.dutyData.roomStaffBase.staffHeadImg}}" class="img"></image>
+			<!--正在审核-->
+			<view wx:if="{{firmDutyUpgradeDto.dutyData.assessTime}}" class="titletime">考核时间
+				{{firmDutyUpgradeDto.dutyData.assessTime}}</view>
+		</view>
+	</view>
+
+	<!--2.提交审核-->
+	<view class="levelup">
+		<view class="levelupleft">
+			<view class="levelupleftContent">
+				<view class="levelupleftContentTop">
+					<view class="updown" bindtap="upvideo">
+						<image src="{{webServerUrl}}/images/mine/growing/add.png" class="add"></image>
+						<view class="rightImg">上传视频</view>
+					</view>
+					<view class="updown" bindtap="upimg">
+						<image src="{{webServerUrl}}/images/mine/growing/add.png" class="add"></image>
+						<view class="rightImg">上传图片</view>
+					</view>
+				</view>
+				<view class="levelupleftContentTop2" wx:if="{{imagesreal.length>0 || videosreal.length>0}}" bindtap="clear">
+					清空上传内容</view>
+
+				<view class="levelupleftContentBottom">视频最长不超过60秒 视频内容与晋级内容相符</view>
+			</view>
+		</view>
+		<view class="levelupright">
+			<view class="applytest" bindtap="openConfirm">申请考核</view>
+			<view class="myachievements" bindtap="toapplicationrecords">我的成就</view>
+		</view>
+	</view>
+
+	<!--3.职务详情-->
+	<!--style="height:{{gethigh?swiperHeight+'px':43+'vh'}}"-->
+	<view class="positionintro">
+		<swiper class="swiper-box2" current-item-id="{{currentItemId2}}" bindchange="swiperChange2" previous-margin="45rpx"
+			next-margin="60rpx">
+			<block wx:for="{{backClass2}}" wx:key="index">
+				<swiper-item class="displayflex" item-id="{{index}}" data-item-id="{{index}}" bindtap='clickChange2'>
+					<view class="titlename">{{item.dutyData.dutyName}}</view>
+					<!--li2-->
+					<view class="li22">
+						<view class="fouritem1">
+							<view class="fouritem1left">
+								<view class="fouritemtitle">接待人数</view>
+								<view>
+									<text class="big">{{item.receptionNum}}</text>
+									<text class="small">/ {{item.receptionNumber}} 标准</text>
+								</view>
+								<view class="small ">{{item.receptionRate}}%</view>
+							</view>
+							<view class="fouritem1right">
+								<view class="fouritemtitle">指定人数</view>
+								<view>
+									<text class="big">{{item.designatedNum}}</text>
+									<text class="small">/ {{item.appointNumber}} 标准</text>
+								</view>
+								<view class="small success"> {{item.designatedRate}}%</view>
+							</view>
+						</view>
+						<view class="fouritem2">
+							<view class="width20">工作职责</view>
+							<view class="cancel">{{item.warkDuty}}</view>
+						</view>
+						<view class="fouritem3">
+							<view class="width20">职级标准</view>
+							<view class="cancel">{{item.dutyNorm}}</view>
+						</view>
+						<!-- <view class="fouritem44"></view>
+						<view class="{{isopen?'fouritem444':'fouritem4'}}" bindtap="gethigh" data-index="{{index}}">
+							<image class="img1234" wx:if="{{isopen}}" src="{{webServerUrl}}/images/mine/kpi/up.png"></image>
+							<image class="img1234" wx:if="{{isopen==false}}" src="{{webServerUrl}}/images/mine/kpi/down.png"></image>
+						</view> -->
+					</view>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+</scroll-view>
+
+<!--4.弹窗展示职业等级-->
+<mp-dialog title="选择状态" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+	<scroll-view scroll-y="true" class="scrollView2">
+		<text wx:if="{{items.length==0}}">暂无职务项目</text>
+		<radio-group class="radio-group" bindchange="radioChange">
+			<radio class="radio" wx:for="{{canupitem}}" wx:key="name" value="{{item.dutyData.id}}">
+				<text>{{item.dutyData.dutyName}}</text>
+			</radio>
+		</radio-group>
+		<text wx:if="{{canupitem.length==0}}">暂无职务选项</text>
+	</scroll-view>
+</mp-dialog>

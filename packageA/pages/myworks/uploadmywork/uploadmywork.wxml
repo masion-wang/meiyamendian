@@ -1,0 +1,66 @@
+<scroll-view scroll-y="true" class="srcollView">
+	<view class="uploadmywork">
+		<view class="comment">请输入描述语</view>
+		<textarea maxlength="100" bindinput="bindinput" class="background" value="{{ctn}}" />
+		<view class="btnLine"></view>
+    <view class="comment2">上传图片 <view class="limit">(最少3张,最多9张)</view></view>
+    <view class="threeToNineImage">		 
+			  <view wx:for="{{images}}" class="sonofimg">
+				  <image wx:if="{{!isup}}" src="{{webServerUrl}}/images/index/mywork/uploadmywork/upimg.png" class="DAimg"></image>
+				  <image wx:if="{{isup}}" src="{{item}}" mode="aspectFill"  data-idx="{{index}}" class="img2" bindtap="handleImagePreview">
+					    <view class="delete" wx:if="{{isup}}">
+							   <image  data-idx="{{index}}" src="{{webServerUrl}}/images/index/mywork/uploadmywork/delete.png" class="deleteimg" catchtap="removeImage"></image>
+							</view>
+					</image>
+				</view> 
+        <view class="sonofimg"  wx:if="{{images.length<9}}" bindtap="upimg">
+				  <image src="{{webServerUrl}}/images/index/mywork/uploadmywork/upimg.png" class="DAimg"></image>
+				</view> 
+		</view>
+
+
+
+
+
+
+
+
+		<view class="comment">发长</view>
+    <radio-group bindchange="radioChange1" class="radiogroup">
+        <label wx:for="{{hairlength}}" class="radioinput">
+          <view >
+            <radio value="{{item.id}}" checked="{{item.checked}}"/>
+          </view>
+          <view>{{item.name}}</view>
+        </label>
+      </radio-group>
+		<view class="comment">脸型</view>
+    <radio-group bindchange="radioChange2" class="radiogroup">
+        <label wx:for="{{facestyle}}" class="radioinput">
+          <view >
+            <radio value="{{item.id}}" checked="{{item.checked}}"/>
+          </view>
+          <view>{{item.name}}</view>
+        </label>
+    </radio-group>
+		<view class="comment">发型</view>
+    <radio-group bindchange="radioChange3" class="radiogroup">
+        <label wx:for="{{hairstyle}}" class="radioinput">
+          <view >
+            <radio value="{{item.id}}" checked="{{item.checked}}"/>
+          </view>
+          <view >{{item.name}}</view>
+        </label>
+      </radio-group>
+		<!-- <view class="comment">类型</view>
+    <radio-group bindchange="radioChange4" class="radiogroup"> 
+        <label wx:for="{{type}}" wx:key="{{item.value}}" class="radioinput">
+          <view >
+            <radio value="{{item.value}}" checked="{{item.checked}}"/>
+          </view>
+          <view >{{item.name}}</view>
+        </label>
+      </radio-group> -->
+	</view>
+	<view class="button" bindtap="sureup">确认上传</view>
+</scroll-view>
